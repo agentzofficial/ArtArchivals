@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <script>
+        const totalBackgrounds = 6;
+        const bgIndex = Math.floor(Math.random() * totalBackgrounds) + 1;
+        const bgImage = `url('backgrounds/bg${bgIndex}.png')`;
+
+        document.body.style.backgroundImage = bgImage;
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundPosition = 'center';
+        document.body.style.backgroundRepeat = 'no-repeat';
+        document.body.style.backgroundAttachment = 'fixed'; // optional: makes it stay put on scroll
+    </script>
     <div style="text-align: center;">
         <img src="serverImages/logo.png" alt="Art Archives Logo" style="max-width: 500px; height: auto;">
     </div>
