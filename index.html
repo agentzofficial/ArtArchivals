@@ -20,8 +20,8 @@
         <div class="modal-icons">
         <p id="modal-date" class="modal-date"></p>
       </div>
-        <p class="navigation-hint">Use ← and → arrow keys to navigate</p>
     </div>
+    <p class="navigation-hint">Use ← and → arrow keys to navigate</p>
 
     <script>
     let currentIndex = 0;
@@ -86,22 +86,7 @@
     
             // Modal controls
             closeBtn.onclick = () => modal.style.display = 'none';
-            window.onclick = e => { if (e.target === modal) modal.style.display = 'none'; };
-    
-            document.querySelector('.left-arrow').onclick = () => {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    showModal(currentIndex);
-                }
-            };
-    
-            document.querySelector('.right-arrow').onclick = () => {
-                if (currentIndex < artData.length - 1) {
-                    currentIndex++;
-                    showModal(currentIndex);
-                }
-            };
-    
+            window.onclick = e => { if (e.target === modal) modal.style.display = 'none'; };    
             document.addEventListener('keydown', (e) => {
                 if (modal.style.display === 'flex') {
                     if (e.key === 'ArrowLeft' && currentIndex > 0) {
