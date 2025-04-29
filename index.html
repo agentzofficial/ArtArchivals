@@ -90,9 +90,15 @@
                 });
         
                 // Modal controls
-                closeBtn.onclick = () => modal.style.display = 'none';
-                window.onclick = e => { if (e.target === modal) modal.style.display = 'none'; };
-        
+                 closeBtn.onclick = () => {
+                    modal.style.display = 'none';
+                    navigationHint.style.display = 'none'; // Hide the navigation hint when modal is closed
+                };
+                window.onclick = e => { 
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                        navigationHint.style.display = 'none'; // Hide the navigation hint when modal is closed
+                    }
                 document.addEventListener('keydown', (e) => {
                     if (modal.style.display === 'flex') {
                         if (e.key === 'ArrowLeft' && currentIndex > 0) {
