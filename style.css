@@ -12,11 +12,18 @@ body {
 .bg5 {background-image: url('backgrounds/bg5.png');}
 .bg6 {background-image: url('backgrounds/bg6.png');}
 
-body {
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-image: url("serverImages/bg1.jpg"); /* your default */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: background-image 0.5s ease;
+    will-change: transform;
 }
 
 .gallery {
