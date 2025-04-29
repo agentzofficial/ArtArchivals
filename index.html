@@ -22,7 +22,7 @@
                 div.className = 'art-item';
                 div.innerHTML = `
                     <div class="image-container">
-                        <img src="images/${item.filename}" alt="${item.title}">
+                        <img src="images/${item.filename}" alt="${item.title}" style="object-position: ${item.position || 'center'};">
                         <div class="overlay">
                             <h2>${item.title}</h2>
                             <p class="date">${item.date || ''}</p>
