@@ -7,11 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <div id="modal" class="modal">
+  <span class="close">&times;</span>
   <div class="modal-content">
-    <span class="close">&times;</span>
     <img id="modal-img" src="" alt="">
     <h2 id="modal-title"></h2>
     <p id="modal-description"></p>
+    <div class="modal-icons">
+    </div>
+
+    <p id="modal-date" class="modal-date"></p>
   </div>
 </div>
 <body>
@@ -39,7 +43,14 @@
                         <img src="images/${item.filename}" alt="${item.title}" style="object-position: ${item.position || 'center'};">
                         <div class="overlay">
                             <h2>${item.title}</h2>
+                            <p class="description">${item.description}</p>
                             <p class="date">${item.date || ''}</p>
+                            <div class="source-links">
+                                ${item.twitter ? `<a href="${item.twitter}" target="_blank" class="source-icon twitter">🐦</a>` : ''}
+                                ${item.youtube ? `<a href="${item.youtube}" target="_blank" class="source-icon youtube">🎥</a>` : ''}
+                            </div>
+                            <a href="javascript:void(0)" class="close" onclick="closeImage()">❌</a>
+                        </div>
                         </div>
                     </div>
                 `;
@@ -49,6 +60,7 @@
                     modalImg.alt = item.title;
                     modalTitle.textContent = item.title;
                     modalDesc.textContent = item.description || '';
+                    document.getElementById('modal-date').textContent = item.date || '';
                 });
                 gallery.appendChild(div);
             });
