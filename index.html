@@ -21,6 +21,7 @@
             <p id="modal-description"></p>
             <p id="modal-date" class="modal-date"></p>
             <div class="modal-icons">
+            <div class="variant-buttons"></div>
             </div>
         </div>
     </div>
@@ -42,25 +43,43 @@
     
         // Modified showModal to accept variantIndex
         function showModal(index, variantIndex = 0) {
-            const item = artData[index];
-            if (!item) return;
-    
-            modal.style.display = 'flex';
-            navigationHint.style.display = 'block';
-    
-            // pick the right filename
-            const variants = item.variants || [item.filename];
-            modalImg.src = `images/${variants[variantIndex]}`;
-            modalImg.alt = item.title;
-            modalTitle.textContent = item.title;
-            modalDesc.textContent = item.description || '';
-            modalDate.textContent = item.date || '';
-    
-            const modalIcons = document.querySelector('.modal-icons');
-            modalIcons.innerHTML = '';
-            if (item.youtube)  modalIcons.innerHTML += `<a href="${item.youtube}" target="_blank" class="source-icon"><img src="serverImages/youtube-icon.png" alt="YouTube"></a>`;
-            if (item.twitter)  modalIcons.innerHTML += `<a href="${item.twitter}" target="_blank" class="source-icon"><img src="serverImages/twitter-icon.png" alt="Twitter"></a>`;
-            if (item.bluesky)  modalIcons.innerHTML += `<a href="${item.bluesky}" target="_blank" class="source-icon"><img src="serverImages/bluesky-icon.png" alt="Bluesky"></a>`;
+          const item = artData[index];
+          if (!item) return;
+        
+          modal.style.display = 'flex';
+          navigationHint.style.display = 'block';
+        
+          // handle variants array (fall back to single filename)
+          const variants = item.variants || [item.filename];
+          // set the image
+          modalImg.src = `images/${variants[variantIndex]}`;
+          modalImg.alt = item.title;
+          modalTitle.textContent   = item.title;
+          modalDesc.textContent    = item.description || '';
+          modalDate.textContent    = item.date || '';
+        
+          // social icons (unchanged)
+          const modalIcons = document.querySelector('.modal-icons');
+          modalIcons.innerHTML = '';
+          if (item.youtube)  modalIcons.innerHTML += `<a href="${item.youtube}" target="_blank" class="source-icon"><img src="serverImages/youtube-icon.png" alt="YouTube"></a>`;
+          if (item.twitter)  modalIcons.innerHTML += `<a href="${item.twitter}" target="_blank" class="source-icon"><img src="serverImages/twitter-icon.png" alt="Twitter"></a>`;
+          if (item.bluesky)  modalIcons.innerHTML += `<a href="${item.bluesky}" target="_blank" class="source-icon"><img src="serverImages/bluesky-icon.png" alt="Bluesky"></a>`;
+        
+          // ===== NEW: build variant buttons ====
+          const vb = document.querySelector('.variant-buttons');
+          vb.innerHTML = '';
+          if (variants.length > 1) {
+            variants.forEach((file, i) => {
+              const btn = document.createElement('button');
+              btn.className = 'variant-btn' + (i === variantIndex ? ' active' : '');
+              btn.textContent = i + 1;
+              btn.addEventListener('click', e => {
+                e.stopPropagation();
+                showModal(index, i);
+              });
+              vb.appendChild(btn);
+            });
+          }
         }
     
         fetch('data.json')
