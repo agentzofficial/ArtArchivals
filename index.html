@@ -30,6 +30,7 @@
     <script>
         let currentIndex = 0;
         let artData = [];
+        const navigationHint = document.querySelector('.navigation-hint');
         
         fetch('data.json')
             .then(response => response.json())
