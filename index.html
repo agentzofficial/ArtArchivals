@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="background-image"></div>
+    <img id="fixed-bg" alt="Background" />
     <div style="text-align: center;">
         <img src="serverImages/logo.png" alt="Art Archives Logo" style="max-width: 500px; height: auto;">
     </div>
@@ -121,7 +121,8 @@
     <script>
         const maxBackgrounds = 6;
         const bgIndex = Math.floor(Math.random() * maxBackgrounds) + 1;
-        document.body.classList.add(`bg${bgIndex}`);
+        const bgImg = document.getElementById('fixed-bg');
+        bgImg.src = `backgrounds/bg${bgIndex}.png`;
     </script>
 </body>
 </html>
