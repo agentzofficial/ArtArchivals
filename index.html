@@ -43,13 +43,7 @@
                         <img src="images/${item.filename}" alt="${item.title}" style="object-position: ${item.position || 'center'};">
                         <div class="overlay">
                             <h2>${item.title}</h2>
-                            <p class="description">${item.description}</p>
                             <p class="date">${item.date || ''}</p>
-                            <div class="source-links">
-                                ${item.youtube ? `<a href="${item.youtube}" target="_blank" class="source-icon youtube"><img src="images/icons/youtube-icon.png" alt="YouTube"></a>` : ''}
-                                ${item.twitter ? `<a href="${item.twitter}" target="_blank" class="source-icon twitter"><img src="images/icons/twitter-icon.png" alt="Twitter"></a>` : ''}
-                                ${item.bluesky ? `<a href="${item.bluesky}" target="_blank" class="source-icon bluesky"><img src="images/icons/bluesky-icon.png" alt="Bluesky"></a>` : ''}
-                            </div>
                         </div>
                         </div>
                     </div>
@@ -61,6 +55,18 @@
                     modalTitle.textContent = item.title;
                     modalDesc.textContent = item.description || '';
                     document.getElementById('modal-date').textContent = item.date || '';
+                    const modalIcons = document.querySelector('.modal-icons');
+                    modalIcons.innerHTML = ''; // Clear previous icons
+                
+                    if (item.youtube) {
+                        modalIcons.innerHTML += `<a href="${item.youtube}" target="_blank" class="source-icon"><img src="images/icons/youtube-icon.png" alt="YouTube"></a>`;
+                    }
+                    if (item.twitter) {
+                        modalIcons.innerHTML += `<a href="${item.twitter}" target="_blank" class="source-icon"><img src="images/icons/twitter-icon.png" alt="Twitter"></a>`;
+                    }
+                    if (item.bluesky) {
+                        modalIcons.innerHTML += `<a href="${item.bluesky}" target="_blank" class="source-icon"><img src="images/icons/bluesky-icon.png" alt="Bluesky"></a>`;
+                    }
                 });
                 gallery.appendChild(div);
             });
