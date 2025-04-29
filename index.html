@@ -30,7 +30,7 @@
     <script>
         let currentIndex = 0;
         let artData = [];
-
+    
         const navigationHint = document.querySelector('.navigation-hint');
         const gallery = document.getElementById('gallery');
         const modal = document.getElementById('modal');
@@ -39,79 +39,92 @@
         const modalDesc = document.getElementById('modal-description');
         const modalDate = document.getElementById('modal-date');
         const closeBtn = document.querySelector('.close');
-
-        fetch('data.json')
-            .then(response => response.json())
-            .then(data => {
-                artData = data;
-
-                data.forEach(item => {
-                    const div = document.createElement('div');
-                    div.className = 'art-item';
-                    div.innerHTML = `
-                        <div class="image-container">
-                            <img src="images/${item.filename}" alt="${item.title}" style="object-position: ${item.position || 'center'};">
-                            <div class="overlay">
-                                <h2>${item.title}</h2>
-                                <p class="date">${item.date || ''}</p>
-                            </div>
-                        </div>
-                    `;
-                    div.addEventListener('click', () => {
-                        currentIndex = data.indexOf(item);
-                        showModal(currentIndex);
-                    });
-                    gallery.appendChild(div);
-                });
-            });
-
-        function showModal(index) {
+    
+        // Modified showModal to accept variantIndex
+        function showModal(index, variantIndex = 0) {
             const item = artData[index];
             if (!item) return;
-
+    
             modal.style.display = 'flex';
-            navigationHint.style.display = 'block'; // Show the navigation hint
-
-            modalImg.src = `images/${item.filename}`;
+            navigationHint.style.display = 'block';
+    
+            // pick the right filename
+            const variants = item.variants || [item.filename];
+            modalImg.src = `images/${variants[variantIndex]}`;
             modalImg.alt = item.title;
             modalTitle.textContent = item.title;
             modalDesc.textContent = item.description || '';
             modalDate.textContent = item.date || '';
-
+    
             const modalIcons = document.querySelector('.modal-icons');
             modalIcons.innerHTML = '';
-            if (item.youtube) {
-                modalIcons.innerHTML += `<a href="${item.youtube}" target="_blank" class="source-icon"><img src="serverImages/youtube-icon.png" alt="YouTube"></a>`;
-            }
-            if (item.twitter) {
-                modalIcons.innerHTML += `<a href="${item.twitter}" target="_blank" class="source-icon"><img src="serverImages/twitter-icon.png" alt="Twitter"></a>`;
-            }
-            if (item.bluesky) {
-                modalIcons.innerHTML += `<a href="${item.bluesky}" target="_blank" class="source-icon"><img src="serverImages/bluesky-icon.png" alt="Bluesky"></a>`;
-            }
+            if (item.youtube)  modalIcons.innerHTML += `<a href="${item.youtube}" target="_blank" class="source-icon"><img src="serverImages/youtube-icon.png" alt="YouTube"></a>`;
+            if (item.twitter)  modalIcons.innerHTML += `<a href="${item.twitter}" target="_blank" class="source-icon"><img src="serverImages/twitter-icon.png" alt="Twitter"></a>`;
+            if (item.bluesky)  modalIcons.innerHTML += `<a href="${item.bluesky}" target="_blank" class="source-icon"><img src="serverImages/bluesky-icon.png" alt="Bluesky"></a>`;
         }
-
+    
+        fetch('data.json')
+            .then(r => r.json())
+            .then(data => {
+                artData = data;
+                gallery.innerHTML = '';
+    
+                data.forEach(item => {
+                    // build variants array
+                    const variants = item.variants || [item.filename];
+                    let currentVariant = 0;
+    
+                    const div = document.createElement('div');
+                    div.className = 'art-item';
+                    div.innerHTML = `
+                      <div class="image-container">
+                        <img src="images/${variants[0]}" alt="${item.title}" style="object-position: ${item.position || 'center'};">
+                        <div class="overlay">
+                          <h2>${item.title}</h2>
+                          <p class="date">${item.date || ''}</p>
+                        </div>
+                      </div>
+                      <div class="variant-buttons">
+                        ${variants.map((_,i) => `<button class="variant-btn ${i===0?'active':''}" data-variant="${i}">${i+1}</button>`).join('')}
+                      </div>
+                    `;
+    
+                    // swap variant in-thumbnail
+                    div.querySelectorAll('.variant-btn').forEach(btn => {
+                      btn.addEventListener('click', e => {
+                        e.stopPropagation();
+                        currentVariant = +btn.dataset.variant;
+                        div.querySelector('img').src = `images/${variants[currentVariant]}`;
+                        div.querySelectorAll('.variant-btn').forEach(b=>b.classList.remove('active'));
+                        btn.classList.add('active');
+                      });
+                    });
+    
+                    // open modal with that variant
+                    div.addEventListener('click', () => {
+                      currentIndex = data.indexOf(item);
+                      showModal(currentIndex, currentVariant);
+                    });
+    
+                    gallery.appendChild(div);
+                });
+            });
+    
         closeBtn.onclick = () => {
             modal.style.display = 'none';
             navigationHint.style.display = 'none';
         };
-
         window.onclick = e => {
             if (e.target === modal) {
                 modal.style.display = 'none';
                 navigationHint.style.display = 'none';
             }
         };
-
-        document.addEventListener('keydown', (e) => {
+        document.addEventListener('keydown', e => {
             if (modal.style.display === 'flex') {
-                if (e.key === 'ArrowLeft' && currentIndex > 0) {
-                    currentIndex--;
-                    showModal(currentIndex);
-                } else if (e.key === 'ArrowRight' && currentIndex < artData.length - 1) {
-                    currentIndex++;
-                    showModal(currentIndex);
-                } else if (e.key === 'Escape') {
+                if (e.key === 'ArrowLeft'  && currentIndex > 0)                 { currentIndex--; showModal(currentIndex); }
+                if (e.key === 'ArrowRight' && currentIndex < artData.length-1) { currentIndex++; showModal(currentIndex); }
+                if (e.key === 'Escape') {
                     modal.style.display = 'none';
                     navigationHint.style.display = 'none';
                 }
