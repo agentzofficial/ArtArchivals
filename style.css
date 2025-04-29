@@ -130,10 +130,10 @@ body {
     margin-top: 10px;
 }
 
-.source-icon {
-    font-size: 18px;
-    margin-right: 10px;
-    text-decoration: none;
+.source-icon img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
 }
 
 .source-icon:hover {
