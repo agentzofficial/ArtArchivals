@@ -57,6 +57,13 @@
         "date": "5 October 2024"
     },
     {
+        "filename": "2024-9-30_1.png",
+        "title": "Stories of the Agents",
+        "description": "Video Thumbnail",
+        "date": "30 September 2024",
+        "youtube": "https://www.youtube.com/watch?v=oplZMaVj8nw"
+    },
+    {
         "filename": "2024-9-6_1.png",
         "title": "5000 Subscribers",
         "description": "Celebrating the agent z YouTube channel reaching 5000 subscribers.",
@@ -99,12 +106,26 @@
         "youtube": "https://www.youtube.com/post/UgkxLC56if0uv1EwMi_4BB-oZOMs7JMVX1uM"
     },
     {
+        "filename": "2024-2-11_1.png",
+        "title": "Agent's Infiltration Mission",
+        "description": "Video Thumbnail",
+        "date": "11 February 2024",
+        "youtube": "https://www.youtube.com/watch?v=SM7YouIiM80"
+    },
+    {
         "filename": "2023-12-31_1.png",
         "title": "2000 Subscribers",
         "description": "Celebrating the agent z YouTube channel reaching 2000 subscribers.",
         "date": "31 December 2023",
         "position": "left",
         "youtube": "https://www.youtube.com/post/UgkxkXyUs39RL1CFfxriDbh2pNKRIb_H_yRR"
+    },
+    {
+        "filename": "2023-10-30_1.png",
+        "title": "The SPIDER",
+        "description": "Video Thumbnail",
+        "date": "30 October 2023",
+        "youtube": "https://www.youtube.com/watch?v=SM7YouIiM80"
     },
     {
         "filename": "2023-9-16_1.png",
