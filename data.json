@@ -3,7 +3,8 @@
         "filename": "2025-4-28_1.png",
         "title": "Learning to Drive",
         "description": "Agent Z driving with a Learners Permit.",
-        "date": "28 April 2025"
+        "date": "28 April 2025",
+        "position": "left"
     },
     {
         "filename": "2025-3-25_1.png",
@@ -27,7 +28,8 @@
         "filename": "2025-1-12_1.png",
         "title": "welcome back, 'you'",
         "description": "Referencing agent z's return from overseas.",
-        "date": "12 January 2025"
+        "date": "12 January 2025",
+        "position": "right"
     },
     {
         "filename": "2024-11-19_1.png",
@@ -37,7 +39,7 @@
     },
     {
         "filename": "2024-10-5_1.png",
-        "title": "YouTube Banner Version 3.0",
+        "title": "YouTube Banner v3.0",
         "description": "The original version of the third banner used for the agent z YouTube channel.",
         "date": "5 October 2024"
     },
@@ -51,7 +53,8 @@
         "filename": "2024-6-25_1.png",
         "title": "Power Trip Finale Poster",
         "description": "A poster teasing the release of the finale to the Power Trip Story Arc.",
-        "date": "25 June 2024"
+        "date": "25 June 2024",
+        "position": "left"
     },
     {
         "filename": "2024-5-22_1.png",
@@ -81,11 +84,12 @@
         "filename": "2023-12-31_1.png",
         "title": "2000 Subscribers",
         "description": "Celebrating the agent z YouTube channel reaching 2000 subscribers.",
-        "date": "31 December 2023"
+        "date": "31 December 2023",
+        "position": "left"
     },
     {
         "filename": "2023-9-16_1.png",
-        "title": "YouTube Banner Version 2.0",
+        "title": "YouTube Banner v2.0",
         "description": "The original version of the second banner used for the agent z YouTube channel.",
         "date": "16 September 2023"
     },
@@ -93,11 +97,12 @@
         "filename": "2023-8-30_1.png",
         "title": "1000 Subscribers",
         "description": "Celebrating the agent z YouTube channel reaching 1000 subscribers.",
-        "date": "30 August 2023"
+        "date": "30 August 2023",
+        "position": "right"
     },
     {
         "filename": "2023-5-8_1.png",
-        "title": "YouTube Banner Version 1.0",
+        "title": "YouTube Banner v1.0",
         "description": "The original version of the first banner used for the agent z YouTube channel.",
         "date": "8 May 2023"
     },
