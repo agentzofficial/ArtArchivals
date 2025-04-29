@@ -12,17 +12,16 @@ body {
 .bg5 {background-image: url('backgrounds/bg5.png');}
 .bg6 {background-image: url('backgrounds/bg6.png');}
 
-.background-image {
+#fixed-bg {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 100vw;
     height: 100vh;
+    object-fit: cover;
+    object-position: center;
     z-index: -1;
-    background-image: url("serverImages/bg1.jpg"); /* your default */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    pointer-events: none;
+    transform: translateZ(0);
     will-change: transform;
 }
 
