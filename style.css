@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 40px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.art-item {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.art-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.art-item h2 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+}
+
+.art-item p {
+    font-size: 14px;
+    color: #555;
+}
