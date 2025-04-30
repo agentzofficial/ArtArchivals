@@ -102,6 +102,11 @@
       .then(r=>r.json())
       .then(data=>{
         artData = data;
+        artData.forEach(item => {
+          const src = item.variants?.[0] || item.filename;
+          const img = new Image();
+          img.src = `images/${src}`;
+        });
         renderGallery();
       });
   
