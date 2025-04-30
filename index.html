@@ -92,20 +92,20 @@
   function renderGallery() {
     gallery.innerHTML = '';
 
-    // for each item, decide if it survives both include/exclude sets
+    /* for each item, decide if it survives both include/exclude sets */
     const matches = tags => {
-      // if any excluded tag appears → hide
+
       for (let t of excludeTags) {
         if (tags.includes(t)) return false;
       }
-      // if we’ve turned on any includes, require that at least one matches
+
       if (includeTags.size > 0) {
         for (let t of includeTags) {
           if (tags.includes(t)) return true;
         }
-        return false;  // none of our includes matched
+        return false;
       }
-      return true;  // no includes specified → show everything not excluded
+      return true; 
     };
 
     artData.forEach((item, idx) => {
@@ -117,6 +117,7 @@
       div.innerHTML = `
         <div class="image-container">
           <img src="images/${thumb}"
+          <img loading="lazy" src="images/${thumb}"
                alt="${item.title}"
                style="object-position:${item.position||'center'};">
           <div class="overlay">
