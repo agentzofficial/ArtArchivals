@@ -91,35 +91,20 @@
 
   function renderGallery() {
     gallery.innerHTML = '';
-
-    /* for each item, decide if it survives both include/exclude sets */
-    const matches = tags => {
-
-      for (let t of excludeTags) {
-        if (tags.includes(t)) return false;
-      }
-
-      if (includeTags.size > 0) {
-        for (let t of includeTags) {
-          if (tags.includes(t)) return true;
-        }
-        return false;
-      }
-      return true; 
-    };
-
+    const frag = document.createDocumentFragment();
     artData.forEach((item, idx) => {
-      if (!matches(item.tags || [])) return;
-
-      const thumb = (item.variants?.[0] || item.filename);
-      const div   = document.createElement('div');
+      if (!matchesFilter(item.tags || [])) return;
+  
+      const thumb = item.variants?.[0] || item.filename;
+      const div = document.createElement('div');
       div.className = 'art-item';
       div.innerHTML = `
         <div class="image-container">
-          <img src="images/${thumb}"
-          <img loading="lazy" src="images/${thumb}"
-               alt="${item.title}"
-               style="object-position:${item.position||'center'};">
+          <img
+            src="images/${thumb}"
+            alt="${item.title}"
+            style="object-position:${item.position||'center'};"
+          >
           <div class="overlay">
             <h2>${item.title}</h2>
             <p class="date">${item.date||''}</p>
@@ -130,8 +115,11 @@
         currentIndex = idx;
         showModal(idx, 0);
       });
-      gallery.appendChild(div);
+  
+      // append to fragment, NOT directly to the DOM
+      frag.appendChild(div);
     });
+    gallery.appendChild(frag);
   }
 </script>
 
