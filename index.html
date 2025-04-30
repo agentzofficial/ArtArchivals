@@ -122,15 +122,18 @@
     }
   
     fetch('data.json')
-      .then(r=>r.json())
-      .then(data=>{
+      .then(r => r.json())
+      .then(data => {
         artData = data;
         artData.forEach(item => {
-          const src = item.variants?.[0] || item.filename;
-          const img = new Image();
-          img.src = `images/${src}`;
+          (item.variants || [item.filename]).forEach(name => {
+            const img = new Image();
+            img.src = `images/${name}`;
+          });
         });
-        renderGallery();
+
+        buildGallery(); 
+        renderGallery();  
       });
   
     function renderGallery(){
@@ -139,24 +142,7 @@
         div.style.display = matchesFilter(tags) ? '' : 'none';
       });
     }
-
-    // ← 3) In your fetch callback, preload **all** variants and call buildGallery
-    fetch('data.json')
-      .then(r => r.json())
-      .then(data => {
-        artData = data;
-
-        // Preload every variant
-        artData.forEach(item => {
-          (item.variants || [item.filename]).forEach(name => {
-            const img = new Image();
-            img.src = `images/${name}`;
-          });
-        });
-
-        buildGallery();   // one-time DOM build
-        renderGallery();  // show/hide per current filters
-      });
+    
   
     function showModal(index, variantIndex=0) {
       const item = artData[index];
