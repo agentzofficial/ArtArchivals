@@ -5,7 +5,8 @@
         "description": "Agent Z driving with a Learners Permit.",
         "date": "28 April 2025",
         "twitter": "https://x.com/agentzofficial/status/1916817561163100279",
-        "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3lnunrdbt7c2r"
+        "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3lnunrdbt7c2r",
+        "tags": ["Renders"]
     },
     {
         "filename": "2025-3-25_1.png",
@@ -13,28 +14,32 @@
         "description": "Made in reference to the 'Morning Routine' trend.",
         "date": "25 March 2025",
         "youtube": "https://www.youtube.com/post/UgkxRQs318MZ9GEmTUgBvaim_rkzTrbhAEOt",
-        "twitter": "https://x.com/agentzofficial/status/1904533628396388531"
+        "twitter": "https://x.com/agentzofficial/status/1904533628396388531",
+        "tags": ["Renders"]
     },
     {
         "filename": "2025-3-21_1.png",
         "title": "8000 Subscribers",
         "description": "Celebrating the agent z YouTube channel reaching 8000 subscribers.",
         "date": "3 March 2025",
-        "youtube": "https://www.youtube.com/post/UgkxIQXo3-7LmGjQ0rXDim2vqM2vOm8ZUTFn"
+        "youtube": "https://www.youtube.com/post/UgkxIQXo3-7LmGjQ0rXDim2vqM2vOm8ZUTFn",
+        "tags": ["Renders", "Specials"]
     },
     {
         "filename": "2025-1-19_1.png",
         "title": "7000 Subscribers",
         "description": "Celebrating the agent z YouTube channel reaching 7000 subscribers.",
         "date": "19 January 2025",
-        "youtube": "https://www.youtube.com/post/Ugkx4B6KFdZqHVKmBH_cs2EJqtWF83X7cq89"
+        "youtube": "https://www.youtube.com/post/Ugkx4B6KFdZqHVKmBH_cs2EJqtWF83X7cq89",
+        "tags": ["Renders", "Specials"]
     },
     {
         "variants": ["2025-1-13_1.png", "2025-1-13_2.png", "2025-1-13_3.png"],
         "title": "Neo 3, Disaster Girl!",
         "description": "Render referencing the 'Disaster Girl' meme. It is used as the thumbnail for the 2024 Splatshort compilation.",
         "date": "13 January 2025",
-        "youtube": "https://www.youtube.com/watch?v=2lH6xbOpOD8"
+        "youtube": "https://www.youtube.com/watch?v=2lH6xbOpOD8",
+        "tags": ["Renders"]
     },
     {
         "filename": "2025-1-12_1.png",
@@ -42,54 +47,62 @@
         "description": "Referencing agent z's return from overseas.",
         "date": "12 January 2025",
         "position": "right",
-        "youtube": "https://www.youtube.com/post/UgkxXA-2BL-yNiGWllI3x5-5pktYrdSz4zWy"
+        "youtube": "https://www.youtube.com/post/UgkxXA-2BL-yNiGWllI3x5-5pktYrdSz4zWy",
+        "tags": ["Renders"]
     },
     {
         "filename": "2024-12-8_1.png",
         "title": "Hospital Buddies",
         "description": "Video Thumbnail",
         "date": "8 December 2024",
-        "youtube": "https://www.youtube.com/watch?v=roy0q_9KsvM"
+        "youtube": "https://www.youtube.com/watch?v=roy0q_9KsvM",
+        "tags": ["Renders", "Thumbnails"]
     },
     {
         "filename": "2024-11-19_1.png",
         "title": "6000 Subscribers",
         "description": "Celebrating the agent z YouTube channel reaching 6000 subscribers.",
         "date": "19 November 2024",
-        "youtube": "https://www.youtube.com/post/UgkxVdGQy8lgp5hv_eeXp_HQmHpqXfXHsTBm"
+        "youtube": "https://www.youtube.com/post/UgkxVdGQy8lgp5hv_eeXp_HQmHpqXfXHsTBm",
+        "tags": ["Renders", "Specials"]
     },
     {
         "filename": "2024-11-16_1.png",
         "title": "A Gift for Her",
         "description": "Render teasing the video 'The Perfect Present'.",
         "date": "16 November 2024",
-        "youtube": "https://www.youtube.com/post/UgkxNdAp4KYtFSy5Ws-TIahUqHjJf9zCWtUR"
+        "youtube": "https://www.youtube.com/post/UgkxNdAp4KYtFSy5Ws-TIahUqHjJf9zCWtUR",
+        "tags": ["Renders", "Sneak Peaks"]
     },
     {
         "filename": "2024-10-17_1.png",
         "title": "Social Media Banner v2",
         "description": "The second banner used for banners on agent z social media accounts.",
-        "date": "17 October 2024"
+        "date": "17 October 2024",
+        "tags": ["Renders", "Branding"]
     },
     {
         "filename": "2024-10-5_1.png",
         "title": "YouTube Banner v3.0",
         "description": "The original version of the third banner used for the agent z YouTube channel.",
-        "date": "5 October 2024"
+        "date": "5 October 2024",
+        "tags": ["Renders", "Branding"]
     },
     {
         "filename": "2024-9-30_1.png",
         "title": "Stories of the Agents",
         "description": "Video Thumbnail",
         "date": "30 September 2024",
-        "youtube": "https://www.youtube.com/watch?v=oplZMaVj8nw"
+        "youtube": "https://www.youtube.com/watch?v=oplZMaVj8nw",
+        "tags": ["Renders", "Thumbnails"]
     },
     {
         "filename": "2024-9-6_1.png",
         "title": "5000 Subscribers",
         "description": "Celebrating the agent z YouTube channel reaching 5000 subscribers.",
         "date": "6 September 2024",
-        "youtube": "https://www.youtube.com/post/Ugkxm90ZjlNoIeOlxOG_8GDKH2YrHeBr0qwB"
+        "youtube": "https://www.youtube.com/post/Ugkxm90ZjlNoIeOlxOG_8GDKH2YrHeBr0qwB",
+        "tags": ["Renders", "Specials", "Sneak Peaks"]
     },
     {
         "filename": "2024-6-25_1.png",
@@ -97,48 +110,55 @@
         "description": "A poster teasing the release of the finale to the Power Trip Story Arc.",
         "date": "25 June 2024",
         "position": "left",
-        "youtube": "https://www.youtube.com/post/UgkxnfViqSvypiDF9jZqI491Al2-xQkDii8M"
+        "youtube": "https://www.youtube.com/post/UgkxnfViqSvypiDF9jZqI491Al2-xQkDii8M",
+        "tags": ["Renders", "Sneak Peaks"]
     },
     {
         "filename": "2024-5-22_1.png",
         "title": "4000 Subscribers",
         "description": "Celebrating the agent z YouTube channel reaching 4000 subscribers.",
         "date": "22 May 2024",
-        "youtube": "https://www.youtube.com/post/UgkxCph1Z0WMidwEh1Ost9UQST77ug2NXJBa"
+        "youtube": "https://www.youtube.com/post/UgkxCph1Z0WMidwEh1Ost9UQST77ug2NXJBa",
+        "tags": ["Renders", "Sneak Peaks"]
     },
     {
         "filename": "2024-5-10_1.png",
         "title": "The Octoling Rendezvous",
         "description": "Render teasing the video 'Clash of the Agents'.",
         "date": "10 May 2024",
-        "youtube": "https://www.youtube.com/post/Ugkxu_N4rmIov1WsiBUwa872B4j72RsmTTvH"
+        "youtube": "https://www.youtube.com/post/Ugkxu_N4rmIov1WsiBUwa872B4j72RsmTTvH",
+        "tags": ["Renders", "Sneak Peaks"]
     },
     {
         "filename": "2024-4-7_1.png",
         "title": "Power Trip Offical Poster",
         "description": "Official poster marking the beginning of the Power Trip Story Arc's story.",
         "date": "7 April 2024",
-        "youtube": "https://www.youtube.com/post/UgkxEBynw8PMR3ZhOLfvo4DkmgwQlxzJqKdW"
+        "youtube": "https://www.youtube.com/post/UgkxEBynw8PMR3ZhOLfvo4DkmgwQlxzJqKdW",
+        "tags": ["Renders", "Sneak Peaks"]
     },
     {
         "filename": "2024-4-7_2.png",
         "title": "Power Trip Logo",
         "description": "The logo used for the Power Trip Story Arc.",
-        "date": "7 April 2024"
+        "date": "7 April 2024",
+        "tags": ["Branding"]
     },
     {
         "filename": "2024-3-10_1.png",
         "title": "3000 Subscribers",
         "description": "Celebrating the agent z YouTube channel reaching 3000 subscribers.",
         "date": "10 March 2024",
-        "youtube": "https://www.youtube.com/post/UgkxLC56if0uv1EwMi_4BB-oZOMs7JMVX1uM"
+        "youtube": "https://www.youtube.com/post/UgkxLC56if0uv1EwMi_4BB-oZOMs7JMVX1uM",
+        "tags": ["Renders", "Specials"]
     },
     {
         "filename": "2024-2-11_1.png",
         "title": "Agent's Infiltrating Mission",
         "description": "Video Thumbnail",
         "date": "11 February 2024",
-        "youtube": "https://www.youtube.com/watch?v=SM7YouIiM80"
+        "youtube": "https://www.youtube.com/watch?v=SM7YouIiM80",
+        "tags": ["Renders", "Thumbnails"]
     },
     {
         "filename": "2023-12-31_1.png",
@@ -146,40 +166,46 @@
         "description": "Celebrating the agent z YouTube channel reaching 2000 subscribers.",
         "date": "31 December 2023",
         "position": "left",
-        "youtube": "https://www.youtube.com/post/UgkxkXyUs39RL1CFfxriDbh2pNKRIb_H_yRR"
+        "youtube": "https://www.youtube.com/post/UgkxkXyUs39RL1CFfxriDbh2pNKRIb_H_yRR",
+        "tags": ["Renders", "Specials"]
     },
     {
         "filename": "2023-12-2_1.png",
         "title": "Social Media Banner v1",
         "description": "The first banner used for banners on agent z social media accounts.",
-        "date": "2 December 2023"
+        "date": "2 December 2023",
+        "tags": ["Screenshots", "Branding"]
     },
     {
         "filename": "2023-11-26_1.png",
         "title": "Splat Buggy",
         "description": "Render teasing the video 'DOORS'",
         "date": "26 November 2023",
-        "youtube": "https://www.youtube.com/post/Ugkx3isnVrWHZxQerWCfoY9eMufsApPjCAoC"
+        "youtube": "https://www.youtube.com/post/Ugkx3isnVrWHZxQerWCfoY9eMufsApPjCAoC",
+        "tags": ["Renders", "Sneak Peaks"]
     },
     {
         "filename": "2023-11-7_1.png",
         "title": "door 😁",
         "description": "Render teasing the video 'DOORS'",
         "date": "7 November 2023",
-        "youtube": "https://www.youtube.com/post/Ugkx3isnVrWHZxQerWCfoY9eMufsApPjCAoC"
+        "youtube": "https://www.youtube.com/post/Ugkx3isnVrWHZxQerWCfoY9eMufsApPjCAoC",
+        "tags": ["Renders", "Sneak Peaks"]
     },
     {
         "filename": "2023-10-30_1.png",
         "title": "The SPIDER",
         "description": "Video Thumbnail",
         "date": "30 October 2023",
-        "youtube": "https://www.youtube.com/watch?v=SM7YouIiM80"
+        "youtube": "https://www.youtube.com/watch?v=SM7YouIiM80",
+        "tags": ["Renders", "Thumbnails"]
     },
     {
         "filename": "2023-9-16_1.png",
         "title": "YouTube Banner v2.0",
         "description": "The original version of the second banner used for the agent z YouTube channel.",
-        "date": "16 September 2023"
+        "date": "16 September 2023",
+        "tags": ["Renders", "Branding"]
     },
     {
         "filename": "2023-8-30_1.png",
@@ -187,83 +213,95 @@
         "description": "Celebrating the agent z YouTube channel reaching 1000 subscribers.",
         "date": "30 August 2023",
         "position": "right",
-        "youtube": "https://www.youtube.com/post/UgkxC2wr8yfVxQCLK3cMyJFaBw-_ykijFNLq"
+        "youtube": "https://www.youtube.com/post/UgkxC2wr8yfVxQCLK3cMyJFaBw-_ykijFNLq",
+        "tags": ["Renders", "Specials"]
     },
     {
         "filename": "2023-5-8_1.png",
         "title": "YouTube Banner v1.0",
         "description": "The original version of the first banner used for the agent z YouTube channel.",
-        "date": "8 May 2023"
+        "date": "8 May 2023",
+        "tags": ["Renders", "Branding"]
     },
     {
         "filename": "2023-4-23_1.png",
         "title": "Connection to Salmon Run",
         "description": "Referencing the Splatshort 'Forming Teams in Eggstra Work Be Like...'",
         "date": "23 April 2023",
-        "youtube": "https://www.youtube.com/watch?v=hKzicU88BEU"
+        "youtube": "https://www.youtube.com/watch?v=hKzicU88BEU",
+        "tags": ["Renders"]
     },
     {
         "filename": "2023-4-19_1.png",
         "title": "Captain's Pondering",
         "description": "Referencing the Splatshort 'no'",
         "date": "19 April 2023",
-        "youtube": "https://youtube.com/shorts/_xaTIg0IaAE"
+        "youtube": "https://youtube.com/shorts/_xaTIg0IaAE",
+        "tags": ["Renders"]
     },
     {
         "filename": "2023-4-16_1.png",
         "title": "Eggstra Work in Pools",
         "description": "Referencing the Splatshort 'Forming Teams in Eggstra Work Be Like...'",
         "date": "16 April 2023",
-        "youtube": "https://www.youtube.com/watch?v=TuSJnRUKxtw"
+        "youtube": "https://www.youtube.com/watch?v=TuSJnRUKxtw",
+        "tags": ["Renders"]
     },
     {
         "filename": "2023-4-12_1.png",
         "title": "Old Allies",
         "description": "Referencing the Splatshort 'octavio i can't move it move it anymore'",
         "date": "12 April 2023",
-        "youtube": "https://youtube.com/shorts/cWPVsXBznBw"
+        "youtube": "https://youtube.com/shorts/cWPVsXBznBw",
+        "tags": ["Renders"]
     },
     {
         "filename": "2023-4-9_1.png",
         "title": "Accursed Hydra Splatling",
         "description": "Referencing the Splatshort 'No Full Auto Hydra in Building'",
         "date": "9 April 2023",
-        "youtube": "https://www.youtube.com/watch?v=wyEiflXTSg0"
+        "youtube": "https://www.youtube.com/watch?v=wyEiflXTSg0",
+        "tags": ["Renders"]
     },
     {
         "filename": "2023-4-2_1.png",
         "title": "April Fooled...?",
         "description": "Referencing the Splatshort 'And Nothing of Value was Lost!'",
         "date": "2 April 2023",
-        "youtube": "https://www.youtube.com/watch?v=fK-EjSgjpAc"
+        "youtube": "https://www.youtube.com/watch?v=fK-EjSgjpAc",
+        "tags": ["Renders"]
     },
     {
         "filename": "2023-3-26_1.png",
         "title": "Captain's Elegy",
         "description": "Referencing the Splatshort 'And Nothing of Value was Lost!'",
         "date": "26 March 2023",
-        "youtube": "https://youtube.com/shorts/MuSOKwwmrK4"
+        "youtube": "https://youtube.com/shorts/MuSOKwwmrK4",
+        "tags": ["Renders"]
     },
     {
         "filename": "2023-3-25_1.png",
         "title": "agent z (YouTube)",
         "description": "The profile picture used for the agent z YouTube channel.",
         "date": "25 March 2023",
-        "youtube": "https://www.youtube.com/channel/UCckiRC_lSdnTFr0494xum4Q"
+        "youtube": "https://www.youtube.com/channel/UCckiRC_lSdnTFr0494xum4Q",
+        "tags": ["Branding"]
     },
     {
         "filename": "2023-3-18_1.png",
         "title": "Talking Over Sodas",
         "description": "Referencing the Splatshort 'Give me a drink, Bartender.'",
         "date": "18 March 2023",
-        "youtube": "https://youtube.com/shorts/1N9vMlMiEXs"
+        "youtube": "https://youtube.com/shorts/1N9vMlMiEXs",
+        "tags": ["Renders"]
     },
     {
         "filename": "2023-3-12_1.png",
         "title": "Bad to the Bone!",
         "description": "Referencing the Splatshort 'How Does Anyone Find That Funny?'",
         "date": "12 March 2023",
-        "youtube": "https://youtube.com/shorts/djv_yEzl144"
+        "youtube": "https://youtube.com/shorts/djv_yEzl144",
+        "tags": ["Renders"]
     },
     {
         "filename": "2023-3-3_1.png",
@@ -271,6 +309,7 @@
         "description": "The first render the agent z YouTube channel made, in reference to the Splatshort 'WHY'.",
         "date": "3 March 2023",
         "youtube": "https://youtube.com/shorts/yAtU3fZaZYU",
-        "twitter": "https://x.com/agentzofficial/status/1733471826809069888"
+        "twitter": "https://x.com/agentzofficial/status/1733471826809069888",
+        "tags": ["Renders"]
     }
 ]
