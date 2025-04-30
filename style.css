@@ -268,3 +268,7 @@ body {
   line-height: 1.5;
   user-select: none;
 }
+
+.modal-content p {
+  white-space: pre-line;
+}
