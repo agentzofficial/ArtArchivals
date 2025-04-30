@@ -117,12 +117,13 @@
         div.innerHTML = `
           <div class="image-container">
             <img src="images/${thumb}" alt="${item.title}"
-                 style="object-position:${item.position||'center'};">
+                 style="object-position:${item.position || 'center'};">
             <div class="overlay">
               <h2>${item.title}</h2>
-              <p class="date">${item.date||''}</p>
+              <p class="date">${item.date || ''}</p>
             </div>
-          </div>`;
+          </div>
+        `;
         div.addEventListener('click', ()=> showModal(idx,0));
         frag.appendChild(div);
       });
@@ -135,22 +136,22 @@
       if (!item) return;
   
       const variants = item.variants||[item.filename];
-      modalImg.src        = `images/${variants[variantIndex]}`;
-      modalImg.alt        = item.title;
-      modalTitle.textContent   = item.title;
-      modalDesc.textContent    = item.description||'';
-      modalDate.textContent    = item.date||'';
+      modalImg.src = `images/${variants[variantIndex]}`;
+      modalImg.alt = item.title;
+      modalTitle.textContent = item.title;
+      modalDesc.textContent = item.description||'';
+      modalDate.textContent = item.date||'';
   
       iconsEl.innerHTML = '';
-      if (item.youtube)  iconsEl.innerHTML +=
+      if (item.youtube)  iconsEl.innerHTML += `
         `<a href="${item.youtube}" target="_blank" class="source-icon">
            <img src="serverImages/youtube-icon.png" alt="YouTube">
          </a>`;
-      if (item.twitter)  iconsEl.innerHTML +=
+      if (item.twitter)  iconsEl.innerHTML += `
         `<a href="${item.twitter}" target="_blank" class="source-icon">
            <img src="serverImages/twitter-icon.png" alt="Twitter">
          </a>`;
-      if (item.bluesky)  iconsEl.innerHTML +=
+      if (item.bluesky)  iconsEl.innerHTML += `
         `<a href="${item.bluesky}" target="_blank" class="source-icon">
            <img src="serverImages/bluesky-icon.png" alt="Bluesky">
          </a>`;
