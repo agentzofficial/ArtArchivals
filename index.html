@@ -49,22 +49,58 @@
   const filterBar = document.getElementById('filter-bar');
   const gallery   = document.getElementById('gallery');
 
-  // ① build filter buttons…
+  // ① Build filter buttons & divider
   TAG_ORDER.forEach((tag, i) => {
-    /* … your existing code … */
+    const btn = document.createElement('button');
+    btn.textContent = tag;
+    btn.className   = 'filter-btn neutral';
+    btn.dataset.tag = tag;
+
+    btn.addEventListener('click', () => {
+      // cycle state: neutral → include → exclude → neutral
+      if (btn.classList.contains('neutral')) {
+        btn.className = 'filter-btn include';
+        includeTags.add(tag);
+      } else if (btn.classList.contains('include')) {
+        btn.className = 'filter-btn exclude';
+        includeTags.delete(tag);
+        excludeTags.add(tag);
+      } else {
+        btn.className = 'filter-btn neutral';
+        excludeTags.delete(tag);
+      }
+      renderGallery();
+    });
+
+    filterBar.appendChild(btn);
+
+    // inject divider after the third button
+    if (i === 2) {
+      const div = document.createElement('span');
+      div.className   = 'divider';
+      div.textContent = '|';
+      filterBar.appendChild(div);
+    }
   });
 
-  // ② bring back matchesFilter
+  // ② Helper to test include/exclude rules
   function matchesFilter(itemTags = []) {
-    for (let t of excludeTags) if (itemTags.includes(t)) return false;
+    // exclude any with an excluded tag
+    for (let t of excludeTags) {
+      if (itemTags.includes(t)) return false;
+    }
+    // if includes are set, require at least one match
     if (includeTags.size > 0) {
-      for (let t of includeTags) if (itemTags.includes(t)) return true;
+      for (let t of includeTags) {
+        if (itemTags.includes(t)) return true;
+      }
       return false;
     }
+    // otherwise, show everything not excluded
     return true;
   }
 
-  // ③ fetch + initial render
+  // ③ Fetch data and render
   fetch('data.json')
     .then(r => r.json())
     .then(data => {
@@ -72,7 +108,7 @@
       renderGallery();
     });
 
-  // ④ optimized renderGallery
+  // ④ Optimized gallery render
   function renderGallery() {
     gallery.innerHTML = '';
     const frag = document.createDocumentFragment();
