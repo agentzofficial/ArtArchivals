@@ -25,6 +25,10 @@ body {
     will-change: transform;
 }
 
+#modal-description {
+  white-space: pre-line;
+}
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -267,8 +271,4 @@ body {
   color: #666;
   line-height: 1.5;
   user-select: none;
-}
-
-.modal-content p {
-  white-space: pre-line;
 }
