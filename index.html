@@ -49,39 +49,22 @@
   const filterBar = document.getElementById('filter-bar');
   const gallery   = document.getElementById('gallery');
 
-  // build the 7 buttons + divider
+  // ① build filter buttons…
   TAG_ORDER.forEach((tag, i) => {
-    const btn = document.createElement('button');
-    btn.textContent      = tag;
-    btn.className        = 'filter-btn neutral';
-    btn.dataset.tag      = tag;
-    btn.addEventListener('click', () => {
-      // cycle: neutral → include → exclude → neutral
-      if (btn.classList.contains('neutral')) {
-        btn.className = 'filter-btn include';
-        includeTags.add(tag);
-      } else if (btn.classList.contains('include')) {
-        btn.className = 'filter-btn exclude';
-        includeTags.delete(tag);
-        excludeTags.add(tag);
-      } else {
-        btn.className = 'filter-btn neutral';
-        excludeTags.delete(tag);
-      }
-      renderGallery();
-    });
-
-    filterBar.appendChild(btn);
-    // after the third button, inject a divider
-    if (i === 2) {
-      const div = document.createElement('span');
-      div.className   = 'divider';
-      div.textContent = '|';
-      filterBar.appendChild(div);
-    }
+    /* … your existing code … */
   });
 
-  // fetch + initial render
+  // ② bring back matchesFilter
+  function matchesFilter(itemTags = []) {
+    for (let t of excludeTags) if (itemTags.includes(t)) return false;
+    if (includeTags.size > 0) {
+      for (let t of includeTags) if (itemTags.includes(t)) return true;
+      return false;
+    }
+    return true;
+  }
+
+  // ③ fetch + initial render
   fetch('data.json')
     .then(r => r.json())
     .then(data => {
@@ -89,12 +72,14 @@
       renderGallery();
     });
 
+  // ④ optimized renderGallery
   function renderGallery() {
     gallery.innerHTML = '';
     const frag = document.createDocumentFragment();
+
     artData.forEach((item, idx) => {
       if (!matchesFilter(item.tags || [])) return;
-  
+
       const thumb = item.variants?.[0] || item.filename;
       const div = document.createElement('div');
       div.className = 'art-item';
@@ -115,10 +100,9 @@
         currentIndex = idx;
         showModal(idx, 0);
       });
-  
-      // append to fragment, NOT directly to the DOM
       frag.appendChild(div);
     });
+
     gallery.appendChild(frag);
   }
 </script>
