@@ -97,6 +97,29 @@
       }
       return true;
     }
+
+    let itemNodes = [];
+    function buildGallery() {
+      gallery.innerHTML = '';
+      itemNodes = artData.map((item, idx) => {
+        const thumb = item.variants?.[0] || item.filename;
+        const div = document.createElement('div');
+        div.className = 'art-item';
+        div.innerHTML = `
+          <div class="image-container">
+            <img src="images/${thumb}" alt="${item.title}"
+                 style="object-position:${item.position || 'center'};">
+            <div class="overlay">
+              <h2>${item.title}</h2>
+              <p class="date">${item.date || ''}</p>
+            </div>
+          </div>
+        `;
+        div.addEventListener('click', ()=> showModal(idx, 0));
+        gallery.appendChild(div);
+        return div;
+      });
+    }
   
     fetch('data.json')
       .then(r=>r.json())
@@ -111,30 +134,29 @@
       });
   
     function renderGallery(){
-      gallery.innerHTML = '';
-      const frag = document.createDocumentFragment();
-  
-      artData.forEach((item, idx) => {
-        if (!matchesFilter(item.tags||[])) return;
-        const thumb = item.variants?.[0]||item.filename;
-        const div = document.createElement('div');
-        div.className = 'art-item';
-        div.innerHTML = `
-          <div class="image-container">
-            <img src="images/${thumb}" alt="${item.title}"
-                 style="object-position:${item.position || 'center'};">
-            <div class="overlay">
-              <h2>${item.title}</h2>
-              <p class="date">${item.date || ''}</p>
-            </div>
-          </div>
-        `;
-        div.addEventListener('click', ()=> showModal(idx,0));
-        frag.appendChild(div);
+      itemNodes.forEach((div, idx) => {
+        const tags = artData[idx].tags||[];
+        div.style.display = matchesFilter(tags) ? '' : 'none';
       });
-  
-      gallery.appendChild(frag);
     }
+
+    // ← 3) In your fetch callback, preload **all** variants and call buildGallery
+    fetch('data.json')
+      .then(r => r.json())
+      .then(data => {
+        artData = data;
+
+        // Preload every variant
+        artData.forEach(item => {
+          (item.variants || [item.filename]).forEach(name => {
+            const img = new Image();
+            img.src = `images/${name}`;
+          });
+        });
+
+        buildGallery();   // one-time DOM build
+        renderGallery();  // show/hide per current filters
+      });
   
     function showModal(index, variantIndex=0) {
       const item = artData[index];
