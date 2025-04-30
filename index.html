@@ -106,20 +106,7 @@
                           <p class="date">${item.date || ''}</p>
                         </div>
                       </div>
-                      <div class="variant-buttons">
-                        ${variants.map((_,i) => `<button class="variant-btn ${i===0?'active':''}" data-variant="${i}">${i+1}</button>`).join('')}
-                      </div>
-                    `;
-    
-                    // swap variant in-thumbnail
-                    div.querySelectorAll('.variant-btn').forEach(btn => {
-                      btn.addEventListener('click', e => {
-                        e.stopPropagation();
-                        currentVariant = +btn.dataset.variant;
-                        div.querySelector('img').src = `images/${variants[currentVariant]}`;
-                        div.querySelectorAll('.variant-btn').forEach(b=>b.classList.remove('active'));
-                        btn.classList.add('active');
-                      });
+                    `
                     });
     
                     // open modal with that variant
