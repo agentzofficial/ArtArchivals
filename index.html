@@ -1,150 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>agent z Art Archivals</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>agent z Art Archivals</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <img id="fixed-bg" alt="Background" />
-    <div style="text-align: center;">
-        <img src="serverImages/logo.png" alt="Art Archives Logo" style="max-width: 500px; height: auto;">
+  <img id="fixed-bg" alt="Background" />
+  <div style="text-align: center;">
+    <img src="serverImages/logo.png" alt="Art Archives Logo" style="max-width: 500px; height: auto;">
+  </div>
+  <div class="gallery" id="gallery"></div>
+
+  <div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+
+      <!-- Image + variant buttons wrapper -->
+      <div class="modal-image-wrapper">
+        <img id="modal-img" src="" alt="">
+        <div class="variant-buttons"></div>
+      </div>
+
+      <!-- Textual details -->
+      <h2 id="modal-title"></h2>
+      <p id="modal-description"></p>
+      <p id="modal-date" class="modal-date"></p>
+
+      <!-- Social icons -->
+      <div class="modal-icons"></div>
     </div>
-    <div class="gallery" id="gallery"></div>
+  </div>
 
-    <div id="modal" class="modal">
-      <span class="close">&times;</span>
-      <div class="modal-content">
-          <div class="modal-image-wrapper">
-            <img id="modal-img" src="" alt="">
-            <div class="variant-buttons"></div>
-          </div>
-        
-          <h2 id="modal-title"></h2>
-          <p id="modal-description"></p>
-          <p id="modal-date" class="modal-date"></p>
-        
-          <div class="modal-icons"></div>
-        </div>
-    </div>
+  <p class="navigation-hint">Use ← and → arrow keys to navigate</p>
 
-    <p class="navigation-hint">Use ← and → arrow keys to navigate</p>
+  <script>
+    let currentIndex = 0, artData = [];
 
-    <script>
-        let currentIndex = 0;
-        let artData = [];
-    
-        const navigationHint = document.querySelector('.navigation-hint');
-        const gallery = document.getElementById('gallery');
-        const modal = document.getElementById('modal');
-        const modalImg = document.getElementById('modal-img');
-        const modalTitle = document.getElementById('modal-title');
-        const modalDesc = document.getElementById('modal-description');
-        const modalDate = document.getElementById('modal-date');
-        const closeBtn = document.querySelector('.close');
-    
-        // Modified showModal to accept variantIndex
-        function showModal(index, variantIndex = 0) {
-          const item = artData[index];
-          if (!item) return;
-        
-          modal.style.display = 'flex';
-          navigationHint.style.display = 'block';
-        
-          // handle variants array (fall back to single filename)
-          const variants = item.variants || [item.filename];
-          // set the image
-          modalImg.src = `images/${variants[variantIndex]}`;
-          modalImg.alt = item.title;
-          modalTitle.textContent   = item.title;
-          modalDesc.textContent    = item.description || '';
-          modalDate.textContent    = item.date || '';
-        
-          // social icons (unchanged)
-          const modalIcons = document.querySelector('.modal-icons');
-          modalIcons.innerHTML = '';
-          if (item.youtube)  modalIcons.innerHTML += `<a href="${item.youtube}" target="_blank" class="source-icon"><img src="serverImages/youtube-icon.png" alt="YouTube"></a>`;
-          if (item.twitter)  modalIcons.innerHTML += `<a href="${item.twitter}" target="_blank" class="source-icon"><img src="serverImages/twitter-icon.png" alt="Twitter"></a>`;
-          if (item.bluesky)  modalIcons.innerHTML += `<a href="${item.bluesky}" target="_blank" class="source-icon"><img src="serverImages/bluesky-icon.png" alt="Bluesky"></a>`;
-        
-          // ===== NEW: build variant buttons ====
-          const vb = document.querySelector('.variant-buttons');
-          vb.innerHTML = '';
-          if (variants.length > 1) {
-            variants.forEach((file, i) => {
-              const btn = document.createElement('button');
-              btn.className = 'variant-btn' + (i === variantIndex ? ' active' : '');
-              btn.textContent = i + 1;
-              btn.addEventListener('click', e => {
-                e.stopPropagation();
-                showModal(index, i);
-              });
-              vb.appendChild(btn);
-            });
-          }
-        }
-    
-        fetch('data.json')
-            .then(r => r.json())
-            .then(data => {
-                artData = data;
-                gallery.innerHTML = '';
-    
-                data.forEach(item => {
-                    // build variants array
-                    const variants = item.variants || [item.filename];
-                    let currentVariant = 0;
-    
-                    const div = document.createElement('div');
-                    div.className = 'art-item';
-                    div.innerHTML = `
-                      <div class="image-container">
-                        <img src="images/${variants[0]}" alt="${item.title}" style="object-position: ${item.position || 'center'};">
-                        <div class="overlay">
-                          <h2>${item.title}</h2>
-                          <p class="date">${item.date || ''}</p>
-                        </div>
-                      </div>
-                    `
-                    });
-    
-                    // open modal with that variant
-                    div.addEventListener('click', () => {
-                      currentIndex = data.indexOf(item);
-                      showModal(currentIndex, currentVariant);
-                    });
-    
-                    gallery.appendChild(div);
-                });
-            });
-    
-        closeBtn.onclick = () => {
-            modal.style.display = 'none';
-            navigationHint.style.display = 'none';
-        };
-        window.onclick = e => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                navigationHint.style.display = 'none';
-            }
-        };
-        document.addEventListener('keydown', e => {
-            if (modal.style.display === 'flex') {
-                if (e.key === 'ArrowLeft'  && currentIndex > 0)                 { currentIndex--; showModal(currentIndex); }
-                if (e.key === 'ArrowRight' && currentIndex < artData.length-1) { currentIndex++; showModal(currentIndex); }
-                if (e.key === 'Escape') {
-                    modal.style.display = 'none';
-                    navigationHint.style.display = 'none';
-                }
-            }
+    const navHint = document.querySelector('.navigation-hint');
+    const gallery = document.getElementById('gallery');
+    const modal   = document.getElementById('modal');
+    const imgEl   = document.getElementById('modal-img');
+    const titleEl = document.getElementById('modal-title');
+    const descEl  = document.getElementById('modal-description');
+    const dateEl  = document.getElementById('modal-date');
+    const iconsEl = document.querySelector('.modal-icons');
+    const vbEl    = document.querySelector('.variant-buttons');
+    const closeBtn= document.querySelector('.close');
+
+    function showModal(index, variantIndex = 0) {
+      const item = artData[index];
+      if (!item) return;
+
+      const variants = item.variants || [item.filename];
+      imgEl.src = `images/${variants[variantIndex]}`;
+      imgEl.alt = item.title;
+      titleEl.textContent = item.title;
+      descEl.textContent = item.description || '';
+      dateEl.textContent = item.date || '';
+
+      // social icons
+      iconsEl.innerHTML = '';
+      if (item.youtube)  iconsEl.innerHTML += `<a href="${item.youtube}" target="_blank"><img src="serverImages/youtube-icon.png" alt="YouTube"></a>`;
+      if (item.twitter)  iconsEl.innerHTML += `<a href="${item.twitter}" target="_blank"><img src="serverImages/twitter-icon.png" alt="Twitter"></a>`;
+      if (item.bluesky)  iconsEl.innerHTML += `<a href="${item.bluesky}" target="_blank"><img src="serverImages/bluesky-icon.png" alt="Bluesky"></a>`;
+
+      // variant buttons (modal-only)
+      vbEl.innerHTML = '';
+      if (variants.length > 1) {
+        variants.forEach((_, i) => {
+          const btn = document.createElement('button');
+          btn.className = 'variant-btn' + (i === variantIndex ? ' active' : '');
+          btn.textContent = i + 1;
+          btn.addEventListener('click', e => {
+            e.stopPropagation();
+            showModal(index, i);
+          });
+          vbEl.appendChild(btn);
         });
-    </script>
-    <script>
-        const maxBackgrounds = 6;
-        const bgIndex = Math.floor(Math.random() * maxBackgrounds) + 1;
-        const bgImg = document.getElementById('fixed-bg');
-        bgImg.src = `backgrounds/bg${bgIndex}.png`;
-    </script>
+      }
+
+      modal.style.display = 'flex';
+      navHint.style.display = 'block';
+    }
+
+    fetch('data.json')
+      .then(r => r.json())
+      .then(data => {
+        artData = data;
+        gallery.innerHTML = '';
+
+        data.forEach((item, idx) => {
+          const filename = (item.variants?.[0] || item.filename);
+          const div = document.createElement('div');
+          div.className = 'art-item';
+          div.innerHTML = `
+            <div class="image-container">
+              <img src="images/${filename}" alt="${item.title}" style="object-position: ${item.position||'center'};">
+              <div class="overlay">
+                <h2>${item.title}</h2>
+                <p class="date">${item.date||''}</p>
+              </div>
+            </div>
+          `;
+          div.addEventListener('click', () => {
+            currentIndex = idx;
+            showModal(idx, 0);
+          });
+          gallery.appendChild(div);
+        });
+      });
+
+    closeBtn.onclick = () => {
+      modal.style.display = 'none';
+      navHint.style.display = 'none';
+    };
+    window.onclick = e => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        navHint.style.display = 'none';
+      }
+    };
+    document.addEventListener('keydown', e => {
+      if (modal.style.display === 'flex') {
+        if (e.key === 'ArrowLeft'  && currentIndex>0)               showModal(--currentIndex);
+        if (e.key === 'ArrowRight' && currentIndex<artData.length-1) showModal(++currentIndex);
+        if (e.key === 'Escape') {
+          modal.style.display = 'none';
+          navHint.style.display = 'none';
+        }
+      }
+    });
+  </script>
+
+  <script>
+    const maxBg = 6;
+    const bg    = Math.floor(Math.random()*maxBg)+1;
+    document.getElementById('fixed-bg').src = `backgrounds/bg${bg}.png`;
+  </script>
 </body>
 </html>
