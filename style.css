@@ -194,10 +194,10 @@ body {
 }
 
 .modal-image-wrapper {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 30px;  /* reserve room for buttons */
-  margin-bottom: 15px;   /* space before title */
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* center children (image + buttons) */
+  margin-bottom: 12px;   /* space down to the title */
 }
 
 .modal-image-wrapper img {
@@ -208,9 +208,8 @@ body {
 }
 
 .variant-buttons {
-  position: absolute;
-  bottom: 0;    /* sits at the very bottom of that padded area */
-  right: 0;     /* aligned to right edge of the image */
+  margin-top: 8px;       /* gap above buttons */
   display: flex;
-  gap: 4px;
+  justify-content: center;  /* center the buttons row */
+  gap: 6px;
 }
