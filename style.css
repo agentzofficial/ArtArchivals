@@ -64,6 +64,7 @@ body {
     object-position: center;
     border-radius: 0px;
     transition: transform 0.3s ease;
+    will-change: transform, opacity;
 }
 
 .image-container:hover img {
