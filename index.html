@@ -36,166 +36,153 @@
 
   <p class="navigation-hint">Use ← and → arrow keys to navigate</p>
 
-<script>
-  let currentIndex = 0,
-      artData       = [],
-      includeTags   = new Set(),
-      excludeTags   = new Set();
+  <script>
+    let currentIndex = 0,
+        artData      = [],
+        includeTags  = new Set(),
+        excludeTags  = new Set();
+  
+    const TAG_ORDER = [
+      "Renders","Drawings","Screenshots",
+      "Thumbnails","Sneak Peaks","Specials","Branding"
+    ];
+    const filterBar = document.getElementById('filter-bar');
+    const gallery   = document.getElementById('gallery');
+    const modal     = document.getElementById('modal');
+    const modalImg  = document.getElementById('modal-img');
+    const modalTitle= document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-description');
+    const modalDate = document.getElementById('modal-date');
+    const iconsEl   = document.querySelector('.modal-icons');
+    const vbEl      = document.querySelector('.variant-buttons');
+    const navHint   = document.querySelector('.navigation-hint');
+    const closeBtn  = document.querySelector('.close');
 
-  const TAG_ORDER = [
-    "Renders", "Drawings", "Screenshots",
-    "Thumbnails", "Sneak Peaks", "Specials", "Branding"
-  ];
-  const filterBar = document.getElementById('filter-bar');
-  const gallery   = document.getElementById('gallery');
-
-  // ① Build filter buttons & divider
-  TAG_ORDER.forEach((tag, i) => {
-    const btn = document.createElement('button');
-    btn.textContent = tag;
-    btn.className   = 'filter-btn neutral';
-    btn.dataset.tag = tag;
-
-    btn.addEventListener('click', () => {
-      // cycle state: neutral → include → exclude → neutral
-      if (btn.classList.contains('neutral')) {
-        btn.className = 'filter-btn include';
-        includeTags.add(tag);
-      } else if (btn.classList.contains('include')) {
-        btn.className = 'filter-btn exclude';
-        includeTags.delete(tag);
-        excludeTags.add(tag);
-      } else {
-        btn.className = 'filter-btn neutral';
-        excludeTags.delete(tag);
-      }
-      renderGallery();
-    });
-
-    filterBar.appendChild(btn);
-
-    // inject divider after the third button
-    if (i === 2) {
-      const div = document.createElement('span');
-      div.className   = 'divider';
-      div.textContent = '|';
-      filterBar.appendChild(div);
-    }
-  });
-
-  // ② Helper to test include/exclude rules
-  function matchesFilter(itemTags = []) {
-    // exclude any with an excluded tag
-    for (let t of excludeTags) {
-      if (itemTags.includes(t)) return false;
-    }
-    // if includes are set, require at least one match
-    if (includeTags.size > 0) {
-      for (let t of includeTags) {
-        if (itemTags.includes(t)) return true;
-      }
-      return false;
-    }
-    // otherwise, show everything not excluded
-    return true;
-  }
-
-  // ③ Fetch data and render
-  fetch('data.json')
-    .then(r => r.json())
-    .then(data => {
-      artData = data;
-      renderGallery();
-    });
-
-  // ④ Optimized gallery render
-  function renderGallery() {
-    gallery.innerHTML = '';
-    const frag = document.createDocumentFragment();
-
-    artData.forEach((item, idx) => {
-      if (!matchesFilter(item.tags || [])) return;
-
-      const thumb = item.variants?.[0] || item.filename;
-      const div = document.createElement('div');
-      div.className = 'art-item';
-      div.innerHTML = `
-        <div class="image-container">
-          <img
-            src="images/${thumb}"
-            alt="${item.title}"
-            style="object-position:${item.position||'center'};"
-          >
-          <div class="overlay">
-            <h2>${item.title}</h2>
-            <p class="date">${item.date||''}</p>
-          </div>
-        </div>
-      `;
-      div.addEventListener('click', () => {
-        currentIndex = idx;
-        showModal(idx, 0);
+    TAG_ORDER.forEach((tag, i) => {
+      const btn = document.createElement('button');
+      btn.textContent = tag;
+      btn.className   = 'filter-btn neutral';
+      btn.dataset.tag = tag;
+      btn.addEventListener('click', () => {
+        if (btn.classList.contains('neutral')) {
+          btn.className = 'filter-btn include';   includeTags.add(tag);
+        }
+        else if (btn.classList.contains('include')) {
+          btn.className = 'filter-btn exclude';   includeTags.delete(tag); excludeTags.add(tag);
+        }
+        else {
+          btn.className = 'filter-btn neutral';   excludeTags.delete(tag);
+        }
+        renderGallery();
       });
-      frag.appendChild(div);
+      filterBar.appendChild(btn);
+      if (i === 2) {
+        const divider = document.createElement('span');
+        divider.textContent = '|';
+        divider.className   = 'divider';
+        filterBar.appendChild(divider);
+      }
     });
+  
 
-    gallery.appendChild(frag);
-  }
-  function showModal(index, variantIndex = 0) {
-    const item = artData[index];
-    if (!item) return;
-
-    // variants logic (unchanged)
-    const variants = item.variants || [item.filename];
-    modalImg.src = `images/${variants[variantIndex]}`;
-    modalImg.alt = item.title;
-    modalTitle.textContent = item.title;
-    modalDesc.textContent  = item.description || '';
-    modalDate.textContent  = item.date || '';
-
-    // ——— REPLACE THIS ICON BLOCK ———
-    const iconsEl = document.querySelector('.modal-icons');
-    iconsEl.innerHTML = '';
-    if (item.youtube) {
-      iconsEl.innerHTML += `
-        <a href="${item.youtube}" target="_blank" class="source-icon">
-          <img src="serverImages/youtube-icon.png" alt="YouTube">
-        </a>`;
+    function matchesFilter(tags=[]) {
+      for (let t of excludeTags) if (tags.includes(t)) return false;
+      if (includeTags.size) {
+        for (let t of includeTags) if (tags.includes(t)) return true;
+        return false;
+      }
+      return true;
     }
-    if (item.twitter) {
-      iconsEl.innerHTML += `
-        <a href="${item.twitter}" target="_blank" class="source-icon">
-          <img src="serverImages/twitter-icon.png" alt="Twitter">
-        </a>`;
-    }
-    if (item.bluesky) {
-      iconsEl.innerHTML += `
-        <a href="${item.bluesky}" target="_blank" class="source-icon">
-          <img src="serverImages/bluesky-icon.png" alt="Bluesky">
-        </a>`;
-    }
-    // ——— ICON BLOCK ENDS HERE ———
-
-    // variant buttons, navigation hint etc (unchanged)…
-    vbEl.innerHTML = '';
-    if (variants.length > 1) {
-      variants.forEach((_, i) => {
-        const btn = document.createElement('button');
-        btn.className = 'variant-btn' + (i === variantIndex ? ' active' : '');
-        btn.textContent = i + 1;
-        btn.onclick = e => {
-          e.stopPropagation();
-          showModal(index, i);
-        };
-        vbEl.appendChild(btn);
+  
+    fetch('data.json')
+      .then(r=>r.json())
+      .then(data=>{
+        artData = data;
+        renderGallery();
       });
+  
+    function renderGallery(){
+      gallery.innerHTML = '';
+      const frag = document.createDocumentFragment();
+  
+      artData.forEach((item, idx) => {
+        if (!matchesFilter(item.tags||[])) return;
+        const thumb = item.variants?.[0]||item.filename;
+        const div = document.createElement('div');
+        div.className = 'art-item';
+        div.innerHTML = `
+          <div class="image-container">
+            <img src="images/${thumb}" alt="${item.title}"
+                 style="object-position:${item.position||'center'};">
+            <div class="overlay">
+              <h2>${item.title}</h2>
+              <p class="date">${item.date||''}</p>
+            </div>
+          </div>`;
+        div.addEventListener('click', ()=> showModal(idx,0));
+        frag.appendChild(div);
+      });
+  
+      gallery.appendChild(frag);
+    }
+  
+    function showModal(index, variantIndex=0) {
+      const item = artData[index];
+      if (!item) return;
+  
+      const variants = item.variants||[item.filename];
+      modalImg.src        = `images/${variants[variantIndex]}`;
+      modalImg.alt        = item.title;
+      modalTitle.textContent   = item.title;
+      modalDesc.textContent    = item.description||'';
+      modalDate.textContent    = item.date||'';
+  
+      iconsEl.innerHTML = '';
+      if (item.youtube)  iconsEl.innerHTML +=
+        `<a href="${item.youtube}" target="_blank" class="source-icon">
+           <img src="serverImages/youtube-icon.png" alt="YouTube">
+         </a>`;
+      if (item.twitter)  iconsEl.innerHTML +=
+        `<a href="${item.twitter}" target="_blank" class="source-icon">
+           <img src="serverImages/twitter-icon.png" alt="Twitter">
+         </a>`;
+      if (item.bluesky)  iconsEl.innerHTML +=
+        `<a href="${item.bluesky}" target="_blank" class="source-icon">
+           <img src="serverImages/bluesky-icon.png" alt="Bluesky">
+         </a>`;
+  
+      vbEl.innerHTML = '';
+      if (variants.length>1) {
+        variants.forEach((_,i)=>{
+          const b = document.createElement('button');
+          b.textContent = i+1;
+          b.className   = 'variant-btn'+(i===variantIndex?' active':'');
+          b.addEventListener('click', e=>{
+            e.stopPropagation();
+            showModal(index,i);
+          });
+          vbEl.appendChild(b);
+        });
+      }
+  
+      modal.style.display = 'flex';
+      navHint.style.display = 'block';
+      currentIndex = index;
     }
 
-    modal.style.display = 'flex';
-    navHint.style.display = 'block';
-  }
-</script>
-
+    closeBtn.onclick = ()=>{ modal.style.display='none'; navHint.style.display='none'; };
+    window.onclick = e=>{ if(e.target===modal) closeBtn.onclick(); };
+    document.addEventListener('keydown', e=>{
+      if (modal.style.display==='flex') {
+        if (e.key==='ArrowLeft'  && currentIndex>0)
+          showModal(--currentIndex,0);
+        if (e.key==='ArrowRight' && currentIndex<artData.length-1)
+          showModal(++currentIndex,0);
+        if (e.key==='Escape')
+          closeBtn.onclick();
+      }
+    });
+  </script>
   <script>
     const maxBg = 6;
     const bg    = Math.floor(Math.random()*maxBg)+1;
