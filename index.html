@@ -138,7 +138,7 @@
       modalImg.src        = `images/${variants[variantIndex]}`;
       modalImg.alt        = item.title;
       modalTitle.textContent   = item.title;
-      modalDesc.textContent    = item.description||'';
+      modalDesc.innerHTML    = item.description||'';
       modalDate.textContent    = item.date||'';
   
       iconsEl.innerHTML = '';
