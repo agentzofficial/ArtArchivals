@@ -11,6 +11,7 @@
   <div style="text-align: center;">
     <img src="serverImages/logo.png" alt="Art Archives Logo" style="max-width: 500px; height: auto;">
   </div>
+  <div id="filter-bar"></div>
   <div class="gallery" id="gallery"></div>
 
   <div id="modal" class="modal">
@@ -37,7 +38,12 @@
 
   <script>
     let currentIndex = 0, artData = [];
-
+    const includeTags = new Set(), excludeTags = new Set();
+    const TAG_ORDER = [
+      "Renders", "Drawings", "Screenshots", "Thumbnails", "Sneak Peaks", "Specials", "Branding"
+    ];
+  
+    const filterBar = document.getElementById('filter-bar');
     const navHint = document.querySelector('.navigation-hint');
     const gallery = document.getElementById('gallery');
     const modal   = document.getElementById('modal');
@@ -89,49 +95,72 @@
       .then(r => r.json())
       .then(data => {
         artData = data;
-        gallery.innerHTML = '';
-
-        data.forEach((item, idx) => {
-          const filename = (item.variants?.[0] || item.filename);
-          const div = document.createElement('div');
-          div.className = 'art-item';
-          div.innerHTML = `
-            <div class="image-container">
-              <img src="images/${filename}" alt="${item.title}" style="object-position: ${item.position||'center'};">
-              <div class="overlay">
-                <h2>${item.title}</h2>
-                <p class="date">${item.date||''}</p>
-              </div>
-            </div>
-          `;
-          div.addEventListener('click', () => {
-            currentIndex = idx;
-            showModal(idx, 0);
+  
+        // build filter buttons in order
+        TAG_ORDER.forEach((tag, i) => {
+          const btn = document.createElement('button');
+          btn.textContent = tag;
+          btn.className = 'filter-btn neutral';
+          btn.dataset.tag = tag;
+  
+          btn.addEventListener('click', () => {
+            const state = btn.classList.contains('neutral') ? 'include'
+                        : btn.classList.contains('include') ? 'exclude'
+                        : 'neutral';
+            btn.className = 'filter-btn ' + state;
+  
+            includeTags.delete(tag);
+            excludeTags.delete(tag);
+            if (state === 'include') includeTags.add(tag);
+            if (state === 'exclude') excludeTags.add(tag);
+  
+            renderGallery();
           });
-          gallery.appendChild(div);
+  
+          filterBar.appendChild(btn);
+          if (i === 2) {
+            const divider = document.createElement('span');
+            divider.className = 'divider';
+            divider.textContent = '|';
+            filterBar.appendChild(divider);
+          }
         });
+  
+        renderGallery();
       });
-
-    closeBtn.onclick = () => {
-      modal.style.display = 'none';
-      navHint.style.display = 'none';
-    };
-    window.onclick = e => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-        navHint.style.display = 'none';
-      }
-    };
-    document.addEventListener('keydown', e => {
-      if (modal.style.display === 'flex') {
-        if (e.key === 'ArrowLeft'  && currentIndex>0)               showModal(--currentIndex);
-        if (e.key === 'ArrowRight' && currentIndex<artData.length-1) showModal(++currentIndex);
-        if (e.key === 'Escape') {
-          modal.style.display = 'none';
-          navHint.style.display = 'none';
-        }
-      }
-    });
+  
+    function renderGallery() {
+      gallery.innerHTML = '';
+  
+      const matchesFilter = (tags = []) => {
+        for (const tag of excludeTags) if (tags.includes(tag)) return false;
+        if (includeTags.size === 0) return true;
+        for (const tag of includeTags) if (tags.includes(tag)) return true;
+        return false;
+      };
+  
+      artData.forEach((item, idx) => {
+        if (!matchesFilter(item.tags)) return;
+  
+        const filename = (item.variants?.[0] || item.filename);
+        const div = document.createElement('div');
+        div.className = 'art-item';
+        div.innerHTML = `
+          <div class="image-container">
+            <img src="images/${filename}" alt="${item.title}" style="object-position: ${item.position || 'center'};">
+            <div class="overlay">
+              <h2>${item.title}</h2>
+              <p class="date">${item.date || ''}</p>
+            </div>
+          </div>
+        `;
+        div.addEventListener('click', () => {
+          currentIndex = idx;
+          showModal(idx, 0);
+        });
+        gallery.appendChild(div);
+      });
+    }
   </script>
 
   <script>
