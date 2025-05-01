@@ -54,6 +54,7 @@ body {
     background-color: #eee;
     border-radius: 0px;
     overflow: hidden;
+    will-change: transform, opacity;
 }
 
 .image-container img.thumb {
