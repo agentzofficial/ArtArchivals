@@ -118,12 +118,24 @@
       const item     = artData[index];
       if (!item) return;
       const variants = item.variants || [item.filename];
-  
+    
+      // 1) display the chosen variant
       modalImg.src        = `images/${variants[variantIndex]}`;
       modalImg.alt        = item.title;
       modalTitle.textContent = item.title;
       modalDesc.textContent  = item.description || '';
       modalDate.textContent  = item.date || '';
+    
+      // — NEW: preload the next/prev two items’ first variants —
+      [ -2, -1, 1, 2 ].forEach(offset => {
+        const ni = index + offset;
+        if (ni >= 0 && ni < artData.length) {
+          const neighbor = artData[ni];
+          const fn       = (neighbor.variants?.[0] || neighbor.filename);
+          const img      = new Image();
+          img.src        = `images/${fn}`;
+        }
+      });
   
       variants
         .filter((_, i) => i !== variantIndex)
