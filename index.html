@@ -83,7 +83,7 @@
         div.innerHTML = `
           <div class="image-container">
             <img class="thumb" loading="lazy"
-                 src="images/${thumb}"
+                 src="thumbnails/${thumb.replace(/\.[^/.]+$/, '.jpg')}"
                  alt="${item.title.replace(/"/g,'&quot;')}"
                  style="object-position:${item.position||'center'};">
             ${hasVariants
