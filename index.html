@@ -103,12 +103,15 @@
       gallery.innerHTML = '';
       itemNodes = artData.map((item, idx) => {
         const thumb = item.variants?.[0] || item.filename;
+        const hasVariants = (item.variants && item.variants.length > 1);
+    
         const div = document.createElement('div');
         div.className = 'art-item';
         div.innerHTML = `
           <div class="image-container">
             <img src="images/${thumb}" alt="${item.title}"
                  style="object-position:${item.position || 'center'};">
+            ${hasVariants ? '<img class="variant-icon" src="serverImages/variant-icon.png" alt="Has Variants">' : ''}
             <div class="overlay">
               <h2>${item.title}</h2>
               <p class="date">${item.date || ''}</p>
