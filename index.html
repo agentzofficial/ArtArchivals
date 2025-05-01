@@ -130,11 +130,27 @@
         return div;
       });
     }
+
+    let preloaded = false;
+
+    document.addEventListener('visibilitychange', () => {
+      if (!preloaded && document.visibilityState === 'visible') {
+        artData.forEach(item => {
+          (item.variants || [item.filename]).forEach(name => {
+            const img = new Image();
+            img.src = `images/${name}`;
+          });
+        });
+        preloaded = true;
+  }
   
     fetch('data.json')
       .then(r => r.json())
       .then(data => {
         artData = data;
+        if (document.visibilityState === 'visible') {
+          document.dispatchEvent(new Event('visibilitychange'));
+        }
         artData.forEach(item => {
           (item.variants || [item.filename]).forEach(name => {
             const img = new Image();
