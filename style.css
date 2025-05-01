@@ -41,7 +41,7 @@ body {
 .art-item {
     position: relative;
     overflow: hidden;
-    border-radius: 0px;
+    border-radius: 10px;
     cursor: pointer;
     contain: layout paint;
 }
@@ -51,7 +51,7 @@ body {
     width: 100%;
     padding-top: 100%;
     background-color: #eee;
-    border-radius: 0px;
+    border-radius: 10px;
     overflow: hidden;
     will-change: transform, opacity;
 }
@@ -62,7 +62,7 @@ body {
   width: 100%; height: 100%;
   object-fit: cover;
   object-position: center;
-  border-radius: 0px;
+  border-radius: 10px;
   transition: transform 0.3s ease;
   will-change: transform, opacity;
 }
@@ -126,7 +126,7 @@ body {
     max-width: 100%;
     max-height: 60vh;
     margin-bottom: 15px;
-    border-radius: 0px;
+    border-radius: 10px;
 }
 
 .modal-content h2 {
