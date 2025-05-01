@@ -9,6 +9,14 @@
         "tags": ["Renders"]
     },
     {
+        "filename": "2025-3-30_3.png",
+        "title": "agent z (Social Media) v4",
+        "description": "The fourth official profile picture to be used for agent z Social Media accounts.",
+        "date": "30 March 2025",
+        "twitter": "https://x.com/agentzofficial"
+        "tags": ["Drawings", "Branding"]
+    },
+    {
         "filename": "2025-3-30_2.png",
         "title": "sad agent z",
         "description": "A quickly drawn depiction of Agent Z crying. It is used\nin 'The Perfect Present'and a variant version is used for the agent z Twitter account.",
@@ -274,6 +282,14 @@
         "tags": ["Renders"]
     },
     {
+        "filename": "2024-3-13_1.png",
+        "title": "agent z (Social Media) v3",
+        "description": "The third official profile picture to be used for agent z Social Media accounts.",
+        "date": "13 March 2024",
+        "twitter": "https://x.com/agentzofficial"
+        "tags": ["Drawings", "Branding"]
+    },
+    {
         "filename": "2024-3-10_1.png",
         "title": "3000 Subscribers",
         "description": "Celebrating the agent z YouTube channel reaching 3000 subscribers.",
@@ -298,6 +314,20 @@
         "tags": ["Renders", "Sneak Peaks"]
     },
     {
+        "filename": "2024-1-12_1.png",
+        "title": "Awkward Raft",
+        "description": "The first full-body drawing made by agent z. It is also the first direct public depiction of the\naffiliate YouTube channel AZ Mapping (the countryball on the left) outside of background references from agent z.",
+        "date": "12 January 2024",
+        "tags": ["Drawings"]
+    },
+    {
+        "variants": ["2024-1-10_1.png", "2024-1-10_2"],
+        "title": "Countryball?!",
+        "description": "The first drawing by agent z. The Poland variant was posted on Twitter, while the other variant\nfeaturing affiliate YouTube channel AZ Mapping was used as a profile picture for agent z Social Media accounts.",
+        "date": "10 January 2024",
+        "tags": ["Drawings", "Branding"]
+    },
+    {
         "filename": "2023-12-31_1.png",
         "title": "2000 Subscribers",
         "description": "Celebrating the agent z YouTube channel reaching 2000 subscribers.",
@@ -315,12 +345,12 @@
         "tags": ["Renders", "Thumbnails"]
     },
     {
-        "filename": "2023-12-3_1.png",
-        "title": "DOORS",
-        "description": "Video Thumbnail",
-        "date": "3 December 2024",
-        "youtube": "https://www.youtube.com/watch?v=L4iqBANtRAE",
-        "tags": ["Renders", "Thumbnails"]
+        "filename": "2023-12-21_1.png",
+        "title": "agent z (Social Media) v1",
+        "description": "The first official profile picture to be used for agent z Social Media accounts.\n It references an old render by the YouTuber 'Poool157'.",
+        "date": "21 December 2023",
+        "twitter": "https://x.com/agentzofficial"
+        "tags": ["Drawings", "Branding"]
     },
     {
         "filename": "2023-12-5_1.png",
@@ -330,6 +360,14 @@
         "youtube": "https://www.youtube.com/post/UgkxkaawatL55IIdwx--UhUDp98dovKm7qcu",
         "twitter": "https://x.com/agentzofficial/status/1731272609705422852",
         "tags": ["Screenshots"]
+    },
+    {
+        "filename": "2023-12-3_1.png",
+        "title": "DOORS",
+        "description": "Video Thumbnail",
+        "date": "3 December 2024",
+        "youtube": "https://www.youtube.com/watch?v=L4iqBANtRAE",
+        "tags": ["Renders", "Thumbnails"]
     },
     {
         "filename": "2023-12-2_1.png",
