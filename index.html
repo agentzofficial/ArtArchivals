@@ -220,28 +220,28 @@
         }
       });
   
-    function schedulePreload() {
-      const preloadList = itemNodes
-        .map((node, idx) => matchesFilter(artData[idx].tags || []) ? artData[idx] : null)
-        .filter(Boolean);
-    
-      let index = 0;
-      function loadNextChunk() {
-        const chunkSize = 5; // Load 5 images at a time
-        for (let i = 0; i < chunkSize && index < preloadList.length; i++, index++) {
-          const item = preloadList[index];
-          (item.variants || [item.filename]).forEach(fn => {
-            const img = new Image();
-            img.src   = `images/${fn}`;
-          });
+      function schedulePreload() {
+        const preloadList = itemNodes
+          .map((node, idx) => matchesFilter(artData[idx].tags || []) ? artData[idx] : null)
+          .filter(Boolean);
+      
+        let index = 0;
+        function loadNextChunk() {
+          const chunkSize = 5;
+          for (let i = 0; i < chunkSize && index < preloadList.length; i++, index++) {
+            const item = preloadList[index];
+            (item.variants || [item.filename]).forEach(fn => {
+              const img = new Image();
+              img.src   = `images/${fn}`;
+            });
+          }
+          if (index < preloadList.length) {
+            setTimeout(loadNextChunk, 200);
+          }
         }
-        if (index < preloadList.length) {
-          requestIdleCallback(loadNextChunk, { timeout: 500 });
-        }
+      
+        loadNextChunk();
       }
-    
-      requestIdleCallback(loadNextChunk, { timeout: 500 });
-    }
   </script>
   <script>
     const maxBg = 7;
