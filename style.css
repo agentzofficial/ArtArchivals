@@ -236,6 +236,16 @@ body {
   color: black;
 }
 
+.variant-icon {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 28px; /* Adjust this if needed */
+  height: 28px;
+  z-index: 2;
+  pointer-events: none;
+}
+
 /* FILTER BUTTONS */
 #filter-bar {
   display: flex;
