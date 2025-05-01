@@ -109,12 +109,20 @@
         div.className = 'art-item';
         div.innerHTML = `
           <div class="image-container">
-            <img src="images/${thumb}" alt="${item.title}" style="object-position:${item.position||'center'};">
-            ${hasVariants
-              ? '<img class="variant-icon" src="serverImages/variant-icon.png" alt="Has Variants">'
-              : ''
+            <img 
+              class="thumb" 
+              src="images/${thumb}" 
+              alt="${item.title.replace(/"/g,'&quot;')}"
+              style="object-position:${item.position||'center'};"
+            >
+            ${hasVariants 
+               ? '<img class="variant-icon" src="serverImages/variant-icon.png" alt="Has Variants">'
+               : ''
             }
-            <div class="overlay">…</div>
+            <div class="overlay">
+              <h2>${item.title.replace(/</g,'&lt;')}</h2>
+              <p class="date">${item.date||''}</p>
+            </div>
           </div>
         `;
         div.addEventListener('click', ()=> showModal(idx, 0));
