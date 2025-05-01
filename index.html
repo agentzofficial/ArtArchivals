@@ -46,7 +46,20 @@
         includeTags  = new Set(),
         excludeTags  = new Set();
   
-    const TAG_ORDER = [ /* … */ ];
+    const TAG_ORDER = [
+      "Renders", "Drawings", "Screenshots",
+      "Thumbnails", "Sneak Peaks", "Specials", "Branding"
+    ];
+  
+    function matchesFilter(tags = []) {
+      for (let t of excludeTags) if (tags.includes(t)) return false;
+      if (includeTags.size) {
+        for (let t of includeTags) if (tags.includes(t)) return true;
+        return false;
+      }
+      return true;
+    }
+  
     const filterBar = document.getElementById('filter-bar');
     const gallery   = document.getElementById('gallery');
     const modal     = document.getElementById('modal');
@@ -58,8 +71,6 @@
     const vbEl      = document.querySelector('.variant-buttons');
     const navHint   = document.querySelector('.navigation-hint');
     const closeBtn  = document.querySelector('.close');
-  
-    // … your TAG_ORDER.forEach(...) and matchesFilter() here …
   
     let itemNodes = [];
     function buildGallery() {
@@ -90,7 +101,7 @@
         return div;
       });
     }
-
+  
     let pendingRender = false;
     function renderGallery() {
       if (pendingRender) return;
@@ -108,14 +119,12 @@
       if (!item) return;
       const variants = item.variants || [item.filename];
   
-      // Show selected variant
       modalImg.src        = `images/${variants[variantIndex]}`;
       modalImg.alt        = item.title;
       modalTitle.textContent = item.title;
       modalDesc.textContent  = item.description || '';
       modalDate.textContent  = item.date || '';
   
-      // Preload the other variants
       variants
         .filter((_, i) => i !== variantIndex)
         .forEach(fn => {
@@ -123,7 +132,6 @@
           img.src   = `images/${fn}`;
         });
   
-      // Build the variant buttons
       vbEl.innerHTML = '';
       if (variants.length > 1) {
         variants.forEach((_, i) => {
@@ -167,14 +175,57 @@
       }
     });
   
-    // Fetch & initialize
+    TAG_ORDER.forEach((tag, i) => {
+      const btn = document.createElement('button');
+      btn.textContent   = tag;
+      btn.className     = 'filter-btn neutral';
+      btn.dataset.tag   = tag;
+      btn.addEventListener('click', () => {
+        if (btn.classList.contains('neutral')) {
+          btn.className = 'filter-btn include';
+          includeTags.add(tag);
+        }
+        else if (btn.classList.contains('include')) {
+          btn.className = 'filter-btn exclude';
+          includeTags.delete(tag);
+          excludeTags.add(tag);
+        }
+        else {
+          btn.className = 'filter-btn neutral';
+          excludeTags.delete(tag);
+        }
+        renderGallery();
+      });
+      filterBar.appendChild(btn);
+      if (i === 2) {
+        const divider = document.createElement('span');
+        divider.textContent = '|';
+        divider.className   = 'divider';
+        filterBar.appendChild(divider);
+      }
+    });
+  
     fetch('data.json')
       .then(r => r.json())
       .then(data => {
         artData = data;
         buildGallery();
         renderGallery();
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(preloadAllImages, { timeout: 2000 });
+        } else {
+          setTimeout(preloadAllImages, 2000);
+        }
       });
+  
+    function preloadAllImages() {
+      artData.forEach(item => {
+        (item.variants || [item.filename]).forEach(fn => {
+          const img = new Image();
+          img.src   = `images/${fn}`;
+        });
+      });
+    }
   </script>
   <script>
     const maxBg = 7;
