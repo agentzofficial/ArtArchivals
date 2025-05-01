@@ -55,7 +55,7 @@ body {
     overflow: hidden;
 }
 
-.image-container img {
+.image-container > img {
     position: absolute;
     top: 0;
     left: 0;
@@ -63,7 +63,7 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    border-radius: 0px;
+    border-radius: 0;
     transition: transform 0.3s ease;
     will-change: transform, opacity;
 }
@@ -240,8 +240,8 @@ body {
   position: absolute;
   top: 6px;
   right: 6px;
-  width: 28px; /* Adjust this if needed */
-  height: 28px;
+  width: 24px;
+  height: 24px;
   z-index: 2;
   pointer-events: none;
 }
