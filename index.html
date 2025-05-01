@@ -46,10 +46,7 @@
         includeTags  = new Set(),
         excludeTags  = new Set();
   
-    const TAG_ORDER = [
-      "Renders","Drawings","Screenshots",
-      "Thumbnails","Sneak Peaks","Specials","Branding"
-    ];
+    const TAG_ORDER = [ /* … */ ];
     const filterBar = document.getElementById('filter-bar');
     const gallery   = document.getElementById('gallery');
     const modal     = document.getElementById('modal');
@@ -61,170 +58,123 @@
     const vbEl      = document.querySelector('.variant-buttons');
     const navHint   = document.querySelector('.navigation-hint');
     const closeBtn  = document.querySelector('.close');
-
-    TAG_ORDER.forEach((tag, i) => {
-      const btn = document.createElement('button');
-      btn.textContent = tag;
-      btn.className   = 'filter-btn neutral';
-      btn.dataset.tag = tag;
-      btn.addEventListener('click', () => {
-        if (btn.classList.contains('neutral')) {
-          btn.className = 'filter-btn include';   includeTags.add(tag);
-        }
-        else if (btn.classList.contains('include')) {
-          btn.className = 'filter-btn exclude';   includeTags.delete(tag); excludeTags.add(tag);
-        }
-        else {
-          btn.className = 'filter-btn neutral';   excludeTags.delete(tag);
-        }
-        renderGallery();
-      });
-      filterBar.appendChild(btn);
-      if (i === 2) {
-        const divider = document.createElement('span');
-        divider.textContent = '|';
-        divider.className   = 'divider';
-        filterBar.appendChild(divider);
-      }
-    });
   
-
-    function matchesFilter(tags=[]) {
-      for (let t of excludeTags) if (tags.includes(t)) return false;
-      if (includeTags.size) {
-        for (let t of includeTags) if (tags.includes(t)) return true;
-        return false;
-      }
-      return true;
-    }
-
+    // … your TAG_ORDER.forEach(...) and matchesFilter() here …
+  
     let itemNodes = [];
     function buildGallery() {
       gallery.innerHTML = '';
       itemNodes = artData.map((item, idx) => {
         const thumb       = item.variants?.[0] || item.filename;
-        const hasVariants = (item.variants?.length > 1);
-  
+        const hasVariants = item.variants?.length > 1;
         const div = document.createElement('div');
         div.className = 'art-item';
         div.innerHTML = `
           <div class="image-container">
-            <img 
-              class="thumb"
-              loading="lazy"
-              src="images/${thumb}"
-              alt="${item.title.replace(/"/g,'&quot;')}"
-              style="object-position:${item.position || 'center'};"
-            >
+            <img class="thumb" loading="lazy"
+                 src="images/${thumb}"
+                 alt="${item.title.replace(/"/g,'&quot;')}"
+                 style="object-position:${item.position||'center'};">
             ${hasVariants
-              ? `<img class="variant-icon" src="serverImages/variant-icon.png" alt="Has Variants">`
-              : ''
-            }
+               ? `<img class="variant-icon"
+                       src="serverImages/variant-icon.png"
+                       alt="Has Variants">`
+               : ''}
             <div class="overlay">
               <h2>${item.title.replace(/</g,'&lt;')}</h2>
-              <p class="date">${item.date || ''}</p>
+              <p class="date">${item.date||''}</p>
             </div>
-          </div>
-        `;
+          </div>`;
         div.addEventListener('click', ()=> showModal(idx, 0));
         gallery.appendChild(div);
         return div;
       });
     }
-    fetch('data.json')
-      .then(r => r.json())
-      .then(data => {
-        artData = data;
-        artData.forEach(item => {
-          (item.variants || [item.filename]).forEach(name => {
-            const img = new Image();
-            img.src = `images/${name}`;
-          });
-        });
 
-        buildGallery(); 
-        renderGallery();  
-      });
-  
-    function renderGallery(){
-      itemNodes.forEach((div, idx) => {
-        const tags = artData[idx].tags||[];
-        div.style.display = matchesFilter(tags) ? '' : 'none';
+    let pendingRender = false;
+    function renderGallery() {
+      if (pendingRender) return;
+      pendingRender = true;
+      requestAnimationFrame(() => {
+        itemNodes.forEach((div, idx) => {
+          div.style.display = matchesFilter(artData[idx].tags || []) ? '' : 'none';
+        });
+        pendingRender = false;
       });
     }
-    
   
-    function showModal(index, variantIndex=0) {
-      const item = artData[index];
+    function showModal(index, variantIndex = 0) {
+      const item     = artData[index];
       if (!item) return;
+      const variants = item.variants || [item.filename];
   
-      const variants = item.variants||[item.filename];
-      modalImg.src = `images/${variants[variantIndex]}`;
-      modalImg.alt = item.title;
+      // Show selected variant
+      modalImg.src        = `images/${variants[variantIndex]}`;
+      modalImg.alt        = item.title;
       modalTitle.textContent = item.title;
-      modalDesc.textContent = item.description||'';
-      modalDate.textContent = item.date||'';
+      modalDesc.textContent  = item.description || '';
+      modalDate.textContent  = item.date || '';
   
-      iconsEl.innerHTML = '';
-      if (item.youtube)  iconsEl.innerHTML += `
-        <a href="${item.youtube}" target="_blank" class="source-icon">
-           <img src="serverImages/youtube-icon.png" alt="YouTube">
-         </a>`;
-      if (item.twitter)  iconsEl.innerHTML += `
-        <a href="${item.twitter}" target="_blank" class="source-icon">
-           <img src="serverImages/twitter-icon.png" alt="Twitter">
-         </a>`;
-      if (item.bluesky)  iconsEl.innerHTML += `
-        <a href="${item.bluesky}" target="_blank" class="source-icon">
-           <img src="serverImages/bluesky-icon.png" alt="Bluesky">
-         </a>`;
+      // Preload the other variants
+      variants
+        .filter((_, i) => i !== variantIndex)
+        .forEach(fn => {
+          const img = new Image();
+          img.src   = `images/${fn}`;
+        });
   
+      // Build the variant buttons
       vbEl.innerHTML = '';
-      if (variants.length>1) {
-        variants.forEach((_,i)=>{
+      if (variants.length > 1) {
+        variants.forEach((_, i) => {
           const b = document.createElement('button');
-          b.textContent = i+1;
-          b.className   = 'variant-btn'+(i===variantIndex?' active':'');
-          b.addEventListener('click', e=>{
+          b.textContent = i + 1;
+          b.className   = 'variant-btn' + (i === variantIndex ? ' active' : '');
+          b.addEventListener('click', e => {
             e.stopPropagation();
-            showModal(index,i);
+            showModal(index, i);
           });
           vbEl.appendChild(b);
         });
       }
   
-      modal.style.display = 'flex';
+      iconsEl.innerHTML = '';
+      if (item.youtube) iconsEl.innerHTML += `
+        <a href="${item.youtube}" target="_blank" class="source-icon">
+          <img src="serverImages/youtube-icon.png" alt="YouTube">
+        </a>`;
+      if (item.twitter) iconsEl.innerHTML += `
+        <a href="${item.twitter}" target="_blank" class="source-icon">
+          <img src="serverImages/twitter-icon.png" alt="Twitter">
+        </a>`;
+      if (item.bluesky) iconsEl.innerHTML += `
+        <a href="${item.bluesky}" target="_blank" class="source-icon">
+          <img src="serverImages/bluesky-icon.png" alt="Bluesky">
+        </a>`;
+  
+      modal.style.display   = 'flex';
       navHint.style.display = 'block';
-      currentIndex = index;
+      currentIndex          = index;
     }
-
-    closeBtn.onclick = ()=>{ modal.style.display='none'; navHint.style.display='none'; };
-    window.onclick = e=>{ if(e.target===modal) closeBtn.onclick(); };
-    document.addEventListener('keydown', e=>{
-      if (modal.style.display==='flex') {
-        if (e.key==='ArrowLeft'  && currentIndex>0)
-          showModal(--currentIndex,0);
-        if (e.key==='ArrowRight' && currentIndex<artData.length-1)
-          showModal(++currentIndex,0);
-        if (e.key==='Escape')
-          closeBtn.onclick();
+  
+    closeBtn.onclick = () => { modal.style.display = 'none'; navHint.style.display = 'none'; };
+    window.onclick   = e => { if (e.target === modal) closeBtn.onclick(); };
+    document.addEventListener('keydown', e => {
+      if (modal.style.display === 'flex') {
+        if (e.key === 'ArrowLeft'  && currentIndex > 0)              showModal(--currentIndex, 0);
+        if (e.key === 'ArrowRight' && currentIndex < artData.length-1) showModal(++currentIndex, 0);
+        if (e.key === 'Escape')                                       closeBtn.onclick();
       }
-      function showModal(index, variantIndex = 0) {
-        const item     = artData[index];
-        const variants = item.variants || [item.filename];
-    
-        // display the chosen variant
-        modalImg.src = `images/${variants[variantIndex]}`;
-        modalImg.alt = item.title;
-        // … text & icons …
-    
-        // — preload the other variants in the background —
-        variants
-          .filter((_, i) => i !== variantIndex)
-          .forEach(fn => {
-            const img = new Image();
-            img.src   = `images/${fn}`;
-          });
+    });
+  
+    // Fetch & initialize
+    fetch('data.json')
+      .then(r => r.json())
+      .then(data => {
+        artData = data;
+        buildGallery();
+        renderGallery();
+      });
   </script>
   <script>
     const maxBg = 7;
