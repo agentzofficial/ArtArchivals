@@ -134,9 +134,6 @@
       .then(r => r.json())
       .then(data => {
         artData = data;
-        if (document.visibilityState === 'visible') {
-          document.dispatchEvent(new Event('visibilitychange'));
-        }
         artData.forEach(item => {
           (item.variants || [item.filename]).forEach(name => {
             const img = new Image();
@@ -212,6 +209,28 @@
           closeBtn.onclick();
       }
     });
+    function chunkedPreload(urls, batchSize = 20, delay = 50) {
+      let i = 0;
+      function loadBatch() {
+        const end = Math.min(i + batchSize, urls.length);
+        for (; i < end; i++) {
+          const img = new Image();
+          img.src = urls[i];
+        }
+        if (i < urls.length) {
+          setTimeout(loadBatch, delay);
+        }
+      }
+      loadBatch();
+    }
+    
+    window.addEventListener('focus', () => {
+      // gather all image URLs once
+      const urls = artData.flatMap(item =>
+        (item.variants || [item.filename]).map(fn => `images/${fn}`)
+      );
+      chunkedPreload(urls);
+    }, { once: true });
   </script>
   <script>
     const maxBg = 7;
