@@ -70,6 +70,7 @@
     const iconsEl   = document.querySelector('.modal-icons');
     const vbEl      = document.querySelector('.variant-buttons');
     const navHint   = document.querySelector('.navigation-hint');
+    const loadHint  = document.querySelector('.loading-hint');
     const closeBtn  = document.querySelector('.close');
   
     let itemNodes = [];
@@ -173,11 +174,16 @@
         </a>`;
   
       modal.style.display   = 'flex';
-      navHint.style.display = 'block';
-      currentIndex          = index;
+      loadHint.style.display = 'block';
+      navHint.style.display  = 'block';
+      currentIndex           = index;
     }
   
-    closeBtn.onclick = () => { modal.style.display = 'none'; navHint.style.display = 'none'; };
+    closeBtn.onclick = () => {
+      modal.style.display    = 'none';
+      loadHint.style.display = 'none';
+      navHint.style.display  = 'none';
+    };
     window.onclick   = e => { if (e.target === modal) closeBtn.onclick(); };
     document.addEventListener('keydown', e => {
       if (modal.style.display === 'flex') {
