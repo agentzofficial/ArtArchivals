@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>agent z Art Archivals</title>
-  <!-- your stylesheet -->
   <link rel="stylesheet" href="style.css">
 
   <!-- favicons -->
@@ -32,6 +31,7 @@
       <p id="modal-date" class="modal-date"></p>
       <div class="modal-icons"></div>
     </div>
+    <p class="loading-hint">Images may take some time to load.</p>
     <p class="navigation-hint">Use ← and → arrow keys to navigate</p>
   </div>
 
@@ -55,17 +55,18 @@
       return true;
     }
 
-    const filterBar = document.getElementById('filter-bar');
-    const gallery   = document.getElementById('gallery');
-    const modal     = document.getElementById('modal');
-    const modalImg  = document.getElementById('modal-img');
-    const modalTitle= document.getElementById('modal-title');
-    const modalDesc = document.getElementById('modal-description');
-    const modalDate = document.getElementById('modal-date');
-    const iconsEl   = document.querySelector('.modal-icons');
-    const vbEl      = document.querySelector('.variant-buttons');
-    const navHint   = document.querySelector('.navigation-hint');
-    const closeBtn  = document.querySelector('.close');
+    const filterBar = document.getElementById('filter-bar'),
+          gallery   = document.getElementById('gallery'),
+          modal     = document.getElementById('modal'),
+          modalImg  = document.getElementById('modal-img'),
+          modalTitle= document.getElementById('modal-title'),
+          modalDesc = document.getElementById('modal-description'),
+          modalDate = document.getElementById('modal-date'),
+          iconsEl   = document.querySelector('.modal-icons'),
+          vbEl      = document.querySelector('.variant-buttons'),
+          navHint   = document.querySelector('.navigation-hint'),
+          loadHint  = document.querySelector('.loading-hint'),
+          closeBtn  = document.querySelector('.close');
 
     let itemNodes = [];
     function buildGallery() {
@@ -97,15 +98,9 @@
       });
     }
 
-    let pendingRender = false;
     function renderGallery() {
-      if (pendingRender) return;
-      pendingRender = true;
-      requestAnimationFrame(() => {
-        itemNodes.forEach((div, idx) => {
-          div.style.display = matchesFilter(artData[idx].tags || []) ? '' : 'none';
-        });
-        pendingRender = false;
+      itemNodes.forEach((div, idx) => {
+        div.style.display = matchesFilter(artData[idx].tags || []) ? '' : 'none';
       });
     }
 
@@ -113,8 +108,6 @@
       const item     = artData[index];
       if (!item) return;
       const variants = item.variants || [item.filename];
-
-      // immediately load the full-res
       modalImg.src        = `images/${variants[variantIndex]}`;
       modalImg.alt        = item.title;
       modalTitle.textContent = item.title;
@@ -125,12 +118,12 @@
       [ -2, -1, 1, 2 ].forEach(offset => {
         const ni = index + offset;
         if (ni >= 0 && ni < artData.length) {
-          const fn  = artData[ni].variants?.[0] || artData[ni].filename;
+          const fn = artData[ni].variants?.[0] || artData[ni].filename;
           new Image().src = `images/${fn}`;
         }
       });
 
-      // variant buttons
+      // variants
       vbEl.innerHTML = '';
       if (variants.length > 1) {
         variants.forEach((_, i) => {
@@ -161,12 +154,17 @@
         </a>`;
 
       modal.style.display   = 'flex';
-      navHint.style.display = 'block';
-      currentIndex          = index;
+      loadHint.style.display = 'block';
+      navHint.style.display  = 'block';
+      currentIndex           = index;
     }
 
-    closeBtn.onclick = () => { modal.style.display = 'none'; navHint.style.display = 'none'; };
-    window.onclick   = e => { if (e.target === modal) closeBtn.onclick(); };
+    closeBtn.onclick = () => {
+      modal.style.display    = 'none';
+      loadHint.style.display = 'none';
+      navHint.style.display  = 'none';
+    };
+    window.onclick = e => { if (e.target === modal) closeBtn.onclick(); };
     document.addEventListener('keydown', e => {
       if (modal.style.display === 'flex') {
         if (e.key === 'ArrowLeft'  && currentIndex > 0)              showModal(--currentIndex, 0);
@@ -211,6 +209,8 @@
         renderGallery();
       });
   </script>
+
+  <!-- random background loader -->
   <script>
     const maxBg = 7;
     const bg    = Math.floor(Math.random() * maxBg) + 1;
