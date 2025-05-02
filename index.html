@@ -129,10 +129,13 @@
       const hiRes = new Image();
       hiRes.src   = `images/${variants[variantIndex]}`;
       hiRes.onload = () => {
-        wrapper.style.aspectRatio = 
-          `${hiRes.naturalWidth} / ${hiRes.naturalHeight}`;
-        imgEl.src = hiRes.src;
-      };
+      // 1) set the wrapper's CSS aspect-ratio
+      wrapper.style.aspectRatio = `${hiRes.naturalWidth} / ${hiRes.naturalHeight}`;
+      // 2) swap in the hi-res image
+      imgEl.src = hiRes.src;
+      // hide the loading hint
+      loadHint.style.display = 'none';
+    };
     
 
       document.getElementById('modal-title').textContent = item.title;
