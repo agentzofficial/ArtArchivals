@@ -185,18 +185,26 @@ body {
     opacity: 1;
 }
 
+.loading-hint,
 .navigation-hint {
   position: absolute;
-  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   color: #fff;
   font-size: 14px;
   pointer-events: none;
   user-select: none;
-  display: none; 
+  display: none;    /* we only un-hide in JS when modal opens */
   z-index: 1001;
   white-space: nowrap;
+}
+
+.loading-hint {
+  bottom: 48px;
+}
+
+.navigation-hint {
+  bottom: 20px;  /* 20px up from viewport bottom */
 }
 
 /* VARIANT BUTTONS */
