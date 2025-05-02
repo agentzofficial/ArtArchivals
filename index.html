@@ -154,16 +154,18 @@
       // — variant buttons —
       const vbEl = document.querySelector('.variant-buttons');
       vbEl.innerHTML = '';
-      variants.forEach((_, i) => {
-        const b = document.createElement('button');
-        b.textContent = i + 1;
-        b.className   = 'variant-btn' + (i === variantIndex ? ' active' : '');
-        b.addEventListener('click', e => {
-          e.stopPropagation();
-          showModal(index, i);
+      if (variants.length > 1) {
+        variants.forEach((_, i) => {
+          const b = document.createElement('button');
+          b.textContent = i + 1;
+          b.className   = 'variant-btn' + (i === variantIndex ? ' active' : '');
+          b.addEventListener('click', e => {
+            e.stopPropagation();
+            showModal(index, i);
+          });
+          vbEl.appendChild(b);
         });
-        vbEl.appendChild(b);
-      });
+      }
     
       // — social icons —
       const iconsEl = document.querySelector('.modal-icons');
