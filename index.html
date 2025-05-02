@@ -5,10 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>agent z Art Archivals</title>
   <link rel="stylesheet" href="style.css">
-
-  <link rel="icon" type="image/png" sizes="16x16" href="serverImages/fovicon-16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="serverImages/fovicon-32.png">
-  <link rel="shortcut icon" href="serverImages/fovicon.ico">
 </head>
 <body>
   <img id="fixed-bg" alt="Background" />
@@ -21,22 +17,15 @@
   <div id="modal" class="modal">
     <span class="close">&times;</span>
     <div class="modal-content">
-  
-      <!-- Image + variant buttons wrapper -->
       <div class="modal-image-wrapper">
         <img id="modal-img" src="" alt="">
         <div class="variant-buttons"></div>
       </div>
-  
-      <!-- Textual details -->
       <h2 id="modal-title"></h2>
       <p id="modal-description"></p>
       <p id="modal-date" class="modal-date"></p>
-  
-      <!-- Social icons -->
-      <div class="modal-icons"></div>  
+      <div class="modal-icons"></div>
     </div>
-    <p class="loading-hint">Images may take some time to load.</p>
     <p class="navigation-hint">Use ← and → arrow keys to navigate</p>
   </div>
 
@@ -45,12 +34,12 @@
         artData      = [],
         includeTags  = new Set(),
         excludeTags  = new Set();
-  
+
     const TAG_ORDER = [
       "Renders", "Drawings", "Screenshots",
       "Thumbnails", "Sneak Peaks", "Specials", "Branding"
     ];
-  
+
     function matchesFilter(tags = []) {
       for (let t of excludeTags) if (tags.includes(t)) return false;
       if (includeTags.size) {
@@ -59,7 +48,7 @@
       }
       return true;
     }
-  
+
     const filterBar = document.getElementById('filter-bar');
     const gallery   = document.getElementById('gallery');
     const modal     = document.getElementById('modal');
@@ -70,9 +59,8 @@
     const iconsEl   = document.querySelector('.modal-icons');
     const vbEl      = document.querySelector('.variant-buttons');
     const navHint   = document.querySelector('.navigation-hint');
-    const loadHint  = document.querySelector('.loading-hint');
     const closeBtn  = document.querySelector('.close');
-  
+
     let itemNodes = [];
     function buildGallery() {
       gallery.innerHTML = '';
@@ -102,7 +90,7 @@
         return div;
       });
     }
-  
+
     let pendingRender = false;
     function renderGallery() {
       if (pendingRender) return;
@@ -114,67 +102,29 @@
         pendingRender = false;
       });
     }
-  
+
     function showModal(index, variantIndex = 0) {
       const item     = artData[index];
       if (!item) return;
       const variants = item.variants || [item.filename];
-    
-      const thumbFn  = variants[variantIndex].replace(/\.[^/.]+$/, '.jpg');
-      const thumbSrc = `thumbnails/${thumbFn}`;
-      const hiResSrc = `images/${variants[variantIndex]}`;
-    
-      const wrapper = document.querySelector('.modal-image-wrapper');
-      const imgEl   = document.getElementById('modal-img');
-    
-      // First: probe the thumb to lock box size
-      const thumbProbe = new Image();
-      thumbProbe.src = thumbSrc;
-      thumbProbe.onload = () => {
-        // Natural dimensions
-        let w = thumbProbe.naturalWidth;
-        let h = thumbProbe.naturalHeight;
-        const ratio = w / h;
-    
-        // Cap to 90% of viewport
-        const maxW = window.innerWidth * 0.9;
-        const maxH = window.innerHeight * 0.9;
-        if (w > maxW) { w = maxW; h = w / ratio; }
-        if (h > maxH) { h = maxH; w = h * ratio; }
-    
-        // Lock the wrapper EXACTLY to that size
-        wrapper.style.width  = `${w}px`;
-        wrapper.style.height = `${h}px`;
-    
-        // Show the (blurry) thumbnail
-        imgEl.src = thumbSrc;
-        imgEl.alt = item.title;
-    
-        // Now load hi-res
-        const hiResProbe = new Image();
-        hiResProbe.src = hiResSrc;
-        hiResProbe.onload = () => {
-          imgEl.src = hiResSrc;
-          loadHint.style.display = 'none';
-        };
-      };
-    
-      // Textual details
+
+      // immediately load the full-res
+      modalImg.src        = `images/${variants[variantIndex]}`;
+      modalImg.alt        = item.title;
       modalTitle.textContent = item.title;
       modalDesc.textContent  = item.description || '';
       modalDate.textContent  = item.date || '';
-    
-      // Preload neighbors (hi-res)
-      [ -2, -1, 1, 2 ].forEach(o => {
-        const ni = index + o;
+
+      // preload neighbors
+      [ -2, -1, 1, 2 ].forEach(offset => {
+        const ni = index + offset;
         if (ni >= 0 && ni < artData.length) {
-          new Image().src = `images/${
-            (artData[ni].variants?.[0] || artData[ni].filename)
-          }`;
+          const fn  = artData[ni].variants?.[0] || artData[ni].filename;
+          new Image().src = `images/${fn}`;
         }
       });
-    
-      // Variant buttons (only if more than one)
+
+      // variant buttons
       vbEl.innerHTML = '';
       if (variants.length > 1) {
         variants.forEach((_, i) => {
@@ -188,6 +138,7 @@
           vbEl.appendChild(b);
         });
       }
+
       // social icons
       iconsEl.innerHTML = '';
       if (item.youtube) iconsEl.innerHTML += `
@@ -202,19 +153,13 @@
         <a href="${item.bluesky}" target="_blank" class="source-icon">
           <img src="serverImages/bluesky-icon.png" alt="Bluesky">
         </a>`;
-  
-      // show modal + hints
-      modal.style.display    = 'flex';
-      loadHint.style.display = 'block';
-      navHint.style.display  = 'block';
-      currentIndex           = index;
+
+      modal.style.display   = 'flex';
+      navHint.style.display = 'block';
+      currentIndex          = index;
     }
-  
-    closeBtn.onclick = () => {
-      modal.style.display    = 'none';
-      loadHint.style.display = 'none';
-      navHint.style.display  = 'none';
-    };
+
+    closeBtn.onclick = () => { modal.style.display = 'none'; navHint.style.display = 'none'; };
     window.onclick   = e => { if (e.target === modal) closeBtn.onclick(); };
     document.addEventListener('keydown', e => {
       if (modal.style.display === 'flex') {
@@ -223,23 +168,21 @@
         if (e.key === 'Escape')                                       closeBtn.onclick();
       }
     });
-  
+
     TAG_ORDER.forEach((tag, i) => {
       const btn = document.createElement('button');
-      btn.textContent   = tag;
-      btn.className     = 'filter-btn neutral';
-      btn.dataset.tag   = tag;
+      btn.textContent = tag;
+      btn.className   = 'filter-btn neutral';
+      btn.dataset.tag = tag;
       btn.addEventListener('click', () => {
         if (btn.classList.contains('neutral')) {
           btn.className = 'filter-btn include';
           includeTags.add(tag);
-        }
-        else if (btn.classList.contains('include')) {
+        } else if (btn.classList.contains('include')) {
           btn.className = 'filter-btn exclude';
           includeTags.delete(tag);
           excludeTags.add(tag);
-        }
-        else {
+        } else {
           btn.className = 'filter-btn neutral';
           excludeTags.delete(tag);
         }
@@ -253,49 +196,14 @@
         filterBar.appendChild(divider);
       }
     });
-  
+
     fetch('data.json')
       .then(r => r.json())
       .then(data => {
         artData = data;
         buildGallery();
         renderGallery();
-        if (document.visibilityState === 'visible') {
-          schedulePreload();
-        } else {
-          document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible') schedulePreload();
-          }, { once: true });
-        }
       });
-  
-      function schedulePreload() {
-        const preloadList = itemNodes
-          .map((node, idx) => matchesFilter(artData[idx].tags || []) ? artData[idx] : null)
-          .filter(Boolean);
-      
-        let index = 0;
-        function loadNextChunk() {
-          const chunkSize = 5;
-          for (let i = 0; i < chunkSize && index < preloadList.length; i++, index++) {
-            const item = preloadList[index];
-            (item.variants || [item.filename]).forEach(fn => {
-              const img = new Image();
-              img.src   = `images/${fn}`;
-            });
-          }
-          if (index < preloadList.length) {
-            setTimeout(loadNextChunk, 200);
-          }
-        }
-      
-        loadNextChunk();
-      }
-  </script>
-  <script>
-    const maxBg = 7;
-    const bg    = Math.floor(Math.random()*maxBg)+1;
-    document.getElementById('fixed-bg').src = `backgrounds/bg${bg}.png`;
   </script>
 </body>
 </html>
