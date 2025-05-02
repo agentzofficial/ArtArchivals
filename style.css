@@ -186,13 +186,17 @@ body {
 }
 
 .navigation-hint {
-  margin: 16px 0;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   color: #fff;
   font-size: 14px;
   pointer-events: none;
   user-select: none;
-  display: none;      
-  z-index: 1001; 
+  display: none; 
+  z-index: 1001;
+  white-space: nowrap;
 }
 
 /* VARIANT BUTTONS */
