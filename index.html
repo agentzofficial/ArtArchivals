@@ -121,14 +121,23 @@
       if (!item) return;
       const variants = item.variants || [item.filename];
     
-      // 1) display the chosen variant
-      modalImg.src        = `images/${variants[variantIndex]}`;
-      modalImg.alt        = item.title;
+      // Show "please wait" placeholder first
+      modalImg.src = 'serverImages/pleasewait.png';
+      modalImg.alt = item.title;
+    
+      // Setup text details immediately
       modalTitle.textContent = item.title;
       modalDesc.textContent  = item.description || '';
       modalDate.textContent  = item.date || '';
     
-      // — NEW: preload the next/prev two items’ first variants —
+      // Load actual image in the background, then swap it in
+      const actualSrc = `images/${variants[variantIndex]}`;
+      const actualImg = new Image();
+      actualImg.onload = () => {
+        modalImg.src = actualSrc;
+      };
+      actualImg.src = actualSrc;
+    
       [ -2, -1, 1, 2 ].forEach(offset => {
         const ni = index + offset;
         if (ni >= 0 && ni < artData.length) {
