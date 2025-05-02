@@ -119,50 +119,62 @@
       const item     = artData[index];
       if (!item) return;
       const variants = item.variants || [item.filename];
+      const thumbFn  = variants[variantIndex].replace(/\.[^/.]+$/, '.jpg');
+      const wrapper  = document.querySelector('.modal-image-wrapper');
+      const imgEl    = document.getElementById('modal-img');
 
-      const thumbFn = (variants[variantIndex].replace(/\.[^/.]+$/, '.jpg'));
-      modalImg.src = `thumbnails/${thumbFn}`;
+      imgEl.src = `thumbnails/${thumbFn}`;
+      imgEl.alt = item.title;
 
       const hiRes = new Image();
       hiRes.src   = `images/${variants[variantIndex]}`;
       hiRes.onload = () => {
-        modalImg.src = hiRes.src;
+        wrapper.style.aspectRatio = 
+          `${hiRes.naturalWidth} / ${hiRes.naturalHeight}`;
+        imgEl.src = hiRes.src;
       };
-      modalImg.alt        = item.title;
-      modalTitle.textContent = item.title;
-      modalDesc.textContent  = item.description || '';
-      modalDate.textContent  = item.date || '';
     
+
+      document.getElementById('modal-title').textContent = item.title;
+      document.getElementById('modal-description').textContent = item.description || '';
+      document.getElementById('modal-date').textContent = item.date || '';
+    
+      // — preload neighbor images —
       [ -2, -1, 1, 2 ].forEach(offset => {
         const ni = index + offset;
         if (ni >= 0 && ni < artData.length) {
-          const neighbor = artData[ni];
-          const fn       = (neighbor.variants?.[0] || neighbor.filename);
-          const img      = new Image();
-          img.src        = `images/${fn}`;
+          const fn  = (artData[ni].variants?.[0] || artData[ni].filename);
+          new Image().src = `images/${fn}`;
         }
       });
-  
-      variants
-        .filter((_, i) => i !== variantIndex)
-        .forEach(fn => {
-          const img = new Image();
-          img.src   = `images/${fn}`;
-        });
-  
+    
+      // — variant buttons —
+      const vbEl = document.querySelector('.variant-buttons');
       vbEl.innerHTML = '';
-      if (variants.length > 1) {
-        variants.forEach((_, i) => {
-          const b = document.createElement('button');
-          b.textContent = i + 1;
-          b.className   = 'variant-btn' + (i === variantIndex ? ' active' : '');
-          b.addEventListener('click', e => {
-            e.stopPropagation();
-            showModal(index, i);
-          });
-          vbEl.appendChild(b);
+      variants.forEach((_, i) => {
+        const b = document.createElement('button');
+        b.textContent = i + 1;
+        b.className   = 'variant-btn' + (i === variantIndex ? ' active' : '');
+        b.addEventListener('click', e => {
+          e.stopPropagation();
+          showModal(index, i);
         });
-      }
+        vbEl.appendChild(b);
+      });
+    
+      // — social icons —
+      const iconsEl = document.querySelector('.modal-icons');
+      iconsEl.innerHTML = '';
+      if (item.youtube)  iconsEl.innerHTML += /* … */;
+      if (item.twitter)  iconsEl.innerHTML += /* … */;
+      if (item.bluesky)  iconsEl.innerHTML += /* … */;
+    
+      // 4) Finally, show the modal & hints
+      modal.style.display    = 'flex';
+      loadHint.style.display = 'block';
+      navHint.style.display  = 'block';
+      currentIndex           = index;
+    }
   
       iconsEl.innerHTML = '';
       if (item.youtube) iconsEl.innerHTML += `
