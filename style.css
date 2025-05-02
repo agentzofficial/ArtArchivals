@@ -12,6 +12,7 @@ body {
 .bg5 {background-image: url('backgrounds/bg5.png');}
 .bg6 {background-image: url('backgrounds/bg6.png');}
 .bg7 {background-image: url('backgrounds/bg7.png');}
+.bg8 {background-image: url('backgrounds/bg8.png');}
 
 #fixed-bg {
     position: fixed;
