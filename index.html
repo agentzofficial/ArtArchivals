@@ -165,11 +165,6 @@
       // — social icons —
       const iconsEl = document.querySelector('.modal-icons');
       iconsEl.innerHTML = '';
-      if (item.youtube)  iconsEl.innerHTML += /* … */;
-      if (item.twitter)  iconsEl.innerHTML += /* … */;
-      if (item.bluesky)  iconsEl.innerHTML += /* … */;
-  
-      iconsEl.innerHTML = '';
       if (item.youtube) iconsEl.innerHTML += `
         <a href="${item.youtube}" target="_blank" class="source-icon">
           <img src="serverImages/youtube-icon.png" alt="YouTube">
