@@ -120,55 +120,60 @@
       if (!item) return;
       const variants = item.variants || [item.filename];
       const thumbFn  = variants[variantIndex].replace(/\.[^/.]+$/, '.jpg');
-      const wrapper  = document.querySelector('.modal-image-wrapper');
-      const imgEl    = document.getElementById('modal-img');
-
-      imgEl.src = `thumbnails/${thumbFn}`;
-      imgEl.alt = item.title;
-
-      const hiRes = new Image();
-      hiRes.src   = `images/${variants[variantIndex]}`;
-      hiRes.onload = () => {
-      // 1) set the wrapper's CSS aspect-ratio
-      wrapper.style.aspectRatio = `${hiRes.naturalWidth} / ${hiRes.naturalHeight}`;
-      // 2) swap in the hi-res image
-      imgEl.src = hiRes.src;
-      // hide the loading hint
-      loadHint.style.display = 'none';
-    };
-    
-
-      document.getElementById('modal-title').textContent = item.title;
-      document.getElementById('modal-description').textContent = item.description || '';
-      document.getElementById('modal-date').textContent = item.date || '';
-    
-      // — preload neighbor images —
-      [ -2, -1, 1, 2 ].forEach(offset => {
-        const ni = index + offset;
+      const thumbSrc = `thumbnails/${thumbFn}`;
+      const hiResSrc = `images/${variants[variantIndex]}`;
+  
+      const wrapper = document.querySelector('.modal-image-wrapper');
+      const imgEl   = document.getElementById('modal-img');
+  
+      // 1) First, load the thumbnail off‐screen to read its natural dimensions
+      const thumbProbe = new Image();
+      thumbProbe.src = thumbSrc;
+      thumbProbe.onload = () => {
+        // lock wrapper to that exact ratio
+        wrapper.style.aspectRatio = `${thumbProbe.naturalWidth}/${thumbProbe.naturalHeight}`;
+        // now show the thumbnail placeholder
+        imgEl.src = thumbSrc;
+        imgEl.alt = item.title;
+  
+        // 2) then preload the hi‐res
+        const hiResProbe = new Image();
+        hiResProbe.src = hiResSrc;
+        hiResProbe.onload = () => {
+          // swap in the hi-res, same wrapper ratio so box never moves
+          imgEl.src = hiResSrc;
+          // and hide the “loading” hint
+          loadHint.style.display = 'none';
+        };
+      };
+  
+      // metadata/text
+      modalTitle.textContent       = item.title;
+      modalDesc.textContent        = item.description || '';
+      modalDate.textContent        = item.date || '';
+  
+      // preload neighbors in hi-res
+      [ -2, -1, 1, 2 ].forEach(off => {
+        const ni = index + off;
         if (ni >= 0 && ni < artData.length) {
-          const fn  = (artData[ni].variants?.[0] || artData[ni].filename);
-          new Image().src = `images/${fn}`;
+          new Image().src = `images/${ (artData[ni].variants?.[0] || artData[ni].filename) }`;
         }
       });
-    
-      // — variant buttons —
-      const vbEl = document.querySelector('.variant-buttons');
+  
+      // variant buttons
       vbEl.innerHTML = '';
-      if (variants.length > 1) {
-        variants.forEach((_, i) => {
-          const b = document.createElement('button');
-          b.textContent = i + 1;
-          b.className   = 'variant-btn' + (i === variantIndex ? ' active' : '');
-          b.addEventListener('click', e => {
-            e.stopPropagation();
-            showModal(index, i);
-          });
-          vbEl.appendChild(b);
+      variants.forEach((_, i) => {
+        const b = document.createElement('button');
+        b.textContent = i + 1;
+        b.className   = 'variant-btn' + (i === variantIndex ? ' active' : '');
+        b.addEventListener('click', e => {
+          e.stopPropagation();
+          showModal(index, i);
         });
-      }
-    
-      // — social icons —
-      const iconsEl = document.querySelector('.modal-icons');
+        vbEl.appendChild(b);
+      });
+  
+      // social icons
       iconsEl.innerHTML = '';
       if (item.youtube) iconsEl.innerHTML += `
         <a href="${item.youtube}" target="_blank" class="source-icon">
@@ -182,8 +187,9 @@
         <a href="${item.bluesky}" target="_blank" class="source-icon">
           <img src="serverImages/bluesky-icon.png" alt="Bluesky">
         </a>`;
-      
-      modal.style.display   = 'flex';
+  
+      // finally show modal + hints
+      modal.style.display    = 'flex';
       loadHint.style.display = 'block';
       navHint.style.display  = 'block';
       currentIndex           = index;
