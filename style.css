@@ -197,6 +197,7 @@ body {
   display: none;    /* we only un-hide in JS when modal opens */
   z-index: 1001;
   white-space: nowrap;
+  margin: 4px 0;
 }
 
 .loading-hint {
