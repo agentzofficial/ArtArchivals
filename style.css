@@ -186,12 +186,13 @@ body {
 }
 
 .navigation-hint {
-    color: #333;
-    font-size: 14px;
-    text-align: center;
-    margin-top: 20px;
-    user-select: none;
-    display: none;
+  color: #000000;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 20px;
+  pointer-events: none;
+  user-select: none;
+  display: none;
 }
 
 /* VARIANT BUTTONS */
