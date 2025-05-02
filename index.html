@@ -119,43 +119,52 @@
       const item     = artData[index];
       if (!item) return;
       const variants = item.variants || [item.filename];
-  
-      // build paths
+    
       const thumbFn  = variants[variantIndex].replace(/\.[^/.]+$/, '.jpg');
       const thumbSrc = `thumbnails/${thumbFn}`;
       const hiResSrc = `images/${variants[variantIndex]}`;
-  
-      // grab our elements
+    
       const wrapper = document.querySelector('.modal-image-wrapper');
       const imgEl   = document.getElementById('modal-img');
-  
-      // 1) probe thumbnail to fix aspect-ratio
+    
+      // First: probe the thumb to lock box size
       const thumbProbe = new Image();
       thumbProbe.src = thumbSrc;
       thumbProbe.onload = () => {
-        // lock wrapper ratio so box size never changes
-        wrapper.style.aspectRatio = 
-          `${thumbProbe.naturalWidth} / ${thumbProbe.naturalHeight}`;
-  
-        // show the thumbnail immediately
+        // Natural dimensions
+        let w = thumbProbe.naturalWidth;
+        let h = thumbProbe.naturalHeight;
+        const ratio = w / h;
+    
+        // Cap to 90% of viewport
+        const maxW = window.innerWidth * 0.9;
+        const maxH = window.innerHeight * 0.9;
+        if (w > maxW) { w = maxW; h = w / ratio; }
+        if (h > maxH) { h = maxH; w = h * ratio; }
+    
+        // Lock the wrapper EXACTLY to that size
+        wrapper.style.width  = `${w}px`;
+        wrapper.style.height = `${h}px`;
+    
+        // Show the (blurry) thumbnail
         imgEl.src = thumbSrc;
         imgEl.alt = item.title;
-  
-        // 2) now load hi-res and swap in place
+    
+        // Now load hi-res
         const hiResProbe = new Image();
         hiResProbe.src = hiResSrc;
         hiResProbe.onload = () => {
           imgEl.src = hiResSrc;
-          loadHint.style.display = 'none';  // hide “loading…” once hi-res is in
+          loadHint.style.display = 'none';
         };
       };
-  
-      // populate text
+    
+      // Textual details
       modalTitle.textContent = item.title;
       modalDesc.textContent  = item.description || '';
       modalDate.textContent  = item.date || '';
-  
-      // preload neighbors
+    
+      // Preload neighbors (hi-res)
       [ -2, -1, 1, 2 ].forEach(o => {
         const ni = index + o;
         if (ni >= 0 && ni < artData.length) {
@@ -164,8 +173,8 @@
           }`;
         }
       });
-  
-      // variants buttons: only if >1
+    
+      // Variant buttons (only if more than one)
       vbEl.innerHTML = '';
       if (variants.length > 1) {
         variants.forEach((_, i) => {
@@ -179,7 +188,6 @@
           vbEl.appendChild(b);
         });
       }
-  
       // social icons
       iconsEl.innerHTML = '';
       if (item.youtube) iconsEl.innerHTML += `
