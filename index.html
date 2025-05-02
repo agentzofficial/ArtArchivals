@@ -12,13 +12,19 @@
   <link rel="shortcut icon" href="serverImages/fovicon.ico">
 </head>
 <body>
+  <!-- random background -->
   <img id="fixed-bg" alt="Background" />
+
+  <!-- logo -->
   <div style="text-align: center; margin-top: 20px;">
     <img src="serverImages/logo.png" alt="Art Archives Logo" style="max-width: 500px; height: auto;">
   </div>
+
+  <!-- filter bar & gallery -->
   <div id="filter-bar"></div>
   <div class="gallery" id="gallery"></div>
 
+  <!-- modal -->
   <div id="modal" class="modal">
     <span class="close">&times;</span>
     <div class="modal-content">
@@ -36,25 +42,18 @@
   </div>
 
   <script>
+    // state
     let currentIndex = 0,
         artData      = [],
         includeTags  = new Set(),
         excludeTags  = new Set();
 
     const TAG_ORDER = [
-      "Renders", "Drawings", "Screenshots",
-      "Thumbnails", "Sneak Peaks", "Specials", "Branding"
+      "Renders","Drawings","Screenshots",
+      "Thumbnails","Sneak Peaks","Specials","Branding"
     ];
 
-    function matchesFilter(tags = []) {
-      for (let t of excludeTags) if (tags.includes(t)) return false;
-      if (includeTags.size) {
-        for (let t of includeTags) if (tags.includes(t)) return true;
-        return false;
-      }
-      return true;
-    }
-
+    // DOM refs
     const filterBar = document.getElementById('filter-bar'),
           gallery   = document.getElementById('gallery'),
           modal     = document.getElementById('modal'),
@@ -68,87 +67,122 @@
           loadHint  = document.querySelector('.loading-hint'),
           closeBtn  = document.querySelector('.close');
 
+    // filter logic
+    function matchesFilter(tags=[]) {
+      for (let t of excludeTags) if (tags.includes(t)) return false;
+      if (includeTags.size) {
+        for (let t of includeTags) if (tags.includes(t)) return true;
+        return false;
+      }
+      return true;
+    }
+
+    // build filter buttons
+    TAG_ORDER.forEach((tag,i)=>{
+      const btn = document.createElement('button');
+      btn.textContent = tag;
+      btn.className   = 'filter-btn neutral';
+      btn.dataset.tag = tag;
+      btn.addEventListener('click',()=>{
+        if (btn.classList.contains('neutral')) {
+          btn.className='filter-btn include';
+          includeTags.add(tag);
+        } else if (btn.classList.contains('include')) {
+          btn.className='filter-btn exclude';
+          includeTags.delete(tag);
+          excludeTags.add(tag);
+        } else {
+          btn.className='filter-btn neutral';
+          excludeTags.delete(tag);
+        }
+        renderGallery();
+      });
+      filterBar.appendChild(btn);
+      if (i===2) {
+        const d = document.createElement('span');
+        d.textContent='|'; d.className='divider';
+        filterBar.appendChild(d);
+      }
+    });
+
+    // gallery
     let itemNodes = [];
     function buildGallery() {
       gallery.innerHTML = '';
-      itemNodes = artData.map((item, idx) => {
-        const thumb       = item.variants?.[0] || item.filename;
-        const hasVariants = item.variants?.length > 1;
-        const div = document.createElement('div');
-        div.className = 'art-item';
-        div.innerHTML = `
+      itemNodes = artData.map((item,idx)=>{
+        const thumb = item.variants?.[0]||item.filename;
+        const hasV  = item.variants?.length>1;
+        const div   = document.createElement('div');
+        div.className='art-item';
+        div.innerHTML=`
           <div class="image-container">
             <img class="thumb" loading="lazy"
-                 src="thumbnails/${thumb.replace(/\.[^/.]+$/, '.jpg')}"
+                 src="thumbnails/${thumb.replace(/\.[^/.]+$/,'.jpg')}"
                  alt="${item.title.replace(/"/g,'&quot;')}"
                  style="object-position:${item.position||'center'};">
-            ${hasVariants
-               ? `<img class="variant-icon"
-                       src="serverImages/variant-icon.png"
-                       alt="Has Variants">`
-               : ''}
+            ${hasV?`<img class="variant-icon" src="serverImages/variant-icon.png" alt="Has Variants">`:''}
             <div class="overlay">
               <h2>${item.title.replace(/</g,'&lt;')}</h2>
               <p class="date">${item.date||''}</p>
             </div>
           </div>`;
-        div.addEventListener('click', ()=> showModal(idx, 0));
+        div.addEventListener('click',()=>showModal(idx,0));
         gallery.appendChild(div);
         return div;
       });
     }
-
     function renderGallery() {
-      itemNodes.forEach((div, idx) => {
-        div.style.display = matchesFilter(artData[idx].tags || []) ? '' : 'none';
+      itemNodes.forEach((div,idx)=>{
+        div.style.display = matchesFilter( artData[idx].tags||[] )?'' : 'none';
       });
     }
 
-    function showModal(index, variantIndex = 0) {
-      const item     = artData[index];
-      if (!item) return;
-      const variants = item.variants || [item.filename];
-      modalImg.src        = `images/${variants[variantIndex]}`;
-      modalImg.alt        = item.title;
+    // modal
+    function showModal(index,variantIndex=0){
+      const item = artData[index];
+      if(!item)return;
+      const variants = item.variants||[item.filename];
+      modalImg.src = `images/${variants[variantIndex]}`;
+      modalImg.alt = item.title;
       modalTitle.textContent = item.title;
-      modalDesc.textContent  = item.description || '';
-      modalDate.textContent  = item.date || '';
+      modalDesc.textContent  = item.description||'';
+      modalDate.textContent  = item.date||'';
 
       // preload neighbors
-      [ -2, -1, 1, 2 ].forEach(offset => {
-        const ni = index + offset;
-        if (ni >= 0 && ni < artData.length) {
-          const fn = artData[ni].variants?.[0] || artData[ni].filename;
-          new Image().src = `images/${fn}`;
+      [ -2,-1,1,2 ].forEach(off=>{
+        const ni=index+off;
+        if(ni>=0&&ni<artData.length){
+          const fn = artData[ni].variants?.[0]||artData[ni].filename;
+          new Image().src=`images/${fn}`;
         }
       });
 
       // variants
-      vbEl.innerHTML = '';
-      if (variants.length > 1) {
-        variants.forEach((_, i) => {
-          const b = document.createElement('button');
-          b.textContent = i + 1;
-          b.className   = 'variant-btn' + (i === variantIndex ? ' active' : '');
-          b.addEventListener('click', e => {
+      vbEl.innerHTML='';
+      if(variants.length>1){
+        variants.forEach((_,i)=>{
+          const b=document.createElement('button');
+          b.textContent=i+1;
+          b.className='variant-btn'+(i===variantIndex?' active':'');
+          b.addEventListener('click',e=>{
             e.stopPropagation();
-            showModal(index, i);
+            showModal(index,i);
           });
           vbEl.appendChild(b);
         });
       }
 
       // social icons
-      iconsEl.innerHTML = '';
-      if (item.youtube) iconsEl.innerHTML += `
+      iconsEl.innerHTML='';
+      if(item.youtube) iconsEl.innerHTML+=`
         <a href="${item.youtube}" target="_blank" class="source-icon">
           <img src="serverImages/youtube-icon.png" alt="YouTube">
         </a>`;
-      if (item.twitter) iconsEl.innerHTML += `
+      if(item.twitter) iconsEl.innerHTML+=`
         <a href="${item.twitter}" target="_blank" class="source-icon">
           <img src="serverImages/twitter-icon.png" alt="Twitter">
         </a>`;
-      if (item.bluesky) iconsEl.innerHTML += `
+      if(item.bluesky) iconsEl.innerHTML+=`
         <a href="${item.bluesky}" target="_blank" class="source-icon">
           <img src="serverImages/bluesky-icon.png" alt="Bluesky">
         </a>`;
@@ -156,65 +190,35 @@
       modal.style.display   = 'flex';
       loadHint.style.display = 'block';
       navHint.style.display  = 'block';
-      currentIndex           = index;
+      currentIndex = index;
     }
-
-    closeBtn.onclick = () => {
-      modal.style.display    = 'none';
-      loadHint.style.display = 'none';
-      navHint.style.display  = 'none';
+    closeBtn.onclick=()=>{
+      modal.style.display='none';
+      loadHint.style.display='none';
+      navHint.style.display='none';
     };
-    window.onclick = e => { if (e.target === modal) closeBtn.onclick(); };
-    document.addEventListener('keydown', e => {
-      if (modal.style.display === 'flex') {
-        if (e.key === 'ArrowLeft'  && currentIndex > 0)              showModal(--currentIndex, 0);
-        if (e.key === 'ArrowRight' && currentIndex < artData.length-1) showModal(++currentIndex, 0);
-        if (e.key === 'Escape')                                       closeBtn.onclick();
+    window.onclick=e=>{ if(e.target===modal)closeBtn.onclick(); };
+    document.addEventListener('keydown',e=>{
+      if(modal.style.display==='flex'){
+        if(e.key==='ArrowLeft' && currentIndex>0)             showModal(--currentIndex,0);
+        if(e.key==='ArrowRight'&& currentIndex<artData.length-1) showModal(++currentIndex,0);
+        if(e.key==='Escape') closeBtn.onclick();
       }
     });
 
-    TAG_ORDER.forEach((tag, i) => {
-      const btn = document.createElement('button');
-      btn.textContent = tag;
-      btn.className   = 'filter-btn neutral';
-      btn.dataset.tag = tag;
-      btn.addEventListener('click', () => {
-        if (btn.classList.contains('neutral')) {
-          btn.className = 'filter-btn include';
-          includeTags.add(tag);
-        } else if (btn.classList.contains('include')) {
-          btn.className = 'filter-btn exclude';
-          includeTags.delete(tag);
-          excludeTags.add(tag);
-        } else {
-          btn.className = 'filter-btn neutral';
-          excludeTags.delete(tag);
-        }
-        renderGallery();
-      });
-      filterBar.appendChild(btn);
-      if (i === 2) {
-        const divider = document.createElement('span');
-        divider.textContent = '|';
-        divider.className   = 'divider';
-        filterBar.appendChild(divider);
-      }
-    });
-
+    // fetch + build
     fetch('data.json')
-      .then(r => r.json())
-      .then(data => {
-        artData = data;
+      .then(r=>r.json())
+      .then(data=>{
+        artData=data;
         buildGallery();
         renderGallery();
       });
-  </script>
 
-  <!-- random background loader -->
-  <script>
-    const maxBg = 7;
-    const bg    = Math.floor(Math.random() * maxBg) + 1;
-    document.getElementById('fixed-bg').src = `backgrounds/bg${bg}.png`;
+    // random background
+    const maxBg=7;
+    const bg=Math.floor(Math.random()*maxBg)+1;
+    document.getElementById('fixed-bg').src=`backgrounds/bg${bg}.png`;
   </script>
 </body>
 </html>
