@@ -112,14 +112,23 @@ body {
 }
 
 .modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    max-width: 90%;
-    max-height: 90%;
-    overflow: auto;
-    text-align: center;
-    position: relative;
+  /* take up as much space as its children need… */
+  display: inline-block;
+  vertical-align: middle;
+
+  /* …but never exceed the viewport */
+  max-width: 90vw;
+  max-height: 90vh;
+
+  /* styling */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+
+  /* remove the overflow:auto; so it doesn’t force a scrollbar inside */
+  overflow: visible;
 }
 
 .modal-content img {
@@ -187,19 +196,16 @@ body {
 }
 
 .modal-image-wrapper {
-  display: inline-block;     
-  max-width: 90vw;         
-  max-height: 90vh;          
-  margin-bottom: 15px;
-  position: relative;
+  display: block;      /* full width inline-block above */
+  margin-bottom: 12px;
 }
 
 .modal-image-wrapper img#modal-img {
-  display: block;         
-  width: auto;           
-  height: auto;             
-  max-width: 100%;            
-  max-height: 100%;           
+  display: block;
+  max-width: 100%;
+  max-height: 60vh;    /* or whatever your original cap was */
+  width: auto;
+  height: auto;
   border-radius: 10px;
 }
 
