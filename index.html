@@ -119,59 +119,66 @@
       const item     = artData[index];
       if (!item) return;
       const variants = item.variants || [item.filename];
+  
+      // build paths
       const thumbFn  = variants[variantIndex].replace(/\.[^/.]+$/, '.jpg');
       const thumbSrc = `thumbnails/${thumbFn}`;
       const hiResSrc = `images/${variants[variantIndex]}`;
   
+      // grab our elements
       const wrapper = document.querySelector('.modal-image-wrapper');
       const imgEl   = document.getElementById('modal-img');
   
-      // 1) First, load the thumbnail off‐screen to read its natural dimensions
+      // 1) probe thumbnail to fix aspect-ratio
       const thumbProbe = new Image();
       thumbProbe.src = thumbSrc;
       thumbProbe.onload = () => {
-        // lock wrapper to that exact ratio
-        wrapper.style.aspectRatio = `${thumbProbe.naturalWidth}/${thumbProbe.naturalHeight}`;
-        // now show the thumbnail placeholder
+        // lock wrapper ratio so box size never changes
+        wrapper.style.aspectRatio = 
+          `${thumbProbe.naturalWidth} / ${thumbProbe.naturalHeight}`;
+  
+        // show the thumbnail immediately
         imgEl.src = thumbSrc;
         imgEl.alt = item.title;
   
-        // 2) then preload the hi‐res
+        // 2) now load hi-res and swap in place
         const hiResProbe = new Image();
         hiResProbe.src = hiResSrc;
         hiResProbe.onload = () => {
-          // swap in the hi-res, same wrapper ratio so box never moves
           imgEl.src = hiResSrc;
-          // and hide the “loading” hint
-          loadHint.style.display = 'none';
+          loadHint.style.display = 'none';  // hide “loading…” once hi-res is in
         };
       };
   
-      // metadata/text
-      modalTitle.textContent       = item.title;
-      modalDesc.textContent        = item.description || '';
-      modalDate.textContent        = item.date || '';
+      // populate text
+      modalTitle.textContent = item.title;
+      modalDesc.textContent  = item.description || '';
+      modalDate.textContent  = item.date || '';
   
-      // preload neighbors in hi-res
-      [ -2, -1, 1, 2 ].forEach(off => {
-        const ni = index + off;
+      // preload neighbors
+      [ -2, -1, 1, 2 ].forEach(o => {
+        const ni = index + o;
         if (ni >= 0 && ni < artData.length) {
-          new Image().src = `images/${ (artData[ni].variants?.[0] || artData[ni].filename) }`;
+          new Image().src = `images/${
+            (artData[ni].variants?.[0] || artData[ni].filename)
+          }`;
         }
       });
   
-      // variant buttons
+      // variants buttons: only if >1
       vbEl.innerHTML = '';
-      variants.forEach((_, i) => {
-        const b = document.createElement('button');
-        b.textContent = i + 1;
-        b.className   = 'variant-btn' + (i === variantIndex ? ' active' : '');
-        b.addEventListener('click', e => {
-          e.stopPropagation();
-          showModal(index, i);
+      if (variants.length > 1) {
+        variants.forEach((_, i) => {
+          const b = document.createElement('button');
+          b.textContent = i + 1;
+          b.className   = 'variant-btn' + (i === variantIndex ? ' active' : '');
+          b.addEventListener('click', e => {
+            e.stopPropagation();
+            showModal(index, i);
+          });
+          vbEl.appendChild(b);
         });
-        vbEl.appendChild(b);
-      });
+      }
   
       // social icons
       iconsEl.innerHTML = '';
@@ -188,7 +195,7 @@
           <img src="serverImages/bluesky-icon.png" alt="Bluesky">
         </a>`;
   
-      // finally show modal + hints
+      // show modal + hints
       modal.style.display    = 'flex';
       loadHint.style.display = 'block';
       navHint.style.display  = 'block';
