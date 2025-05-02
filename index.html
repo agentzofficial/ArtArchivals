@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>agent z Art Archivals</title>
+  <!-- your stylesheet -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="serverImages/fovicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="serverImages/fovicon-32.png">
+  <link rel="shortcut icon" href="serverImages/fovicon.ico">
 </head>
 <body>
   <img id="fixed-bg" alt="Background" />
@@ -204,6 +210,11 @@
         buildGallery();
         renderGallery();
       });
+  </script>
+  <script>
+    const maxBg = 7;
+    const bg    = Math.floor(Math.random() * maxBg) + 1;
+    document.getElementById('fixed-bg').src = `backgrounds/bg${bg}.png`;
   </script>
 </body>
 </html>
