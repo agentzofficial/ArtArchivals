@@ -85,7 +85,7 @@
         div.innerHTML = `
           <div class="image-container">
             <img class="thumb" loading="lazy"
-                 src="thumbnails/${thumb.replace(/\.[^/.]+$/, '.jpg')}"
+                 src="thumbnails/${thumb.replace(/\.[^/.]+$/, '.webp')}"
                  alt="${item.title.replace(/"/g,'&quot;')}"
                  style="object-position:${item.position||'center'};">
             ${hasVariants
@@ -121,17 +121,15 @@
       if (!item) return;
       const variants = item.variants || [item.filename];
     
-      // Show "please wait" placeholder first
-      modalImg.src = 'serverImages/pleasewait.png';
-      modalImg.alt = item.title;
+      const previewSrc = `images/${variants[variantIndex].replace(/\.[^/.]+$/, '.webp')}`;
+      modalImg.src     = previewSrc;
+      modalImg.alt     = item.title;
     
-      // Setup text details immediately
       modalTitle.textContent = item.title;
       modalDesc.textContent  = item.description || '';
       modalDate.textContent  = item.date || '';
     
-      // Load actual image in the background, then swap it in
-      const actualSrc = `images/${variants[variantIndex]}`;
+      const actualSrc = `images/${variants[variantIndex].replace(/\.[^/.]+$/, '.png')}`;
       const actualImg = new Image();
       actualImg.onload = () => {
         modalImg.src = actualSrc;
@@ -260,7 +258,7 @@
             const item = preloadList[index];
             (item.variants || [item.filename]).forEach(fn => {
               const img = new Image();
-              img.src   = `images/${fn}`;
+              img.src   = `images/${fn.replace(/\.[^/.]+$/, '.png')}`;
             });
           }
           if (index < preloadList.length) {
