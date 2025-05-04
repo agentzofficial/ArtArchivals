@@ -414,6 +414,22 @@
         "tags": ["Renders", "Specials", "Sneak Peaks"]
     },
     {
+        "variants": ["2024-5-19_9.png", "2024-5-19_10.png", "2024-5-19_11.png", "2024-5-19_12.png", "2024-5-19_13.png", "2024-5-19_14.png", "2024-5-19_15.png"],
+        "title": "New Reality",
+        "description": "A collection of memomories from Agent Z as seen in the video 'Clash of the Agents'.\n!! SPOILERS IN VARIANT IMAGES. !!",
+        "date": "19 May 2024",
+        "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
+        "tags": ["Renders"]
+    },
+    {
+        "variants": ["2024-5-19_2.png", "2024-5-19_3.png", "2024-5-19_4.png", "2024-5-19_5.png", "2024-5-19_6.png", "2024-5-19_7.png", "2024-5-19_8.png"],
+        "title": "Play Outside",
+        "description": "A collection of memomories from Agent Z as seen in the video 'Clash of the Agents'.\n!! SPOILERS IN VARIANT IMAGES. !!",
+        "date": "19 May 2024",
+        "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
+        "tags": ["Renders"]
+    },
+    {
         "filename": "2024-5-19_1.png",
         "title": "Clash of the Agents",
         "description": "Video Thumbnail",
