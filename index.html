@@ -46,6 +46,7 @@
         artData      = [],
         includeTags  = new Set(),
         excludeTags  = new Set();
+        modalLoadVersion = 0;
   
     const TAG_ORDER = [
       "Renders", "Drawings", "Screenshots",
@@ -120,6 +121,8 @@
       const item     = artData[index];
       if (!item) return;
       const variants = item.variants || [item.filename];
+
+      const currentVersion = ++modalLoadVersion;
     
       const previewSrc = `imagesPreview/${variants[variantIndex].replace(/\.[^/.]+$/, '.webp')}`;
       modalImg.src     = previewSrc;
