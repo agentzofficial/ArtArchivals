@@ -46,6 +46,7 @@
         includeTags  = new Set(),
         excludeTags  = new Set();
         modalLoadVersion = 0;
+    let filteredIndices = [];
   
     const TAG_ORDER = [
       "Renders", "Drawings", "Screenshots",
@@ -109,8 +110,11 @@
       if (pendingRender) return;
       pendingRender = true;
       requestAnimationFrame(() => {
+        filteredIndices = [];
         itemNodes.forEach((div, idx) => {
-          div.style.display = matchesFilter(artData[idx].tags || []) ? '' : 'none';
+          const matches = matchesFilter(artData[idx].tags || []);
+          div.style.display = matches ? '' : 'none';
+          if (matches) filteredIndices.push(idx);
         });
         pendingRender = false;
       });
@@ -119,6 +123,7 @@
     function showModal(index, variantIndex = 0) {
       const item     = artData[index];
       if (!item) return;
+      currentIndex = filteredIndices.indexOf(index);
       const variants = item.variants || [item.filename];
 
       const currentVersion = ++modalLoadVersion;
