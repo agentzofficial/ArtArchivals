@@ -46,7 +46,7 @@
         includeTags  = new Set(),
         excludeTags  = new Set();
         modalLoadVersion = 0;
-    let filteredIndices = [];
+        filteredIndices = [];
   
     const TAG_ORDER = [
       "Renders", "Drawings", "Screenshots",
@@ -193,7 +193,6 @@
       modal.style.display   = 'flex';
       loadHint.style.display = 'block';
       navHint.style.display  = 'block';
-      currentIndex           = index;
     }
   
     closeBtn.onclick = () => {
