@@ -135,7 +135,9 @@
       const actualSrc = `images/${variants[variantIndex].replace(/\.[^/.]+$/, '.png')}`;
       const actualImg = new Image();
       actualImg.onload = () => {
-        modalImg.src = actualSrc;
+        if (currentVersion === modalLoadVersion) {
+          modalImg.src = actualSrc;
+        }
       };
       actualImg.src = actualSrc;
     
@@ -145,7 +147,7 @@
           const neighbor = artData[ni];
           const fn       = (neighbor.variants?.[0] || neighbor.filename);
           const img      = new Image();
-          img.src        = `images/${fn}`;
+          img.src        = `images/${fn.replace(/\.[^/.]+$/, '.png')}`;
         }
       });
   
