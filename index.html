@@ -204,9 +204,15 @@
     window.onclick   = e => { if (e.target === modal) closeBtn.onclick(); };
     document.addEventListener('keydown', e => {
       if (modal.style.display === 'flex') {
-        if (e.key === 'ArrowLeft'  && currentIndex > 0)              showModal(--currentIndex, 0);
-        if (e.key === 'ArrowRight' && currentIndex < artData.length-1) showModal(++currentIndex, 0);
-        if (e.key === 'Escape')                                       closeBtn.onclick();
+        if (e.key === 'ArrowLeft' && currentIndex > 0) {
+          showModal(filteredIndices[currentIndex - 1], 0);
+        }
+        if (e.key === 'ArrowRight' && currentIndex < filteredIndices.length - 1) {
+          showModal(filteredIndices[currentIndex + 1], 0);
+        }
+        if (e.key === 'Escape') {
+          closeBtn.onclick();
+        }
       }
     });
   
