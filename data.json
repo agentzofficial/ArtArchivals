@@ -1,5 +1,13 @@
 [
     {
+        "variants": ["2025-5-4_1.png", "2025-5-4_2.png", "2025-5-4_3.png"],
+        "title": "Power Outage",
+        "description": "Video Thumbnail",
+        "date": "4 May 2025",
+        "youtube": "https://www.youtube.com/watch?v=49dSCYKFWrs",
+        "tags": ["Renders", "Thumbnails"]
+    },
+    {
         "filename": "2025-4-28_1.png",
         "title": "Learning to Drive",
         "description": "Agent Z driving with a Learners Permit.",
