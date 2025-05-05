@@ -308,10 +308,28 @@
           : "No trivia for today! Come back tomorrow.";
       } catch {
         document.getElementById('trivia-content').textContent = "Couldn’t load trivia.";
+      }  
+      window.addEventListener('DOMContentLoaded', loadTrivia);
+      function clampTriviaFont() {
+      const el = document.getElementById('trivia-content');
+      const style = window.getComputedStyle(el);
+      const lineHeight = parseFloat(style.lineHeight);
+      const maxHeight = lineHeight * 3;
+      let fontSize = parseFloat(style.fontSize);
+  
+      // shrink until it fits within 3 lines
+      while (el.scrollHeight > maxHeight && fontSize > 10) {
+        fontSize -= 1;  
+        el.style.fontSize = fontSize + 'px';
       }
     }
   
-    window.addEventListener('DOMContentLoaded', loadTrivia);
+    // run it once trivia is loaded, and again on window-resize
+    window.addEventListener('DOMContentLoaded', () => {
+      loadTrivia().then(clampTriviaFont);
+    });
+    window.addEventListener('resize', clampTriviaFont);
+    }
   </script>
 </body>
 </html>
