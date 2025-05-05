@@ -9,12 +9,12 @@ async function loadTrivia() {
 
     const entry = triviaData.find(item => item.date === today);
     if (!entry) {
-      document.getElementById('trivia-box').textContent = "No trivia for today!";
+      document.getElementById('trivia-content').textContent = "No trivia for today!";
       return;
     }
 
     const decrypted = doubleVigenereDecrypt(entry.trivia, 'AGENTZ', 'SPLATOON');
-    document.getElementById('trivia-box').textContent = decrypted;
+    document.getElementById('trivia-content').textContent = decrypted;
 
 
   } catch (err) {
