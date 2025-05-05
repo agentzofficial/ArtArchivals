@@ -9,7 +9,7 @@ async function loadTrivia() {
 
     const entry = triviaData.find(item => item.date === today);
     if (!entry) {
-      document.getElementById('trivia-content').textContent = "No trivia for today!";
+      document.getElementById('trivia-content').textContent = "If you see this, I forgor";
       return;
     }
 
