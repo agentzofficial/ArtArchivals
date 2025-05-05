@@ -301,11 +301,6 @@ body {
   position: relative;
   width: 700px;
   margin: 50px auto;
-
-  /* Make the container a flex‐box */
-  display: flex;
-  align-items: center;     /* vertical centering */
-  justify-content: center; /* horizontal centering */
 }
 
 #trivia-box {
@@ -314,17 +309,21 @@ body {
   height: auto;
 }
 
+/* Center the content absolutely over the image */
 #trivia-content {
-  position: relative;
-
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* true center */
+  
   text-align: center;
   padding: 0 10px;
+  width: 90%;  /* keep text within image bounds */
 
   font-size: 18px;
   line-height: 1.2em;
-  max-height: 3.6em;        /* 3 lines */
+  max-height: 3.6em; /* 3 lines */
   overflow: hidden;
   color: white;
   pointer-events: none;
-
 }
