@@ -294,42 +294,44 @@
     <div id="trivia-content">Loading trivia...</div>
   </div>
   <script>
+    // 1) Fetch & display plain‐text trivia
     async function loadTrivia() {
       try {
-        const resp = await fetch('trivia.json'),
-              data = await resp.json(),
+        const resp  = await fetch('trivia.json'),
+              data  = await resp.json(),
               today = new Date().toISOString().slice(0,10),  // "YYYY-MM-DD"
-  
               entry = data.find(e => e.date === today),
               el    = document.getElementById('trivia-content');
-  
+
         el.textContent = entry
           ? entry.trivia
           : "No trivia for today! Come back tomorrow.";
       } catch {
         document.getElementById('trivia-content').textContent = "Couldn’t load trivia.";
-      }  
-      window.addEventListener('DOMContentLoaded', loadTrivia);
-      function clampTriviaFont() {
+      }
+    }
+
+    // 2) Clamp font to 3 lines by shrinking if needed
+    function clampTriviaFont() {
       const el = document.getElementById('trivia-content');
       const style = window.getComputedStyle(el);
       const lineHeight = parseFloat(style.lineHeight);
       const maxHeight = lineHeight * 3;
       let fontSize = parseFloat(style.fontSize);
-  
+
       // shrink until it fits within 3 lines
       while (el.scrollHeight > maxHeight && fontSize > 10) {
         fontSize -= 1;  
         el.style.fontSize = fontSize + 'px';
       }
     }
-  
-    // run it once trivia is loaded, and again on window-resize
-    window.addEventListener('DOMContentLoaded', () => {
-      loadTrivia().then(clampTriviaFont);
+
+    // 3) On DOM ready, load then clamp; re‐clamp on resize
+    window.addEventListener('DOMContentLoaded', async () => {
+      await loadTrivia();
+      clampTriviaFont();
     });
     window.addEventListener('resize', clampTriviaFont);
-    }
   </script>
 </body>
 </html>
