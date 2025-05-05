@@ -21,19 +21,13 @@
   <div id="modal" class="modal">
     <span class="close">&times;</span>
     <div class="modal-content">
-  
-      <!-- Image + variant buttons wrapper -->
       <div class="modal-image-wrapper">
         <img id="modal-img" src="" alt="">
         <div class="variant-buttons"></div>
       </div>
-  
-      <!-- Textual details -->
       <h2 id="modal-title"></h2>
       <p id="modal-description"></p>
       <p id="modal-date" class="modal-date"></p>
-  
-      <!-- Social icons -->
       <div class="modal-icons"></div>  
     </div>
     <p class="loading-hint">Images may take some time to load.</p>
@@ -293,7 +287,7 @@
     <img id="trivia-box" src="serverImages/trivia-box.webp" alt="Trivia Box">
     <div id="trivia-content">Loading trivia...</div>
   </div>
-  <div id="trivia-time" style="text-align:center; margin:20px 0; font-size:0.9em; opacity:0.6;">
+  <div id="trivia-time" style="text-align:center; margin:20px 0; font-size:0.9em; opacity:0.6; color: white;">
   <script>
     async function loadTrivia() {
       try {
@@ -323,15 +317,19 @@
     window.addEventListener('DOMContentLoaded', async () => {
       await loadTrivia();
       clampTriviaFont();
-    const jstMidnightUTC = new Date();
-    jstMidnightUTC.setUTCHours(15, 0, 0, 0);
-    const localTimeString = jstMidnightUTC.toLocaleTimeString(undefined, {
-      hour: '2-digit',
-      minute: '2-digit',
-      timeZoneName: 'short'
-    });
-    document.getElementById("trivia-time").textContent =
-      `Trivia updates at ${localTimeString} your time.`;
+    
+      // Midnight Beijing is 00:00 UTC+8 → 16:00 UTC the previous day
+      const bjMidnightUTC = new Date();
+      bjMidnightUTC.setUTCHours(16, 0, 0, 0);
+    
+      const localTimeString = bjMidnightUTC.toLocaleTimeString(undefined, {
+        hour:   '2-digit',
+        minute: '2-digit',
+        timeZoneName: 'short'
+      });
+    
+      document.getElementById("trivia-time").textContent =
+        `Trivia updates daily at ${localTimeString} your time.`;
     });
     window.addEventListener('resize', clampTriviaFont);
   </script>
