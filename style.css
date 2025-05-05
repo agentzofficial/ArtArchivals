@@ -299,9 +299,10 @@ body {
 /* TRIVIA BOXES */
 #trivia-container {
   position: relative;
-  width: 700px;
+  width: 700px; /* or 100% if you're scaling */
   height: auto;
-  margin: 0 auto 50px auto;
+  display: block;
+  margin: 50px auto;
 }
 
 #trivia-box {
@@ -311,13 +312,13 @@ body {
 
 #trivia-content {
   position: absolute;
-  top: 40%;
+  top: 50%; /* Adjust to move it down below the title bar */
   left: 50%;
-  transform: translate(-50%, -10%);
+  transform: translate(-50%, -20%);
   color: white;
-  font-family: 'Arial', sans-serif;
-  font-size: 18px;
-  width: 85%;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  width: 80%;
   text-align: center;
   pointer-events: none;
 }
