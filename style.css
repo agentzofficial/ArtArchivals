@@ -299,28 +299,27 @@ body {
 /* TRIVIA BOXES */
 #trivia-container {
   position: relative;
-  width: 700px; /* or 100% if you're scaling */
-  height: auto;
-  display: block;
+  width: 700px; /* or whatever your box width is */
   margin: 50px auto;
 }
-
 #trivia-box {
-  width: 100%;
   display: block;
+  width: 100%;
 }
 
 #trivia-content {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -20%);
-  color: white;
-  font-size: 18px;        /* starting size */
-  line-height: 1.2em;     /* control your line height */
-  max-height: 3.6em;      /* exactly 3 lines */
+  transform: translate(-50%, -50%);
+  
+  /* your existing constraints: */
   width: 85%;
-  text-align: center;
+  font-size: 18px;       /* starting size */
+  line-height: 1.2em;
+  max-height: 3.6em;     /* 3 lines */
   overflow: hidden;
+  text-align: center;
+  color: white;
   pointer-events: none;
 }
