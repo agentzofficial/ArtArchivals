@@ -327,3 +327,13 @@ body {
   color: white;
   pointer-events: none;
 }
+
+#yeah-btn {
+  width: 80px;
+  height: 32px;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+#yeah-btn:hover {
+  opacity: 1;
+}
