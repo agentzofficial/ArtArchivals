@@ -294,47 +294,20 @@
     <div id="trivia-content">Loading trivia...</div>
   </div>
   <script>
-    function vigenereDecrypt(text, key) {
-      const A = 'A'.charCodeAt(0);
-      let out = '';
-      let ki = 0;
-      key = key.toUpperCase();
-      for (let c of text) {
-        if (/[A-Za-z]/.test(c)) {
-          const base = c === c.toUpperCase() ? A : 'a'.charCodeAt(0);
-          const shift = key.charCodeAt(ki % key.length) - A;
-          out += String.fromCharCode((c.charCodeAt(0) - base - shift + 26) % 26 + base);
-          ki++;
-        } else {
-          out += c;
-        }
-      }
-      return out;
-    }
-    function doubleVigenereDecrypt(text, key1, key2) {
-      return vigenereDecrypt(vigenereDecrypt(text, key2), key1);
-    }
- 
     async function loadTrivia() {
       try {
-        const resp = await fetch('trivia.json');
-        const data = await resp.json();
-        const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Tokyo' });
+        const resp = await fetch('trivia.json'),
+              data = await resp.json(),
+              today = new Date().toISOString().slice(0,10),  // "YYYY-MM-DD"
   
-        const entry = data.find(e => e.date === today);
-        const el     = document.getElementById('trivia-content');
+              entry = data.find(e => e.date === today),
+              el    = document.getElementById('trivia-content');
   
-        if (!entry) {
-          el.textContent = "No trivia for today!";
-          return;
-        }
-        const KEY1 = "AGENTZ";
-        const KEY2 = "SPLATOON";
-        el.textContent = doubleVigenereDecrypt(entry.trivia, KEY1, KEY2);
-  
-      } catch (e) {
-        console.error("Failed loading trivia:", e);
-        document.getElementById('trivia-content').textContent = "Trivia unavailable.";
+        el.textContent = entry
+          ? entry.trivia
+          : "No trivia for today! Come back tomorrow.";
+      } catch {
+        document.getElementById('trivia-content').textContent = "Couldn’t load trivia.";
       }
     }
   
