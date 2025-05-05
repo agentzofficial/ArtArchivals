@@ -295,3 +295,29 @@ body {
   line-height: 1.5;
   user-select: none;
 }
+
+/* TRIVIA BOXES */
+#trivia-container {
+  position: relative;
+  width: 700px;
+  height: auto;
+  margin: 0 auto 50px auto;
+}
+
+#trivia-box {
+  width: 100%;
+  display: block;
+}
+
+#trivia-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  color: white;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  width: 85%;
+  text-align: center;
+  pointer-events: none;
+}
