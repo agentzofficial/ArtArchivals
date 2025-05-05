@@ -18,7 +18,7 @@ jobs:
           DATE=$(date -I)
           KEY="trivia-yeah-$DATE"
           # call CountAPI and parse JSON
-          COUNT=$(curl -s "https://api.countapi.xyz/get/$agentz-arts-archivals/$KEY" \
+          COUNT=$(curl -s "https://api.countapi.xyz/get/$NAMESPACE/$KEY" \
                    | jq -r '.value // 0')
           echo "::set-output name=date::$DATE"
           echo "::set-output name=count::$COUNT"
