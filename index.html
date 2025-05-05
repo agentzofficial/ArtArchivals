@@ -352,7 +352,7 @@
     const btn     = document.getElementById('yeah-btn');
     const countEl = document.getElementById('yeah-count');
   
-    fetch(`https://api.countapi.xyz/get/${agentz-arts-archivals}/${KEY}`)
+    fetch(`https://api.countapi.xyz/get/${NAMESPACE}/${KEY}`)
       .then(r => r.ok ? r.json() : { value: 0 })
       .then(data => countEl.textContent = data.value)
       .catch(() => countEl.textContent = '0');
@@ -363,7 +363,7 @@
     }
   
     btn.addEventListener('click', () => {
-      fetch(`https://api.countapi.xyz/hit/${agentz-arts-archivals}/${KEY}`)
+      fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`)
         .then(r => r.json())
         .then(data => {
           countEl.textContent = data.value;
