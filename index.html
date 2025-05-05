@@ -317,8 +317,6 @@
     window.addEventListener('DOMContentLoaded', async () => {
       await loadTrivia();
       clampTriviaFont();
-    
-      // Midnight Beijing is 00:00 UTC+8 → 16:00 UTC the previous day
       const bjMidnightUTC = new Date();
       bjMidnightUTC.setUTCHours(16, 0, 0, 0);
     
