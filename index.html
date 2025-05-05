@@ -288,9 +288,18 @@
     const bg    = Math.floor(Math.random()*maxBg)+1;
     document.getElementById('fixed-bg').src = `backgrounds/bg${bg}.png`;
   </script>
+  
   <div id="trivia-container">
     <img id="trivia-box" src="serverImages/trivia-box.png" alt="Trivia Box">
     <div id="trivia-content">Loading trivia...</div>
   </div>
+  <script>
+    fetch('trivia.json')
+      .then(r => r.json())
+      .then(triviaList => {
+        const randomIndex = Math.floor(Math.random() * triviaList.length);
+        document.getElementById('trivia-content').textContent = triviaList[randomIndex];
+      });
+    </script>
 </body>
 </html>
