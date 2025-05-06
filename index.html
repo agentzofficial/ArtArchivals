@@ -334,18 +334,18 @@
   </script>
   <div id="yeah-container" style="text-align:center; margin:16px 0;">
     <img
-      id="yeahButton"
-      src="serverImages/yeahButton.webp"
+      id="yeah-button"
+      src="serverImages/yeah-button.webp"
       alt="Yeah!"
       style="cursor:pointer;"
     />
-    <span id="yeahCounter" style="margin-left:8px; font-size:0.9em; vertical-align:middle;">
+    <span id="yeah-counter" style="margin-left:8px; font-size:0.9em; vertical-align:middle;">
       0
     </span>
   </div>
   <div id="yeah-container">
-    <img id="yeahButton" src="serverImages/yeahButton.webp" alt="Yeah!" style="cursor:pointer;" />
-    <span id="yeahCounter">0</span>
+    <img id="yeah-button" src="serverImages/yeah-button.webp" alt="Yeah!" style="cursor:pointer;" />
+    <span id="yeah-counter">0</span>
   </div>
 
   <script type="module">
@@ -369,8 +369,8 @@
     const today      = new Date().toISOString().slice(0,10);
     const counterRef = doc(db, "counters", `yeah-${today}`);
   
-    const button  = document.getElementById("yeahButton");
-    const display = document.getElementById("yeahCounter");
+    const button  = document.getElementById("yeah-button");
+    const display = document.getElementById("yeah-counter");
   
     async function loadCounter() {
       const snap = await getDoc(counterRef);
