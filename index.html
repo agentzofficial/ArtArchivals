@@ -368,6 +368,10 @@
     const button  = document.getElementById("yeah-button");
     const display = document.getElementById("yeah-counter");
     const CLICKED_KEY = `yeahClicked-${today}`;
+    if (localStorage.getItem(CLICKED_KEY)) {
+      button.style.opacity        = 0.5;
+      button.style.pointerEvents  = "none";
+    }
   
     async function loadCounter() {
       const snap = await getDoc(counterRef);
@@ -379,7 +383,6 @@
       }
     }
   
-    // one click per device
     if (localStorage.getItem(CLICKED_KEY)) {
       button.style.opacity = 0.5;
       button.style.pointerEvents = "none";
