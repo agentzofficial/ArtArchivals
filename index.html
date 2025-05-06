@@ -331,7 +331,6 @@
         `Trivia updates daily at ${localTimeString} your time.`;
     });
     window.addEventListener('resize', clampTriviaFont);
-  </script>
   <div id="yeah-container" style="text-align:center; margin:16px 0;">
     <img
       id="yeah-button"
@@ -343,16 +342,14 @@
       0
     </span>
   </div>
-  <div id="yeah-container">
-    <img id="yeah-button" src="serverImages/yeah-button.webp" alt="Yeah!" style="cursor:pointer;" />
-    <span id="yeah-counter">0</span>
-  </div>
-
+  
   <script type="module">
     import { initializeApp }  from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-    import { getFirestore, doc, getDoc, setDoc, updateDoc, increment }
-      from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
+    import {
+      getFirestore, doc, getDoc, setDoc,
+      updateDoc, increment
+    } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+  
     const firebaseConfig = {
       apiKey: "AIzaSyApMY8GjkeZ7uFq5LUvOpkGkglkfZGIOp4",
       authDomain: "agentz-art-archivals.firebaseapp.com",
@@ -365,12 +362,12 @@
     const app = initializeApp(firebaseConfig);
     const db  = getFirestore(app);
   
-    // one document per day
     const today      = new Date().toISOString().slice(0,10);
     const counterRef = doc(db, "counters", `yeah-${today}`);
   
     const button  = document.getElementById("yeah-button");
     const display = document.getElementById("yeah-counter");
+    const CLICKED_KEY = `yeahClicked-${today}`;
   
     async function loadCounter() {
       const snap = await getDoc(counterRef);
@@ -382,9 +379,16 @@
       }
     }
   
+    // one click per device
+    if (localStorage.getItem(CLICKED_KEY)) {
+      button.style.opacity = 0.5;
+      button.style.pointerEvents = "none";
+    }
+  
     button.addEventListener("click", async () => {
       await updateDoc(counterRef, { count: increment(1) });
       await loadCounter();
+      localStorage.setItem(CLICKED_KEY, "1");
       button.style.opacity = 0.5;
       button.style.pointerEvents = "none";
     });
