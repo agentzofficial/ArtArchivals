@@ -36,6 +36,63 @@
       <li>Bluesky (agentzofficial.bsky.social)</li>
       <li>Email (ag3ntz@yahoo.com) – <em>For Professional Contact</em></li>
     </ul>
+    <p>Please note that I strictly only responds to questions in messages. Please be upfront from your first message!</p>
   </div>
+  
+  
+  <p>Alternatively, you can anonymously tell me some feedback below!</p>
+  <p>You can show me images if needed through links such as Imgur.</p>
+  <div class="form-container">
+    <form action="https://formspree.io/f/mwpooybd" method="POST">
+      <label for="topic">Select a topic:</label><br />
+      <select name="topic" id="topic" required>
+        <option value="">-- Select --</option>
+        <option>Report a bug</option>
+        <option>Site Suggestion</option>
+        <option>Criticism</option>
+        <option>Other</option>
+      </select><br /><br />
+  
+      <label for="message">Provide a description:</label><br />
+      <textarea id="message" name="message" rows="6" required></textarea><br /><br />
+      
+      <input type="hidden" name="_captcha" value="false">
+      <button type="submit">Submit Form</button>
+    </form>
+  <div id="thank-you" class="hidden">
+    <p>Thanks for your submission! I’ll take a look when I can.</p>
+  </div>
+  </div>
+    <script>
+    const form = document.querySelector("form");
+    const thankYou = document.getElementById("thank-you");
+  
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+  
+      const formData = new FormData(form);
+      const action = form.getAttribute("action");
+  
+      try {
+        const response = await fetch(action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+  
+        if (response.ok) {
+          form.reset();
+          form.style.display = "none";
+          thankYou.classList.remove("hidden");
+        } else {
+          alert("There was an issue submitting the form. Please try again.");
+        }
+      } catch (error) {
+        alert("Error sending form. Please check your connection.");
+      }
+    });
+  </script>
 </body>
 </html>
