@@ -287,6 +287,16 @@
     <img id="trivia-box" src="serverImages/trivia-box.webp" alt="Trivia Box">
     <div id="trivia-content">Loading trivia...</div>
   </div>
+  
+  <div id="yeah-container" style="margin-top:12px;">
+      <img
+        id="yeah-button"
+        src="serverImages/yeah-button.webp"
+        alt="Yeah!"
+        style="cursor:pointer;"
+      />
+    </div>
+  
   <div id="trivia-time" style="text-align:center; margin:20px 0; font-size:0.9em; opacity:0.6; color: white;">
   </div>
   <script>
@@ -332,16 +342,6 @@
     });
     window.addEventListener('resize', clampTriviaFont);
   </script>
-
-  <div id="yeah-container" style="text-align:center; margin:16px 0;">
-    <img
-      id="yeah-button"
-      src="serverImages/yeah-button.webp"
-      alt="Yeah!"
-      style="cursor:pointer;"
-    />
-    <p id="yeah-counter" style="color:white; font-size: 1.1em; margin: 8px 0;"></p>
-  </div>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
