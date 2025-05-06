@@ -30,6 +30,46 @@ body {
   white-space: pre-line;
 }
 
+/* NAVIGATION BAR */
+.site-nav {
+  background: #5d3a9b;
+  color: #fff;
+  padding: 8px 0;
+}
+
+.site-nav nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav nav ul li {
+  margin: 0 8px;
+}
+.site-nav nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.site-nav nav ul li .separator {
+  color: rgba(255,255,255,0.5);
+  user-select: none;
+}
+
+.site-nav nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.site-nav nav ul li a.active {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
