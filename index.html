@@ -331,6 +331,7 @@
         `Trivia updates daily at ${localTimeString} your time.`;
     });
     window.addEventListener('resize', clampTriviaFont);
+
   <div id="yeah-container" style="text-align:center; margin:16px 0;">
     <img
       id="yeah-button"
@@ -338,18 +339,20 @@
       alt="Yeah!"
       style="cursor:pointer;"
     />
-    <span id="yeah-counter" style="margin-left:8px; font-size:0.9em; vertical-align:middle;">
-      0
-    </span>
+    <span
+      id="yeah-counter"
+      style="margin-left:8px; font-size:0.9em; vertical-align:middle;"
+    >0</span>
   </div>
-  
+
   <script type="module">
-    import { initializeApp }  from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
     import {
       getFirestore, doc, getDoc, setDoc,
       updateDoc, increment
     } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-  
+
+    // your project’s config
     const firebaseConfig = {
       apiKey: "AIzaSyApMY8GjkeZ7uFq5LUvOpkGkglkfZGIOp4",
       authDomain: "agentz-art-archivals.firebaseapp.com",
@@ -359,20 +362,22 @@
       appId: "1:120997134026:web:6582de3d37606690f43e33",
       measurementId: "G-Y2EXMPLF4F"
     };
-    const app = initializeApp(firebaseConfig);
-    const db  = getFirestore(app);
-  
+
+    const app    = initializeApp(firebaseConfig);
+    const db     = getFirestore(app);
+
     const today      = new Date().toISOString().slice(0,10);
     const counterRef = doc(db, "counters", `yeah-${today}`);
-  
+
     const button  = document.getElementById("yeah-button");
     const display = document.getElementById("yeah-counter");
+
     const CLICKED_KEY = `yeahClicked-${today}`;
     if (localStorage.getItem(CLICKED_KEY)) {
-      button.style.opacity        = 0.5;
-      button.style.pointerEvents  = "none";
+      button.style.opacity       = 0.5;
+      button.style.pointerEvents = "none";
     }
-  
+
     async function loadCounter() {
       const snap = await getDoc(counterRef);
       if (snap.exists()) {
@@ -382,20 +387,15 @@
         display.textContent = "0";
       }
     }
-  
-    if (localStorage.getItem(CLICKED_KEY)) {
-      button.style.opacity = 0.5;
-      button.style.pointerEvents = "none";
-    }
-  
+
     button.addEventListener("click", async () => {
       await updateDoc(counterRef, { count: increment(1) });
       await loadCounter();
       localStorage.setItem(CLICKED_KEY, "1");
-      button.style.opacity = 0.5;
+      button.style.opacity       = 0.5;
       button.style.pointerEvents = "none";
     });
-  
+
     loadCounter();
   </script>
 </body>
