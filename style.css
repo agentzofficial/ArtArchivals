@@ -382,6 +382,7 @@ body {
 /* CONTACT PAGE*/
 .contact-title-bar {
   background-color: #3a1b4d;
+  border-bottom: 1px solid #ccc;
   color: white;
   text-align: center;
   padding: 20px 0;
