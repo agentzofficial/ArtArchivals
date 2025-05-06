@@ -37,6 +37,7 @@ body {
     max-width: 1400px;
     margin: 40px auto;
     padding: 0 10px;
+    padding-bottom: 30px;
 }
 
 .art-item {
