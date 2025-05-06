@@ -71,6 +71,13 @@ body {
   font-weight: 600;
 }
 
+.section-divider {
+  border: none;
+  border-top: 1px solid #999;
+  margin: 30px auto;
+  width: 80%;
+}
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
