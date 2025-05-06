@@ -438,6 +438,22 @@ body {
   border-color: #ccc;
 }
 
+.form-container button {
+  background-color: #5d3a9b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form-container button:hover {
+  background-color: #472e79;
+}
+
 .hidden {
   display: none;
 }
