@@ -334,82 +334,52 @@
   </script>
   <div id="yeah-container" style="text-align:center; margin:16px 0;">
     <img
-      id="yeah-btn"
-      src="serverImages/yeah-button.webp"
+      id="yeahButton"
+      src="serverImages/yeahButton.webp"
       alt="Yeah!"
       style="cursor:pointer;"
     />
-    <span id="yeah-count" style="margin-left:8px; font-size:0.9em; vertical-align:middle;">
+    <span id="yeahCounter" style="margin-left:8px; font-size:0.9em; vertical-align:middle;">
       0
     </span>
   </div>
-  <script>
-    const NAMESPACE   = 'agentz-arts-archivals';
-    const today       = new Date().toISOString().slice(0,10);
-    const KEY         = `trivia-yeah-${today}`;
-    const STORAGE_KEY = `triviaYeahClicked-${today}`;
-  
-    const btn     = document.getElementById('yeah-btn');
-    const countEl = document.getElementById('yeah-count');
-  
-    fetch(`https://api.countapi.xyz/get/${NAMESPACE}/${KEY}`)
-      .then(r => r.ok ? r.json() : { value: 0 })
-      .then(data => countEl.textContent = data.value)
-      .catch(() => countEl.textContent = '0');
- 
-    if (localStorage.getItem(STORAGE_KEY)) {
-      btn.style.opacity = '0.5';
-      btn.style.pointerEvents = 'none';
-    }
-  
-    btn.addEventListener('click', () => {
-      fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`)
-        .then(r => r.json())
-        .then(data => {
-          countEl.textContent = data.value;
-          localStorage.setItem(STORAGE_KEY, '1');
-          btn.style.opacity = '0.5';
-          btn.style.pointerEvents = 'none';
-        });
-    });
-  </script>
+  <div id="yeah-container">
+    <img id="yeahButton" src="serverImages/yeahButton.webp" alt="Yeah!" style="cursor:pointer;" />
+    <span id="yeahCounter">0</span>
+  </div>
+
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
-    import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+    import { initializeApp }  from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getFirestore, doc, getDoc, setDoc, updateDoc, increment }
+      from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
   
-    const firebaseConfig = {
-      apiKey: "AIzaSyApMY8GjkeZ7uFq5LUvOpkGkglkfZGIOp4",
-      authDomain: "agentz-art-archivals.firebaseapp.com",
-      projectId: "agentz-art-archivals",
-      storageBucket: "agentz-art-archivals.firebasestorage.app",
-      messagingSenderId: "120997134026",
-      appId: "1:120997134026:web:6582de3d37606690f43e33",
-      measurementId: "G-Y2EXMPLF4F"
-    };
-  
+    // ← your config
+    const firebaseConfig = { /* … */ };
     const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const db = getFirestore(app);
+    const db  = getFirestore(app);
   
-    const counterRef = doc(db, "counters", "yeah-2025-05-05");
+    // one document per day
+    const today      = new Date().toISOString().slice(0,10);
+    const counterRef = doc(db, "counters", `yeah-${today}`);
   
-    const button = document.getElementById("yeahButton");
-    const counterDisplay = document.getElementById("yeahCounter");
+    const button  = document.getElementById("yeahButton");
+    const display = document.getElementById("yeahCounter");
   
     async function loadCounter() {
-      const docSnap = await getDoc(counterRef);
-      if (docSnap.exists()) {
-        counterDisplay.textContent = docSnap.data().count;
+      const snap = await getDoc(counterRef);
+      if (snap.exists()) {
+        display.textContent = snap.data().count;
       } else {
         await setDoc(counterRef, { count: 0 });
-        counterDisplay.textContent = 0;
+        display.textContent = "0";
       }
     }
   
     button.addEventListener("click", async () => {
       await updateDoc(counterRef, { count: increment(1) });
-      loadCounter();
+      await loadCounter();
+      button.style.opacity = 0.5;
+      button.style.pointerEvents = "none";
     });
   
     loadCounter();
