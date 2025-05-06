@@ -378,3 +378,12 @@ body {
 #yeah-btn:hover {
   opacity: 1;
 }
+
+/* CONTACT PAGE*/
+.contact-title-bar {
+  background-color: #3a1b4d;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 30px;
+}
