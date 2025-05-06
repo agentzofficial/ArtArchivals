@@ -387,3 +387,16 @@ body {
   padding: 20px 0;
   margin-bottom: 30px;
 }
+
+.contact-info {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+}
+.contact-info ul {
+  list-style-type: none;
+  padding: 0;
+}
+.contact-info li {
+  margin: 8px 0;
+}
