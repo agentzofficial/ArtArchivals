@@ -352,9 +352,16 @@
     import { initializeApp }  from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
     import { getFirestore, doc, getDoc, setDoc, updateDoc, increment }
       from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-  
-    // ← your config
-    const firebaseConfig = { /* … */ };
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyApMY8GjkeZ7uFq5LUvOpkGkglkfZGIOp4",
+      authDomain: "agentz-art-archivals.firebaseapp.com",
+      projectId: "agentz-art-archivals",
+      storageBucket: "agentz-art-archivals.firebasestorage.app",
+      messagingSenderId: "120997134026",
+      appId: "1:120997134026:web:6582de3d37606690f43e33",
+      measurementId: "G-Y2EXMPLF4F"
+    };
     const app = initializeApp(firebaseConfig);
     const db  = getFirestore(app);
   
