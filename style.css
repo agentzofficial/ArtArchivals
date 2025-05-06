@@ -415,6 +415,29 @@ body {
   font-family: sans-serif;
 }
 
+.form-container label,
+.form-container select,
+.form-container textarea,
+.form-container button {
+  color: white;
+}
+
+.form-container select,
+.form-container textarea {
+  background-color: #444;
+  border: 1px solid #aaa;
+  padding: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: white;
+}
+
+.form-container select:focus,
+.form-container textarea:focus {
+  outline: none;
+  border-color: #ccc;
+}
+
 .hidden {
   display: none;
 }
