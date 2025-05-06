@@ -282,22 +282,53 @@
     const bg    = Math.floor(Math.random()*maxBg)+1;
     document.getElementById('fixed-bg').src = `backgrounds/bg${bg}.png`;
   </script>
+
+  <div
+    id="trivia-container"
+    style="
+      text-align: center;
+      margin: 24px auto 0; 
+      padding: 0;
+      display: inline-block;
+    "
+  >
+    <img
+      id="trivia-box"
+      src="serverImages/trivia-box.webp"
+      alt="Trivia Box"
+      style="display: block; margin: 0 auto;"
+    />
+    <div
+      id="trivia-content"
+      style="margin: 4px 0 2px;"
+    >
+      Loading trivia...
+    </div>
   
-  <div id="trivia-container">
-    <img id="trivia-box" src="serverImages/trivia-box.webp" alt="Trivia Box">
-    <div id="trivia-content">Loading trivia...</div>
-  </div>
-  
-  <div id="yeah-container" style="margin-top:4px;">
+    <div
+      id="yeah-container"
+      style="margin: 2px 0 0;
+    "
+    >
       <img
         id="yeah-button"
         src="serverImages/yeah-button.webp"
         alt="Yeah!"
-        style="cursor:pointer;"
+        style="cursor: pointer; display: block; margin: 0 auto;"
       />
     </div>
+  </div>
   
-  <div id="trivia-time" style="text-align:center; margin:4px 0; font-size:0.9em; opacity:0.6; color: white;">
+  <div
+    id="trivia-time"
+    style="
+      text-align: center;
+      margin: 4px auto 0;
+      font-size: 0.9em;
+      opacity: 0.6;
+      color: white;
+      width: fit-content;
+    "
   </div>
   <script>
     async function loadTrivia() {
