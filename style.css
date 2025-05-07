@@ -527,13 +527,6 @@ body.theme-light {
   color: black;
 }
 
-body.theme-light .site-nav a,
-body.theme-light .site-nav .separator {
-  color: #333;
-}
-body.theme-light .site-nav a.active {
-  color: #000;
-}
 
 body.theme-light .form-container label,
 body.theme-light .form-container select,
