@@ -100,5 +100,30 @@
       }
     });
   </script>
+  <script>
+    const THEME_KEY = 'preferredTheme';
+    const select  = document.getElementById('theme-select');
+    const body    = document.body;
+
+    function applyTheme(theme) {
+      body.classList.remove('theme-dark','theme-light','theme-agentz');
+      body.classList.add('theme-' + theme);
+      localStorage.setItem(THEME_KEY, theme);
+  
+      if (theme === 'agentz' && document.getElementById('fixed-bg')) {
+        const maxBg = 8;
+        const bg    = Math.floor(Math.random()*maxBg)+1;
+        document.getElementById('fixed-bg').src = `backgrounds/bg${bg}.png`;
+      }
+    }
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem(THEME_KEY) || 'dark';
+      select.value = saved;
+      applyTheme(saved);
+  
+      select.addEventListener('change', () => applyTheme(select.value));
+    });
+  </script>
 </body>
 </html>
