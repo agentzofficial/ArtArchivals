@@ -26,6 +26,20 @@ body {
     transform: translateZ(0);
 }
 
+body.theme-dark {
+  background-color: #323232;
+  color: white;
+}
+body.theme-light {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+body.theme-agentz {
+  background-color: #323232;
+  color: white;
+}
+
 #modal-description {
   white-space: pre-line;
 }
