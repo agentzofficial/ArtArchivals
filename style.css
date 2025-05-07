@@ -359,10 +359,13 @@ body.theme-agentz {
 #trivia-box {
   display: block;
   width: 100%;
-  height: auto;
+  height: auto;    
 }
 
-/* Center the content absolutely over the image */
+#trivia-time {
+  color: white;
+}
+
 #trivia-content {
   position: absolute;
   top: 50%;
@@ -371,7 +374,7 @@ body.theme-agentz {
   
   text-align: center;
   padding: 0 10px;
-  width: 90%;  /* keep text within image bounds */
+  width: 90%;
 
   font-size: 18px;
   line-height: 1.2em;
