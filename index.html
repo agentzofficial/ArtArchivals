@@ -441,28 +441,24 @@
   </script>
   <script>
     const THEME_KEY = 'preferredTheme';
-    const select  = document.getElementById('theme-select');
-    const body    = document.body;
-
-    function applyTheme(theme) {
-      body.classList.remove('theme-dark','theme-light','theme-agentz');
-      body.classList.add('theme-' + theme);
-      localStorage.setItem(THEME_KEY, theme);
-      const bgImg = document.getElementById('fixed-bg');
-        if (theme === 'agentz' && bgImg) {
-          bgImg.style.display = '';
-          const maxBg = 8;
-          const bg    = Math.floor(Math.random()*maxBg)+1;
-          bgImg.src        = `backgrounds/bg${bg}.png`;
-        } else if (bgImg) {
-          bgImg.style.display = 'none';
-        }
-      }
+    const select    = document.getElementById('theme-select');
+    const bodyEl    = document.body;
   
-      if (theme === 'agentz' && document.getElementById('fixed-bg')) {
+    function applyTheme(theme) {
+      bodyEl.classList.remove('theme-dark','theme-light','theme-agentz');
+      bodyEl.classList.add('theme-' + theme);
+      localStorage.setItem(THEME_KEY, theme);
+      
+      const bgImg = document.getElementById('fixed-bg');
+      if (!bgImg) return;
+  
+      if (theme === 'agentz') {
+        bgImg.style.display = '';
         const maxBg = 8;
-        const bg    = Math.floor(Math.random()*maxBg)+1;
-        document.getElementById('fixed-bg').src = `backgrounds/bg${bg}.png`;
+        const n     = Math.floor(Math.random() * maxBg) + 1;
+        bgImg.src         = `backgrounds/bg${n}.png`;
+      } else {
+        bgImg.style.display = 'none';
       }
     }
   
@@ -471,7 +467,9 @@
       select.value = saved;
       applyTheme(saved);
   
-      select.addEventListener('change', () => applyTheme(select.value));
+      select.addEventListener('change', () => {
+        applyTheme(select.value);
+      });
     });
   </script>
 </body>
