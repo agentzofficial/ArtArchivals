@@ -527,10 +527,6 @@ body.theme-light {
   color: black;
 }
 
-body.theme-light .site-nav {
-  background: #ddd;
-  border-bottom-color: #bbb;
-}
 body.theme-light .site-nav a,
 body.theme-light .site-nav .separator {
   color: #333;
