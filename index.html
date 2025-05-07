@@ -20,7 +20,13 @@
         <li><span class="separator">|</span></li>
         <li><a href="policies.html">Usage Policies</a></li>
         <li><span class="separator">|</span></li>
-        <li><a href="settings.html">Background Settings</a></li>
+        <li class="theme-selector">
+          <select id="theme-select" aria-label="Choose theme">
+            <option value="agentz">agent z Theme</option>
+            <option value="dark">Basic Black</option>
+            <option value="light">Basic White</option>
+          </select>
+        </li>
       </ul>
     </nav>
   </header>
@@ -291,11 +297,6 @@
         loadNextChunk();
       }
   </script>
-  <script>
-    const maxBg = 8;
-    const bg    = Math.floor(Math.random()*maxBg)+1;
-    document.getElementById('fixed-bg').src = `backgrounds/bg${bg}.png`;
-  </script>
 
   <div
     id="trivia-container"
@@ -436,6 +437,31 @@
       localStorage.setItem(CLICKED_KEY, "1");
       button.style.opacity       = 0.5;
       button.style.pointerEvents = "none";
+    });
+  </script>
+  <script>
+    const THEME_KEY = 'preferredTheme';
+    const select  = document.getElementById('theme-select');
+    const body    = document.body;
+
+    function applyTheme(theme) {
+      body.classList.remove('theme-dark','theme-light','theme-agentz');
+      body.classList.add('theme-' + theme);
+      localStorage.setItem(THEME_KEY, theme);
+  
+      if (theme === 'agentz' && document.getElementById('fixed-bg')) {
+        const maxBg = 8;
+        const bg    = Math.floor(Math.random()*maxBg)+1;
+        document.getElementById('fixed-bg').src = `backgrounds/bg${bg}.png`;
+      }
+    }
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem(THEME_KEY) || 'dark';
+      select.value = saved;
+      applyTheme(saved);
+  
+      select.addEventListener('change', () => applyTheme(select.value));
     });
   </script>
 </body>
