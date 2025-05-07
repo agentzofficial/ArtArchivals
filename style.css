@@ -490,7 +490,7 @@ body {
 .page-content h2 {
   font-size: 1.5rem;
   font-weight: bold;
-  margin: 1.2em 0 0.1em;
+  margin: 1.2em 0 0em;
   color: white;
   text-align: left;
 }
