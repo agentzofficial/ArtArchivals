@@ -480,17 +480,17 @@ body {
   padding: 0 10px; 
   color: white;
   line-height: 1.6; 
-  text-align: left;
+  text-align: left; 
 }
 
 .page-content p {
-  margin: 0 0 1em;
+  margin-bottom: 1em;
 }
 
 .page-content h2 {
   font-size: 1.5rem;
   font-weight: bold;
-  margin: 1.2em 0 0.25em;
+  margin: 1.2em 0 -1em;
   color: white;
   text-align: left;
 }
