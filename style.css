@@ -476,11 +476,13 @@ body {
 /* POLICIES PAGE */
 .page-content {
   max-width: 700px;
-  margin: 0 auto 50px;
+  margin: 0 0 1px;
   padding: 0 10px; 
   color: white;
   line-height: 1.6; 
   text-align: left; 
+  margin-top: 0;
+  margin-bottom: 1em;
 }
 
 .page-content p {
