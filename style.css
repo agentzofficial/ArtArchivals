@@ -424,12 +424,15 @@ body {
 
 .form-container select,
 .form-container textarea {
-  background-color: #444;
-  border: 1px solid #aaa;
+  width: 100%;
+  max-width: 600px;
+  height: 120px;
+  resize: none; 
+  overflow-y: auto;
+  box-sizing: border-box;
   padding: 8px;
   font-family: inherit;
   font-size: 1rem;
-  color: white;
 }
 
 .form-container select:focus,
