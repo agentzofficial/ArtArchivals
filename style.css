@@ -26,15 +26,6 @@ body {
     transform: translateZ(0);
 }
 
-body.theme-dark {
-  background-color: #323232;
-  color: white;
-}
-body.theme-light {
-  background-color: #f0f0f0;
-  color: black;
-}
-
 body.theme-agentz {
   background-color: #323232;
   color: white;
@@ -518,4 +509,38 @@ body {
 
 .dot-list li {
   margin-bottom: 0.6em;
+}
+
+/* Light Mode */
+body.theme-light {
+  background-color: #f0f0f0;
+  color: black;
+}
+body.theme-light .site-nav {
+  background: #ddd;
+  border-bottom-color: #bbb;
+}
+body.theme-light .site-nav a,
+body.theme-light .site-nav .separator {
+  color: #333;
+}
+body.theme-light .site-nav a.active {
+  color: #000;
+}
+body.theme-light .form-container label,
+body.theme-light .form-container select,
+body.theme-light .form-container textarea {
+  color: black;
+  background: #fff;
+  border-color: #aaa;
+}
+
+body.theme-dark {
+  background-color: #323232;
+  color: white;
+}
+    
+body.theme-agentz {
+  background-color: #323232;
+  color: white;
 }
