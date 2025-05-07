@@ -72,6 +72,11 @@
     const select  = document.getElementById('theme-select');
     const body    = document.body;
 
+    if (!document.getElementById('fixed-bg')) {
+      const agentzOption = select.querySelector('option[value="agentz"]');
+      agentzOption.disabled = true;
+    }
+
     function applyTheme(theme) {
       body.classList.remove('theme-dark','theme-light','theme-agentz');
       body.classList.add('theme-' + theme);
