@@ -558,3 +558,7 @@ body.theme-light .dot-list li {
 body.theme-light #trivia-time {
   color: black;
 }
+
+.theme-selector select option:disabled {
+  color: #999;
+}
