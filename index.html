@@ -448,6 +448,16 @@
       body.classList.remove('theme-dark','theme-light','theme-agentz');
       body.classList.add('theme-' + theme);
       localStorage.setItem(THEME_KEY, theme);
+      const bgImg = document.getElementById('fixed-bg');
+        if (theme === 'agentz' && bgImg) {
+          bgImg.style.display = '';
+          const maxBg = 8;
+          const bg    = Math.floor(Math.random()*maxBg)+1;
+          bgImg.src        = `backgrounds/bg${bg}.png`;
+        } else if (bgImg) {
+          bgImg.style.display = 'none';
+        }
+      }
   
       if (theme === 'agentz' && document.getElementById('fixed-bg')) {
         const maxBg = 8;
@@ -457,7 +467,7 @@
     }
   
     document.addEventListener('DOMContentLoaded', () => {
-      const saved = localStorage.getItem(THEME_KEY) || 'dark';
+      const saved = localStorage.getItem(THEME_KEY) || 'agentz';
       select.value = saved;
       applyTheme(saved);
   
