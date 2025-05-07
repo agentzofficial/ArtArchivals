@@ -472,3 +472,28 @@ body {
   text-align: center;
   margin-top: 20px;
 }
+
+/* POLICIES PAGE */
+.page-content {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  padding: 0 10px; 
+  color: white;
+  line-height: 1.6; 
+  text-align: left; 
+}
+
+.page-content p {
+  margin-bottom: 1em;
+}
+
+.dot-list {
+  list-style: disc inside;
+  margin: 0 0 1.5em 0;
+  padding-left: 1em;
+  font-size: 0.95rem;
+}
+
+.dot-list li {
+  margin-bottom: 0.6em;
+}
