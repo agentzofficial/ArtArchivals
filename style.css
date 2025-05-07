@@ -514,27 +514,45 @@ body {
   margin-bottom: 0.6em;
 }
 
-/* Light Mode */
+/* Themes */
 body.theme-agentz {
   background-color: #323232;
   color: white;
 }
-
 body.theme-dark {
   background-color: #323232;
   color: white;
 }
-
 body.theme-light {
   background-color: #f0f0f0;
   color: black;
 }
 
+body.theme-agentz #fixed-bg { display: block; }
+body.theme-dark  #fixed-bg,
+body.theme-light #fixed-bg { display: none; }
 
 body.theme-light .form-container label,
 body.theme-light .form-container select,
 body.theme-light .form-container textarea {
   color: black;
-  background: white;
+  background-color: white;
   border-color: #aaa;
+}
+
+body.theme-light .contact-title-bar,
+body.theme-light .contact-info,
+body.theme-light #thank-you {
+  color: black;
+}
+
+body.theme-light .page-content,
+body.theme-light .page-content p,
+body.theme-light .page-content h2,
+body.theme-light .dot-list li {
+  color: black;
+}
+
+body.theme-light #trivia-time {
+  color: black;
 }
