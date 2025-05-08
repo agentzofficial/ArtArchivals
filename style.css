@@ -5,14 +5,15 @@ body {
     text-align: center;
 }
 
-.bg1 {background-image: url('backgrounds/bg1.png');}
-.bg2 {background-image: url('backgrounds/bg2.png');}
-.bg3 {background-image: url('backgrounds/bg3.png');}
-.bg4 {background-image: url('backgrounds/bg4.png');}
-.bg5 {background-image: url('backgrounds/bg5.png');}
-.bg6 {background-image: url('backgrounds/bg6.png');}
-.bg7 {background-image: url('backgrounds/bg7.png');}
-.bg8 {background-image: url('backgrounds/bg8.png');}
+.bg1 {background-image: url('backgrounds/bg1.webp');}
+.bg2 {background-image: url('backgrounds/bg2.webp');}
+.bg3 {background-image: url('backgrounds/bg3.webp');}
+.bg4 {background-image: url('backgrounds/bg4.webp');}
+.bg5 {background-image: url('backgrounds/bg5.webp');}
+.bg6 {background-image: url('backgrounds/bg6.webp');}
+.bg7 {background-image: url('backgrounds/bg7.webp');}
+.bg8 {background-image: url('backgrounds/bg8.webp');}
+.bg9 {background-image: url('backgrounds/bg9.webp');}
 
 #fixed-bg {
     position: fixed;
