@@ -696,34 +696,18 @@ body.theme-light .year-nav button.selected {
   }
 
   #trivia-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     max-width: 80vw;
     margin: 8px auto;
-    position: static;
-    height: auto; 
-    padding: 8px 0;
   }
-
+  #trivia-content {
+    font-size: 0.75rem !important;
+    line-height: 1.2;
+    margin: 4px 0 !important;
+  }
   #trivia-box {
     max-width: 80vw;
     width: auto;
     height: auto;
-  }
-
-  #trivia-content {
-    top: 45%;
-    transform: translate(-50%, -45%);
-    position: static !important;
-    transform: none !important; 
-    font-size: 0.75rem !important;
-    line-height: 1.2;
-    margin: 4px 0 !important;
-    max-height: none; 
-    width: auto; 
-    text-align: center;
   }
 
   .gallery {
