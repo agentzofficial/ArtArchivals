@@ -310,6 +310,7 @@
         artData = data;
         const years = Array.from(new Set(artData.map(i=>new Date(i.date).getFullYear())))
                      .sort((a,b)=>b-a);
+        selectedYear = years[0].toString();
         buildGallery();
         buildYearNav();
         origRender();  
