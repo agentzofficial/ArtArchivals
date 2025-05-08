@@ -417,7 +417,8 @@ body.theme-agentz {
 /* TRIVIA BOXES */
 #trivia-container {
   position: relative;
-  width: 700px;
+  width: 90%;
+  max-width: 700px;
   margin: 50px auto;
 }
 
