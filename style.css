@@ -695,9 +695,20 @@ body.theme-light .year-nav button.selected {
     height: auto;
   }
 
+
   #trivia-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    padding: 0;
+    margin: 8px auto;
+  }
+
+  #trivia-box {
+    max-width: 80vw;
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   #trivia-content {
@@ -705,17 +716,13 @@ body.theme-light .year-nav button.selected {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;  
-    margin: 0; 
     font-size: 0.75rem !important;
     line-height: 1.2;
+    width: 70%;
     text-align: center;
+    margin: 0;
     pointer-events: none;
-  }
-  #trivia-box {
-    max-width: 80vw;
-    width: auto;
-    height: auto;
+    white-space: normal;
   }
 
   .gallery {
