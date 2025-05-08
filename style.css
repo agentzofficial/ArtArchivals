@@ -26,6 +26,13 @@ body {
     transform: translateZ(0);
 }
 
+#logo {
+  max-width: 180px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 body.theme-agentz {
   background-color: #323232;
   color: white;
