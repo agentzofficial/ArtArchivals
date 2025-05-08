@@ -27,7 +27,7 @@ body {
 }
 
 #logo {
-  max-width: 720px;
+  max-width: 90vw;
   height: auto;
   display: block;
   margin: 15px auto;
