@@ -695,34 +695,19 @@ body.theme-light .year-nav button.selected {
     height: auto;
   }
 
-
   #trivia-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    max-width: 80vw;
     margin: 8px auto;
   }
-
-  #trivia-box {
-    max-width: 80vw;
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
   #trivia-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     font-size: 0.75rem !important;
     line-height: 1.2;
-    width: 70%;
-    text-align: center;
-    margin: 0;
-    pointer-events: none;
-    white-space: normal;
+    margin: 4px 0 !important;
+  }
+  #trivia-box {
+    max-width: 80vw;
+    width: auto;
+    height: auto;
   }
 
   .gallery {
