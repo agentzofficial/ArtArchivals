@@ -259,6 +259,50 @@
         filterBar.appendChild(divider);
       }
     });
+
+    let selectedYear = 'all';
+
+    function buildYearNav() {
+      const years = new Set(artData.map(item => {
+        return new Date(item.date).getFullYear();
+      }));
+      const sorted = Array.from(years).sort((a,b)=>b-a);
+      sorted.unshift('all');
+    
+      const navHtml = sorted.map(year => 
+        `<button data-year="${year}" class="${year===selectedYear?'selected':''}">
+           ${year==='all' ? 'All' : year}
+         </button>`
+      ).join('');
+      document.getElementById('year-nav').innerHTML       = navHtml;
+      document.getElementById('year-nav-bottom').innerHTML = navHtml;
+    
+      document.querySelectorAll('.year-nav button').forEach(btn=>{
+        btn.addEventListener('click', ()=> {
+          selectedYear = btn.dataset.year;
+          buildYearNav();
+          renderGallery();
+        });
+      });
+    }
+    
+    const origRender = renderGallery;
+    renderGallery = () => {
+      if (pendingRender) return;
+      pendingRender = true;
+      requestAnimationFrame(() => {
+        filteredIndices = [];
+        itemNodes.forEach((div, idx) => {
+          const itemYear = new Date(artData[idx].date).getFullYear().toString();
+          const yearMatch = (selectedYear==='all' || itemYear === selectedYear);
+          const tagMatch  = matchesFilter(artData[idx].tags || []);
+          const show = yearMatch && tagMatch;
+          div.style.display = show ? '' : 'none';
+          if (show) filteredIndices.push(idx);
+        });
+        pendingRender = false;
+      });
+    };
   
     fetch('data.json')
       .then(r => r.json())
