@@ -736,3 +736,9 @@ body.theme-light .year-nav button.selected {
     max-width: 720px;
   }
 }
+
+@media screen and (min-width: 1920px) {
+  html {
+    zoom: 0.7;
+  }
+}
