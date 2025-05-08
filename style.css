@@ -644,6 +644,28 @@ body.theme-light .year-nav button.selected {
 
 /* Portrait Phone View */
 @media only screen and (max-width: 480px) and (orientation: portrait) {
+  .site-nav nav ul li:has(.separator) {
+    display: none;
+  }
+
+  .site-nav nav ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 0;
+    padding: 4px 0;
+  }
+
+  .site-nav nav ul li {
+    text-align: center;
+    margin: 0;
+  }
+    
+  .site-nav nav ul li a,
+  .site-nav nav ul li .theme-selector {
+    display: block;
+    padding: 6px 0;
+    font-size: 0.9rem;
+  }
   .site-nav nav ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
