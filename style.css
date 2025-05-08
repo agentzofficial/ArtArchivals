@@ -702,7 +702,7 @@ body.theme-light .year-nav button.selected {
   #trivia-content {
     font-size: 0.75rem !important;
     line-height: 1.2;
-    margin: -8px 0 4px 0 !important;
+    margin: -6px 0 4px 0 !important;
   }
   #trivia-box {
     max-width: 80vw;
