@@ -641,3 +641,45 @@ body.theme-light .year-nav button:hover,
 body.theme-light .year-nav button.selected {
   color: black;
 }
+
+/* Portrait Phone View */
+@media only screen
+  and (max-width: 480px)
+  and (orientation: portrait) {
+
+  .site-nav nav ul {
+    flex-wrap: wrap;
+    padding: 4px 0;
+  }
+  .site-nav nav ul li {
+    flex: 1 1 50%;
+    text-align: center;
+    margin: 2px 0;
+  }
+  .site-nav nav ul li a {
+    font-size: 0.85rem;
+  }
+  .site-nav nav ul li .separator {
+    display: none;
+  }
+
+  .logo-container img,
+  #trivia-container,
+  #trivia-container img {
+    max-width: 80vw !important;
+    width: auto;
+    height: auto;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    margin: 20px 5px;
+  }
+
+  #fixed-bg {
+    min-width: 100vw;
+    min-height: 100vh;
+    object-fit: cover;
+  }
+}
