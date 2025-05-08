@@ -729,3 +729,9 @@ body.theme-light .year-nav button.selected {
     object-fit: cover;
   }
 }
+
+@media (min-width: 768px) {
+  #logo {
+    max-width: 720px;
+  }
+}
