@@ -586,6 +586,15 @@ body.theme-light {
   color: black;
 }
 
+body.theme-agentz .modal-content h2,
+body.theme-agentz .modal-content p,
+body.theme-agentz .modal-date,
+body.theme-dark .modal-content h2,
+body.theme-dark .modal-content p,
+body.theme-dark .modal-date {
+  color: black;
+}
+
 body.theme-agentz #fixed-bg { display: block; }
 body.theme-dark  #fixed-bg,
 body.theme-light #fixed-bg { display: none; }
