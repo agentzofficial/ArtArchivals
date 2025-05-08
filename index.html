@@ -475,22 +475,25 @@
     }
   
     button.addEventListener("click", async () => {
+      button.disabled = true;
+      button.style.opacity       = 0.5;
+      button.style.pointerEvents = "none";
+    
+      localStorage.setItem(CLICKED_KEY, "1");
+    
       try {
-        // try incrementing the counter
         await updateDoc(counterRef, { count: increment(1) });
       } catch (e) {
         if (e.code === 'not-found') {
-          // doc doesn't exist yet → create it with count = 1
           await setDoc(counterRef, { count: 1 });
         } else {
           console.error("Unexpected Firestore error:", e);
+          button.disabled = false;
+          button.style.opacity = 1;
+          button.style.pointerEvents = "";
           return;
         }
       }
-      // block multiple clicks on this device
-      localStorage.setItem(CLICKED_KEY, "1");
-      button.style.opacity       = 0.5;
-      button.style.pointerEvents = "none";
     });
   </script>
   <script>
