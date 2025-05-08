@@ -696,13 +696,21 @@ body.theme-light .year-nav button.selected {
   }
 
   #trivia-container {
-    max-width: 80vw;
-    margin: 8px auto;
+    position: relative;
+    padding: 0;
   }
+
   #trivia-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;  
+    margin: 0; 
     font-size: 0.75rem !important;
     line-height: 1.2;
-    margin: 4px 0 !important;
+    text-align: center;
+    pointer-events: none;
   }
   #trivia-box {
     max-width: 80vw;
