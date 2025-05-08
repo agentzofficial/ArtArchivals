@@ -714,6 +714,8 @@ body.theme-light .year-nav button.selected {
   }
 
   #trivia-content {
+    top: 45%;
+    transform: translate(-50%, -45%);
     position: static !important;
     transform: none !important; 
     font-size: 0.75rem !important;
