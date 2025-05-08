@@ -27,10 +27,10 @@ body {
 }
 
 #logo {
-  max-width: 180px;
+  max-width: 520px;
   height: auto;
   display: block;
-  margin: 0 auto;
+  margin: -4px auto;
 }
 
 body.theme-agentz {
