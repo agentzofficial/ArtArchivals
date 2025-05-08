@@ -643,30 +643,47 @@ body.theme-light .year-nav button.selected {
 }
 
 /* Portrait Phone View */
-@media only screen
-  and (max-width: 480px)
-  and (orientation: portrait) {
-
+@media only screen and (max-width: 480px) and (orientation: portrait) {
   .site-nav nav ul {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 0;
     padding: 4px 0;
   }
   .site-nav nav ul li {
-    flex: 1 1 50%;
     text-align: center;
-    margin: 2px 0;
-  }
-  .site-nav nav ul li a {
-    font-size: 0.85rem;
+    margin: 0;
   }
   .site-nav nav ul li .separator {
     display: none;
   }
+  .site-nav nav ul li a {
+    font-size: 0.9rem;
+    padding: 6px 0;
+    display: block;
+  }
 
-  .logo-container img,
-  #trivia-container,
-  #trivia-container img {
-    max-width: 80vw !important;
+  .logo-container {
+    text-align: center;
+    margin: 12px 0;
+  }
+  .logo-container img {
+    max-width: 60vw;
+    width: auto;
+    height: auto;
+  }
+
+  #trivia-container {
+    max-width: 80vw;
+    margin: 8px auto;
+  }
+  #trivia-content {
+    font-size: 0.75rem !important;
+    line-height: 1.2;
+    margin: 4px 0 !important;
+  }
+  #trivia-box {
+    max-width: 80vw;
     width: auto;
     height: auto;
   }
