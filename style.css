@@ -620,3 +620,15 @@ body.theme-light #trivia-time {
 .theme-selector select option:disabled {
   color: #999;
 }
+
+.year-nav button {
+  color: rgba(255,255,255,0.7);
+}
+
+body.theme-light .year-nav button {
+  color: rgba(0,0,0,0.7);
+}
+body.theme-light .year-nav button:hover,
+body.theme-light .year-nav button.selected {
+  color: black;
+}
