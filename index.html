@@ -261,27 +261,30 @@
     });
 
     let selectedYear = 'all';
-
-    function buildYearNav() {
-      const years = new Set(artData.map(item => {
-        return new Date(item.date).getFullYear();
-      }));
-      const sorted = Array.from(years).sort((a,b)=>b-a);
-      sorted.unshift('all');
     
-      const navHtml = sorted.map(year => 
-        `<button data-year="${year}" class="${year===selectedYear?'selected':''}">
-           ${year==='all' ? 'All' : year}
+    function buildYearNav() {
+      const years = Array.from(
+        new Set(
+          artData.map(item => new Date(item.date).getFullYear().toString())
+        )
+      ).sort((a,b) => b - a);
+    
+      years.unshift('all');
+  
+      const navHtml = years.map(year =>
+        `<button data-year="${year}" class="${year === selectedYear ? 'selected' : ''}">
+           ${year === 'all' ? 'All' : year}
          </button>`
       ).join('');
-      document.getElementById('year-nav').innerHTML       = navHtml;
+    
+      document.getElementById('year-nav').innerHTML        = navHtml;
       document.getElementById('year-nav-bottom').innerHTML = navHtml;
     
-      document.querySelectorAll('.year-nav button').forEach(btn=>{
-        btn.addEventListener('click', ()=> {
-          selectedYear = btn.dataset.year;
+      document.querySelectorAll('.year-nav button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          selectedYear = btn.dataset.year; 
           buildYearNav();
-          renderGallery();
+          renderGallery();  
         });
       });
     }
@@ -308,9 +311,12 @@
       .then(r => r.json())
       .then(data => {
         artData = data;
-        const years = Array.from(new Set(artData.map(i=>new Date(i.date).getFullYear())))
-                     .sort((a,b)=>b-a);
-        selectedYear = years[0].toString();
+        const years = Array.from(
+          new Set(
+            artData.map(item => new Date(item.date).getFullYear().toString())
+          )
+        ).sort((a,b) => b - a);
+        selectedYear = years[0];
         buildGallery();
         buildYearNav();
         origRender();  
