@@ -164,6 +164,7 @@ body.theme-agentz {
     border-radius: 10px;
     cursor: pointer;
     contain: layout paint;
+    will-change: transform, opacity;
 }
 
 .image-container {
