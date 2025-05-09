@@ -286,7 +286,7 @@
         const pageItems = artData.filter((item, i) => {
           const y = new Date(item.date).getFullYear().toString();
           const match = selectedYear === 'all' || y === selectedYear;
-          if (match) filteredIndices.push(i);  // track index in original data
+          if (match) filteredIndices.push(i);
           return match;
         });
 
@@ -295,11 +295,6 @@
         });
         document.querySelectorAll('#year-nav-bottom button').forEach(btn => {
           btn.classList.toggle('selected', btn.dataset.year === selectedYear);
-        });
-      
-        const pageItems = artData.filter(item => {
-          const y = new Date(item.date).getFullYear().toString();
-          return selectedYear === 'all' || y === selectedYear;
         });
       
         pageItems.forEach(item => {
