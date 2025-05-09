@@ -72,10 +72,19 @@
       "Thumbnails", "Sneak Peaks", "Specials", "Branding"
     ];
   
-    function matchesFilter(tags = []) {
-      for (let t of excludeTags) if (tags.includes(t)) return false;
+    function matchesFilter(item) {
+      const itemYear = new Date(item.date).getFullYear().toString();
+      if (selectedYear !== 'all' && itemYear !== selectedYear) {
+        return false;
+      }
+      const tags = item.tags || [];
+      for (let t of excludeTags) {
+        if (tags.includes(t)) return false;
+      }
       if (includeTags.size) {
-        for (let t of includeTags) if (tags.includes(t)) return true;
+        for (let t of includeTags) {
+          if (tags.includes(t)) return true;
+        }
         return false;
       }
       return true;
@@ -131,12 +140,11 @@
       requestAnimationFrame(() => {
         filteredIndices = [];
         itemNodes.forEach((div, idx) => {
-          const matches = matchesFilter(artData[idx].tags || []);
-          div.style.display = matches ? '' : 'none';
-          if (matches) filteredIndices.push(idx);
+          const item = artData[idx];
+          const show = matchesFilter(item);
+          div.style.display = show ? '' : 'none';
+          if (show) filteredIndices.push(idx);
         });
-        pendingRender = false;
-      });
     }
   
     function showModal(index, variantIndex = 0) {
@@ -335,7 +343,7 @@
   
       function schedulePreload() {
         const preloadList = itemNodes
-          .map((node, idx) => matchesFilter(artData[idx].tags || []) ? artData[idx] : null)
+          .map((node, idx) => matchesFilter(artData[idx] || []) ? artData[idx] : null)
           .filter(Boolean);
       
         let index = 0;
