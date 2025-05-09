@@ -279,38 +279,23 @@
 
       function renderByYear() {
         gallery.innerHTML = '';
-
-        filteredIndices = [];
-
-        const pageItems = artData.filter((item, i) => {
-          const y = new Date(item.date).getFullYear().toString();
-          const match = selectedYear === 'all' || y === selectedYear;
-          if (match) filteredIndices.push(i);
-          return match;
-        });
-
-        document.querySelectorAll('#year-nav button').forEach(btn => {
-          btn.classList.toggle('selected', btn.dataset.year === selectedYear);
-        });
-        document.querySelectorAll('#year-nav-bottom button').forEach(btn => {
-          btn.classList.toggle('selected', btn.dataset.year === selectedYear);
-        });
+        const fragment = document.createDocumentFragment();
       
-        pageItems.forEach(item => {
-          const thumb = item.variants?.[0] || item.filename;
+        filteredIndices.forEach(index => {
+          const item = artData[index];
           const div = document.createElement('div');
           div.className = 'art-item';
           div.innerHTML = `
             <div class="image-container">
               <img class="thumb" loading="lazy"
-                   src="imagesPreview/${thumb.replace(/\.[^/.]+$/, '.webp')}"
+                   src="imagesPreview/${item.filename.replace(/\.[^/.]+$/, '.webp')}"
                    alt="${item.title}">
-              <!-- overlay/title… -->
             </div>`;
-          gallery.appendChild(div);
-          const index = artData.indexOf(item);
           div.addEventListener('click', () => showModal(index));
+          fragment.appendChild(div);
         });
+      
+        gallery.appendChild(fragment);
       }
   </script>
   <div id="year-nav-bottom" class="year-nav"></div>
