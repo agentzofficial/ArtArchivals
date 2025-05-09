@@ -104,50 +104,8 @@
     const closeBtn  = document.querySelector('.close');
   
     let itemNodes = [];
-    function buildGallery() {
-      gallery.innerHTML = '';
-      itemNodes = artData.map((item, idx) => {
-        const thumb       = item.variants?.[0] || item.filename;
-        const hasVariants = item.variants?.length > 1;
-        const div = document.createElement('div');
-        div.className = 'art-item';
-        div.innerHTML = `
-          <div class="image-container">
-            <img class="thumb" loading="lazy"
-                 src="imagesPreview/${thumb.replace(/\.[^/.]+$/, '.webp')}"
-                 alt="${item.title.replace(/"/g,'&quot;')}"
-                 style="object-position:${item.position||'center'};">
-            ${hasVariants
-               ? `<img class="variant-icon"
-                       src="serverImages/variant-icon.png"
-                       alt="Has Variants">`
-               : ''}
-            <div class="overlay">
-              <h2>${item.title.replace(/</g,'&lt;')}</h2>
-              <p class="date">${item.date||''}</p>
-            </div>
-          </div>`;
-        div.addEventListener('click', ()=> showModal(idx, 0));
-        gallery.appendChild(div);
-        return div;
-      });
-    }
   
     let pendingRender = false;
-    function renderGallery() {
-      if (pendingRender) return;
-      pendingRender = true;
-      requestAnimationFrame(() => {
-        filteredIndices = [];
-        itemNodes.forEach((div, idx) => {
-          const item = artData[idx];
-          const show = matchesFilter(item);
-          div.style.display = show ? '' : 'none';
-          if (show) filteredIndices.push(idx);
-        });
-        pendingRender = false;
-      });
-    }
   
     function showModal(index, variantIndex = 0) {
       const item     = artData[index];
@@ -263,7 +221,7 @@
           btn.className = 'filter-btn neutral';
           excludeTags.delete(tag);
         }
-        renderGallery();
+        renderByYear();
       });
       filterBar.appendChild(btn);
       if (i === 2) {
@@ -293,14 +251,14 @@
     
       document.getElementById('year-nav').innerHTML        = navHtml;
       document.getElementById('year-nav-bottom').innerHTML = navHtml;
-    
-      document.querySelectorAll('.year-nav button').forEach(btn => {
+
+      document.querySelectorAll('#year-nav button').forEach(btn => {
         btn.addEventListener('click', () => {
-          selectedYear = btn.dataset.year; 
-          buildYearNav();
-          renderGallery();  
+          selectedYear = btn.dataset.year;
+          renderByYear();
         });
       });
+    
     }
     
     fetch('data.json')
@@ -313,11 +271,35 @@
         ).sort((a,b) => b - a);
         selectedYear = years[0] || 'all';
   
-        buildGallery();
         buildYearNav();
-        renderGallery();
+        renderByYear();
       })
       .catch(err => console.error('Error loading gallery data:', err));
+
+      function renderByYear() {
+        gallery.innerHTML = '';
+      
+        const pageItems = artData.filter(item => {
+          const y = new Date(item.date).getFullYear().toString();
+          return selectedYear === 'all' || y === selectedYear;
+        });
+      
+        pageItems.forEach(item => {
+          const thumb = item.variants?.[0] || item.filename;
+          const div = document.createElement('div');
+          div.className = 'art-item';
+          div.innerHTML = `
+            <div class="image-container">
+              <img class="thumb" loading="lazy"
+                   src="imagesPreview/${thumb.replace(/\.[^/.]+$/, '.webp')}"
+                   alt="${item.title}">
+              <!-- overlay/title… -->
+            </div>`;
+          gallery.appendChild(div);
+          const index = artData.indexOf(item);
+          div.addEventListener('click', () => showModal(index));
+        });
+      }
   </script>
   <div id="year-nav-bottom" class="year-nav"></div>
   <div
