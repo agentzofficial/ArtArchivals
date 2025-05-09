@@ -307,32 +307,17 @@
       .then(r => r.json())
       .then(data => {
         artData = data;
+  
         const years = Array.from(
-          new Set(
-            artData.map(item => new Date(item.date).getFullYear().toString())
-          )
+          new Set(artData.map(item => new Date(item.date).getFullYear().toString()))
         ).sort((a,b) => b - a);
-        selectedYear = years[0];
+        selectedYear = years[0] || 'all';
+  
         buildGallery();
         buildYearNav();
         renderGallery();
-      
-        let index = 0;
-        function loadNextChunk() {
-          const chunkSize = 5;
-          for (let i = 0; i < chunkSize && index < preloadList.length; i++, index++) {
-            const item = preloadList[index];
-            (item.variants || [item.filename]).forEach(fn => {
-              const img = new Image();
-            });
-          }
-          if (index < preloadList.length) {
-            setTimeout(loadNextChunk, 200);
-          }
-        }
-      
-        loadNextChunk();
-      }
+      })
+      .catch(err => console.error('Error loading gallery data:', err));
   </script>
   <div id="year-nav-bottom" class="year-nav"></div>
   <div
