@@ -132,14 +132,16 @@
       };
       actualImg.src = actualSrc;
     
-      [ -2, -1, 1, 2 ].forEach(offset => {
-        const ni = index + offset;
-        if (ni >= 0 && ni < artData.length) {
-          const neighbor = artData[ni];
-          const fn       = (neighbor.variants?.[0] || neighbor.filename);
-          const img      = new Image();
-          img.src        = `images/${fn.replace(/\.[^/.]+$/, '.png')}`;
-        }
+      [ -2, -1, 1, 2 ].forEach((offset, i) => {
+        setTimeout(() => {
+          const ni = index + offset;
+          if (ni >= 0 && ni < artData.length) {
+            const neighbor = artData[ni];
+            const fn = (neighbor.variants?.[0] || neighbor.filename);
+            const img = new Image();
+            img.src = `images/${fn.replace(/\.[^/.]+$/, '.png')}`;
+          }
+        }, 100 * i);
       });
   
       variants
@@ -278,6 +280,22 @@
 
       function renderByYear() {
         gallery.innerHTML = '';
+
+        filteredIndices = [];
+
+        const pageItems = artData.filter((item, i) => {
+          const y = new Date(item.date).getFullYear().toString();
+          const match = selectedYear === 'all' || y === selectedYear;
+          if (match) filteredIndices.push(i);  // track index in original data
+          return match;
+        });
+
+        document.querySelectorAll('#year-nav button').forEach(btn => {
+          btn.classList.toggle('selected', btn.dataset.year === selectedYear);
+        });
+        document.querySelectorAll('#year-nav-bottom button').forEach(btn => {
+          btn.classList.toggle('selected', btn.dataset.year === selectedYear);
+        });
       
         const pageItems = artData.filter(item => {
           const y = new Date(item.date).getFullYear().toString();
