@@ -303,24 +303,6 @@
       });
     }
     
-    const origRender = renderGallery;
-    renderGallery = () => {
-      if (pendingRender) return;
-      pendingRender = true;
-      requestAnimationFrame(() => {
-        filteredIndices = [];
-        itemNodes.forEach((div, idx) => {
-          const itemYear = new Date(artData[idx].date).getFullYear().toString();
-          const yearMatch = (selectedYear==='all' || itemYear === selectedYear);
-          const tagMatch  = matchesFilter(artData[idx].tags || []);
-          const show = yearMatch && tagMatch;
-          div.style.display = show ? '' : 'none';
-          if (show) filteredIndices.push(idx);
-        });
-        pendingRender = false;
-      });
-    };
-  
     fetch('data.json')
       .then(r => r.json())
       .then(data => {
