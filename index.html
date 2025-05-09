@@ -316,19 +316,6 @@
         buildGallery();
         buildYearNav();
         renderGallery();
-        if (document.visibilityState === 'visible') {
-          schedulePreload();
-        } else {
-          document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible') schedulePreload();
-          }, { once: true });
-        }
-      });
-  
-      function schedulePreload() {
-        const preloadList = itemNodes
-          .map((node, idx) => matchesFilter(artData[idx] || []) ? artData[idx] : null)
-          .filter(Boolean);
       
         let index = 0;
         function loadNextChunk() {
