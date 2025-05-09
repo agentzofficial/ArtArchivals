@@ -254,13 +254,12 @@
       document.getElementById('year-nav').innerHTML        = navHtml;
       document.getElementById('year-nav-bottom').innerHTML = navHtml;
 
-      document.querySelectorAll('#year-nav button').forEach(btn => {
+      document.querySelectorAll('#year-nav button, #year-nav-bottom button').forEach(btn => {
         btn.addEventListener('click', () => {
           selectedYear = btn.dataset.year;
           renderByYear();
-        });
-      });
-    
+        });        
+      });   
     }
     
     fetch('data.json')
