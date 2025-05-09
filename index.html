@@ -145,6 +145,8 @@
           div.style.display = show ? '' : 'none';
           if (show) filteredIndices.push(idx);
         });
+        pendingRender = false;
+      });
     }
   
     function showModal(index, variantIndex = 0) {
