@@ -72,19 +72,10 @@
       "Thumbnails", "Sneak Peaks", "Specials", "Branding"
     ];
   
-    function matchesFilter(item) {
-      const itemYear = new Date(item.date).getFullYear().toString();
-      if (selectedYear !== 'all' && itemYear !== selectedYear) {
-        return false;
-      }
-      const tags = item.tags || [];
-      for (let t of excludeTags) {
-        if (tags.includes(t)) return false;
-      }
+    function matchesFilter(tags = []) {
+      for (let t of excludeTags) if (tags.includes(t)) return false;
       if (includeTags.size) {
-        for (let t of includeTags) {
-          if (tags.includes(t)) return true;
-        }
+        for (let t of includeTags) if (tags.includes(t)) return true;
         return false;
       }
       return true;
@@ -104,8 +95,49 @@
     const closeBtn  = document.querySelector('.close');
   
     let itemNodes = [];
+    function buildGallery() {
+      gallery.innerHTML = '';
+      itemNodes = artData.map((item, idx) => {
+        const thumb       = item.variants?.[0] || item.filename;
+        const hasVariants = item.variants?.length > 1;
+        const div = document.createElement('div');
+        div.className = 'art-item';
+        div.innerHTML = `
+          <div class="image-container">
+            <img class="thumb" loading="lazy"
+                 src="imagesPreview/${thumb.replace(/\.[^/.]+$/, '.webp')}"
+                 alt="${item.title.replace(/"/g,'&quot;')}"
+                 style="object-position:${item.position||'center'};">
+            ${hasVariants
+               ? `<img class="variant-icon"
+                       src="serverImages/variant-icon.png"
+                       alt="Has Variants">`
+               : ''}
+            <div class="overlay">
+              <h2>${item.title.replace(/</g,'&lt;')}</h2>
+              <p class="date">${item.date||''}</p>
+            </div>
+          </div>`;
+        div.addEventListener('click', ()=> showModal(idx, 0));
+        gallery.appendChild(div);
+        return div;
+      });
+    }
   
     let pendingRender = false;
+    function renderGallery() {
+      if (pendingRender) return;
+      pendingRender = true;
+      requestAnimationFrame(() => {
+        filteredIndices = [];
+        itemNodes.forEach((div, idx) => {
+          const matches = matchesFilter(artData[idx].tags || []);
+          div.style.display = matches ? '' : 'none';
+          if (matches) filteredIndices.push(idx);
+        });
+        pendingRender = false;
+      });
+    }
   
     function showModal(index, variantIndex = 0) {
       const item     = artData[index];
@@ -132,16 +164,14 @@
       };
       actualImg.src = actualSrc;
     
-      [ -2, -1, 1, 2 ].forEach((offset, i) => {
-        setTimeout(() => {
-          const ni = index + offset;
-          if (ni >= 0 && ni < artData.length) {
-            const neighbor = artData[ni];
-            const fn = (neighbor.variants?.[0] || neighbor.filename);
-            const img = new Image();
-            img.src = `images/${fn.replace(/\.[^/.]+$/, '.png')}`;
-          }
-        }, 100 * i);
+      [ -2, -1, 1, 2 ].forEach(offset => {
+        const ni = index + offset;
+        if (ni >= 0 && ni < artData.length) {
+          const neighbor = artData[ni];
+          const fn       = (neighbor.variants?.[0] || neighbor.filename);
+          const img      = new Image();
+          img.src        = `images/${fn.replace(/\.[^/.]+$/, '.png')}`;
+        }
       });
   
       variants
@@ -223,7 +253,7 @@
           btn.className = 'filter-btn neutral';
           excludeTags.delete(tag);
         }
-        renderByYear();
+        renderGallery();
       });
       filterBar.appendChild(btn);
       if (i === 2) {
@@ -253,49 +283,77 @@
     
       document.getElementById('year-nav').innerHTML        = navHtml;
       document.getElementById('year-nav-bottom').innerHTML = navHtml;
-
-      document.querySelectorAll('#year-nav button, #year-nav-bottom button').forEach(btn => {
+    
+      document.querySelectorAll('.year-nav button').forEach(btn => {
         btn.addEventListener('click', () => {
-          selectedYear = btn.dataset.year;
-          renderByYear();
-        });        
-      });   
+          selectedYear = btn.dataset.year; 
+          buildYearNav();
+          renderGallery();  
+        });
+      });
     }
     
+    const origRender = renderGallery;
+    renderGallery = () => {
+      if (pendingRender) return;
+      pendingRender = true;
+      requestAnimationFrame(() => {
+        filteredIndices = [];
+        itemNodes.forEach((div, idx) => {
+          const itemYear = new Date(artData[idx].date).getFullYear().toString();
+          const yearMatch = (selectedYear==='all' || itemYear === selectedYear);
+          const tagMatch  = matchesFilter(artData[idx].tags || []);
+          const show = yearMatch && tagMatch;
+          div.style.display = show ? '' : 'none';
+          if (show) filteredIndices.push(idx);
+        });
+        pendingRender = false;
+      });
+    };
+  
     fetch('data.json')
       .then(r => r.json())
       .then(data => {
         artData = data;
-  
         const years = Array.from(
-          new Set(artData.map(item => new Date(item.date).getFullYear().toString()))
+          new Set(
+            artData.map(item => new Date(item.date).getFullYear().toString())
+          )
         ).sort((a,b) => b - a);
-        selectedYear = years[0] || 'all';
-  
+        selectedYear = years[0];
+        buildGallery();
         buildYearNav();
-        renderByYear();
-      })
-      .catch(err => console.error('Error loading gallery data:', err));
-
-      function renderByYear() {
-        gallery.innerHTML = '';
-        const fragment = document.createDocumentFragment();
+        renderGallery();
+        if (document.visibilityState === 'visible') {
+          schedulePreload();
+        } else {
+          document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') schedulePreload();
+          }, { once: true });
+        }
+      });
+  
+      function schedulePreload() {
+        const preloadList = itemNodes
+          .map((node, idx) => matchesFilter(artData[idx].tags || []) ? artData[idx] : null)
+          .filter(Boolean);
       
-        filteredIndices.forEach(index => {
-          const item = artData[index];
-          const div = document.createElement('div');
-          div.className = 'art-item';
-          div.innerHTML = `
-            <div class="image-container">
-              <img class="thumb" loading="lazy"
-                   src="imagesPreview/${item.filename.replace(/\.[^/.]+$/, '.webp')}"
-                   alt="${item.title}">
-            </div>`;
-          div.addEventListener('click', () => showModal(index));
-          fragment.appendChild(div);
-        });
+        let index = 0;
+        function loadNextChunk() {
+          const chunkSize = 5;
+          for (let i = 0; i < chunkSize && index < preloadList.length; i++, index++) {
+            const item = preloadList[index];
+            (item.variants || [item.filename]).forEach(fn => {
+              const img = new Image();
+              img.src   = `images/${fn.replace(/\.[^/.]+$/, '.png')}`;
+            });
+          }
+          if (index < preloadList.length) {
+            setTimeout(loadNextChunk, 200);
+          }
+        }
       
-        gallery.appendChild(fragment);
+        loadNextChunk();
       }
   </script>
   <div id="year-nav-bottom" class="year-nav"></div>
