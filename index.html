@@ -98,6 +98,7 @@
     const closeBtn  = document.querySelector('.close');
   
     let itemNodes = [];
+    let selectedYear = 'all';
     function buildGallery() {
       gallery.innerHTML = '';
       itemNodes = artData.map((item, idx) => {
@@ -350,11 +351,6 @@
         });
       });
     }
-
-    button.addEventListener('click', () => {
-      selectedYear = year;
-      loadYear(year);
-    });
   
       function schedulePreload() {
         const preloadList = itemNodes
