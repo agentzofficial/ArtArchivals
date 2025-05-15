@@ -151,7 +151,7 @@ color: black;
   width: 80vw;
   max-width: 1200px;
   max-height: 80vh;
-  overflow: hidden;
+  overflow-y: auto;
   background: #111;
   border-radius: 8px;
 }
