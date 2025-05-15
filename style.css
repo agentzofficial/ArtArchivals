@@ -151,7 +151,7 @@ color: black;
   width: 80vw;
   max-width: 1200px;
   max-height: 80vh;
-  overflow-y: auto;
+  overflow: visible;
   background: #111;
   border-radius: 8px;
 }
@@ -172,7 +172,10 @@ color: black;
   width: 100%;
   aspect-ratio: 16/9;
   overflow: hidden;
+  border: 6px solid black;
+  outline: 4px solid white;
 }
+
 .image-wrapper::before {
   content:"";
   position:absolute; inset:0;
@@ -206,7 +209,13 @@ color: black;
   padding: 12px 8px;
   background: #222;
 }
-.variant-thumbs { display:flex; gap:6px; }
+.variant-thumbs {
+  display: flex;
+  gap: 6px;
+  flex: 0 0 120px;
+  justify-content: center;
+}
+
 .variant-thumbs img {
   width:40px; height:40px;
   object-fit:cover;
@@ -218,8 +227,10 @@ color: black;
   opacity:1; outline:2px solid #fff;
 }
 .modal-date {
-  flex:1; text-align:center;
-  font-size:0.95rem; color:#ddd;
+  flex: 1 1 auto;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #ddd;
 }
 .modal-icons { display:flex; gap:8px; }
 .modal-icons img {
@@ -227,16 +238,29 @@ color: black;
   filter: drop-shadow(0 1px 2px rgba(0,0,0,0.8));
 }
 
-.loading-hint,
-.navigation-hint {
-  position:absolute; left:50%;
-  transform:translateX(-50%);
-  color:#fff; font-size:14px;
-  pointer-events:none; user-select:none;
-  display:none;
+.loading-hint {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 14px;
+  pointer-events: none;
+  user-select: none;
+  display: none;
+  bottom: 34px;
 }
-.loading-hint { bottom: calc(50vh - 20px); }
-.navigation-hint { bottom: calc(50vh - 40px); }
+
+.navigation-hint {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 14px;
+  pointer-events: none;
+  user-select: none;
+  display: none;
+  bottom: 20px;
+}
 
 /* ===== Trivia ===== */
 #trivia-container {
