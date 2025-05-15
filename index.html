@@ -43,22 +43,28 @@
   <div id="year-nav" class="year-nav"></div>
   <div class="gallery" id="gallery"></div>
   <div id="pagination-controls" class="pagination-controls"></div>
-
+  
   <div id="modal" class="modal">
     <span class="close">&times;</span>
-    <div class="modal-content">
-      <div class="modal-image-wrapper">
-        <img id="modal-img" src="" alt="">
-        <div class="variant-buttons"></div>
+
+    <div class="modal-frame">
+      <div class="image-wrapper">
+        <img id="modal-img" src="" alt="" />
+        <h2 id="modal-title"></h2>
       </div>
-      <h2 id="modal-title"></h2>
+      <div class="modal-meta">
+        <div class="variant-thumbs"></div>
+        <div class="modal-date" id="modal-date"></div>
+        <div class="modal-icons"></div>
+      </div>
+    </div>
+    <div class="modal-description-bar">
       <p id="modal-description"></p>
-      <p id="modal-date" class="modal-date"></p>
-      <div class="modal-icons"></div>  
     </div>
     <p class="loading-hint">Images may take some time to load.</p>
     <p class="navigation-hint">Use ← and → arrow keys to navigate.</p>
   </div>
+
 
   <script>
     let currentIndex = 0,
@@ -92,10 +98,10 @@
     const modalDesc = document.getElementById('modal-description');
     const modalDate = document.getElementById('modal-date');
     const iconsEl   = document.querySelector('.modal-icons');
-    const vbEl      = document.querySelector('.variant-buttons');
     const navHint   = document.querySelector('.navigation-hint');
     const loadHint  = document.querySelector('.loading-hint');
     const closeBtn  = document.querySelector('.close');
+
   
     let itemNodes = [];
     let selectedYear = 'all';
@@ -241,19 +247,18 @@
           img.src   = `images/${fn.replace(/\.[^/.]+$/, '.png')}`;
         });
   
-      vbEl.innerHTML = '';
-      if (variants.length > 1) {
-        variants.forEach((_, i) => {
-          const b = document.createElement('button');
-          b.textContent = i + 1;
-          b.className   = 'variant-btn' + (i === variantIndex ? ' active' : '');
-          b.addEventListener('click', e => {
-            e.stopPropagation();
-            showModal(index, i);
-          });
-          vbEl.appendChild(b);
+      const vbThumbs = document.querySelector('.variant-thumbs');
+      vbThumbs.innerHTML = ''; 
+      variants.forEach((fn,i) => {
+        const thumb = document.createElement('img');
+        thumb.src = `imagesPreview/${fn.replace(/\.[^/.]+$/,'.webp')}`;
+        thumb.className = i===variantIndex ? 'active' : '';
+        thumb.addEventListener('click', e=>{
+          e.stopPropagation();
+          showModal(index,i);
         });
-      }
+        vbThumbs.appendChild(thumb);
+      });
   
       iconsEl.innerHTML = '';
       if (item.youtube) iconsEl.innerHTML += `
