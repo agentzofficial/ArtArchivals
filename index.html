@@ -326,59 +326,59 @@
       years.unshift('all');
     
       const navHtml = years.map(y =>
-        `<button data-year="${y}" class="${y===selectedYear?'selected':''}">`
-          + (y==='all'?'All':y) +
+        `<button data-year="${y}" class="${y === selectedYear ? 'selected' : ''}">`
+          + (y === 'all' ? 'All' : y) +
         `</button>`
       ).join('');
     
       document.getElementById('year-nav').innerHTML = navHtml;
-      document.getElementById('year-nav-bottom').innerHTML = navHtml;
-
+      const bottomNav = document.getElementById('year-nav-bottom');
+      if (bottomNav) bottomNav.innerHTML = navHtml;
+    
       document.querySelectorAll('.year-nav button').forEach(btn => {
         btn.addEventListener('click', () => {
-          const year = btn.dataset.year;
-          if (year === 'all') return;
-          selectedYear = year;
-          currentPage  = 1;
-      window.addEventListener('DOMContentLoaded', () => {
-        const year = new Date().getFullYear(); // Default to current year (e.g. 2025)
-        selectedYear = year.toString();
-      
-        fetch(`data/${year}.json`)
-          .then(res => res.json())
-          .then(data => {
-            artData = data;
-            buildGallery();
-            renderGallery();
-            buildYearNav();
-          })
-          .catch(err => {
-            console.error("Failed to load year data:", err);
-          });
+          selectedYear = btn.dataset.year;
+          currentPage = 1;
+          renderGallery();
+          buildYearNav();
+        });
       });
-  
-      function schedulePreload() {
-        const preloadList = itemNodes
-          .map((node, idx) => matchesFilter(artData[idx].tags || []) ? artData[idx] : null)
-          .filter(Boolean);
-      
-        let index = 0;
-        function loadNextChunk() {
-          const chunkSize = 5;
-          for (let i = 0; i < chunkSize && index < preloadList.length; i++, index++) {
-            const item = preloadList[index];
-            (item.variants || [item.filename]).forEach(fn => {
-              const img = new Image();
-              img.src   = `images/${fn.replace(/\.[^/.]+$/, '.png')}`;
-            });
-          }
-          if (index < preloadList.length) {
-            setTimeout(loadNextChunk, 200);
-          }
-        }
-      
-        loadNextChunk();
-      }
+    }
+    
+    function schedulePreload() {
+      const preloadList = itemNodes
+        .map((node, idx) => matchesFilter(artData[idx].tags || []) ? artData[idx] : null)
+        .filter(Boolean);
+    
+      let index = 0;
+      const preloadNext = () => {
+        if (index >= preloadList.length) return;
+        const item = preloadList[index++];
+        const filename = item.variants?.[0] || item.filename;
+        const img = new Image();
+        img.onload = preloadNext;
+        img.src = `images/${filename.replace(/\.[^/.]+$/, '.png')}`;
+      };
+      preloadNext();
+    }
+    
+    // Load initial year data on DOM ready
+    window.addEventListener('DOMContentLoaded', () => {
+      const year = new Date().getFullYear(); // e.g. 2025
+      selectedYear = year.toString();
+    
+      fetch(`data/${year}.json`)
+        .then(res => res.json())
+        .then(data => {
+          artData = data;
+          buildGallery();
+          renderGallery();
+          buildYearNav();
+        })
+        .catch(err => {
+          console.error("Failed to load year data:", err);
+        });
+    });
   </script>
   <div id="year-nav-bottom" class="year-nav"></div>
   <div
