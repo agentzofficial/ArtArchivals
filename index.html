@@ -102,22 +102,22 @@
         const hasVariants = item.variants?.length > 1;
         const div = document.createElement('div');
         div.className = 'art-item';
-        div.innerHTML = `
+        div.innerHTML = 
           <div class="image-container">
             <img class="thumb" loading="lazy"
                  src="imagesPreview/${thumb.replace(/\.[^/.]+$/, '.webp')}"
                  alt="${item.title.replace(/"/g,'&quot;')}"
                  style="object-position:${item.position||'center'};">
             ${hasVariants
-               ? `<img class="variant-icon"
+               ? <img class="variant-icon"
                        src="serverImages/variant-icon.png"
-                       alt="Has Variants">`
+                       alt="Has Variants">
                : ''}
             <div class="overlay">
               <h2>${item.title.replace(/</g,'&lt;')}</h2>
               <p class="date">${item.date||''}</p>
             </div>
-          </div>`;
+          </div>;
         div.addEventListener('click', ()=> showModal(idx, 0));
         gallery.appendChild(div);
         return div;
@@ -147,7 +147,7 @@
 
       const currentVersion = ++modalLoadVersion;
     
-      const previewSrc = `imagesPreview/${variants[variantIndex].replace(/\.[^/.]+$/, '.webp')}`;
+      const previewSrc = imagesPreview/${variants[variantIndex].replace(/\.[^/.]+$/, '.webp')};
       modalImg.src     = previewSrc;
       modalImg.alt     = item.title;
     
@@ -155,7 +155,7 @@
       modalDesc.textContent  = item.description || '';
       modalDate.textContent  = item.date || '';
     
-      const actualSrc = `images/${variants[variantIndex].replace(/\.[^/.]+$/, '.png')}`;
+      const actualSrc = images/${variants[variantIndex].replace(/\.[^/.]+$/, '.png')};
       const actualImg = new Image();
       actualImg.onload = () => {
         if (currentVersion === modalLoadVersion) {
@@ -170,7 +170,7 @@
           const neighbor = artData[ni];
           const fn       = (neighbor.variants?.[0] || neighbor.filename);
           const img      = new Image();
-          img.src        = `images/${fn.replace(/\.[^/.]+$/, '.png')}`;
+          img.src        = images/${fn.replace(/\.[^/.]+$/, '.png')};
         }
       });
   
@@ -178,7 +178,7 @@
         .filter((_, i) => i !== variantIndex)
         .forEach(fn => {
           const img = new Image();
-          img.src   = `images/${fn.replace(/\.[^/.]+$/, '.png')}`;
+          img.src   = images/${fn.replace(/\.[^/.]+$/, '.png')};
         });
   
       vbEl.innerHTML = '';
@@ -196,18 +196,18 @@
       }
   
       iconsEl.innerHTML = '';
-      if (item.youtube) iconsEl.innerHTML += `
+      if (item.youtube) iconsEl.innerHTML += 
         <a href="${item.youtube}" target="_blank" class="source-icon">
           <img src="serverImages/youtube-icon.png" alt="YouTube">
-        </a>`;
-      if (item.twitter) iconsEl.innerHTML += `
+        </a>;
+      if (item.twitter) iconsEl.innerHTML += 
         <a href="${item.twitter}" target="_blank" class="source-icon">
           <img src="serverImages/twitter-icon.png" alt="Twitter">
-        </a>`;
-      if (item.bluesky) iconsEl.innerHTML += `
+        </a>;
+      if (item.bluesky) iconsEl.innerHTML += 
         <a href="${item.bluesky}" target="_blank" class="source-icon">
           <img src="serverImages/bluesky-icon.png" alt="Bluesky">
-        </a>`;
+        </a>;
   
       modal.style.display   = 'flex';
       loadHint.style.display = 'block';
@@ -276,9 +276,9 @@
       years.unshift('all');
   
       const navHtml = years.map(year =>
-        `<button data-year="${year}" class="${year === selectedYear ? 'selected' : ''}">
+        <button data-year="${year}" class="${year === selectedYear ? 'selected' : ''}">
            ${year === 'all' ? 'All' : year}
-         </button>`
+         </button>
       ).join('');
     
       document.getElementById('year-nav').innerHTML        = navHtml;
@@ -345,7 +345,7 @@
             const item = preloadList[index];
             (item.variants || [item.filename]).forEach(fn => {
               const img = new Image();
-              img.src   = `images/${fn.replace(/\.[^/.]+$/, '.png')}`;
+              img.src   = images/${fn.replace(/\.[^/.]+$/, '.png')};
             });
           }
           if (index < preloadList.length) {
@@ -442,7 +442,7 @@
       });
     
       document.getElementById("trivia-time").textContent =
-        `Trivia updates daily at ${localTimeString} your time.`;
+        Trivia updates daily at ${localTimeString} your time.;
     });
     window.addEventListener('resize', clampTriviaFont);
   </script>
@@ -468,10 +468,10 @@
     const db     = getFirestore(app);
   
     const today      = new Date().toISOString().slice(0,10);
-    const counterRef = doc(db, "counters", `yeah-${today}`);
+    const counterRef = doc(db, "counters", yeah-${today});
   
     const button = document.getElementById("yeah-button");
-    const CLICKED_KEY = `yeahClicked-${today}`;
+    const CLICKED_KEY = yeahClicked-${today};
   
     if (localStorage.getItem(CLICKED_KEY)) {
       button.style.opacity       = 0.5;
@@ -522,7 +522,7 @@
         bgImg.style.display = '';
         const maxBg = 9;
         const n     = Math.floor(Math.random() * maxBg) + 1;
-        bgImg.src         = `backgrounds/bg${n}.webp`;
+        bgImg.src         = backgrounds/bg${n}.webp;
       } else {
         bgImg.style.display = 'none';
       }
