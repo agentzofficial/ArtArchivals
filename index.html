@@ -327,27 +327,28 @@
 
     function buildYearNav() {
       const yearsSet = new Set(artData.map(item => new Date(item.date).getFullYear()));
-      const years = Array.from(yearsSet).sort((a, b) => b - a);
+      const years    = Array.from(yearsSet).sort((a,b)=>b-a);
       years.unshift('all');
     
-      const navHtml = years.map(y =>
-        `<button data-year="${y}" class="${y === selectedYear ? 'selected' : ''}">`
-          + (y === 'all' ? 'All' : y) +
+      const html = years.map(y=>
+        `<button data-year="${y}" class="${y===selectedYear?'selected':''}">`+
+          (y==='all'?'All':y)+
         `</button>`
       ).join('');
     
-      document.getElementById('year-nav').innerHTML = navHtml;
-      const bottomNav = document.getElementById('year-nav-bottom');
-      if (bottomNav) bottomNav.innerHTML = navHtml;
+      // Populate *both* navs in one go
+      document.getElementById('year-nav').innerHTML        = html;
+      document.getElementById('year-nav-bottom').innerHTML = html;
     
-      document.querySelectorAll('.year-nav button').forEach(btn => {
-        btn.addEventListener('click', () => {
+      // Attach a single handler for *all* year‑nav buttons
+      document.querySelectorAll('.year-nav button').forEach(btn=>{
+        btn.onclick = () => {
           selectedYear = btn.dataset.year;
-          currentPage = 1;
-          document.querySelectorAll('.year-nav button').forEach(b => b.classList.remove('selected'));
-          btn.classList.add('selected');
+          currentPage  = 1;
+          // Re‑build nav to update the selected class everywhere
+          buildYearNav();
           renderGallery();
-        });
+        };
       });
     }
     
@@ -373,15 +374,10 @@
       return Promise.all(years.map(y => fetch(`data/${y}.json`).then(r => r.json())))
         .then(arrays => arrays.flat());
     }
-    
+
     window.addEventListener('DOMContentLoaded', () => {
-      selectedYear = new Date().getFullYear().toString(); 
-    
-      const loader = selectedYear === 'all'
-                   ? loadAllYears()
-                   : fetch(`data/${selectedYear}.json`).then(r => r.json());
-    
-      loader
+      selectedYear = 'all';
+      loadAllYears()
         .then(data => {
           artData = data;
           buildGallery();
