@@ -106,7 +106,7 @@
           <div class="image-container">
             <img
               class="thumb"
-              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" 
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
               data-src="imagesPreview/${thumb.replace(/\.[^/.]+$/, '.webp')}"
               width="220" height="220"
               alt="${item.title.replace(/"/g,'&quot;')}"
@@ -126,18 +126,17 @@
         return div;
       });
       const io = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          const img = entry.target;
-          img.src = img.dataset.src;
-          obs.unobserve(img);
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          e.target.src = e.target.dataset.src;
+          obs.unobserve(e.target);
         });
       }, {
         rootMargin: '200px',
         threshold: 0.01
       });
-    
-      document.querySelectorAll('img.thumb').forEach(img => {
+      itemNodes.forEach(div => {
+        const img = div.querySelector('img.thumb');
         io.observe(img);
       });
     }
@@ -545,16 +544,6 @@
         bgImg.style.display = 'none';
       }
     }
-  
-    document.addEventListener('DOMContentLoaded', () => {
-      const saved = localStorage.getItem(THEME_KEY) || 'agentz';
-      select.value = saved;
-      applyTheme(saved);
-  
-      select.addEventListener('change', () => {
-        applyTheme(select.value);
-      });
-    });
   </script>
 </body>
 </html>
