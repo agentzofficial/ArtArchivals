@@ -364,19 +364,30 @@
       preloadNext();
     }
 
-    const year = new Date().getFullYear();     // e.g. 2025
-    fetch(`data/${year}.json`)
-      .then(res => {
-        if (!res.ok) throw new Error(`Couldn’t fetch data/${year}.json`);
-        return res.json();
-      })
-      .then(data => {
-        artData = data;
-        buildGallery();
-        buildYearNav();
-        renderGallery();
-      })
-      .catch(err => console.error(err));
+    function loadAllYears() {
+      // List every JSON filename you have in ./data/
+      const years = [2025, 2024, 2023];
+      return Promise.all(years.map(y => fetch(`data/${y}.json`).then(r => r.json())))
+        .then(arrays => arrays.flat());
+    }
+    
+    window.addEventListener('DOMContentLoaded', () => {
+      // default to current year
+      selectedYear = 'all';  
+    
+      const loader = selectedYear === 'all'
+                   ? loadAllYears()
+                   : fetch(`data/${selectedYear}.json`).then(r => r.json());
+    
+      loader
+        .then(data => {
+          artData = data;
+          buildGallery();
+          buildYearNav();
+          renderGallery();
+        })
+        .catch(err => console.error(err));
+    });
   </script>
   <div id="year-nav-bottom" class="year-nav"></div>
   <div
