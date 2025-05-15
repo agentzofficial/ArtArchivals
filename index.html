@@ -326,26 +326,27 @@
     });
 
     function buildYearNav() {
-      const yearsSet = new Set(artData.map(item => new Date(item.date).getFullYear()));
-      const years    = Array.from(yearsSet).sort((a,b)=>b-a);
+      const yearsSet = new Set(
+        artData.map(item => new Date(item.date).getFullYear().toString())
+      );
+      const years = Array.from(yearsSet)
+        .sort((a, b) => parseInt(b) - parseInt(a));
+    
       years.unshift('all');
     
-      const html = years.map(y=>
-        `<button data-year="${y}" class="${y===selectedYear?'selected':''}">`+
-          (y==='all'?'All':y)+
+      const html = years.map(y =>
+        `<button data-year="${y}" class="${y === selectedYear ? 'selected' : ''}">`
+          + (y === 'all' ? 'All' : y) +
         `</button>`
       ).join('');
     
-      // Populate *both* navs in one go
-      document.getElementById('year-nav').innerHTML        = html;
+      document.getElementById('year-nav').innerHTML = html;
       document.getElementById('year-nav-bottom').innerHTML = html;
     
-      // Attach a single handler for *all* year‑nav buttons
-      document.querySelectorAll('.year-nav button').forEach(btn=>{
+      document.querySelectorAll('.year-nav button').forEach(btn => {
         btn.onclick = () => {
           selectedYear = btn.dataset.year;
-          currentPage  = 1;
-          // Re‑build nav to update the selected class everywhere
+          currentPage = 1;
           buildYearNav();
           renderGallery();
         };
