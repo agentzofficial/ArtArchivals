@@ -340,17 +340,22 @@
           if (year === 'all') return;
           selectedYear = year;
           currentPage  = 1;
-
-          fetch(`data/${year}.json`)
-            .then(r => r.json())
-            .then(data => {
-              artData = data;
-              buildGallery();
-              renderGallery();
-            });
-        });
+      window.addEventListener('DOMContentLoaded', () => {
+        const year = new Date().getFullYear(); // Default to current year (e.g. 2025)
+        selectedYear = year.toString();
+      
+        fetch(`data/${year}.json`)
+          .then(res => res.json())
+          .then(data => {
+            artData = data;
+            buildGallery();
+            renderGallery();
+            buildYearNav();
+          })
+          .catch(err => {
+            console.error("Failed to load year data:", err);
+          });
       });
-    }
   
       function schedulePreload() {
         const preloadList = itemNodes
