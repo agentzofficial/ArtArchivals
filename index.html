@@ -64,7 +64,53 @@
     <p class="loading-hint">Images may take some time to load.</p>
     <p class="navigation-hint">Use ← and → arrow keys to navigate.</p>
   </div>
-
+  <div id="year-nav-bottom" class="year-nav"></div>
+  <div
+    id="trivia-container"
+    style="
+      text-align: center;
+      margin: -64px auto 4; 
+      padding: 0;
+      display: inline-block;
+    "
+  >
+    <img
+      id="trivia-box"
+      src="serverImages/trivia-box.webp"
+      alt="Trivia Box"
+      style="display: block; margin: 0 auto;"
+    />
+    <div
+      id="trivia-content"
+      style="margin: 6px 0 2px;"
+    >
+      Loading trivia...
+    </div>
+  
+    <div
+      id="yeah-container"
+      style="margin: 8px 0 0;
+    "
+    >
+      <img
+        id="yeah-button"
+        src="serverImages/yeah-button.webp"
+        alt="Yeah!"
+        style="cursor: pointer; display: block; margin: 0 auto;"
+      />
+    </div>
+  </div>
+  
+  <div
+    id="trivia-time"
+    style="
+      text-align: center;
+      margin: 6px auto 30px;
+      font-size: 0.9em;
+      opacity: 0.6;
+      width: fit-content;
+    "
+  />
 
   <script>
     let currentIndex = 0,
@@ -393,53 +439,6 @@
         .catch(err => console.error(err));
     });
   </script>
-  <div id="year-nav-bottom" class="year-nav"></div>
-  <div
-    id="trivia-container"
-    style="
-      text-align: center;
-      margin: -64px auto 4; 
-      padding: 0;
-      display: inline-block;
-    "
-  >
-    <img
-      id="trivia-box"
-      src="serverImages/trivia-box.webp"
-      alt="Trivia Box"
-      style="display: block; margin: 0 auto;"
-    />
-    <div
-      id="trivia-content"
-      style="margin: 6px 0 2px;"
-    >
-      Loading trivia...
-    </div>
-  
-    <div
-      id="yeah-container"
-      style="margin: 8px 0 0;
-    "
-    >
-      <img
-        id="yeah-button"
-        src="serverImages/yeah-button.webp"
-        alt="Yeah!"
-        style="cursor: pointer; display: block; margin: 0 auto;"
-      />
-    </div>
-  </div>
-  
-  <div
-    id="trivia-time"
-    style="
-      text-align: center;
-      margin: 6px auto 30px;
-      font-size: 0.9em;
-      opacity: 0.6;
-      width: fit-content;
-    "
-  />
   <script>
     async function loadTrivia() {
       try {
