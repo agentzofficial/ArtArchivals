@@ -365,15 +365,13 @@
     }
 
     function loadAllYears() {
-      // List every JSON filename you have in ./data/
       const years = [2025, 2024, 2023];
       return Promise.all(years.map(y => fetch(`data/${y}.json`).then(r => r.json())))
         .then(arrays => arrays.flat());
     }
     
     window.addEventListener('DOMContentLoaded', () => {
-      // default to current year
-      selectedYear = 'all';  
+      selectedYear = new Date().getFullYear().toString(); 
     
       const loader = selectedYear === 'all'
                    ? loadAllYears()
