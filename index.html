@@ -319,58 +319,42 @@
       }
     });
 
-    let selectedYear = 'all';
-    
     function buildYearNav() {
-      const years = Array.from(
-        new Set(
-          artData.map(item => new Date(item.date).getFullYear().toString())
-        )
-      ).sort((a,b) => b - a);
-    
+      const yearsSet = new Set(artData.map(item => new Date(item.date).getFullYear()));
+      const years = Array.from(yearsSet).sort((a, b) => b - a);
       years.unshift('all');
-  
-      const navHtml = years.map(year =>
-        `<button data-year="${year}" class="${year === selectedYear ? 'selected' : ''}">
-           ${year === 'all' ? 'All' : year}
-         </button>`
+    
+      const navHtml = years.map(y =>
+        `<button data-year="${y}" class="${y===selectedYear?'selected':''}">`
+          + (y==='all'?'All':y) +
+        `</button>`
       ).join('');
     
-      document.getElementById('year-nav').innerHTML        = navHtml;
+      document.getElementById('year-nav').innerHTML = navHtml;
       document.getElementById('year-nav-bottom').innerHTML = navHtml;
-    
+
       document.querySelectorAll('.year-nav button').forEach(btn => {
         btn.addEventListener('click', () => {
-          selectedYear = btn.dataset.year; 
-          currentPage = 1;
-          buildYearNav();
-          renderGallery();  
+          const year = btn.dataset.year;
+          if (year === 'all') return;
+          selectedYear = year;
+          currentPage  = 1;
+
+          fetch(`data/${year}.json`)
+            .then(r => r.json())
+            .then(data => {
+              artData = data;
+              buildGallery();
+              renderGallery();
+            });
         });
       });
     }
-    
-    fetch('data.json')
-      .then(r => r.json())
-      .then(data => {
-        artData = data;
-        const years = Array.from(
-          new Set(
-            artData.map(item => new Date(item.date).getFullYear().toString())
-          )
-        ).sort((a,b) => b - a);
-        selectedYear = years[0];
-        currentPage = 1;
-        buildGallery();
-        buildYearNav();
-        renderGallery();
-        if (document.visibilityState === 'visible') {
-          schedulePreload();
-        } else {
-          document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible') schedulePreload();
-          }, { once: true });
-        }
-      });
+
+    button.addEventListener('click', () => {
+      selectedYear = year;
+      loadYear(year);
+    });
   
       function schedulePreload() {
         const preloadList = itemNodes
