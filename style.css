@@ -146,34 +146,20 @@ color: black;
 }
 
 .modal-frame {
-  display: flex;
-  flex-direction: column;
-  width: 80vw;
-  max-width: 1200px;
-  max-height: 80vh;
-  overflow: visible;
-  background: #111;
-  border-radius: 8px;
+  margin-bottom: 80px; /* height of description bar + a little gap */
 }
 
 /* Title */
 .modal-title {
-  margin: 16px 0 12px;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #fff;
-  text-align: center;
+  background: none;
   text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  margin-bottom: 12px;
 }
 
 /* 16:9 image box */
 .image-wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  overflow: hidden;
-  border: 6px solid black;
-  outline: 4px solid white;
+  border: 6px solid #000;
+  outline: 4px solid #fff;
 }
 
 .image-wrapper::before {
@@ -193,21 +179,20 @@ color: black;
 
 /* DESCRIPTION BAR */
 .modal-description-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
   background: rgba(0,0,0,0.75);
+  box-sizing: border-box;
   padding: 12px 20px;
-  color: #fff;
-  text-align: center;
-  line-height: 1.4;
-  flex-shrink: 0;
+  z-index: 1001; /* sit above everything */
 }
 
 /* META ROW (variants / date / icons) */
 .modal-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 8px;
-  background: #222;
+  background: none;
+  margin-top: 8px;
 }
 .variant-thumbs {
   display: flex;
