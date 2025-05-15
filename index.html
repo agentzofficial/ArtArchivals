@@ -101,17 +101,18 @@
     let selectedYear = 'all';
     function buildGallery() {
       gallery.innerHTML = '';
-      itemNodes = []; // reset
+      itemNodes = [];
     
-      const start = (currentPage - 1) * itemsPerPage;
-      const end = start + itemsPerPage;
+      const start   = (currentPage - 1) * itemsPerPage;
+      const end     = start + itemsPerPage;
+      const visible = filteredIndices.slice(start, end);
+
+      const frag = document.createDocumentFragment();
     
-      const visibleIndices = filteredIndices.slice(start, end);
-    
-      for (let idx of visibleIndices) {
-        const item = artData[idx];
-        const thumb = item.variants?.[0] || item.filename;
-        const hasVariants = item.variants?.length > 1;
+      for (let idx of visible) {
+        const item        = artData[idx];
+        const thumb       = (item.variants && item.variants[0]) || item.filename;
+        const hasVariants = item.variants && item.variants.length > 1;
     
         const div = document.createElement('div');
         div.className = 'art-item';
@@ -131,10 +132,13 @@
               <p class="date">${item.date || ''}</p>
             </div>
           </div>`;
+    
         div.addEventListener('click', () => showModal(idx, 0));
-        gallery.appendChild(div);
+        frag.appendChild(div);
         itemNodes.push(div);
       }
+
+      gallery.appendChild(frag);
     }
 
     function updatePaginationControls() {
