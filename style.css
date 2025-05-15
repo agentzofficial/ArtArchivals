@@ -23,8 +23,6 @@ body {
     object-fit: cover;
     object-position: center;
     z-index: -1;
-    pointer-events: none;
-    transform: translateZ(0);
 }
 
 #logo {
