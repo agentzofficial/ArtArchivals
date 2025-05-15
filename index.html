@@ -104,13 +104,10 @@
         div.className = 'art-item';
         div.innerHTML = `
           <div class="image-container">
-            <img
-              class="thumb"
-              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
-              data-src="imagesPreview/${thumb.replace(/\.[^/.]+$/, '.webp')}"
-              width="220" height="220"
-              alt="${item.title.replace(/"/g,'&quot;')}"
-              style="object-position:${item.position||'center'};">
+            <img class="thumb" loading="lazy"
+                 src="imagesPreview/${thumb.replace(/\.[^/.]+$/, '.webp')}"
+                 alt="${item.title.replace(/"/g,'&quot;')}"
+                 style="object-position:${item.position||'center'};">
             ${hasVariants
                ? `<img class="variant-icon"
                        src="serverImages/variant-icon.png"
@@ -124,20 +121,6 @@
         div.addEventListener('click', ()=> showModal(idx, 0));
         gallery.appendChild(div);
         return div;
-      });
-      const io = new IntersectionObserver((entries, obs) => {
-        entries.forEach(e => {
-          if (!e.isIntersecting) return;
-          e.target.src = e.target.dataset.src;
-          obs.unobserve(e.target);
-        });
-      }, {
-        rootMargin: '200px',
-        threshold: 0.01
-      });
-      itemNodes.forEach(div => {
-        const img = div.querySelector('img.thumb');
-        io.observe(img);
       });
     }
   
@@ -544,6 +527,16 @@
         bgImg.style.display = 'none';
       }
     }
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem(THEME_KEY) || 'agentz';
+      select.value = saved;
+      applyTheme(saved);
+  
+      select.addEventListener('change', () => {
+        applyTheme(select.value);
+      });
+    });
   </script>
 </body>
 </html>
