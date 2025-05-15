@@ -23,6 +23,8 @@ body {
     object-fit: cover;
     object-position: center;
     z-index: -1;
+    pointer-events: none;
+    transform: translateZ(0);
 }
 
 #logo {
@@ -163,9 +165,8 @@ body.theme-agentz {
     cursor: pointer;
     contain: layout paint;
     will-change: transform, opacity;
-    content-visibility: auto;
-    contain-intrinsic-size: 220px 220px;
-    
+}
+
 .image-container {
     position: relative;
     width: 100%;
