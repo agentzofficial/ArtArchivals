@@ -101,31 +101,40 @@
     let selectedYear = 'all';
     function buildGallery() {
       gallery.innerHTML = '';
-      itemNodes = artData.map((item, idx) => {
-        const thumb       = item.variants?.[0] || item.filename;
+      itemNodes = []; // reset
+    
+      const start = (currentPage - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
+    
+      const visibleIndices = filteredIndices.slice(start, end);
+    
+      for (let idx of visibleIndices) {
+        const item = artData[idx];
+        const thumb = item.variants?.[0] || item.filename;
         const hasVariants = item.variants?.length > 1;
+    
         const div = document.createElement('div');
         div.className = 'art-item';
         div.innerHTML = `
           <div class="image-container">
             <img class="thumb" loading="lazy"
                  src="imagesPreview/${thumb.replace(/\.[^/.]+$/, '.webp')}"
-                 alt="${item.title.replace(/"/g,'&quot;')}"
-                 style="object-position:${item.position||'center'};">
+                 alt="${item.title.replace(/"/g, '&quot;')}"
+                 style="object-position:${item.position || 'center'};">
             ${hasVariants
-               ? `<img class="variant-icon"
-                       src="serverImages/variant-icon.png"
-                       alt="Has Variants">`
-               : ''}
+              ? `<img class="variant-icon"
+                      src="serverImages/variant-icon.png"
+                      alt="Has Variants">`
+              : ''}
             <div class="overlay">
-              <h2>${item.title.replace(/</g,'&lt;')}</h2>
-              <p class="date">${item.date||''}</p>
+              <h2>${item.title.replace(/</g, '&lt;')}</h2>
+              <p class="date">${item.date || ''}</p>
             </div>
           </div>`;
-        div.addEventListener('click', ()=> showModal(idx, 0));
+        div.addEventListener('click', () => showModal(idx, 0));
         gallery.appendChild(div);
-        return div;
-      });
+        itemNodes.push(div);
+      }
     }
 
     function updatePaginationControls() {
@@ -172,22 +181,14 @@
     
       requestAnimationFrame(() => {
         filteredIndices = [];
-        itemNodes.forEach((div, idx) => {
-          const item = artData[idx];
+        artData.forEach((item, idx) => {
           const year = new Date(item.date).getFullYear().toString();
           const yearMatch = (selectedYear === 'all' || year === selectedYear);
-          const tagMatch  = matchesFilter(item.tags || []);
+          const tagMatch = matchesFilter(item.tags || []);
           if (yearMatch && tagMatch) filteredIndices.push(idx);
-          div.style.display = 'none';
         });
     
-        const start = (currentPage - 1) * itemsPerPage;
-        const end   = start + itemsPerPage;
-    
-        filteredIndices.slice(start, end).forEach(idx => {
-          itemNodes[idx].style.display = '';
-        });
-    
+        buildGallery();
         updatePaginationControls();
     
         pendingRender = false;
@@ -339,8 +340,9 @@
         btn.addEventListener('click', () => {
           selectedYear = btn.dataset.year;
           currentPage = 1;
+          document.querySelectorAll('.year-nav button').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
           renderGallery();
-          buildYearNav();
         });
       });
     }
@@ -367,17 +369,15 @@
       const year = new Date().getFullYear(); // e.g. 2025
       selectedYear = year.toString();
     
-      fetch(`data/${year}.json`)
+      fetch('data.json')
         .then(res => res.json())
         .then(data => {
           artData = data;
           buildGallery();
-          renderGallery();
           buildYearNav();
+          renderGallery();
         })
-        .catch(err => {
-          console.error("Failed to load year data:", err);
-        });
+        .catch(err => console.error("Failed to load data.json", err));
     });
   </script>
   <div id="year-nav-bottom" class="year-nav"></div>
