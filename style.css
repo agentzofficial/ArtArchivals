@@ -149,6 +149,20 @@ color: black;
   margin-bottom: 80px; /* height of description bar + a little gap */
 }
 
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
 /* Title */
 .modal-title {
   background: none;
@@ -158,6 +172,7 @@ color: black;
 
 /* 16:9 image box */
 .image-wrapper {
+  position: relative;
   border: 6px solid #000;
   outline: 4px solid #fff;
 }
