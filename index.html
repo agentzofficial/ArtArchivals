@@ -263,7 +263,7 @@
       if (!item) return;
       currentIndex = filteredIndices.indexOf(index);
       const variants = item.variants || [item.filename];
-
+    
       const currentVersion = ++modalLoadVersion;
     
       const previewSrc = `imagesPreview/${variants[variantIndex].replace(/\.[^/.]+$/, '.webp')}`;
@@ -275,6 +275,10 @@
       modalDate.textContent  = item.date || '';
     
       const actualSrc = `images/${variants[variantIndex].replace(/\.[^/.]+$/, '.png')}`;
+
+      const wrapper = document.querySelector('.image-wrapper');
+      wrapper.style.setProperty('--modal-blur-src', `url("${actualSrc}")`);
+
       const actualImg = new Image();
       actualImg.onload = () => {
         if (currentVersion === modalLoadVersion) {
@@ -282,14 +286,13 @@
         }
       };
       actualImg.src = actualSrc;
-    
+
       [ -2, -1, 1, 2 ].forEach(offset => {
         const ni = index + offset;
         if (ni >= 0 && ni < artData.length) {
           const neighbor = artData[ni];
           const fn       = (neighbor.variants?.[0] || neighbor.filename);
-          const img      = new Image();
-          img.src        = `images/${fn.replace(/\.[^/.]+$/, '.png')}`;
+          new Image().src = `images/${fn.replace(/\.[^/.]+$/, '.png')}`;
         }
       });
   
