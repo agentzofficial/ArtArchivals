@@ -231,9 +231,18 @@ color: black;
 /* META ROW (variants / date / icons) */
 .modal-meta {
   position: relative;
-  margin: 8px auto;
+  width: 100%;
   max-width: 1000px;
   height: 48px;
+  margin: 8px auto;
+}
+
+.variant-thumbs,
+.modal-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
 }
 
 .variant-thumbs {
@@ -272,7 +281,9 @@ color: black;
 }
 .modal-icons img {
   width:28px; height:28px;
+  margin: 0;
   filter: drop-shadow(0 1px 2px rgba(0,0,0,0.8));
+  
 }
 
 .loading-hint {
