@@ -261,23 +261,21 @@
     function showModal(index, variantIndex = 0) {
       const item     = artData[index];
       if (!item) return;
-      currentIndex = filteredIndices.indexOf(index);
+      currentIndex   = filteredIndices.indexOf(index);
       const variants = item.variants || [item.filename];
-    
       const currentVersion = ++modalLoadVersion;
     
       const previewSrc = `imagesPreview/${variants[variantIndex].replace(/\.[^/.]+$/, '.webp')}`;
       modalImg.src     = previewSrc;
       modalImg.alt     = item.title;
-
+    
       const vbThumbs = document.querySelector('.variant-thumbs');
       vbThumbs.innerHTML = '';
-      
       if (variants.length > 1) {
         vbThumbs.style.display = 'flex';
         variants.forEach((fn, i) => {
           const thumb = document.createElement('img');
-          thumb.src = `imagesPreview/${fn.replace(/\.[^/.]+$/, '.webp')}`;
+          thumb.src   = `imagesPreview/${fn.replace(/\.[^/.]+$/, '.webp')}`;
           thumb.className = i === variantIndex ? 'active' : '';
           thumb.addEventListener('click', e => {
             e.stopPropagation();
@@ -288,16 +286,15 @@
       } else {
         vbThumbs.style.display = 'none';
       }
-    
+
       modalTitle.textContent = item.title;
-      modalDesc.textContent  = item.description || '';
-      modalDate.textContent  = item.date || '';
-    
+      modalDesc .textContent = item.description || '';
+      modalDate.textContent  = item.date        || '';
+
       const actualSrc = `images/${variants[variantIndex].replace(/\.[^/.]+$/, '.png')}`;
-
-      const wrapper = document.querySelector('.image-wrapper');
-      wrapper.style.setProperty('--modal-blur-src', `url("${actualSrc}")`);
-
+      document.querySelector('.image-wrapper')
+              .style.setProperty('--modal-blur-src', `url("${actualSrc}")`);
+    
       const actualImg = new Image();
       actualImg.onload = () => {
         if (currentVersion === modalLoadVersion) {
@@ -309,9 +306,9 @@
       [ -2, -1, 1, 2 ].forEach(offset => {
         const ni = index + offset;
         if (ni >= 0 && ni < artData.length) {
-          const neighbor = artData[ni];
-          const fn       = (neighbor.variants?.[0] || neighbor.filename);
-          new Image().src = `images/${fn.replace(/\.[^/.]+$/, '.png')}`;
+          const fn = (artData[ni].variants?.[0] || artData[ni].filename)
+                       .replace(/\.[^/.]+$/, '.png');
+          new Image().src = `images/${fn}`;
         }
       });
   
