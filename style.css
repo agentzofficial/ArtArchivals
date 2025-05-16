@@ -179,13 +179,6 @@ color: black;
 }
 
 /* Image */
-.image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
 .image-container .variant-icon {
   position: absolute;
   top: 8px;
@@ -199,6 +192,16 @@ color: black;
 
 .image-container:hover .variant-icon {
   opacity: 0.9 !important;
+}
+
+.image-wrapper {
+  position: relative;
+  height: 60vh;
+  aspect-ratio: 16 / 9;
+  max-width: 90vw;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .image-wrapper::before {
@@ -224,17 +227,15 @@ color: black;
 .image-wrapper::after {
   content: "";
   position: absolute;
-  inset: 0; 
+  inset: 0;
   box-sizing: border-box;
-  
   border: 4px solid white;
-
-  outline: 2px solid black;
+  outline: 2px solid black; 
   outline-offset: -4px;
-
   pointer-events: none;
   z-index: 3;
 }
+
 /* DESCRIPTION BAR */
 .modal-content {
   position: relative;
