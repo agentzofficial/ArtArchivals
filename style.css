@@ -152,6 +152,8 @@ color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative; 
+  padding-bottom: 80px;
 }
 
 .modal-close {
@@ -218,14 +220,14 @@ color: black;
 
 /* DESCRIPTION BAR */
 .modal-description-bar {
-  position: fixed;
-  bottom: 0;
+  position: absolute;
+  bottom: 0;    
   left: 0;
-  width: 100vw;
-  background: rgba(0,0,0,0.75);
+  width: 100%;
   box-sizing: border-box;
   padding: 12px 20px;
-  z-index: 1001; /* sit above everything */
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 5; 
 }
 
 /* META ROW (variants / date / icons) */
