@@ -185,11 +185,7 @@ color: black;
   aspect-ratio: 16/9;
   max-width: 90vw;
   margin: 0 auto;
-  padding: 0 6px;
-  box-sizing: content-box;
   overflow: visible;
-  box-shadow:
-    0 0 0 4px white,
 }
 
 .image-container .variant-icon {
@@ -212,7 +208,7 @@ color: black;
   position: absolute;
   inset: 0;
   background: var(--modal-blur-src) center/cover no-repeat;
-  filter: blur(20px);
+  filter: blur(20px) brightness(0.6);
   z-index: 1;
 }
 .image-wrapper img {
@@ -225,6 +221,7 @@ color: black;
   object-fit: contain;
   object-position: center;
 }
+
 /* DESCRIPTION BAR */
 .modal-content {
   position: relative;
