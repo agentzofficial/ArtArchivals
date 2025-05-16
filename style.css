@@ -176,6 +176,21 @@ color: black;
   outline: 4px solid #fff;
 }
 
+.image-container .variant-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  z-index: 2; /
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.image-container:hover .variant-icon {
+  opacity: 0.9 !important;
+}
+
 .image-wrapper::before {
   content:"";
   position:absolute; inset:0;
