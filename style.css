@@ -221,6 +221,10 @@ color: black;
   width: auto;
   object-fit: contain;
   object-position: center;
+  box-shadow:
+    0 0 0 3px black,
+    0 0 0 6px white;
+  border-radius: 4px;
 }
 /* DESCRIPTION BAR */
 .modal-content {
