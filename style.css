@@ -148,7 +148,7 @@ color: black;
 .modal-frame {
   margin-top: 60px;
   width: 90vw;
-  max-width: 1000px; 
+  max-width: none;
   max-height: 80vh;
   overflow: hidden;
   display: flex;
@@ -181,11 +181,9 @@ color: black;
 
 /* Image */
 .image-wrapper {
-  position: relative;
-  height: 60vh;
-  width: calc((60vh * 16) / 9);
-  max-width: 90vw;   
-  margin: 0 auto; 
+  width: 90vw;
+  height: auto;
+  aspect-ratio: 16 / 9;
 }
 
 .image-wrapper::before {
