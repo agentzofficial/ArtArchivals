@@ -203,14 +203,19 @@ color: black;
   opacity: 0.9 !important;
 }
 
+
 .image-wrapper::before {
   content: "";
   position: absolute;
-  inset: 0;
+  top:   -20px;
+  right: -20px;
+  bottom:-20px;
+  left:  -20px;
   background: var(--modal-blur-src) center/cover no-repeat;
   filter: blur(20px) brightness(0.6);
   z-index: 1;
 }
+
 .image-wrapper img {
   position: absolute;
   top: 50%; left: 50%;
