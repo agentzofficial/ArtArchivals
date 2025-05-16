@@ -231,18 +231,16 @@ color: black;
 /* META ROW (variants / date / icons) */
 .modal-meta {
   position: relative;
+  margin: 8px auto;
+  max-width: 1000px;
   height: 48px;
-  margin-top: 8px;
 }
 
 .variant-thumbs {
   position: absolute;
-  left: 16px;
+  left: 24px;
   top: 50%;
   transform: translateY(-50%);
-  display: flex;
-  gap: 6px;
-  visibility: visible;
 }
 
 .variant-thumbs img {
@@ -264,14 +262,13 @@ color: black;
   top: 50%;
   transform: translate(-50%,-50%);
   text-align: center;
+  white-space: nowrap;
 }
 .modal-icons {
   position: absolute;
-  right: 16px;
+  right: 24px;
   top: 50%;
   transform: translateY(-50%);
-  display: flex;
-  gap: 8px;
 }
 .modal-icons img {
   width:28px; height:28px;
