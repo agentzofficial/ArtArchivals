@@ -243,17 +243,22 @@ color: black;
   justify-self: start;
   display: flex;
   gap: 6px;
+  overflow: visible;
+  padding-left: 2px;
 }
 
 .variant-thumbs img {
-  width:40px; height:40px;
-  object-fit:cover;
-  opacity:0.7; cursor:pointer;
+  width: 40px; height: 40px;
+  object-fit: cover;
+  opacity: 0.7;
+  cursor: pointer;
   transition: opacity 0.2s;
+  outline-offset: 2px;
 }
-.variant-thumbs img:hover,
-.variant-thumbs img.active {
-  opacity:1; outline:2px solid #fff;
+.variant-thumbs img.active,
+.variant-thumbs img:hover {
+  opacity: 1;
+  outline: 2px solid #fff;
 }
 .modal-date {
   justify-self: center;
