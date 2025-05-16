@@ -225,21 +225,18 @@ color: black;
 }
 
 .modal-description-bar {
-  position: absolute;
-  top: 100%;  
-  left: 0;
-  right: 0;
+  position: relative;
+  width: 100%;
   background: rgba(0,0,0,0.75);
   box-sizing: border-box;
   padding: 12px 20px;
   white-space: pre-wrap;
   word-break: break-word;
-  z-index: 10;
+  z-index: 5;
+  margin-top: 6px;
 }
 
 .modal-description-bar p {
-  white-space: pre-wrap;
-  word-break: break-word;
   margin: 0;
   color: #fff;
   line-height: 1.4;
