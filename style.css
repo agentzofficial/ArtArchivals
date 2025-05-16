@@ -192,13 +192,14 @@ color: black;
 .image-wrapper::before {
   content: "";
   position: absolute;
-  top: -40px; 
-  left: -40px; 
-  right: -40px; 
-  bottom: -40px;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
   background: var(--modal-blur-src) center/cover no-repeat;
   filter: blur(20px);
   z-index: 1;
+  border-radius: inherit;
   pointer-events: none;
 }
 
