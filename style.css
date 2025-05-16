@@ -230,14 +230,17 @@ color: black;
 
 /* META ROW (variants / date / icons) */
 .modal-meta {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
+  width: 100%;
   padding: 8px 16px;
-  gap: 16px; 
+  gap: 16px;
   background: none;
 }
+
 .variant-thumbs {
+  justify-self: start;
   display: flex;
   gap: 6px;
 }
@@ -253,10 +256,11 @@ color: black;
   opacity:1; outline:2px solid #fff;
 }
 .modal-date {
-  flex: 1 1 auto;
+  justify-self: center;
   text-align: center;
 }
 .modal-icons {
+  justify-self: end;
   display: flex;
   gap: 8px;
 }
