@@ -150,7 +150,7 @@ color: black;
   position: absolute;
   inset: 0;
   background: var(--modal-blur-src) center/cover no-repeat;
-  filter: blur(20px) brightness(0.6);
+  filter: blur(20px) brightness(1.0);
   z-index: -1;
   pointer-events: none;
 }
