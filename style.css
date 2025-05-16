@@ -1,3 +1,4 @@
+
 /* ===== Global Styles ===== */
 body {
 font-family: Arial, sans-serif;
@@ -142,33 +143,6 @@ color: black;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  overflow: visible;
-}
-
-.modal::before {
-  content: "";
-  position: absolute;
-  top: -10%;
-  bottom: -10%;
-  left: -10%;
-  right: -10%;
-  background: var(--modal-blur-src) center/cover no-repeat;
-  filter: blur(20px) brightness(1.0);
-  z-index: -1;
-  pointer-events: none;
-}
-.modal-frame::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: calc(60vh * 1.2);
-  height: calc(60vh * 0.5625 * 1.2);
-  transform: translate(-50%, -50%);
-  background: var(--modal-blur-src) center/cover no-repeat;
-  filter: blur(20px) brightness(0.6);
-  z-index: 0;
-  pointer-events: none;
 }
 
 .modal-frame {
@@ -209,10 +183,11 @@ color: black;
 .image-wrapper {
   position: relative;
   height: 60vh;
+  /* Set width from the 16:9 ratio */
   width: calc((60vh * 16) / 9);
-  max-width: 90vw;
-  margin: 0 auto;
-  overflow: visible;
+  max-width: 90vw;   
+  margin: 0 auto; 
+  overflow: hidden;
 }
 
 .image-container .variant-icon {
@@ -230,6 +205,14 @@ color: black;
   opacity: 0.9 !important;
 }
 
+.image-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--modal-blur-src) center/cover no-repeat;
+  filter: blur(20px);
+  z-index: 1;
+}
 .image-wrapper img {
   position: absolute;
   top: 50%; left: 50%;
@@ -240,7 +223,6 @@ color: black;
   object-fit: contain;
   object-position: center;
 }
-
 /* DESCRIPTION BAR */
 .modal-content {
   position: relative;
