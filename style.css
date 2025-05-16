@@ -180,6 +180,18 @@ color: black;
 }
 
 /* Image */
+.image-frame {
+  /* exactly match the wrapper’s dimensions */
+  width: calc((60vh * 16) / 9);
+  height: 60vh;
+  border: 3px solid black;
+  outline: 5px solid white;
+  outline-offset: -2px;
+  overflow: visible;
+  margin: 0 auto;
+  position: relative;
+}
+
 .image-wrapper {
   position: relative;
   height: 60vh;
