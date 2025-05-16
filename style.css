@@ -1,3 +1,4 @@
+
 /* ===== Global Styles ===== */
 body {
 font-family: Arial, sans-serif;
@@ -149,8 +150,7 @@ color: black;
   width: 90vw;
   max-width: 1000px; 
   max-height: 80vh;
-  overflow-x: visible;
-  overflow-y: hidden;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -180,6 +180,16 @@ color: black;
 }
 
 /* Image */
+.image-wrapper {
+  position: relative;
+  height: 60vh;
+  /* Set width from the 16:9 ratio */
+  width: calc((60vh * 16) / 9);
+  max-width: 90vw;   
+  margin: 0 auto; 
+  overflow: hidden;
+}
+
 .image-container .variant-icon {
   position: absolute;
   top: 8px;
@@ -195,25 +205,6 @@ color: black;
   opacity: 0.9 !important;
 }
 
-.image-frame {
-  position: relative;
-  height: 60vh;
-  aspect-ratio: 16 / 9;
-  max-width: 90vw;
-  margin: 0 auto;
-  overflow: hidden;
-  box-shadow:
-    0 0 0 4px white,
-    0 0 0 6px black;
-  background: transparent;
-}
-
-.image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-
 .image-wrapper::before {
   content: "";
   position: absolute;
@@ -222,7 +213,6 @@ color: black;
   filter: blur(20px);
   z-index: 1;
 }
-
 .image-wrapper img {
   position: absolute;
   top: 50%; left: 50%;
@@ -233,7 +223,6 @@ color: black;
   object-fit: contain;
   object-position: center;
 }
-
 /* DESCRIPTION BAR */
 .modal-content {
   position: relative;
