@@ -185,6 +185,7 @@ color: black;
   width: calc((60vh * 16) / 9);
   max-width: 90vw;
   margin: 0 auto;
+  overflow: visible;
 }
 
 .image-container .variant-icon {
