@@ -272,7 +272,8 @@
       const vbThumbs = document.querySelector('.variant-thumbs');
       vbThumbs.innerHTML = '';
       if (variants.length > 1) {
-        vbThumbs.style.display = 'flex';
+        vbThumbs.style.visibility = 'visible';
+        vbThumbs.style.pointerEvents = '';
         variants.forEach((fn, i) => {
           const thumb = document.createElement('img');
           thumb.src         = `imagesPreview/${fn.replace(/\.[^/.]+$/, '.webp')}`;
@@ -284,7 +285,8 @@
           vbThumbs.appendChild(thumb);
         });
       } else {
-        vbThumbs.style.display = 'none';
+        vbThumbs.style.visibility     = 'hidden';
+        vbThumbs.style.pointerEvents  = 'none';
       }
     
       modalTitle.textContent = item.title;
