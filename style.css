@@ -193,14 +193,16 @@ color: black;
   content: "";
   position: absolute;
   top: -20px;
-  left: -20px;
-  right: -20px;
-  bottom: -20px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: var(--modal-blur-src) center/cover no-repeat;
   filter: blur(20px);
   z-index: 1;
-  border-radius: inherit;
   pointer-events: none;
+  border-radius: inherit;
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
 .image-container .variant-icon {
