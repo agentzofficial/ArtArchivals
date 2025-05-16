@@ -148,11 +148,22 @@ color: black;
 .modal::before {
   content: "";
   position: absolute;
-  inset: 0;
+  top: -40px; bottom: -40px;
+  left: -40px; right: -40px;
   background: var(--modal-blur-src) center/cover no-repeat;
   filter: blur(20px) brightness(1.0);
   z-index: -1;
   pointer-events: none;
+}
+
+.modal-frame::before {
+  content: "";
+  position: absolute;
+  top: -40px; bottom: -40px;
+  left: -40px; right: -40px;
+  background: var(--modal-blur-src) center/cover no-repeat;
+  filter: blur(20px) brightness(0.6);
+  z-index: 0;
 }
 
 .modal-frame {
@@ -212,15 +223,6 @@ color: black;
 
 .image-container:hover .variant-icon {
   opacity: 0.9 !important;
-}
-
-.modal-frame::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: var(--modal-blur-src) center/cover no-repeat;
-  filter: blur(20px) brightness(0.6);
-  z-index: 0;
 }
 
 .image-wrapper img {
