@@ -236,7 +236,6 @@ color: black;
   z-index: 5;
   margin-top: 6px;
   max-height: 120px;
-  overflow-y: auto;
 }
 
 .modal-description-bar p {
