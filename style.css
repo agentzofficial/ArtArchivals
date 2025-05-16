@@ -148,14 +148,15 @@ color: black;
 .modal::before {
   content: "";
   position: absolute;
-  top: -40px; bottom: -40px;
-  left: -40px; right: -40px;
+  top: -10%;
+  bottom: -10%;
+  left: -10%;
+  right: -10%;
   background: var(--modal-blur-src) center/cover no-repeat;
   filter: blur(20px) brightness(1.0);
   z-index: -1;
   pointer-events: none;
 }
-
 .modal-frame::before {
   content: "";
   position: absolute;
