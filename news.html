@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+      content="width=device-width,
+               initial-scale=1,
+               maximum-scale=1,
+               user-scalable=no">
+  <title>agent z Art Archivals</title>
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="serverImages/fovicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="serverImages/fovicon-32.png">
+  <link rel="shortcut icon" href="serverImages/fovicon.ico">
+</head>
+<body>
+  <header class="site-nav">
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Gallery</a></li>
+        <li><span class="separator">|</span></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><span class="separator">|</span></li>
+        <li><a href="policies.html">Usage Policies</a></li>
+        <li><span class="separator">|</span></li>
+        <li class="theme-selector">
+          <select id="theme-select" aria-label="Choose theme">
+            <option value="agentz">agent z Theme</option>
+            <option value="dark">Basic Black</option>
+            <option value="light">Basic White</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="all-news" class="latest-news-section">
+      <h2>All News</h2>
+      <div class="news-grid">
+      </div>
+      <div class="pagination"></div>
+    </section>
+  </main>
+
+  <script>
+    const ITEMS_PER_PAGE = 10;
+    function getCurrentPage() {
+      const params = new URLSearchParams(window.location.search);
+      const p = parseInt(params.get('page'), 10);
+      return isNaN(p) || p < 1 ? 1 : p;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('data/news.json')
+        .then(r => r.json())
+        .then(newsArray => {
+          newsArray.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+          const totalItems = newsArray.length;
+          const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+          const currentPage = getCurrentPage();
+          const start = (currentPage - 1) * ITEMS_PER_PAGE;
+          const pageItems = newsArray.slice(start, start + ITEMS_PER_PAGE);
+
+          const grid = document.querySelector('.news-grid');
+          pageItems.forEach(item => {
+            const card = document.createElement('a');
+            card.href = `news-post.html?id=${item.id}`;
+            card.className = 'news-card';
+            card.innerHTML = `
+              <img src="${item.thumbnail}" alt="${item.title}" class="news-thumb"/>
+              <span class="news-tag">${item.tag}</span>
+              <h3 class="news-title">${item.title}</h3>
+              <time class="news-date">${new Date(item.date).toLocaleDateString()}</time>
+            `;
+            grid.appendChild(card);
+          });
+
+          const nav = document.querySelector('.pagination');
+          for (let p = 1; p <= totalPages; p++) {
+            const link = document.createElement('a');
+            link.href = `news.html?page=${p}`;
+            link.textContent = p;
+            if (p === currentPage) link.classList.add('active');
+            nav.appendChild(link);
+          }
+        })
+        .catch(console.error);
+    });
+  </script>
+</body>
+</html>
