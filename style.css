@@ -213,7 +213,7 @@ color: black;
   right: -20px;
   bottom: -20px;
   background: var(--modal-blur-src) center/cover no-repeat;
-  filter: blur(20px) brightness(0.6);
+  filter: blur(20px) brightness(0.4);
   z-index: 0;
   pointer-events: none;
 }
