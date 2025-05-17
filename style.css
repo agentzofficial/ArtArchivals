@@ -498,6 +498,38 @@ color: black;
   text-align: left;
 }
 
+.news-content h2 {
+  font-size: 1.6rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.news-content h3 {
+  font-size: 1.3rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.news-post a {
+  color: #0af;
+  text-decoration: underline;
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 1.5rem 0;
+}
+
+.embed-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 footer {
   color: white;
 }
