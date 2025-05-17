@@ -56,6 +56,10 @@ body.theme-dark {
 background-color: #323232;
 color: white;
 }
+
+body.theme-light {
+  background-color: #f0f0f0;
+}
 body.theme-light p,
 body.theme-light h1,
 body.theme-light h2,
@@ -72,6 +76,23 @@ body.theme-light .news-title,
 body.theme-light .news-date {
   color: #333;
 }
+body.theme-light .site-nav,
+body.theme-light .site-nav a,
+body.theme-light .contact-title-bar,
+body.theme-light .form-container label,
+body.theme-light .form-container select,
+body.theme-light .form-container textarea,
+body.theme-light .form-container button,
+body.theme-light .browse-news-button,
+body.theme-light .view-all-news,
+body.theme-light .news-card,
+body.theme-light .modal,
+body.theme-light .modal *,
+body.theme-light #trivia-content,
+body.theme-light #trivia-time {
+  color: inherit;
+}
+
 
 /* ===== Site Nav ===== */
 .site-nav { background:#5d3a9b; padding:12px 0; border-bottom:2px solid #ccc; }
@@ -577,6 +598,13 @@ footer {
 .browse-news-button:hover {
   background: #b881f8;
   transform: scale(1.05);
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px solid #666;
+  width: 60px;
+  margin: 30px auto;
 }
 
 /* ===== Contact ===== */
