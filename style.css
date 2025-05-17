@@ -680,20 +680,63 @@ footer {
 
 /* ===== Mobile Portrait ===== */
 @media only screen and (max-width:480px) and (orientation:portrait) {
-  .site-nav .separator { display:none; }
-  .site-nav ul {
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:4px 0; padding:4px 0;
+  .modal-frame {
+    width: 95vw;  
+    max-width: none;
+    margin-top: 20px;   
   }
-  .site-nav a,
-  .site-nav .theme-selector { font-size:0.9rem; }
-  #logo { max-width:60vw; }
-  #trivia-container { max-width:80vw; }
-  #trivia-content { font-size:0.75rem; }
-  .gallery {
-    grid-template-columns:repeat(2,1fr);
-    gap:4px; margin:20px 5px;
+  .image-wrapper {
+    width: 95vw;    
+    height: auto;  
+    max-height: 50vh; 
+  }
+  .image-wrapper img {
+    position: static;
+    transform: none;
+    height: auto;
+    width: 100%;       
+    object-fit: contain;
+  }
+
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 8px;
+    height: auto;
+    margin: 12px auto;
+  }
+  .variant-thumbs {
+    position: static;
+    transform: none;
+    left: auto; top: auto;
+    flex-wrap: wrap;     
+    justify-content: center;
+  }
+  .modal-date,
+  .modal-icons {
+    position: static;
+    transform: none;
+  }
+  .modal-icons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .loading-hint,
+  .navigation-hint {
+    bottom: 10px;   
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .modal-description-bar {
+    height: auto;  
+    max-height: 30vh;    
+    overflow-y: auto; 
+    padding: 10px;
   }
 }
 
