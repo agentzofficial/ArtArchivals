@@ -177,6 +177,7 @@ color: black;
   background: none;
   text-shadow: 0 2px 4px rgba(0,0,0,0.8);
   margin-bottom: 12px;
+  z-index: 2;
 }
 
 /* Image */
@@ -195,7 +196,7 @@ color: black;
   right: 8px;
   width: 24px;
   height: 24px;
-  z-index: 2; /
+  z-index: 2;
   opacity: 0.9;
   pointer-events: none;
 }
@@ -213,7 +214,7 @@ color: black;
   bottom: -20px;
   background: var(--modal-blur-src) center/cover no-repeat;
   filter: blur(20px) brightness(0.6);
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -264,6 +265,7 @@ color: black;
   max-width: 1000px;
   height: 48px;
   margin: 8px auto;
+  z-index: 2;
 }
 
 .variant-thumbs,
