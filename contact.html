@@ -10,7 +10,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="serverImages/fovicon-32.png">
   <link rel="shortcut icon" href="serverImages/fovicon.ico">
 </head>
-<body>
+<body class="non-gallery">
+  <img id="fixed-bg" src="" alt="" aria-hidden="true" />
   <header class="site-nav">
     <nav>
       <ul>
@@ -109,33 +110,39 @@
   </script>
   <script>
     const THEME_KEY = 'preferredTheme';
-    const select  = document.getElementById('theme-select');
-    const body    = document.body;
-
+    const select    = document.getElementById('theme-select');
+    const bodyEl    = document.body;
+  
     if (!document.getElementById('fixed-bg')) {
-      const agentzOption = select.querySelector('option[value="agentz"]');
-      agentzOption.disabled = true;
+      const agentzOption = select?.querySelector('option[value="agentz"]');
+      if (agentzOption) agentzOption.disabled = true;
     }
-
+  
     function applyTheme(theme) {
-      body.classList.remove('theme-dark','theme-light','theme-agentz');
-      body.classList.add('theme-' + theme);
+      bodyEl.classList.remove('theme-dark','theme-light','theme-agentz');
+      bodyEl.classList.add('theme-' + theme);
       localStorage.setItem(THEME_KEY, theme);
   
-      if (theme === 'agentz' && document.getElementById('fixed-bg')) {
-        const maxBg = 8;
-        const bg    = Math.floor(Math.random()*maxBg)+1;
-        document.getElementById('fixed-bg').src = `backgrounds/bg${bg}.png`;
+      const bgImg = document.getElementById('fixed-bg');
+      if (!bgImg) return;
+  
+      if (theme === 'agentz') {
+        bgImg.style.display = '';
+        const maxBg = 9;
+        const n     = Math.floor(Math.random() * maxBg) + 1;
+        bgImg.src   = `../backgrounds/bg${n}.webp`;
+      } else {
+        bgImg.style.display = 'none';
       }
     }
   
-    document.addEventListener('DOMContentLoaded', () => {
-      const saved = localStorage.getItem(THEME_KEY) || 'dark';
-      select.value = saved;
-      applyTheme(saved);
+    const savedTheme = localStorage.getItem(THEME_KEY) || 'agentz';
+    applyTheme(savedTheme);
   
+    if (select) {
+      select.value = savedTheme;
       select.addEventListener('change', () => applyTheme(select.value));
-    });
+    }
   </script>
 </body>
 </html>
