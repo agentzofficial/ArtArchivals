@@ -598,7 +598,7 @@
           const grid = document.querySelector('.news-grid');
           latestFour.forEach(item => {
             const card = document.createElement('a');
-            card.href = `news.html?id=${item.id}`;
+            card.href = `news/news-${item.date.replace(/-/g, '-')}_1.html`;
             card.className = 'news-card';
   
             card.innerHTML = `
