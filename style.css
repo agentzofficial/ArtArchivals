@@ -60,7 +60,6 @@ color: white;
 body.theme-light {
   background-color: #f0f0f0;
 }
-
 body.theme-light p,
 body.theme-light h1,
 body.theme-light h2,
@@ -69,23 +68,21 @@ body.theme-light h4,
 body.theme-light h5,
 body.theme-light h6,
 body.theme-light li,
-body.theme-light a:not(.browse-news-button):not(.view-all-news),
+body.theme-light a:not(.browse-news-button),
 body.theme-light .dot-list,
 body.theme-light .page-content,
 body.theme-light .latest-news-section,
-body.theme-light .year-nav button {
+body.theme-light .year-nav button,
+body.theme-light footer {
   color: #222 !important;
 }
 body.theme-light .site-nav a,
-body.theme-light .separator,
+body.theme-light .separator {
+  color: white !important;
+}
 body.theme-light .contact-title-bar,
 body.theme-light .contact-title-bar h1,
-body.theme-light .form-container label,
-body.theme-light .form-container select,
-body.theme-light .form-container textarea,
-body.theme-light .form-container button,
 body.theme-light .browse-news-button,
-body.theme-light .view-all-news,
 body.theme-light .news-card h3.news-title,
 body.theme-light .overlay h2,
 body.theme-light .overlay .date,
@@ -93,22 +90,23 @@ body.theme-light .modal,
 body.theme-light .modal * {
   color: white !important;
 }
+body.theme-light .form-container label,
 body.theme-light .form-container select,
 body.theme-light .form-container textarea {
-  background: white !important;
   color: #222 !important;
+  background: white !important;
   border-color: #aaa !important;
 }
 body.theme-light #trivia-time {
   color: #222 !important;
 }
-body.theme-light .news-date,
 body.theme-light .news-card time.news-date {
   color: white !important;
 }
 body.theme-light .page-content h2 {
   color: #222 !important;
 }
+
 /* ===== Site Nav ===== */
 .site-nav { background:#5d3a9b; padding:12px 0; border-bottom:2px solid #ccc; }
 .site-nav ul { display:flex; justify-content:center; align-items:center; margin:0; padding:0; list-style:none; }
