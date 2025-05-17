@@ -41,7 +41,7 @@
       <h2>All News</h2>
       <div class="news-grid">
       </div>
-      <div class="pagination"></div>
+      <div class="pagination-controls pagination"></div>
     </section>
   </main>
 
@@ -81,8 +81,10 @@
 
           const nav = document.querySelector('.pagination');
           for (let p = 1; p <= totalPages; p++) {
-            const link = document.createElement('a');
-            link.href = `news.html?page=${p}`;
+            const link = document.createElement('button');
+            link.addEventListener('click', () => {
+              window.location.search = `?page=${p}`;
+            });
             link.textContent = p;
             if (p === currentPage) link.classList.add('active');
             nav.appendChild(link);
