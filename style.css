@@ -30,6 +30,10 @@ pointer-events: none;
 transform: translateZ(0);
 }
 
+body.non-gallery #fixed-bg {
+  filter: blur(8px) brightness(0.5);
+}
+
 /* Logo */
 #logo {
 max-width: 90vw;
