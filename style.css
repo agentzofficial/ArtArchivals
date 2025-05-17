@@ -84,21 +84,31 @@ body.theme-light .form-container textarea,
 body.theme-light .form-container button,
 body.theme-light .browse-news-button,
 body.theme-light .view-all-news,
-body.theme-light .news-card,
+body.theme-light .news-card h3.news-title,
 body.theme-light .overlay h2,
 body.theme-light .overlay .date,
 body.theme-light .modal,
-body.theme-light .modal *,
-body.theme-light #trivia-content,
-body.theme-light #trivia-time {
+body.theme-light .modal * {
   color: white !important;
 }
 
-body.theme-light .year-nav button,
-body.theme-light footer {
-  color: #222;
+body.theme-light .contact-title-bar h1,
+body.theme-light .page-content h2 {
+  color: white !important;
 }
 
+body.theme-light .separator {
+  color: rgba(255,255,255,0.5) !important;
+}
+
+body.theme-light #trivia-time {
+  color: #222 !important;
+}
+
+body.theme-light .news-date,
+body.theme-light .news-card time.news-date {
+  color: #222 !important;
+}
 
 /* ===== Site Nav ===== */
 .site-nav { background:#5d3a9b; padding:12px 0; border-bottom:2px solid #ccc; }
