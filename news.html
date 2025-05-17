@@ -91,5 +91,41 @@
         .catch(console.error);
     });
   </script>
+  <script>
+    const THEME_KEY = 'preferredTheme';
+    const select    = document.getElementById('theme-select');
+    const bodyEl    = document.body;
+  
+    if (!document.getElementById('fixed-bg')) {
+      const agentzOption = select?.querySelector('option[value="agentz"]');
+      if (agentzOption) agentzOption.disabled = true;
+    }
+  
+    function applyTheme(theme) {
+      bodyEl.classList.remove('theme-dark','theme-light','theme-agentz');
+      bodyEl.classList.add('theme-' + theme);
+      localStorage.setItem(THEME_KEY, theme);
+  
+      const bgImg = document.getElementById('fixed-bg');
+      if (!bgImg) return;
+  
+      if (theme === 'agentz') {
+        bgImg.style.display = '';
+        const maxBg = 9;
+        const n     = Math.floor(Math.random() * maxBg) + 1;
+        bgImg.src   = `backgrounds/bg${n}.webp`;
+      } else {
+        bgImg.style.display = 'none';
+      }
+    }
+  
+    const savedTheme = localStorage.getItem(THEME_KEY) || 'agentz';
+    applyTheme(savedTheme);
+  
+    if (select) {
+      select.value = savedTheme;
+      select.addEventListener('change', () => applyTheme(select.value));
+    }
+  </script>
 </body>
 </html>
