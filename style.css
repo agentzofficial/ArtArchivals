@@ -680,15 +680,15 @@ footer {
 
 /* ===== Mobile Portrait ===== */
 @media only screen and (max-width:480px) and (orientation:portrait) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4px;
-    margin: 20px 5px;
+  .modal {
+    align-items: flex-start; 
+    padding-top: 6vh;     
   }
+
   .modal-frame {
-    width: 95vw;
-    margin-top: 20px;
+    margin-top: 0; 
   }
+
   .image-wrapper {
     width: 95vw;
     max-height: 50vh;
@@ -700,13 +700,13 @@ footer {
     height: auto;
     object-fit: contain;
   }
+
   .modal-meta {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
     margin: 12px auto 0;
-    height: auto;
     position: static !important;
     transform: none !important;
   }
@@ -717,38 +717,34 @@ footer {
     transform: none !important;
     margin: 0;
   }
-  .variant-thumbs {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .modal-icons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-  }
+  .variant-thumbs { flex-wrap: wrap; justify-content: center; }
+  .modal-icons { display: flex; justify-content: center; gap: 12px; }
+
   .modal-description-bar {
-    height: auto;
-    max-height: 30vh;
-    overflow-y: auto;
-    padding: 10px;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+
+    padding: 12px 20px;
     margin: 8px auto 0;
-  }
-  .loading-hint {
-    position: static;
-    transform: none;
-    margin: 8px auto 0;
-    white-space: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 0 8px;
+    white-space: pre-wrap;
+    word-break: break-word;
   }
+
+  .loading-hint,
   .navigation-hint {
     position: static;
     transform: none;
-    margin: 4px auto 20px;
+    margin: 8px auto;
     white-space: normal;
     text-align: center;
     padding: 0 8px;
   }
+  .navigation-hint { margin-bottom: 20px; }
 }
 
 /* ===== Logo Breakpoint ===== */
