@@ -352,7 +352,7 @@ color: black;
   display: block;
   width: 100%;
   height: auto;
-  margin: 0 auto;
+  margin: 8px auto 0;
 }
 #trivia-content {
   position:absolute; top:50%; left:50%;
