@@ -601,17 +601,25 @@
   
           const grid = document.querySelector('.news-grid');
           latestFour.forEach(item => {
-            const card = document.createElement('a');
-            card.href = `news/news-${item.date.replace(/-/g, '-')}_1.html`;
-            card.className = 'news-card';
-  
+            const card       = document.createElement('a');
+            card.href        = `news/news-${item.date.replace(/-/g, '-')}_1.html`;
+            card.className   = 'news-card';
+    
+            const d          = new Date(item.date);
+            const formatted  = d.toLocaleDateString('en-GB', {
+              day:   'numeric',
+              month: 'long',
+              year:  'numeric'
+            });
+        
+            // build the inner HTML once
             card.innerHTML = `
-              <img src="${item.thumbnail}" alt="${item.title} thumbnail" class="news-thumb"/>
+              <img src="${item.thumbnail}" alt="${item.title}" class="news-thumb"/>
               <span class="news-tag">${item.tag}</span>
               <h3 class="news-title">${item.title}</h3>
-              <time class="news-date">${new Date(item.date).toLocaleDateString()}</time>
+              <time class="news-date">${formatted}</time>
             `;
-  
+        
             grid.appendChild(card);
           });
         })
