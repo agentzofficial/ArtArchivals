@@ -475,6 +475,10 @@ color: black;
   text-align: left;
 }
 
+footer {
+  color: white;
+}
+
 /* ===== Contact ===== */
 .contact-title-bar {
   background:#3a1b4d; border-bottom:1px solid #ccc;
