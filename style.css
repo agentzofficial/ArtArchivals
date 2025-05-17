@@ -685,15 +685,12 @@ footer {
     gap: 4px;
     margin: 20px 5px;
   }
-
   .modal-frame {
     width: 95vw;
-    max-width: none;
     margin-top: 20px;
   }
   .image-wrapper {
     width: 95vw;
-    height: auto;
     max-height: 50vh;
   }
   .image-wrapper img {
@@ -703,52 +700,51 @@ footer {
     height: auto;
     object-fit: contain;
   }
-
   .modal-meta {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    padding-top: 8px;
-    margin: 12px auto;
+    margin: 12px auto 0;
+    height: auto;
+    position: static !important;
+    transform: none !important;
+  }
+  .variant-thumbs,
+  .modal-date,
+  .modal-icons {
+    position: static !important;
+    transform: none !important;
+    margin: 0;
   }
   .variant-thumbs {
-    position: static;
-    transform: none;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 4px;
-  }
-  .modal-date {
-    position: static;
-    transform: none;
-    margin-top: 4px;
   }
   .modal-icons {
-    position: static;
-    transform: none;
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-bottom: 4px;
   }
-
   .modal-description-bar {
     height: auto;
     max-height: 30vh;
     overflow-y: auto;
     padding: 10px;
-    margin-top: 8px;
+    margin: 8px auto 0;
   }
-
   .loading-hint {
-    bottom: 40px;
+    position: static;
+    transform: none;
+    margin: 8px auto 0;
     white-space: normal;
     text-align: center;
     padding: 0 8px;
   }
   .navigation-hint {
-    bottom: 10px;
+    position: static;
+    transform: none;
+    margin: 4px auto 20px;
     white-space: normal;
     text-align: center;
     padding: 0 8px;
