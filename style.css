@@ -37,7 +37,7 @@ body.non-gallery #fixed-bg {
   width: 110vw;
   height: 110vh;
   transform: translate(-50%, -50%);
-  filter: blur(4px) brightness(0.8);
+  filter: blur(4px) brightness(0.6);
   object-fit: cover;
   z-index: -3;
 }
