@@ -1,10 +1,10 @@
 [
   {
-    "id": "news-2025-05-03_1",
-    "title": "Lights ON! A new Splatoon Animation arrives!",
-    "date": "2025-05-03",
-    "tag": "Video News",
-    "thumbnail": "imagesPreview/2025-5-4_3.webp"
+    "id": "news-2025-05-17_1",
+    "title": "agent z Art Archivals is public!",
+    "date": "2025-05-17",
+    "tag": "Updates",
+    "thumbnail": "screenshots/2025-05-17_1.jpg"
   },
   {
     "id": "news-2025-05-16_1",
@@ -12,5 +12,12 @@
     "date": "2025-05-16",
     "tag": "Information",
     "thumbnail": "screenshots/2025-05-16_1.jpg"
-  }
+  },
+  {
+    "id": "news-2025-05-03_1",
+    "title": "Lights ON! A new Splatoon Animation arrives!",
+    "date": "2025-05-03",
+    "tag": "Video News",
+    "thumbnail": "imagesPreview/2025-5-4_3.webp"
+  },
 ]
