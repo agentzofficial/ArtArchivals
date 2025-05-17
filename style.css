@@ -109,6 +109,9 @@ body.theme-light .page-content h2 {
 body.theme-light .news-post .news-date {
   color: #222 !important;
 }
+body.theme-light .news-card time.news-date {
+  color: white !important;
+}
 
 /* ===== Site Nav ===== */
 .site-nav { background:#5d3a9b; padding:12px 0; border-bottom:2px solid #ccc; }
