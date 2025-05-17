@@ -115,6 +115,13 @@
     "
   ></div>
 
+  <section id="latest-news" class="latest-news-section">
+    <h2>Latest News</h2>
+    <div class="news-grid">
+    </div>
+    <a href="news.html" class="view-all-news">View All News →</a>
+  </section>
+
   <script>
     let currentIndex = 0,
         artData      = [],
@@ -576,6 +583,35 @@
       select.addEventListener('change', () => {
         applyTheme(select.value);
       });
+    });
+  </script>
+
+  <script>
+    // NEWS
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('data/news.json')
+        .then(r => r.json())
+        .then(newsArray => {
+          newsArray.sort((a, b) => new Date(b.date) - new Date(a.date));
+          const latestFour = newsArray.slice(0, 4);
+  
+          const grid = document.querySelector('.news-grid');
+          latestFour.forEach(item => {
+            const card = document.createElement('a');
+            card.href = `news.html?id=${item.id}`;
+            card.className = 'news-card';
+  
+            card.innerHTML = `
+              <img src="${item.thumbnail}" alt="${item.title} thumbnail" class="news-thumb"/>
+              <span class="news-tag">${item.tag}</span>
+              <h3 class="news-title">${item.title}</h3>
+              <time class="news-date">${new Date(item.date).toLocaleDateString()}</time>
+            `;
+  
+            grid.appendChild(card);
+          });
+        })
+        .catch(err => console.error('Failed to load news:', err));
     });
   </script>
 </body>
