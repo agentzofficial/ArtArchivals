@@ -69,15 +69,17 @@ body.theme-light h4,
 body.theme-light h5,
 body.theme-light h6,
 body.theme-light li,
-body.theme-light a:not(.browse-news-button),
+body.theme-light a:not(.browse-news-button):not(.view-all-news),
 body.theme-light .dot-list,
 body.theme-light .page-content,
-body.theme-light .latest-news-section {
-  color: #222;
+body.theme-light .latest-news-section,
+body.theme-light .year-nav button {
+  color: #222 !important;
 }
-
 body.theme-light .site-nav a,
+body.theme-light .separator,
 body.theme-light .contact-title-bar,
+body.theme-light .contact-title-bar h1,
 body.theme-light .form-container label,
 body.theme-light .form-container select,
 body.theme-light .form-container textarea,
@@ -91,25 +93,22 @@ body.theme-light .modal,
 body.theme-light .modal * {
   color: white !important;
 }
-
-body.theme-light .contact-title-bar h1,
-body.theme-light .page-content h2 {
-  color: white !important;
+body.theme-light .form-container select,
+body.theme-light .form-container textarea {
+  background: white !important;
+  color: #222 !important;
+  border-color: #aaa !important;
 }
-
-body.theme-light .separator {
-  color: rgba(255,255,255,0.5) !important;
-}
-
 body.theme-light #trivia-time {
   color: #222 !important;
 }
-
 body.theme-light .news-date,
 body.theme-light .news-card time.news-date {
+  color: white !important;
+}
+body.theme-light .page-content h2 {
   color: #222 !important;
 }
-
 /* ===== Site Nav ===== */
 .site-nav { background:#5d3a9b; padding:12px 0; border-bottom:2px solid #ccc; }
 .site-nav ul { display:flex; justify-content:center; align-items:center; margin:0; padding:0; list-style:none; }
