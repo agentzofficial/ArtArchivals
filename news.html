@@ -69,26 +69,24 @@
 
           const grid = document.querySelector('.news-grid');
           pageItems.forEach(item => {
-            const card = document.createElement('a');
-            card.href = `news/news-${item.date.replace(/-/g, '-')}_1.html`;
-            card.className = 'news-card';
+            const card       = document.createElement('a');
+            card.href        = `news/news-${item.date.replace(/-/g, '-')}_1.html`;
+            card.className   = 'news-card';
+        
+            const d          = new Date(item.date);
+            const formatted  = d.toLocaleDateString('en-GB', {
+              day:   'numeric',
+              month: 'long',
+              year:  'numeric'
+            });
+            
             card.innerHTML = `
               <img src="${item.thumbnail}" alt="${item.title}" class="news-thumb"/>
               <span class="news-tag">${item.tag}</span>
               <h3 class="news-title">${item.title}</h3>
-              const d = new Date(item.date);
-              const formatted = d.toLocaleDateString('en-GB', {
-                day:   'numeric',
-                month: 'long',
-                year:  'numeric'
-              });
-              card.innerHTML = `
-                <img src="${item.thumbnail}" … />
-                <span class="news-tag">${item.tag}</span>
-                <h3 class="news-title">${item.title}</h3>
-                <time class="news-date">${formatted}</time>
-              `;
+              <time class="news-date">${formatted}</time>
             `;
+        
             grid.appendChild(card);
           });
 
