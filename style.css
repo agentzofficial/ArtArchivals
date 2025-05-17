@@ -682,68 +682,73 @@ footer {
 @media only screen and (max-width:480px) and (orientation:portrait) {
   .modal {
     align-items: flex-start;
-    padding-top: 15vh;
+    padding-top: 20vh; 
   }
   .modal-frame {
-    margin-top: 0;
+    margin-top: 0; 
   }
+
   .image-wrapper {
+    display: block;
     width: 95vw;
     max-height: 50vh;
+    margin: 0 auto 12px;
   }
   .image-wrapper img {
-    position: static;
-    transform: none;
     width: 100%;
     height: auto;
     object-fit: contain;
   }
-  .modal-meta {
-    display: block !important;
-    width: 100%;
-    margin: 12px auto 0;
-  }
+
   .variant-thumbs {
     display: block !important;
-    margin: 0 auto 8px;
     text-align: center;
+    margin: 0 auto 8px;
   }
   .variant-thumbs img {
     margin: 0 4px 4px;
   }
+
   .modal-date {
     display: block !important;
-    margin: 0 auto 8px;
     text-align: center;
+    margin: 0 auto 8px;
   }
+
   .modal-icons {
     display: block !important;
-    margin: 0 auto 8px;
     text-align: center;
+    margin: 0 auto 12px;
   }
+
   .modal-description-bar {
-    display: block !important;
+    display: flex !important;
+    align-items: center;  
+    justify-content: center;
     width: 100%;
     padding: 12px 20px;
-    margin: 8px auto 0;
+    margin: 0 auto 12px;
     background: rgba(0,0,0,0.75);
     box-sizing: border-box;
     white-space: pre-wrap;
     word-break: break-word;
   }
+  .modal-description-bar p {
+    margin: 0;
+  }
   .loading-hint {
     display: block !important;
-    margin: 8px auto 0;
-    white-space: normal;
+    margin: 0 auto 8px;
     text-align: center;
     padding: 0 8px;
+    white-space: normal;
   }
   .navigation-hint {
     display: block !important;
-    margin: 4px auto 20px;
-    white-space: normal;
+    margin: 0 auto 20px;
     text-align: center;
     padding: 0 8px;
+    white-space: normal;
   }
   .gallery {
     grid-template-columns: repeat(2, 1fr);
