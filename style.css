@@ -431,6 +431,50 @@ color: black;
   color: #0af;
 }
 
+/* NEWS POST ITSELF */
+/* INDIVIDUAL NEWS PAGE STYLES */
+.news-post {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  color: #fff;
+}
+
+.news-post .news-tag {
+  display: block;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.news-post .news-title {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0.2rem 0 0.5rem;
+}
+
+.news-post .news-date {
+  display: block;
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+.news-post .news-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;
+  border-radius: 4px;
+}
+
+.news-post .news-content {
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
 /* ===== Contact ===== */
 .contact-title-bar {
   background:#3a1b4d; border-bottom:1px solid #ccc;
