@@ -76,7 +76,18 @@
               <img src="${item.thumbnail}" alt="${item.title}" class="news-thumb"/>
               <span class="news-tag">${item.tag}</span>
               <h3 class="news-title">${item.title}</h3>
-              <time class="news-date">${new Date(item.date).toLocaleDateString()}</time>
+              const d = new Date(item.date);
+              const formatted = d.toLocaleDateString('en-GB', {
+                day:   'numeric',
+                month: 'long',
+                year:  'numeric'
+              });
+              card.innerHTML = `
+                <img src="${item.thumbnail}" … />
+                <span class="news-tag">${item.tag}</span>
+                <h3 class="news-title">${item.title}</h3>
+                <time class="news-date">${formatted}</time>
+              `;
             `;
             grid.appendChild(card);
           });
