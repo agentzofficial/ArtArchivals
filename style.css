@@ -103,9 +103,6 @@ body.theme-light #trivia-time {
 body.theme-light .news-card .news-tag {
   color: white !important;
 }
-body.theme-light .news-card time.news-date {
-  color: #222 !important;
-}
 body.theme-light .page-content h2 {
   color: #222 !important;
 }
