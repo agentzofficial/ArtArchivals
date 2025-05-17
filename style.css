@@ -31,7 +31,15 @@ transform: translateZ(0);
 }
 
 body.non-gallery #fixed-bg {
-  filter: blur(8px) brightness(0.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 110vw;
+  height: 110vh;
+  transform: translate(-50%, -50%);
+  filter: blur(4px) brightness(0.8);
+  object-fit: cover;
+  z-index: -3;
 }
 
 /* Logo */
