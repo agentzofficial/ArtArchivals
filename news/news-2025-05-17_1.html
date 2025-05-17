@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>agent z Art Archivals is public!</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../serverImages/fovicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../serverImages/fovicon-32.png">
+  <link rel="shortcut icon" href="../serverImages/fovicon.ico">
+</head>
+<body class="non-gallery">
+  <img id="fixed-bg" src="" alt="" aria-hidden="true" />
+  <header class="site-nav">
+    <nav>
+      <ul>
+        <li><a href="../index.html" class="active">Gallery</a></li>
+        <li><span class="separator">|</span></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><span class="separator">|</span></li>
+        <li><a href="../policies.html">Usage Policies</a></li>
+        <li><span class="separator">|</span></li>
+        <li class="theme-selector">
+          <select id="theme-select" aria-label="Choose theme">
+            <option value="agentz">agent z Theme</option>
+            <option value="dark">Basic Black</option>
+            <option value="light">Basic White</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  
+  <article class="news-post">
+    <span class="news-tag">Information</span>
+    <h1 class="news-title">agent z Art Archivals is public!</h1>
+    <time class="news-date">16 May 2025</time>
+    <img
+      src="../screenshots/2025-05-17_1.jpg"
+      alt="preview"
+      class="news-image"
+    />
+    <div class="news-content">
+      <p>See all of the renders and drawing made by <em>agent z</em> throughout the years, all in their highest quality!
+      If you're looking for a particular image, use <strong>filters</strong> to narrow down the search!
+      Learn a little about images via their descriptions and find their original posts from other social media!</p>
+      <img
+        src="../screenshots/2025-05-17_2.jpg"
+        alt="preview"
+        class="news-image"
+      />
+      <img
+        src="../screenshots/2025-05-17_3.jpg"
+        alt="preview"
+        class="news-image"
+      />
+      <p>Hop in daily and learn a brand new fact about the characters, videos or the <em>agent z</em> channel itself! If you liked it, let us know by clicking the "Fresh!" button!</p>
+      <img
+        src="../screenshots/2025-05-17_4.jpg"
+        alt="preview"
+        class="news-image"
+      />
+      <p>Catch up with what's happening in the Latest News section, a place to keep you up to date no matter what social platform you follow! In fact, news may be posted here earlier
+      here than on social platforms! See updates on videos, announcements, or read any article published here that interests you!</p>
+      <img
+        src="../screenshots/2025-05-17_5.jpg"
+        alt="preview"
+        class="news-image"
+      />
+      <p>Wish to contact <em>agent z</em>? Do you wish to use characters or content from <em>agent z</em> and are unsure on what's okay and what's not? There are pages for that!</p>
+      <img
+        src="../screenshots/2025-05-17_6.jpg"
+        alt="preview"
+        class="news-image"
+      />
+      <p>Customise your browsing experience with <strong>3</strong> unique themes to choose from!</p>
+      <img
+        src="../screenshots/2025-05-17_7.jpg"
+        alt="preview"
+        class="news-image"
+      />
+      <p>More images, news, articles, and more content overall will be added over time. Thank you so much for checking out this website!</p>
+      
+  </article>
+  
+  <div class="browse-news-container">
+    <a href="../news.html" class="browse-news-button">Browse News</a>
+  </div>
+  
+  <footer>
+    &copy; 2025 agent z Art Archivals
+  </footer>
+
+  <script>
+    // <h2> = heading <h3> = smaller heading <strong> = bold <em> = italics | that <img> is for images
+    const THEME_KEY = 'preferredTheme';
+    const select    = document.getElementById('theme-select');
+    const bodyEl    = document.body;
+  
+    if (!document.getElementById('fixed-bg')) {
+      const agentzOption = select?.querySelector('option[value="agentz"]');
+      if (agentzOption) agentzOption.disabled = true;
+    }
+  
+    function applyTheme(theme) {
+      bodyEl.classList.remove('theme-dark','theme-light','theme-agentz');
+      bodyEl.classList.add('theme-' + theme);
+      localStorage.setItem(THEME_KEY, theme);
+  
+      const bgImg = document.getElementById('fixed-bg');
+      if (!bgImg) return;
+  
+      if (theme === 'agentz') {
+        bgImg.style.display = '';
+        const maxBg = 9;
+        const n     = Math.floor(Math.random() * maxBg) + 1;
+        bgImg.src   = `../backgrounds/bg${n}.webp`;
+      } else {
+        bgImg.style.display = 'none';
+      }
+    }
+  
+    const savedTheme = localStorage.getItem(THEME_KEY) || 'agentz';
+    applyTheme(savedTheme);
+  
+    if (select) {
+      select.value = savedTheme;
+      select.addEventListener('change', () => applyTheme(select.value));
+    }
+  </script>
+</body>
+</html>
