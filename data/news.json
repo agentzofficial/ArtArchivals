@@ -5,5 +5,12 @@
     "date": "2025-05-03",
     "tag": "Video News",
     "thumbnail": "imagesPreview/2025-5-4_3.webp"
-  }
+  },
+  {
+    "id": "news-2025-05-16_1",
+    "title": "How agent z Works: Scripting",
+    "date": "2025-05-16",
+    "tag": "Information",
+    "thumbnail": "screenshots/2025-05-16_1.jpg"
+  },
 ]
