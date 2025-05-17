@@ -345,25 +345,36 @@ color: black;
 
 /* ===== Trivia ===== */
 #trivia-container {
-  display: flex;
-  justify-content: center;
+  position: relative;
   width: 90%;
   max-width: 700px;
   margin: 50px auto;
 }
+
 #trivia-box {
   display: block;
   width: 100%;
-  height: auto;
-  margin: 8px 0 0;
+  height: auto;    
 }
+
 #trivia-content {
-  position:absolute; top:50%; left:50%;
-  transform:translate(-50%,-50%) translateY(-50%);
-  text-align:center; padding:0 10px; width:90%;
-  font-size:18px; line-height:1.2em; max-height:3.6em;
-  overflow:hidden; color:#fff; pointer-events:none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateY(-50%);  /* true center */
+  
+  text-align: center;
+  padding: 0 10px;
+  width: 90%;
+
+  font-size: 18px;
+  line-height: 1.2em;
+  max-height: 3.6em;
+  overflow: hidden;
+  color: white;
+  pointer-events: none;
 }
+
 #trivia-time {
   text-align:center; margin:6px auto 30px;
   font-size:0.9em; opacity:0.6; width:fit-content;
