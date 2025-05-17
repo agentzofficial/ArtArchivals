@@ -67,7 +67,7 @@
           const grid = document.querySelector('.news-grid');
           pageItems.forEach(item => {
             const card = document.createElement('a');
-            card.href = `news-post.html?id=${item.id}`;
+            card.href = `news/news-${item.date.replace(/-/g, '-')}_1.html`;
             card.className = 'news-card';
             card.innerHTML = `
               <img src="${item.thumbnail}" alt="${item.title}" class="news-thumb"/>
