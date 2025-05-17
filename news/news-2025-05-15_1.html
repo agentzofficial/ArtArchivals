@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Significant Sploosh-O-Matic</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../serverImages/fovicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../serverImages/fovicon-32.png">
+  <link rel="shortcut icon" href="../serverImages/fovicon.ico">
+</head>
+<body class="non-gallery">
+  <img id="fixed-bg" src="" alt="" aria-hidden="true" />
+  <header class="site-nav">
+    <nav>
+      <ul>
+        <li><a href="../index.html" class="active">Gallery</a></li>
+        <li><span class="separator">|</span></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><span class="separator">|</span></li>
+        <li><a href="../policies.html">Usage Policies</a></li>
+        <li><span class="separator">|</span></li>
+        <li class="theme-selector">
+          <select id="theme-select" aria-label="Choose theme">
+            <option value="agentz">agent z Theme</option>
+            <option value="dark">Basic Black</option>
+            <option value="light">Basic White</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  
+  <article class="news-post">
+    <span class="news-tag">Story Extracts</span>
+    <h1 class="news-title">The Significant Sploosh-O-Matic</h1>
+    <time class="news-date">15 May 2025</time>
+    <img
+      src="../screenshots/2025-05-15_1.jpg"
+      alt="preview"
+      class="news-image"
+    />
+    <div class="news-content">
+      <p>The Sploosh-o-matic and Agent Z go way back -- being one of the first weapons (besides Marie's rocket launcher and the Hero Shot...) to appear on the agent z channel as a whole, in the second video animation on the channel!</p>
+      <div class="embed-container">
+        <iframe src="https://www.youtube.com/embed/wyEiflXTSg0" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p>Wow, only 2 years ago. Crazy to see how much the animations have improved since! ...At least, I think they improved?</p>
+      <p>Since it first appeared on the channel, the Sploosh-o-matic became an icon of its own, frequently appearing alongside Agent Z in videos, banners, and even ingame!
+      Unless it was a new season with new weapons, it was be pretty difficult to find Agent Z in games with any weapon but the Sploosh-o-matic! Playing the
+      weapon almost exclusively, she has gained a total of... how many wins with the weapon?!</p>
+      <img
+        src="../screenshots/2025-05-15_2.jpg"
+        alt="preview"
+        class="news-image"
+      />
+      <hr class="section-divider" />
+      <p>We sent a survey-like email to Agent X to see how she feels about the weapon, as she's never been seen using it. All we got was this back:</p>
+      <img
+        src="../screenshots/2025-05-15_3.jpg"
+        alt="preview"
+        class="news-image"
+      />
+      <p>Huh... what could she have meant by this?</p>
+    </div>
+  </article>
+  
+  <div class="browse-news-container">
+    <a href="../news.html" class="browse-news-button">Browse News</a>
+  </div>
+  
+  <footer>
+    &copy; 2025 agent z Art Archivals
+  </footer>
+
+  <script>
+    // <h2> = heading <h3> = smaller heading <strong> = bold <em> = italics | that <img> is for images
+    const THEME_KEY = 'preferredTheme';
+    const select    = document.getElementById('theme-select');
+    const bodyEl    = document.body;
+  
+    if (!document.getElementById('fixed-bg')) {
+      const agentzOption = select?.querySelector('option[value="agentz"]');
+      if (agentzOption) agentzOption.disabled = true;
+    }
+  
+    function applyTheme(theme) {
+      bodyEl.classList.remove('theme-dark','theme-light','theme-agentz');
+      bodyEl.classList.add('theme-' + theme);
+      localStorage.setItem(THEME_KEY, theme);
+  
+      const bgImg = document.getElementById('fixed-bg');
+      if (!bgImg) return;
+  
+      if (theme === 'agentz') {
+        bgImg.style.display = '';
+        const maxBg = 9;
+        const n     = Math.floor(Math.random() * maxBg) + 1;
+        bgImg.src   = `../backgrounds/bg${n}.webp`;
+      } else {
+        bgImg.style.display = 'none';
+      }
+    }
+  
+    const savedTheme = localStorage.getItem(THEME_KEY) || 'agentz';
+    applyTheme(savedTheme);
+  
+    if (select) {
+      select.value = savedTheme;
+      select.addEventListener('change', () => applyTheme(select.value));
+    }
+  </script>
+</body>
+</html>
