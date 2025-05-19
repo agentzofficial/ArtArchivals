@@ -1,11 +1,18 @@
 [
   {
-    "id": "news-2025-05-17_1",
+    "id": "news-2025-05-19_1",
     "title": "agent z Art Archivals is public!",
     "date": "2025-05-17",
     "tag": "Updates",
     "thumbnail": "screenshots/2025-05-17_1.jpg"
   },
+  {
+    "id": "news-2025-05-18_1",
+    "title": "To Booyah Before the Match",
+    "date": "2025-05-18",
+    "tag": "Characters Discuss",
+    "thumbnail": "screenshots/2025-05-18_1.jpg"
+  }
   {
     "id": "news-2025-05-16_1",
     "title": "How agent z Works: How to Script",
