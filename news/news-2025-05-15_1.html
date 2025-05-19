@@ -349,11 +349,11 @@
         }
 
         const container = document.getElementById('next-up-container');
-        if (olderItem) {
-          container.appendChild(makeNewsCard(olderItem));
-        }
         if (newerItem) {
           container.appendChild(makeNewsCard(newerItem));
+        }
+        if (olderItem) {
+          container.appendChild(makeNewsCard(olderItem));
         }
       })
       .catch(err => {
