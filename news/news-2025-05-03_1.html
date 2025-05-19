@@ -168,5 +168,27 @@
         document.getElementById('next-up-wrapper').style.display = 'none';
       });
   </script>
+  <script>
+    function shrinkDialogueIfNeeded() {
+      if (
+        window.innerWidth <= 480 &&
+        window.matchMedia("(orientation: portrait)").matches
+      ) {
+        document.querySelectorAll(".dialogue-text").forEach(el => {
+          let style = window.getComputedStyle(el);
+          let fontSizePx = parseFloat(style.fontSize);
+          const containerHeight = el.clientHeight;
+          while (el.scrollHeight > containerHeight && fontSizePx > 8) {
+            fontSizePx -= 1;
+            el.style.fontSize = fontSizePx + "px";
+          }
+        });
+      }
+    }
+  
+    window.addEventListener("DOMContentLoaded", shrinkDialogueIfNeeded);
+    window.addEventListener("resize", shrinkDialogueIfNeeded);
+    window.matchMedia("(orientation: portrait)").addEventListener("change", shrinkDialogueIfNeeded);
+  </script>
 </body>
 </html>
