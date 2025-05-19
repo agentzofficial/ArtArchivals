@@ -321,11 +321,12 @@
         const idx = newsArray.findIndex(item => item.id === currentId);
         const newerItem = (idx > 0) ? newsArray[idx - 1] : null;
         const olderItem = (idx < newsArray.length - 1) ? newsArray[idx + 1] : null;
+
         if (!newerItem && !olderItem) {
           document.getElementById('next-up-wrapper').style.display = 'none';
           return;
         }
-  
+
         function makeNewsCard(item) {
           const card = document.createElement('a');
           card.href = `./${item.id}.html`;
@@ -349,25 +350,9 @@
 
         const container = document.getElementById('next-up-container');
         if (olderItem) {
-          const olderLabel = document.createElement('div');
-          olderLabel.innerText = 'Previous';
-          olderLabel.style.color = '#fff';
-          olderLabel.style.textAlign = 'center';
-          olderLabel.style.marginBottom = '0.5rem';
-          olderLabel.style.fontSize = '0.9rem';
-          container.appendChild(olderLabel);
-
           container.appendChild(makeNewsCard(olderItem));
         }
         if (newerItem) {
-          const newerLabel = document.createElement('div');
-          newerLabel.innerText = 'Next';
-          newerLabel.style.color = '#fff';
-          newerLabel.style.textAlign = 'center';
-          newerLabel.style.margin = '1rem auto 0.5rem'; 
-          newerLabel.style.fontSize = '0.9rem';
-          container.appendChild(newerLabel);
-
           container.appendChild(makeNewsCard(newerItem));
         }
       })
