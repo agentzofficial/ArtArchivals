@@ -626,6 +626,56 @@ footer {
   margin: 30px auto;
 }
 
+/* ===== Dialogue ===== */
+.dialogue-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dialogue-container .dialogue-bg {
+  display: block;
+  width: 100%; 
+  height: auto;
+}
+
+.dialogue-container .dialogue-icon {
+  position: absolute;
+  width: 208px;
+  height: 222px;
+  left:  81px;
+  top:   89px; 
+  object-fit: contain;
+  border-radius: 4px; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.dialogue-container .dialogue-name {
+  position: absolute;
+  left: 260px;
+  top:  60px;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+  white-space: nowrap;
+}
+
+.dialogue-container .dialogue-text {
+  position: absolute;
+  left: 760px;
+  top:  200px;
+  transform: translate(-50%, -50%);
+  width: 800px;   
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.4;
+  text-align: center;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+
 /* ===== Contact ===== */
 .contact-title-bar {
   background:#3a1b4d; border-bottom:1px solid #ccc;
