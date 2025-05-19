@@ -642,22 +642,20 @@ footer {
 
 .dialogue-container .dialogue-icon {
   position: absolute;
-  width: 14.857%;   /* 208 ÷ 1400 */
+  width: 14.857%;
   height: auto;
-  left: 5.786%;     /* (185−104) ÷ 1400 = 81 ÷ 1400 */
-  top: 24.776%;     /* (200−111) ÷ 335 = 89 ÷ 335 ≈ 26.567% → tweaked down a bit */
+  left: 5.786%;
+  top: 26.567%;
   object-fit: contain;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .dialogue-container .dialogue-name {
   position: absolute;
   left: 18.571%;
-  top: 15%;  
+  top: 17.910%; 
   transform: translate(-50%, -50%);
   color: #fff;
-  font-size: 1.7vw;  /* scales with viewport width */
+  font-size: 1.7vw;
   font-weight: bold;
   text-shadow: 0 1px 2px rgba(0,0,0,0.8);
   white-space: nowrap;
@@ -665,10 +663,10 @@ footer {
 
 .dialogue-container .dialogue-text {
   position: absolute;
-  left: 54.286%;
-  top: 55.522%;
+  left: 54.286%;    /* 760 ÷ 1400 */
+  top: 59.701%;     /* 200 ÷ 335 */
   transform: translate(-50%, -50%);
-  width: 57.143%;
+  width: 57.143%;   /* 800 ÷ 1400 */
   color: #fff;
   font-size: 1.4vw;
   line-height: 1.4;
