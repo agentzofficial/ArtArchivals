@@ -631,7 +631,7 @@ footer {
   position: relative;
   width: 100%;
   max-width: 1400px;
-  margin: 0.5rem auto;
+  margin: 0.25rem auto;
 }
 
 .dialogue-container .dialogue-bg {
@@ -651,7 +651,7 @@ footer {
 
 .dialogue-container .dialogue-name {
   position: absolute;
-  left: 16.857%;
+  left: 17.857%;
   top: 16.716%;
   transform: translate(-50%, -50%);
   color: #fff;
