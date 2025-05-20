@@ -892,6 +892,36 @@ footer {
   }
 }
 
+@keyframes swipeOutLeft {
+  0% {
+    transform: translate(-50%, -50%) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translateX(-120%);
+    opacity: 0;
+  }
+}
+
+@keyframes swipeOutRight {
+  0% {
+    transform: translate(-50%, -50%) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translateX(120%);
+    opacity: 0;
+  }
+}
+
+.image-wrapper img.swipe‑left {
+  animation: swipeOutLeft 0.3s ease‑in forwards;
+}
+
+.image-wrapper img.swipe‑right {
+  animation: swipeOutRight 0.3s ease‑in forwards;
+}
+
 /* NAVIGATION BAR/HEADER MOBILE */
 @media (max-width: 480px) {
   .desktop-nav {
