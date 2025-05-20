@@ -28,6 +28,13 @@
     "thumbnail": "screenshots/2025-05-15_1.jpg"
   },
   {
+    "id": "news-2025-05-08_1",
+    "title": "A New Project is in the works...",
+    "date": "2025-05-08",
+    "tag": "Announcements",
+    "thumbnail": "screenshots/2025-05-08_1.jpg"
+  },
+  {
     "id": "news-2025-05-03_1",
     "title": "Splatoon Animation: Power Outage, is out now!",
     "date": "2025-05-03",
@@ -40,5 +47,26 @@
     "date": "2025-03-29",
     "tag": "Video News",
     "thumbnail": "imagesPreview/2025-3-30_1.webp"
+  },
+  {
+    "id": "news-2025-03-22_1",
+    "title": "The Next Splatoon Animation finally receives a definitive Release Date",
+    "date": "2025-03-22",
+    "tag": "Video News",
+    "thumbnail": "screenshots/2025-03-22_1.jpg"
+  },
+  {
+    "id": "news-2025-02-12_1",
+    "title": "An Update on the Next Episode, featuring Fan Characters",
+    "date": "2025-02-12",
+    "tag": "Video News",
+    "thumbnail": "imagesPreview/2025-2-12_1.webp"
+  },
+  {
+    "id": "news-2025-01-12_1",
+    "title": "agent z Returns from Overseas, Resuming Animation Production",
+    "date": "2025-01-12",
+    "tag": "Announcements",
+    "thumbnail": "imagesPreview/2025-1-12_1.webp"
   }
 ]
