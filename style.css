@@ -785,8 +785,7 @@ footer {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
-    margin-top: 8px !important;
-    margin-bottom: 8px !important;
+    margin: 8px auto !important;
   }
   .variant-thumbs img {
     width: 50px !important;
@@ -802,22 +801,31 @@ footer {
 
   .modal-date {
     position: static !important;
+    display: block !important;
+    width: 100% !important;
     text-align: center !important;
     word-break: break-word !important;
     color: #ddd !important;
     font-size: 0.9rem !important;
     margin-bottom: 8px !important;
-    align-self: center !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
   }
 
   .modal-icons {
     position: static !important;
-    display: flex !important;
-    justify-content: center !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
     margin: 0 auto 12px !important;
-    align-self: center !important;
+
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
   }
   .modal-icons a {
+    display: inline-block !important;
     margin: 0 6px !important;
   }
   .modal-icons img {
@@ -850,13 +858,16 @@ footer {
   .navigation-hint {
     position: static !important;
     display: block !important;
+    width: 100% !important;
     color: #ccc !important;
     font-size: 0.85rem !important;
     text-align: center !important;
     margin: 4px 0 !important;
     padding: 0 8px !important;
     white-space: normal !important;
-    align-self: center !important;
+
+    left: auto !important;
+    transform: none !important;
   }
   .navigation-hint {
     margin-bottom: 16px !important;
