@@ -838,7 +838,7 @@ footer {
 
   .modal-description-bar {
     height: auto !important;
-    max-height: 120px !important;
+    max-height: 150px !important;
     overflow-y: auto !important;
     padding: 10px 20px !important;
     scrollbar-width: thin;
@@ -853,7 +853,7 @@ footer {
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 2px;
   }
-
+  
   .modal-close {
     position: fixed !important;
     top: 8px !important;
