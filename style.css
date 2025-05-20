@@ -756,21 +756,24 @@ footer {
     position: relative !important;
     width: 95vw !important;
     max-width: 95vw !important;
-    height: auto !important;
+    /* Enforce 16:9 ratio */
+    aspect-ratio: 16 / 9 !important;
     margin: 0 auto 12px !important;
     overflow: hidden !important;
     background: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
+
   .image-wrapper::before {
     display: none !important;
   }
+  
   .image-wrapper img {
     position: relative !important;
-    top: 0 !important;
-    left: 0 !important;
-    transform: none !important;
     width: 100% !important;
-    height: auto !important;
+    height: 100% !important;
     object-fit: contain !important;
   }
 
