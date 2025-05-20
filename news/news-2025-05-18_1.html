@@ -34,8 +34,7 @@
     </nav>
   </header>
   
-  <!-- CHANGE THE VALUE HERE -->
-  <article class="news-post" data-current-id="news-2025-05-18_1">
+  <article class="news-post" data-auto-current-id>
     <span id="news-tag" class="news-tag"></span>
     <h1 id="news-title" class="news-title"></h1>
     <time id="news-date" class="news-date"></time>
@@ -271,7 +270,7 @@
   </article>
 
   <!-- CHANGE THE VALUE HERE -->
-  <div id="next-up-wrapper" data-current-id="news-2025-05-18_1">
+  <div id="next-up-wrapper" data-auto-current-id>
     <h2>Next Up</h2>
     <div id="next-up-container" class="news-grid">
     </div>
@@ -320,6 +319,15 @@
       select.value = savedTheme;
       select.addEventListener('change', () => applyTheme(select.value));
     }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const pageId = location.pathname.split('/').pop().replace('.html', '');
+  
+      document.querySelectorAll('[data-auto-current-id]').forEach(el => {
+        el.setAttribute('data-current-id', pageId);
+      });
+    });
   </script>
   <script>
     const articleElem = document.querySelector('article.news-post');
