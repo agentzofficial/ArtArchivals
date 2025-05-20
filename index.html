@@ -151,14 +151,14 @@
   </section>
 
   <script>
-    let currentIndex = 0,
-        artData      = [],
-        includeTags  = new Set(),
-        excludeTags  = new Set(),
-        modalLoadVersion = 0,
-        filteredIndices = [],
-        currentPage    = 1,
-        itemsPerPage   = 30;
+    let currentIndex       = 0,
+        artData            = [],
+        includeTags        = new Set(),
+        excludeTags        = new Set(),
+        modalLoadVersion   = 0,
+        filteredIndices    = [],
+        currentPage        = 1,
+        itemsPerPage       = 30;
   
     const TAG_ORDER = [
       "Renders", "Drawings", "Screenshots",
@@ -184,20 +184,19 @@
     const iconsEl   = document.querySelector('.modal-icons');
     const navHint   = document.querySelector('.navigation-hint');
     const loadHint  = document.querySelector('.loading-hint');
-
   
     let itemNodes = [];
     let selectedYear = 'all';
+  
     function buildGallery() {
       gallery.innerHTML = '';
       itemNodes = [];
-    
+  
       const start   = (currentPage - 1) * itemsPerPage;
       const end     = start + itemsPerPage;
       const visible = filteredIndices.slice(start, end);
-
+  
       const frag = document.createDocumentFragment();
-    
       for (let idx of visible) {
         const item        = artData[idx];
         const thumb       = (item.variants && item.variants[0]) || item.filename;
@@ -678,23 +677,24 @@
   <script>
     const modalElement = document.getElementById('modal');
     const closeBtn     = document.querySelector('.close');
-  
+    const loadHint     = document.querySelector('.loading-hint');
+    const navHint      = document.querySelector('.navigation-hint');
+    const frame        = document.querySelector('.modal-frame');
+
     closeBtn.addEventListener('click', () => {
       modalElement.style.display    = 'none';
       loadHint.style.display        = 'none';
       navHint.style.display         = 'none';
     });
-  
+
     modalElement.addEventListener('click', (e) => {
       if (e.target === modalElement) {
-        // same logic as “×”
         modalElement.style.display    = 'none';
         loadHint.style.display        = 'none';
         navHint.style.display         = 'none';
       }
     });
-  
-    const frame = document.querySelector('.modal-frame');
+
     let touchStartX = null;
   
     frame.addEventListener('touchstart', (e) => {
@@ -710,7 +710,6 @@
       }
       const touchEndX = e.changedTouches[0].clientX;
       const dx = touchEndX - touchStartX;
-  
       const SWIPE_THRESHOLD = 50;
   
       if (dx > SWIPE_THRESHOLD) {
@@ -727,9 +726,8 @@
     });
   
     frame.addEventListener('touchmove', (e) => {
-      if (e.touches.length === 1) {
-        const touch = e.touches[0];
-        const dx = Math.abs(touch.clientX - touchStartX || 0);
+      if (e.touches.length === 1 && touchStartX !== null) {
+        const dx = Math.abs(e.touches[0].clientX - touchStartX);
         if (dx > 10) {
           e.preventDefault();
         }
