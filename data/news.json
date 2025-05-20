@@ -42,6 +42,13 @@
     "thumbnail": "imagesPreview/2025-5-4_3.webp"
   },
   {
+    "id": "news-2025-04-25_1",
+    "title": "Sneak Peaks for the next episode have been released!",
+    "date": "2025-05-03",
+    "tag": "Video News",
+    "thumbnail": "imagesPreview/2025-5-4_3.webp"
+  },
+  {
     "id": "news-2025-03-29_1",
     "title": "Splatoon Animation: The Perfect Present, is out now!",
     "date": "2025-03-29",
@@ -50,7 +57,7 @@
   },
   {
     "id": "news-2025-03-22_1",
-    "title": "The Next Splatoon Animation finally receives a definitive Release Date",
+    "title": "The Next Splatoon Animation (finally) receives a definitive Release Date",
     "date": "2025-03-22",
     "tag": "Video News",
     "thumbnail": "screenshots/2025-03-22_1.jpg"
