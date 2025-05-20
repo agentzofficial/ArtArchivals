@@ -51,7 +51,7 @@
     const ITEMS_PER_PAGE = 12;
     function getCurrentPage() {
       const params = new URLSearchParams(window.location.search);
-      const p = parseInt(params.get('page'), 10);
+      const p = parseInt(params.get('page'), 12);
       return isNaN(p) || p < 1 ? 1 : p;
     }
 
