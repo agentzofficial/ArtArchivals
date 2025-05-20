@@ -693,13 +693,13 @@
     });
     
     let touchStartX = null;
-
+  
     frame.addEventListener("touchstart", (e) => {
       if (e.touches.length === 1) {
         touchStartX = e.touches[0].clientX;
       }
     });
-
+  
     frame.addEventListener("touchend", (e) => {
       if (touchStartX === null || e.changedTouches.length !== 1) {
         touchStartX = null;
@@ -709,24 +709,45 @@
       const dx = touchEndX - touchStartX;
       const SWIPE_THRESHOLD = 50;
 
-      if (dx > SWIPE_THRESHOLD) {
-        if (currentIndex > 0) {
+      const currentImg = document.getElementById("modal-img");
+  
+      if (dx > SWIPE_THRESHOLD && currentIndex > 0) {
+        currentImg.classList.add("swipe‑right");
+  
+        setTimeout(() => {
+          currentImg.classList.remove("swipe‑right");
           showModal(filteredIndices[currentIndex - 1], 0);
-        }
-      } else if (dx < -SWIPE_THRESHOLD) {
-        if (currentIndex < filteredIndices.length - 1) {
-          showModal(filteredIndices[currentIndex + 1], 0);
-        }
+        }, 300);
       }
+      else if (dx < -SWIPE_THRESHOLD && currentIndex < filteredIndices.length - 1) {
+        currentImg.classList.add("swipe‑left");
+  
+        setTimeout(() => {
+          currentImg.classList.remove("swipe‑left");
+          showModal(filteredIndices[currentIndex + 1], 0);
+        }, 300);
+      }
+  
       touchStartX = null;
     });
-
+  
     frame.addEventListener("touchmove", (e) => {
       if (e.touches.length === 1 && touchStartX !== null) {
         const dx = Math.abs(e.touches[0].clientX - touchStartX);
         if (dx > 10) {
           e.preventDefault();
         }
+      }
+    });
+  </script>
+  <script>
+    // are you touch screen
+    document.addEventListener("DOMContentLoaded", () => {
+      const navHintEl = document.querySelector(".navigation-hint");
+      if (!navHintEl) return;
+      const isTouchDevice = ("ontouchstart" in window) || (navigator.maxTouchPoints > 0);
+      if (isTouchDevice) {
+        navHintEl.innerText = "Swipe left or right to navigate.";
       }
     });
   </script>
