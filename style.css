@@ -774,23 +774,23 @@ footer {
   }
 
   .modal-meta {
-    position: static !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    margin: 0 auto 12px !important;
-    height: auto !important;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    margin-bottom: 8px;
   }
-
+  
   .variant-thumbs:empty {
     display: none !important;
   }
   .variant-thumbs {
-    position: absolute;
-    left: 24px;
-    top: 0;
-    transform: translateY(0);
-    align-items: flex-start;
+    order: -1;
+    margin-bottom: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
   }
   .variant-thumbs img {
     width: 50px !important;
@@ -819,11 +819,9 @@ footer {
   }
 
   .modal-icons {
-    position: static !important;
-    display: block !important;
-    width: 100% !important;
-    text-align: center !important;
-    margin: 0 auto 12px !important;
+    justify-content: center;
+    margin-top: 4px;
+  }
 
     left: auto !important;
     top: auto !important;
