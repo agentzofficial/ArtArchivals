@@ -790,11 +790,11 @@ footer {
     display: none !important;
   }
   .variant-thumbs {
-    position: static !important;
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    margin: 8px auto !important;
+    position: absolute;
+    left: 24px;
+    top: 0; /* Changed from 50% */
+    transform: translateY(0); /* Removed vertical centering */
+    align-items: flex-start; /* Ensures alignment at top */
   }
   .variant-thumbs img {
     width: 50px !important;
@@ -899,6 +899,24 @@ footer {
   .image-wrapper {
     width: 90vw;
     height: calc((90vw * 9) / 16);
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-description-bar {
+    max-height: 4.5em;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .modal-description-bar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .modal-description-bar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
   }
 }
 
