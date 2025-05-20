@@ -774,23 +774,23 @@ footer {
   }
 
   .modal-meta {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: flex-start;
-    height: auto;
-    margin-bottom: 8px;
+    position: static !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin: 0 auto 12px !important;
+    height: auto !important;
   }
-  
+
   .variant-thumbs:empty {
     display: none !important;
   }
   .variant-thumbs {
-    order: -1;
-    margin-bottom: 8px;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 4px;
+    position: absolute;
+    left: 24px;
+    top: 0;
+    transform: translateY(0);
+    align-items: flex-start;
   }
   .variant-thumbs img {
     width: 50px !important;
@@ -819,9 +819,11 @@ footer {
   }
 
   .modal-icons {
-    justify-content: center;
-    margin-top: 4px;
-  }
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 auto 12px !important;
 
     left: auto !important;
     top: auto !important;
