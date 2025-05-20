@@ -139,14 +139,14 @@
     }
   </script>
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const pageId = location.pathname.split('/').pop().replace('.html', '');
-
-    document.querySelectorAll('[data-auto-current-id]').forEach(el => {
-      el.setAttribute('data-current-id', pageId);
+    document.addEventListener('DOMContentLoaded', () => {
+      const pageId = location.pathname.split('/').pop().replace('.html', '');
+  
+      document.querySelectorAll('[data-auto-current-id]').forEach(el => {
+        el.setAttribute('data-current-id', pageId);
+      });
     });
-  });
-</script>
+  </script>
   <script>
     const articleElem = document.querySelector('article.news-post');
     const currentId = articleElem.getAttribute('data-current-id');
