@@ -72,7 +72,7 @@
 
   <div id="modal" class="modal">
     <div class="modal-frame">
-      <span class="close"></span>
+      <span class="close">&times;</span>
       <div class="modal-content">
         <h2 id="modal-title" class="modal-title"></h2>
         <div class="image-wrapper">
@@ -613,44 +613,6 @@
       });
     });
   </script>
-
-  <script>
-    // NEWS
-    document.addEventListener('DOMContentLoaded', () => {
-      fetch('data/news.json')
-        .then(r => r.json())
-        .then(newsArray => {
-          newsArray.sort((a, b) => new Date(b.date) - new Date(a.date));
-          const latestFour = newsArray.slice(0, 4);
-  
-          const grid = document.querySelector('.news-grid');
-          latestFour.forEach(item => {
-            const card       = document.createElement('a');
-            card.href        = `news/news-${item.date.replace(/-/g, '-')}_1.html`;
-            card.className   = 'news-card';
-    
-            const d          = new Date(item.date);
-            const formatted  = d.toLocaleDateString('en-GB', {
-              day:   'numeric',
-              month: 'long',
-              year:  'numeric'
-            });
-        
-            // build the inner HTML once
-            card.innerHTML = `
-              <img src="${item.thumbnail}" alt="${item.title}" class="news-thumb"/>
-              <span class="news-tag">${item.tag}</span>
-              <h3 class="news-title">${item.title}</h3>
-              <time class="news-date">${formatted}</time>
-            `;
-        
-            grid.appendChild(card);
-          });
-        })
-        .catch(err => console.error('Failed to load news:', err));
-    });
-  </script>
-
   <!-- MOBILE CONVERSIONS -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -712,6 +674,103 @@
           if (desktopSelect) desktopSelect.value = mobileSelect.value;
         });
       }
+    });
+  </script>
+  <script>
+    const modalElement = document.getElementById('modal');
+    const closeBtn     = document.querySelector('.close');
+  
+    closeBtn.addEventListener('click', () => {
+      modalElement.style.display    = 'none';
+      loadHint.style.display        = 'none';
+      navHint.style.display         = 'none';
+    });
+  
+    modalElement.addEventListener('click', (e) => {
+      if (e.target === modalElement) {
+        // same logic as “×”
+        modalElement.style.display    = 'none';
+        loadHint.style.display        = 'none';
+        navHint.style.display         = 'none';
+      }
+    });
+  
+    const frame = document.querySelector('.modal-frame');
+    let touchStartX = null;
+  
+    frame.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+      }
+    });
+  
+    frame.addEventListener('touchend', (e) => {
+      if (touchStartX === null || e.changedTouches.length !== 1) {
+        touchStartX = null;
+        return;
+      }
+      const touchEndX = e.changedTouches[0].clientX;
+      const dx = touchEndX - touchStartX;
+  
+      const SWIPE_THRESHOLD = 50;
+  
+      if (dx > SWIPE_THRESHOLD) {
+        if (currentIndex > 0) {
+          showModal(filteredIndices[currentIndex - 1], 0);
+        }
+      }
+      else if (dx < -SWIPE_THRESHOLD) {
+        if (currentIndex < filteredIndices.length - 1) {
+          showModal(filteredIndices[currentIndex + 1], 0);
+        }
+      }
+      touchStartX = null;
+    });
+  
+    frame.addEventListener('touchmove', (e) => {
+      if (e.touches.length === 1) {
+        const touch = e.touches[0];
+        const dx = Math.abs(touch.clientX - touchStartX || 0);
+        if (dx > 10) {
+          e.preventDefault();
+        }
+      }
+    });
+  </script>
+  <script>
+    // NEWS
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('data/news.json')
+        .then(r => r.json())
+        .then(newsArray => {
+          newsArray.sort((a, b) => new Date(b.date) - new Date(a.date));
+          const latestFour = newsArray.slice(0, 4);
+  
+          const grid = document.querySelector('.news-grid');
+          latestFour.forEach(item => {
+            const card       = document.createElement('a');
+            card.href        = `news/news-${item.date.replace(/-/g, '-')}_1.html`;
+            card.className   = 'news-card';
+    
+            const d          = new Date(item.date);
+            const formatted  = d.toLocaleDateString('en-GB', {
+              day:   'numeric',
+              month: 'long',
+              year:  'numeric'
+            });
+        
+            // build the inner HTML once
+            card.innerHTML = `
+              <img src="${item.thumbnail}" alt="${item.title}" class="news-thumb"/>
+              <span class="news-tag">${item.tag}</span>
+              <h3 class="news-title">${item.title}</h3>
+              <time class="news-date">${formatted}</time>
+            `;
+        
+            grid.appendChild(card);
+          });
+        })
+        .catch(err => console.error('Failed to load news:', err));
     });
   </script>
 </body>
