@@ -108,76 +108,89 @@
     });
   </script>
   <script>
-    const articleElem = document.querySelector('article.news-post');
-    const currentId = articleElem.getAttribute('data-current-id');
+    document.addEventListener('DOMContentLoaded', () => {
+      const pageId = location.pathname
+        .split('/')
+        .pop()
+        .replace('.html', '');
 
-    fetch('../data/news.json')
-      .then(r => r.json())
-      .then(newsArray => {
-        newsArray.sort((a, b) => new Date(b.date) - new Date(a.date));
+      document.querySelectorAll('[data-auto-current-id]').forEach(el => {
+        el.setAttribute('data-current-id', pageId);
+      });
+      const articleElem = document.querySelector('article.news-post');
+      const currentId = articleElem?.getAttribute('data-current-id');
 
-        const currentObj = newsArray.find(item => item.id === currentId);
-        if (!currentObj) {
-          console.error('No JSON entry found for ID:', currentId);
-          return;
-        }
+      if (!currentId) {
+        console.error('Current ID not set on article element.');
+        return;
+      }
 
-        document.getElementById('news-tag').innerText = currentObj.tag;
-        document.getElementById('news-title').innerText = currentObj.title;
-        const d = new Date(currentObj.date);
-        const formatted = d.toLocaleDateString('en-GB', {
-          day:   'numeric',
-          month: 'long',
-          year:  'numeric'
-        });
-        document.getElementById('news-date').innerText = formatted;
-        const img = document.getElementById('news-image');
-        img.src = `../${currentObj.thumbnail}`;
-        img.alt = currentObj.title + ' thumbnail';
-        document.title = currentObj.title + ' – agent z Art Archivals';
+      fetch('/data/news.json')
+        .then(r => r.json())
+        .then(newsArray => {
+          newsArray.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-        const idx = newsArray.findIndex(item => item.id === currentId);
-        const newerItem = (idx > 0) ? newsArray[idx - 1] : null;
-        const olderItem = (idx < newsArray.length - 1) ? newsArray[idx + 1] : null;
+          const currentObj = newsArray.find(item => item.id === currentId);
+          if (!currentObj) {
+            console.error('No JSON entry found for ID:', currentId);
+            return;
+          }
 
-        if (!newerItem && !olderItem) {
-          document.getElementById('next-up-wrapper').style.display = 'none';
-          return;
-        }
-
-        function makeNewsCard(item) {
-          const card = document.createElement('a');
-          card.href = `./${item.id}.html`;
-          card.className = 'news-card';
-
-          const dateObj = new Date(item.date);
-          const dateFormatted = dateObj.toLocaleDateString('en-GB', {
+          document.getElementById('news-tag').innerText = currentObj.tag;
+          document.getElementById('news-title').innerText = currentObj.title;
+          const d = new Date(currentObj.date);
+          const formatted = d.toLocaleDateString('en-GB', {
             day:   'numeric',
             month: 'long',
             year:  'numeric'
           });
+          document.getElementById('news-date').innerText = formatted;
 
-          card.innerHTML = `
-            <img src="../${item.thumbnail}" alt="${item.title}" class="news-thumb"/>
-            <span class="news-tag">${item.tag}</span>
-            <h3 class="news-title">${item.title}</h3>
-            <time class="news-date">${dateFormatted}</time>
-          `;
-          return card;
-        }
+          const img = document.getElementById('news-image');
+          img.src = `/${currentObj.thumbnail}`;
+          img.alt = currentObj.title + ' thumbnail';
 
-        const container = document.getElementById('next-up-container');
-        if (newerItem) {
-          container.appendChild(makeNewsCard(newerItem));
-        }
-        if (olderItem) {
-          container.appendChild(makeNewsCard(olderItem));
-        }
-      })
-      .catch(err => {
-        console.error('Error loading news.json:', err);
-        document.getElementById('next-up-wrapper').style.display = 'none';
-      });
+          document.title = currentObj.title + ' – agent z Art Archivals';
+
+          const idx = newsArray.findIndex(item => item.id === currentId);
+          const newerItem = (idx > 0) ? newsArray[idx - 1] : null;
+          const olderItem = (idx < newsArray.length - 1) ? newsArray[idx + 1] : null;
+
+          if (!newerItem && !olderItem) {
+            document.getElementById('next-up-wrapper').style.display = 'none';
+            return;
+          }
+
+          function makeNewsCard(item) {
+            const card = document.createElement('a');
+            card.href = `./${item.id}.html`;
+            card.className = 'news-card';
+
+            const dateObj = new Date(item.date);
+            const dateFormatted = dateObj.toLocaleDateString('en-GB', {
+              day:   'numeric',
+              month: 'long',
+              year:  'numeric'
+            });
+
+            card.innerHTML = `
+              <img src="/${item.thumbnail}" alt="${item.title}" class="news-thumb"/>
+              <span class="news-tag">${item.tag}</span>
+              <h3 class="news-title">${item.title}</h3>
+              <time class="news-date">${dateFormatted}</time>
+            `;
+            return card;
+          }
+
+          const container = document.getElementById('next-up-container');
+          if (newerItem) container.appendChild(makeNewsCard(newerItem));
+          if (olderItem)  container.appendChild(makeNewsCard(olderItem));
+        })
+        .catch(err => {
+          console.error('Error loading news.json:', err);
+          document.getElementById('next-up-wrapper').style.display = 'none';
+        });
+    });
   </script>
   <script>
     function shrinkDialogueIfNeeded() {
