@@ -329,8 +329,14 @@
     });
   </script>
   <script>
-    const articleElem = document.querySelector('article.news-post');
-    const currentId = articleElem.getAttribute('data-current-id');
+    document.addEventListener('DOMContentLoaded', () => {
+      const articleElem = document.querySelector('article.news-post');
+      const currentId = articleElem.getAttribute('data-current-id');
+    
+      if (!currentId) {
+        console.error('Current ID not set on article element.');
+        return;
+      }
 
     fetch('/data/news.json')
       .then(r => r.json())
