@@ -712,20 +712,10 @@
       const currentImg = document.getElementById("modal-img");
   
       if (dx > SWIPE_THRESHOLD && currentIndex > 0) {
-        currentImg.classList.add("swipe‑right");
-  
-        setTimeout(() => {
-          currentImg.classList.remove("swipe‑right");
-          showModal(filteredIndices[currentIndex - 1], 0);
-        }, 300);
+        showModal(filteredIndices[currentIndex - 1], 0);
       }
       else if (dx < -SWIPE_THRESHOLD && currentIndex < filteredIndices.length - 1) {
-        currentImg.classList.add("swipe‑left");
-  
-        setTimeout(() => {
-          currentImg.classList.remove("swipe‑left");
-          showModal(filteredIndices[currentIndex + 1], 0);
-        }, 300);
+        showModal(filteredIndices[currentIndex + 1], 0);
       }
   
       touchStartX = null;
