@@ -156,6 +156,7 @@
         console.error('Current ID not set on article element.');
         return;
       }
+    });
 
     fetch('/data/news.json')
       .then(r => r.json())
