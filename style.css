@@ -220,6 +220,7 @@ body.theme-light .news-card time.news-date {
   align-items: center;
   position: relative; 
   padding-bottom: 120px;
+  touch-action: pan-y;
 }
 
 .close {
