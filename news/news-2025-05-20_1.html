@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Loading…</title>
-  <link rel="stylesheet" href="../style.css"/>
-  <link rel="icon" type="image/png" sizes="16x16" href="../serverImages/fovicon-16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../serverImages/fovicon-32.png">
-  <link rel="shortcut icon" href="../serverImages/fovicon.ico">
+  <link rel="stylesheet" href="/style.css"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/serverImages/fovicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/serverImages/fovicon-32.png">
+  <link rel="shortcut icon" href="/serverImages/fovicon.ico">
 </head>
 <body class="non-gallery">
   <img id="fixed-bg" src="" alt="" aria-hidden="true" />
@@ -44,20 +44,20 @@
       If you're looking for a particular image, use <strong>filters</strong> to narrow down the search!
       Learn a little about images via their descriptions and find their original posts from other social media!</p>
       <img
-        src="../screenshots/2025-05-17_2.jpg"
+        src="/screenshots/2025-05-17_2.jpg"
         alt="preview"
         class="news-image"
       />
       <hr class="section-divider" />
       <img
-        src="../screenshots/2025-05-17_3.jpg"
+        src="/screenshots/2025-05-17_3.jpg"
         alt="preview"
         class="news-image"
       />
       <hr class="section-divider" />
       <p>Hop in daily and learn a brand new fact about the characters, videos or the <em>agent z</em> channel itself! If you liked it, let us know by clicking the "Fresh!" button!</p>
       <img
-        src="../screenshots/2025-05-17_4.jpg"
+        src="/screenshots/2025-05-17_4.jpg"
         alt="preview"
         class="news-image"
       />
@@ -65,13 +65,13 @@
       <p>Catch up with what's happening in the Latest News section, a place to keep you up to date no matter what social platform you follow! In fact, news may be posted here earlier
       here than on social platforms! See updates on videos, announcements, or read any article published here that interests you!</p>
       <img
-        src="../screenshots/2025-05-17_5.jpg"
+        src="/screenshots/2025-05-17_5.jpg"
         alt="preview"
         class="news-image"
       />
       <p>Also included in the News section are "Characters Discuss"! Have a read of some conversations the characters are having off camera.</p>
       <img
-        src="../screenshots/2025-05-17_7.jpg"
+        src="/screenshots/2025-05-17_7.jpg"
         alt="preview"
         class="news-image"
       />
@@ -79,7 +79,7 @@
       <p>Wish to contact <em>agent z</em>? Do you wish to use characters or content from <em>agent z</em> and are unsure on what's okay and what's not? There are pages for that!
         You can also customise your browsing experience with <strong>3</strong> unique themes to choose from!</p>
       <img
-        src="../screenshots/2025-05-17_6.jpg"
+        src="/screenshots/2025-05-17_6.jpg"
         alt="preview"
         class="news-image"
       />
@@ -94,7 +94,7 @@
   </div>
   
   <div class="browse-news-container">
-    <a href="../news.html" class="browse-news-button">Browse News</a>
+    <a href="/news.html" class="browse-news-button">Browse News</a>
   </div>
   
   <footer>
@@ -124,7 +124,7 @@
         bgImg.style.display = '';
         const maxBg = 9;
         const n     = Math.floor(Math.random() * maxBg) + 1;
-        bgImg.src   = `../backgrounds/bg${n}.webp`;
+        bgImg.src   = `/backgrounds/bg${n}.webp`;
       } else {
         bgImg.style.display = 'none';
       }
@@ -151,7 +151,7 @@
     const articleElem = document.querySelector('article.news-post');
     const currentId = articleElem.getAttribute('data-current-id');
 
-    fetch('../data/news.json')
+    fetch('/data/news.json')
       .then(r => r.json())
       .then(newsArray => {
         newsArray.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -172,7 +172,7 @@
         });
         document.getElementById('news-date').innerText = formatted;
         const img = document.getElementById('news-image');
-        img.src = `../${currentObj.thumbnail}`;
+        img.src = `/${currentObj.thumbnail}`;
         img.alt = currentObj.title + ' thumbnail';
         document.title = currentObj.title + ' – agent z Art Archivals';
 
@@ -198,7 +198,7 @@
           });
 
           card.innerHTML = `
-            <img src="../${item.thumbnail}" alt="${item.title}" class="news-thumb"/>
+            <img src="/${item.thumbnail}" alt="${item.title}" class="news-thumb"/>
             <span class="news-tag">${item.tag}</span>
             <h3 class="news-title">${item.title}</h3>
             <time class="news-date">${dateFormatted}</time>
