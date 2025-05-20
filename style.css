@@ -895,6 +895,13 @@ footer {
   }
 }
 
+@media (max-width: 768px) {
+  .image-wrapper {
+    width: 90vw;
+    height: calc((90vw * 9) / 16);
+  }
+}
+
 /* NAVIGATION BAR/HEADER MOBILE */
 @media (max-width: 480px) {
   .desktop-nav {
