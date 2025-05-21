@@ -751,19 +751,6 @@
     });
   </script>
   <script>
-    function enableMobileDescriptionScroll() {
-      if (window.innerWidth <= 768) {
-        const desc = document.getElementById('modal-description');
-        if (desc) {
-          desc.classList.add('scrollable-description');
-        }
-      }
-    }
-  
-    window.addEventListener('DOMContentLoaded', enableMobileDescriptionScroll);
-    window.addEventListener('resize', enableMobileDescriptionScroll);
-  </script>
-  <script>
     // description on mobile
     function adjustDescriptionScroll() {
       if (window.innerWidth > 480) return;
