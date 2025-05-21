@@ -870,19 +870,16 @@ footer {
   .modal-description-bar {
     position: relative !important;
     width: 100% !important;
-    height: 120px !important;
     background: rgba(0, 0, 0, 0.5) !important;
     box-sizing: border-box !important;
-    padding: 10px 20px !important;  
-    display: block !important;   
+    padding: 10px 20px !important; 
     text-align: center !important;
     white-space: pre-wrap !important;
     word-break: break-word !important;
     margin-top: 6px !important;
-
+    max-height: calc(1.5rem * 3) !important;
     overflow-y: auto !important;
     overscroll-behavior: contain !important;
-    max-height: calc(1.5rem * 3) !important;
     border-radius: 4px !important;
   }
 
@@ -901,8 +898,6 @@ footer {
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 2px;
   }
-
-
 
   .loading-hint,
   .navigation-hint {
