@@ -751,28 +751,6 @@
     });
   </script>
   <script>
-    // description on mobile
-    function adjustDescriptionScroll() {
-      if (window.innerWidth > 480) return;
-    
-      const descBar = document.querySelector('.modal-description-bar');
-      if (!descBar) return;
-
-      setTimeout(() => {
-        const descP = descBar.querySelector('p');
-        if (!descP) return;
-    
-        descBar.scrollTop = 0;
-    
-        if (descP.scrollHeight <= descBar.clientHeight) {
-          descBar.style.overflowY = 'hidden';
-        } else {
-          descBar.style.overflowY = 'auto';
-        }
-      }, 50);
-    }
-  </script>
-  <script>
     // NEWS
     document.addEventListener('DOMContentLoaded', () => {
       fetch('data/news.json')
