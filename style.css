@@ -874,9 +874,6 @@ footer {
     background: rgba(0, 0, 0, 0.75);
     box-sizing: border-box;
     padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
     white-space: pre-wrap;
     word-break: break-word;
