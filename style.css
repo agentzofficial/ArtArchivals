@@ -868,20 +868,13 @@ footer {
   }
 
   .modal-description-bar {
-    display: block !important;
-    align-items: initial !important;
-    justify-content: initial !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    padding: 10px 20px !important;
-    background: rgba(0, 0, 0, 0.5) !important;
-    text-align: center !important;
-    white-space: pre-wrap !important;
-    word-break: break-word !important;
-    margin-top: 6px !important;
-    border-radius: 4px !important;
-    max-height: calc(1.5rem * 3) !important;
-    overflow-y: auto !important;
+    height: auto;
+    max-height: 120px;
+    overflow-y: auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
   
   .modal-description-bar p {
