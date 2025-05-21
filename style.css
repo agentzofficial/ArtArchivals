@@ -868,32 +868,30 @@ footer {
   }
 
   .modal-description-bar {
-    display: block !important; 
-    height: auto !important;
-    max-height: 4.5em !important; 
-    overflow-y: auto !important;
-    overscroll-behavior: contain !important;
-    padding: 0 20px !important;  
-    scrollbar-width: thin;
-    -webkit-overflow-scrolling: touch;  
-    background-color: rgba(0, 0, 0, 0.5) !important;
-    border-radius: 4px !important;
-    margin-bottom: 8px !important;
-    text-align: center !important;
+    box-sizing: border-box;  
+    padding: 0 20px;        
+    font-size: 0.9rem;
+    line-height: 1.5;    
+    max-height: calc(1.5rem * 3);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    text-align: center;
   }
-  
+
   .modal-description-bar p {
-    margin: 0 !important;
-    color: #eee !important;
-    font-size: 0.9rem !important;
-    line-height: 1.5 !important;    
-    word-break: break-word !important;
+    margin: 0;
+    color: #eee;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    word-break: break-word;
   }
-  
+
   .modal-description-bar::-webkit-scrollbar {
     width: 4px;
   }
-  
   .modal-description-bar::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 2px;
