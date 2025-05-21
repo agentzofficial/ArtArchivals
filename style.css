@@ -872,11 +872,12 @@ footer {
     width: 100% !important;
     background: rgba(0, 0, 0, 0.5) !important;
     box-sizing: border-box !important;
-    padding: 10px 20px !important; 
+    padding: 10px 20px !important;
     text-align: center !important;
     white-space: pre-wrap !important;
     word-break: break-word !important;
     margin-top: 6px !important;
+    display: block !important;
     max-height: calc(1.5rem * 3) !important;
     overflow-y: auto !important;
     overscroll-behavior: contain !important;
