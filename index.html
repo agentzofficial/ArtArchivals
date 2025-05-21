@@ -756,7 +756,32 @@
     }
   
     window.addEventListener('DOMContentLoaded', enableMobileDescriptionScroll);
-    window.addEventListener('resize', enableMobileDescriptionScroll); // Optional: re-check on window resize
+    window.addEventListener('resize', enableMobileDescriptionScroll);
+  </script>
+  <script>
+    // 
+    function adjustDescriptionScroll() {
+      if (window.innerWidth > 480) return;
+  
+      const descBar = document.querySelector('.modal-description-bar');
+      const descP   = descBar.querySelector('p');
+  
+      descBar.style.boxSizing   = 'border-box';
+      descBar.style.padding     = '0 20px';
+      descBar.style.fontSize    = '0.9rem';
+      descBar.style.lineHeight  = '1.5';
+      descBar.style.maxHeight   = `${0.9 * 1.5 * 3}rem`;
+      descBar.style.overflowY   = 'auto';
+      descBar.style.overscrollBehavior = 'contain';
+  
+      requestAnimationFrame(() => {
+        if (descP.scrollHeight <= descBar.clientHeight + 0.5) {
+          descBar.style.overflowY = 'hidden';
+        } else {
+          descBar.style.overflowY = 'auto';
+        }
+      });
+    }
   </script>
   <script>
     // NEWS
