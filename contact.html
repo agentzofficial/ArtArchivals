@@ -178,5 +178,68 @@
       select.addEventListener('change', () => applyTheme(select.value));
     }
   </script>
+  <!-- MOBILE NAVIGATION CONVERSIONS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const body = document.body;
+      const overlay = document.querySelector('.mobile-menu-overlay');
+      const openBtn = document.querySelector('.mobile-menu-toggle');
+      const closeBtn = document.querySelector('.mobile-menu-close');
+
+      if (openBtn && closeBtn && overlay) {
+        openBtn.addEventListener('click', () => {
+          overlay.classList.add('open');
+          body.classList.add('menu-open');
+        });
+        closeBtn.addEventListener('click', () => {
+          overlay.classList.remove('open');
+          body.classList.remove('menu-open');
+        });
+        overlay.addEventListener('click', e => {
+          if (e.target === overlay) {
+            overlay.classList.remove('open');
+            body.classList.remove('menu-open');
+          }
+        });
+      }
+      
+      function applyTheme(theme) {
+        body.classList.remove('theme-dark','theme-light','theme-agentz');
+        body.classList.add('theme-' + theme);
+        localStorage.setItem('preferredTheme', theme);
+
+        const bgImg = document.getElementById('fixed-bg');
+        if (!bgImg) return;
+        if (theme === 'agentz') {
+          bgImg.style.display = '';
+          const maxBg = 9;
+          const n     = Math.floor(Math.random() * maxBg) + 1;
+          bgImg.src   = `/backgrounds/bg${n}.webp`;
+        } else {
+          bgImg.style.display = 'none';
+        }
+      }
+
+      const desktopSelect = document.getElementById('theme-select');
+      const mobileSelect  = document.getElementById('theme-select-mobile');
+      const savedTheme    = localStorage.getItem('preferredTheme') || 'agentz';
+
+      if (desktopSelect) {
+        desktopSelect.value = savedTheme;
+        applyTheme(savedTheme);
+        desktopSelect.addEventListener('change', () => {
+          applyTheme(desktopSelect.value);
+          if (mobileSelect) mobileSelect.value = desktopSelect.value;
+        });
+      }
+      if (mobileSelect) {
+        mobileSelect.value = savedTheme;
+        mobileSelect.addEventListener('change', () => {
+          applyTheme(mobileSelect.value);
+          if (desktopSelect) desktopSelect.value = mobileSelect.value;
+        });
+      }
+    });
+  </script>
 </body>
 </html>
