@@ -766,7 +766,6 @@ footer {
     align-items: center !important;
     justify-content: center !important;
   }
-
   .modal-close img {
     width: 20px !important;
     height: 20px !important;
@@ -844,11 +843,12 @@ footer {
   .modal-date {
     position: static !important;
     display: block !important;
-    width: 100% !important;
+    width: auto !important;
+    align-self: center !important;
     text-align: center !important;
     font-size: 0.9rem !important;
     color: #ddd !important;
-    margin-bottom: 4px !important;
+    margin: 4px 0 !important;
     word-break: break-word !important;
   }
 
@@ -865,8 +865,9 @@ footer {
   }
 
   .modal-description-bar {
+    display: block !important; 
     width: 90% !important;
-    max-height: 4.5em !important;
+    max-height: 4.5em !important;    
     overflow-y: auto !important;
     padding: 10px 20px !important;
     scrollbar-width: thin;
@@ -874,6 +875,7 @@ footer {
     background-color: rgba(0, 0, 0, 0.5) !important;
     border-radius: 4px !important;
     margin-bottom: 8px !important;
+    text-align: center !important;  
   }
   .modal-description-bar p {
     margin: 0 !important;
@@ -895,17 +897,23 @@ footer {
     position: static !important;
     display: block !important;
     width: 90% !important;
+    margin: 4px auto !important;
+    text-align: center !important;
     color: #ccc !important;
     font-size: 0.85rem !important;
-    text-align: center !important;
-    margin: 4px auto !important;
     padding: 0 8px !important;
     white-space: normal !important;
   }
   .navigation-hint {
     margin-bottom: 16px !important;
   }
-
+  
+  .gallery {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 4px !important;
+    margin: 20px 5px !important;
+  }
   .dialogue-container .dialogue-text {
     font-size: clamp(10px, 3vw, 14px) !important;
     line-height: 1 !important;
