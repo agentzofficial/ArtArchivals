@@ -698,10 +698,12 @@
     });
     
     let touchStartX = null;
-  
+    let touchStartY = null;
+    
     frame.addEventListener("touchstart", (e) => {
       if (e.touches.length === 1) {
         touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
       }
     });
   
@@ -728,9 +730,11 @@
   
     frame.addEventListener("touchmove", (e) => {
       if (e.touches.length === 1 && touchStartX !== null) {
-        const dx = Math.abs(e.touches[0].clientX - touchStartX);
-        if (dx > 10) {
-          e.preventDefault();
+        const touch = e.touches[0];
+        const dx = Math.abs(touch.clientX - touchStartX);
+        const dy = Math.abs(touch.clientY - touchStartY || 0); // We'll define this below
+        if (dx > 10 && dx > dy) {
+          e.preventDefault(); // Only prevent horizontal swiping
         }
       }
     });
