@@ -871,7 +871,6 @@ footer {
     display: block !important;
     align-items: initial !important;
     justify-content: initial !important;
-
     width: 100% !important;
     box-sizing: border-box !important;
     padding: 10px 20px !important;
@@ -882,7 +881,7 @@ footer {
     margin-top: 6px !important;
     border-radius: 4px !important;
     max-height: calc(1.5rem * 3) !important;
-    overflow-y: hidden !important;
+    overflow-y: auto !important;
   }
 
   .modal-description-bar p {
@@ -892,6 +891,7 @@ footer {
     line-height: 1.5 !important;
     word-break: break-word !important;
   }
+
   .modal-description-bar::-webkit-scrollbar {
     width: 4px;
   }
