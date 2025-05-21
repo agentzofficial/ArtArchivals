@@ -766,19 +766,19 @@
     
       const descBar = document.querySelector('.modal-description-bar');
       if (!descBar) return;
+
+      setTimeout(() => {
+        const descP = descBar.querySelector('p');
+        if (!descP) return;
     
-      descBar.scrollTop = 0;
+        descBar.scrollTop = 0;
     
-      const descP = descBar.querySelector('p');
-      if (!descP) return;
-    
-      requestAnimationFrame(() => {
         if (descP.scrollHeight <= descBar.clientHeight) {
           descBar.style.overflowY = 'hidden';
         } else {
           descBar.style.overflowY = 'auto';
         }
-      });
+      }, 50);
     }
   </script>
   <script>
