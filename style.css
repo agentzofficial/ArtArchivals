@@ -870,7 +870,7 @@ footer {
   .modal-description-bar {
     position: relative;
     width: 100%;
-    height: 4.2em;
+    max-height: 4.2em;
     background: rgba(0, 0, 0, 0.75);
     box-sizing: border-box;
     padding: 0 20px;
@@ -880,7 +880,7 @@ footer {
     text-align: center;
     white-space: pre-wrap;
     word-break: break-word;
-    overflow: hidden;
+    overflow-y: auto;
   }
   
   .modal-description-bar p {
