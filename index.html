@@ -762,24 +762,23 @@
   <script>
     // description on mobile
     function adjustDescriptionScroll() {
-      // Only run on narrow screens:
       if (window.innerWidth > 480) return;
     
       const descBar = document.querySelector('.modal-description-bar');
       if (!descBar) return;
     
-      // Always reset scroll to top when opening:
       descBar.scrollTop = 0;
     
       const descP = descBar.querySelector('p');
       if (!descP) return;
     
-      // If the <p> is taller than the container:
-      if (descP.scrollHeight > descBar.clientHeight) {
-        descBar.style.overflowY = 'auto';
-      } else {
-        descBar.style.overflowY = 'hidden';
-      }
+      requestAnimationFrame(() => {
+        if (descP.scrollHeight <= descBar.clientHeight) {
+          descBar.style.overflowY = 'hidden';
+        } else {
+          descBar.style.overflowY = 'auto';
+        }
+      });
     }
   </script>
   <script>
