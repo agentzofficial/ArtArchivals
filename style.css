@@ -878,9 +878,8 @@ footer {
     word-break: break-word !important;
     margin-top: 6px !important;
     border-radius: 4px !important;
-    height: auto !important;
     max-height: calc(1.5rem * 3) !important;
-    overflow-y: hidden;
+    overflow-y: hidden; 
   }
 
   .modal-description-bar p {
@@ -890,6 +889,7 @@ footer {
     line-height: 1.5 !important;
     word-break: break-word !important;
   }
+
   .modal-description-bar::-webkit-scrollbar {
     width: 4px;
   }
