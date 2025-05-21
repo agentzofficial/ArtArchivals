@@ -737,11 +737,11 @@ footer {
 /* ===== Mobile Portrait ===== */
 @media only screen and (max-width: 480px) and (orientation: portrait) {
   #modal {
-    align-items: flex-start !important;
+    align-items: center !important;
     justify-content: center !important;
-    padding-top: 15vh !important;
     background: rgba(0, 0, 0, 0.6) !important;
-    overflow-y: visible !important;
+    overflow-y: auto !important;
+    padding: 0 !important;
   }
 
   .modal-frame {
@@ -876,8 +876,8 @@ footer {
     padding: 0 20px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
+    align-items: center;
+    text-align: center;
     white-space: pre-wrap;
     word-break: break-word;
     overflow-y: auto;
