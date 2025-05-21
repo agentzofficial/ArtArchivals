@@ -874,16 +874,19 @@ footer {
     background: rgba(0, 0, 0, 0.75);
     box-sizing: border-box;
     padding: 0 20px;
-    text-align: center;
-    white-space: pre-wrap;
-    word-break: break-word;
     overflow-y: auto;
+    overflow-x: hidden;
   }
   
   .modal-description-bar p {
     margin: 0;
     color: #fff;
     line-height: 1.4;
+    white-space: pre-wrap;
+    word-break: break-word;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
   }
   
   .modal-description-bar::-webkit-scrollbar {
