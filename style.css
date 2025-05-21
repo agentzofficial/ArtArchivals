@@ -870,9 +870,10 @@ footer {
   .modal-description-bar {
     display: block !important;
     width: 90% !important;
-    height: auto !important;   
+    height: auto !important;  
     max-height: 4.5em !important;  
-    overflow-y: auto !important;
+    overflow-y: auto !important; 
+    overscroll-behavior: contain !important;
     padding: 10px 20px !important;
     scrollbar-width: thin;
     -webkit-overflow-scrolling: touch;
