@@ -868,6 +868,7 @@ footer {
   }
 
   .modal-description-bar {
+    display: block !important;
     position: relative !important;
     width: 100% !important;
     background: rgba(0, 0, 0, 0.5) !important;
