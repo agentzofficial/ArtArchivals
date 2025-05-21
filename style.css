@@ -885,7 +885,7 @@ footer {
     white-space: pre-wrap;
     word-break: break-word;
     text-align: center;
-    display: inline-block;
+    display: block;
     width: 100%;
   }
   
