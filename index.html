@@ -767,8 +767,6 @@
       const descBar = document.querySelector('.modal-description-bar');
       if (!descBar) return;
     
-      descBar.scrollTop = 0;
-    
       const descP = descBar.querySelector('p');
       if (!descP) return;
     
@@ -777,10 +775,10 @@
           descBar.style.overflowY = 'hidden';
         } else {
           descBar.style.overflowY = 'auto';
+          descBar.scrollTop = 0;
         }
       });
     }
-
   </script>
   <script>
     // NEWS
