@@ -753,6 +753,67 @@ footer {
     max-width: 100%;
   }
 
+  .modal-close {
+    position: fixed !important;
+    top: 8px !important;
+    right: 8px !important;
+    z-index: 10000 !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    border-radius: 50% !important;
+    width: 32px !important;
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .modal-close img {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .variant-thumbs {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 0 0 8px 8px;
+  }
+  .variant-thumbs img {
+    width: 50px !important;
+    height: auto !important;
+    border: 2px solid transparent !important;
+    border-radius: 4px !important;
+    object-fit: cover !important;
+  }
+  .variant-thumbs img.active {
+    border-color: #fff !important;
+  }
+  .variant-thumbs:empty {
+    display: none !important;
+  }
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  #modal-title {
+    margin: 8px 0 4px !important;
+    text-align: center !important;
+    font-size: 1.1rem !important;
+    color: #fff !important;
+    word-break: break-word !important;
+  }
+
   .image-wrapper {
     display: flex;
     justify-content: center;
@@ -762,11 +823,9 @@ footer {
     overflow: hidden;
     position: relative;
   }
-
   .image-wrapper::before {
     display: none !important;
   }
-
   .image-wrapper img {
     max-height: 100%;
     max-width: 100%;
@@ -800,99 +859,49 @@ footer {
     gap: 8px !important;
     margin-bottom: 8px !important;
   }
-
   .modal-icons a img {
     width: 24px !important;
     height: 24px !important;
   }
 
-  .variant-thumbs {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    padding: 8px 12px;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 0 0 8px 8px;
-  }
-
-  .variant-thumbs img {
-    width: 50px !important;
-    height: auto !important;
-    border: 2px solid transparent !important;
-    border-radius: 4px !important;
-    object-fit: cover !important;
-  }
-
-  .variant-thumbs img.active {
-    border-color: #fff !important;
-  }
-
-  .variant-thumbs:empty {
-    display: none !important;
-  }
-
   .modal-description-bar {
-    height: auto !important;
-    max-height: 150px !important;
+    width: 90% !important;
+    max-height: 4.5em !important;
     overflow-y: auto !important;
     padding: 10px 20px !important;
     scrollbar-width: thin;
     -webkit-overflow-scrolling: touch;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    border-radius: 4px !important;
+    margin-bottom: 8px !important;
   }
-
+  .modal-description-bar p {
+    margin: 0 !important;
+    color: #eee !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    word-break: break-word !important;
+  }
   .modal-description-bar::-webkit-scrollbar {
     width: 4px;
   }
-
   .modal-description-bar::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 2px;
-  }
-  
-  .modal-close {
-    position: fixed !important;
-    top: 8px !important;
-    right: 8px !important;
-    z-index: 10000 !important;
-    background: rgba(0, 0, 0, 0.5) !important;
-    border-radius: 50% !important;
-    width: 32px !important;
-    height: 32px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  .modal-close img {
-    width: 20px !important;
-    height: 20px !important;
-  }
-
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 4px !important;
-    margin: 20px 5px !important;
   }
 
   .loading-hint,
   .navigation-hint {
     position: static !important;
     display: block !important;
-    width: 100% !important;
+    width: 90% !important;
     color: #ccc !important;
     font-size: 0.85rem !important;
     text-align: center !important;
-    margin: 4px 0 !important;
+    margin: 4px auto !important;
     padding: 0 8px !important;
     white-space: normal !important;
   }
-
   .navigation-hint {
     margin-bottom: 16px !important;
   }
