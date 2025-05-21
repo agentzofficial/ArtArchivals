@@ -880,7 +880,7 @@ footer {
     border-radius: 4px !important;
     height: auto !important;
     max-height: calc(1.5rem * 3) !important;
-    overflow-y: auto !important;
+    overflow-y: hidden;
   }
 
   .modal-description-bar p {
