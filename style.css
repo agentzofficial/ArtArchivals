@@ -870,25 +870,32 @@ footer {
   .modal-description-bar {
     display: block !important;
     width: 90% !important;
-    height: auto !important;  
-    max-height: 4.5em !important;  
-    overflow-y: auto !important; 
+    height: auto !important;
+    max-height: 4.5em !important; 
+
+    overflow-y: auto !important;             
     overscroll-behavior: contain !important;
-    padding: 10px 20px !important;
+
+    box-sizing: border-box !important;
+    padding: 0 20px !important;
+
     scrollbar-width: thin;
     -webkit-overflow-scrolling: touch;
+
     background-color: rgba(0, 0, 0, 0.5) !important;
     border-radius: 4px !important;
     margin-bottom: 8px !important;
     text-align: center !important;
   }
+
   .modal-description-bar p {
     margin: 0 !important;
     color: #eee !important;
     font-size: 0.9rem !important;
-    line-height: 1.5 !important;
+    line-height: 1.5 !important; 
     word-break: break-word !important;
   }
+
   .modal-description-bar::-webkit-scrollbar {
     width: 4px;
   }
