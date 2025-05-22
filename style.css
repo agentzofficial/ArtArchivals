@@ -1092,7 +1092,7 @@ footer {
   outline: none;
 }
 .mobile-menu-items .theme-selector::after {
-  content: "▾";
+  content: none !important;
   position: absolute;
   right: 24px;
   top: 50%;
