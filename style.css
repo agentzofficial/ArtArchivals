@@ -728,9 +728,6 @@ footer {
 .form-container button:hover { background:#472e79; }
 #thank-you { text-align:center; color:#fff; margin-top:20px; }
 
-.hidden {
-  display: none;
-
 /* ===== Policies ===== */
 .page-content {
   max-width:700px; margin:0 auto 50px;
