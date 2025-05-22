@@ -990,6 +990,7 @@ footer {
   position: relative;
   background: #5d3a9b;
   z-index: 1000;
+  border-bottom: 2px solid #ccc;
 }
 .mobile-nav-bar {
   display: flex;
