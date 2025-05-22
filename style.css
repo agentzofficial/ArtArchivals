@@ -961,9 +961,12 @@ footer {
     height: calc((90vw * 9) / 16);
   }
   #trivia-content {
-    top: 38%;
+    font-size: 16px;
+    line-height: 1.1em;
+    top: 38%
   }
 }
+
 
 /* NAVIGATION BAR/HEADER MOBILE */
 @media (max-width: 480px) {
