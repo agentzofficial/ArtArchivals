@@ -11,7 +11,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="serverImages/fovicon-32.png">
   <link rel="shortcut icon" href="serverImages/fovicon.ico">
 </head>
-<body>
+<body class="non-gallery">
+  <img id="fixed-bg" src="" alt="" aria-hidden="true" />
   <header class="site-nav desktop-nav">
     <nav>
       <ul>
@@ -105,11 +106,6 @@
     const THEME_KEY = 'preferredTheme';
     const select    = document.getElementById('theme-select');
     const bodyEl    = document.body;
-  
-    if (!document.getElementById('fixed-bg')) {
-      const agentzOption = select?.querySelector('option[value="agentz"]');
-      if (agentzOption) agentzOption.disabled = true;
-    }
   
     function applyTheme(theme) {
       bodyEl.classList.remove('theme-dark','theme-light','theme-agentz');
