@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Loading…</title>
-  <link rel="stylesheet" href="../style.css"/>
-  <link rel="icon" type="image/png" sizes="16x16" href="../serverImages/fovicon-16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../serverImages/fovicon-32.png">
-  <link rel="shortcut icon" href="../serverImages/fovicon.ico">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/png" sizes="16x16" href="/serverImages/fovicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/serverImages/fovicon-32.png">
+  <link rel="shortcut icon" href="/serverImages/fovicon.ico">
 </head>
 <body class="non-gallery">
   <img id="fixed-bg" src="" alt="" aria-hidden="true" />
-  <header class="site-nav">
+  <header class="site-nav desktop-nav">
     <nav>
       <ul>
         <li><a href="/index.html">Gallery</a></li>
@@ -24,13 +24,40 @@
         <li><span class="separator">|</span></li>
         <li class="theme-selector">
           <select id="theme-select" aria-label="Choose theme">
-            <option value="agentz">agent z Theme</option>
+            <option value="agentz">agent z Theme</option>
             <option value="dark">Basic Black</option>
             <option value="light">Basic White</option>
           </select>
         </li>
       </ul>
     </nav>
+  </header>
+
+  <header class="mobile-nav">
+    <div class="mobile-nav-bar">
+      <a href="/index.html" class="mobile-logo">
+        <img src="/serverImages/icon.webp" alt="agent z Logo" />
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Open menu">☰</button>
+    </div>
+    <div class="mobile-menu-overlay" aria-hidden="true">
+      <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+      <nav class="mobile-menu-items">
+        <ul>
+          <li><a href="/index.html">Gallery</a></li>
+          <li><a href="/news.html">News</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/policies.html">Usage Policies</a></li>
+          <li class="theme-selector">
+            <select id="theme-select-mobile" aria-label="Choose theme">
+              <option value="agentz">agent z Theme</option>
+              <option value="dark">Basic Black</option>
+              <option value="light">Basic White</option>
+            </select>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
   
   <article class="news-post" data-auto-current-id>
@@ -72,11 +99,6 @@
     const THEME_KEY = 'preferredTheme';
     const select    = document.getElementById('theme-select');
     const bodyEl    = document.body;
-  
-    if (!document.getElementById('fixed-bg')) {
-      const agentzOption = select?.querySelector('option[value="agentz"]');
-      if (agentzOption) agentzOption.disabled = true;
-    }
   
     function applyTheme(theme) {
       bodyEl.classList.remove('theme-dark','theme-light','theme-agentz');
