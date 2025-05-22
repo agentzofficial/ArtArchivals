@@ -916,14 +916,16 @@ footer {
   }
   
   /* CONTACT */
-  .form-container select {
-    max-width: 100%;
+  .form-container {
     width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
 
+  .form-container select,
   .form-container textarea {
-    max-width: 100%;
     width: 100%;
+    max-width: 100%;
   }
 }
 
