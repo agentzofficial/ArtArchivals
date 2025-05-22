@@ -944,6 +944,15 @@ footer {
   .contact-info li {
     word-wrap: break-word;
   }
+  .page-content {
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+  
+  footer {
+    padding: 2rem 16px; 
+    box-sizing: border-box;
+  }
 }
 
 @media (max-width: 768px) {
