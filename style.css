@@ -916,7 +916,7 @@ footer {
   }
   
   /* CONTACT */
-.form-container {
+  .form-container {
     width: 100%;
     padding: 0 16px; 
     box-sizing: border-box;
@@ -939,6 +939,7 @@ footer {
   .contact-info ul,
   .contact-info li {
     word-wrap: break-word;
+  }
 }
 
 @media (max-width: 768px) {
