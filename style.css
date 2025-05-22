@@ -929,8 +929,12 @@ footer {
     max-width: 100%;
     box-sizing: border-box;
   }
-  .contact-info,
   .contact-title-bar {
+    padding: 20px 16px;
+    box-sizing: border-box;
+  }
+
+  .contact-info {
     padding: 0 16px;
     box-sizing: border-box;
   }
