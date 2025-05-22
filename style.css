@@ -112,6 +112,16 @@ body.theme-light .news-post .news-date {
 body.theme-light .news-card time.news-date {
   color: white !important;
 }
+body.theme-light .mobile-nav-bar a,
+body.theme-light .mobile-menu-toggle,
+body.theme-light .mobile-menu-close,
+body.theme-light .mobile-menu-items a {
+  color: white !important;
+}
+
+body.theme-light .mobile-menu-overlay {
+  background: rgba(0, 0, 0, 0.9) !important;
+}
 
 /* ===== Site Nav ===== */
 .site-nav { background:#5d3a9b; padding:12px 0; border-bottom:2px solid #ccc; }
