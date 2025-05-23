@@ -381,6 +381,59 @@
   
     window.addEventListener('resize', clampTriviaFont);
   </script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import {
+      getFirestore, doc, getDoc, setDoc,
+      updateDoc, increment
+    } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyApMY8GjkeZ7uFq5LUvOpkGkglkfZGIOp4",
+      authDomain: "agentz-art-archivals.firebaseapp.com",
+      projectId: "agentz-art-archivals",
+      storageBucket: "agentz-art-archivals.firebasestorage.app",
+      messagingSenderId: "120997134026",
+      appId: "1:120997134026:web:6582de3d37606690f43e33",
+      measurementId: "G-Y2EXMPLF4F"
+    };
+  
+    const app    = initializeApp(firebaseConfig);
+    const db     = getFirestore(app);
+  
+    const today      = new Date().toISOString().slice(0,10);
+    const counterRef = doc(db, "counters", `yeah-${today}`);
+  
+    const button = document.getElementById("yeah-button");
+    const CLICKED_KEY = `yeahClicked-${today}`;
+  
+    if (localStorage.getItem(CLICKED_KEY)) {
+      button.style.opacity       = 0.5;
+      button.style.pointerEvents = "none";
+    }
+  
+    button.addEventListener("click", async () => {
+      button.disabled = true;
+      button.style.opacity       = 0.5;
+      button.style.pointerEvents = "none";
+    
+      localStorage.setItem(CLICKED_KEY, "1");
+    
+      try {
+        await updateDoc(counterRef, { count: increment(1) });
+      } catch (e) {
+        if (e.code === 'not-found') {
+          await setDoc(counterRef, { count: 1 });
+        } else {
+          console.error("Unexpected Firestore error:", e);
+          button.disabled = false;
+          button.style.opacity = 1;
+          button.style.pointerEvents = "";
+          return;
+        }
+      }
+    });
+  </script>
     <script>
     const modalElement = document.getElementById("modal");
     const closeBtn = document.querySelector(".close");
