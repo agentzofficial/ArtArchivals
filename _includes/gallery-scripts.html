@@ -407,39 +407,42 @@
     const app    = initializeApp(firebaseConfig);
     const db     = getFirestore(app);
   
-    const today      = new Date().toISOString().slice(0,10);
-    const counterRef = doc(db, "counters", `yeah-${today}`);
-  
-    const button = document.getElementById("yeah-button");
-    const CLICKED_KEY = `yeahClicked-${today}`;
-  
-    if (localStorage.getItem(CLICKED_KEY)) {
-      button.style.opacity       = 0.5;
-      button.style.pointerEvents = "none";
-    }
-  
-    button.addEventListener("click", async () => {
-      button.disabled = true;
-      button.style.opacity       = 0.5;
-      button.style.pointerEvents = "none";
+      const now  = new Date();
+      const yyyy = now.getFullYear();
+      const mm   = String(now.getMonth() + 1).padStart(2, '0');
+      const dd   = String(now.getDate()).padStart(2, '0');
+      const todayLocal = `${yyyy}-${mm}-${dd}`;
     
-      localStorage.setItem(CLICKED_KEY, "1");
+      const counterRef = doc(db, "counters", `yeah-${todayLocal}`);
+      const button     = document.getElementById("yeah-button");
+      const CLICKED_KEY = `yeahClicked-${todayLocal}`;
     
-      try {
-        await updateDoc(counterRef, { count: increment(1) });
-      } catch (e) {
-        if (e.code === 'not-found') {
-          await setDoc(counterRef, { count: 1 });
-        } else {
-          console.error("Unexpected Firestore error:", e);
-          button.disabled = false;
-          button.style.opacity = 1;
-          button.style.pointerEvents = "";
-          return;
-        }
+      if (localStorage.getItem(CLICKED_KEY)) {
+        button.style.opacity       = 0.5;
+        button.style.pointerEvents = "none";
       }
-    });
-  </script>
+    
+      button.addEventListener("click", async () => {
+        button.disabled            = true;
+        button.style.opacity       = 0.5;
+        button.style.pointerEvents = "none";
+    
+        localStorage.setItem(CLICKED_KEY, "1");
+    
+        try {
+          await updateDoc(counterRef, { count: increment(1) });
+        } catch (e) {
+          if (e.code === 'not-found') {
+            await setDoc(counterRef, { count: 1 });
+          } else {
+            console.error("Unexpected Firestore error:", e);
+            button.disabled = false;
+            button.style.opacity = 1;
+            button.style.pointerEvents = "";
+          }
+        }
+      });
+    </script>
     <script>
     const modalElement = document.getElementById("modal");
     const closeBtn = document.querySelector(".close");
