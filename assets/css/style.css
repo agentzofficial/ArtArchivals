@@ -125,13 +125,36 @@ body.theme-light .mobile-menu-overlay {
 }
 
 /* ===== Site Nav ===== */
-.site-nav { background:#5d3a9b; padding:12px 0; border-bottom:2px solid #ccc; }
+.site-nav { background:#5d3a9b; padding:12px 0; border-bottom:2px solid #ccc; position: relative; }
 .site-nav ul { display:flex; justify-content:center; align-items:center; margin:0; padding:0; list-style:none; }
 .site-nav li { margin:0 8px; }
 .site-nav a { color:#fff; text-decoration:none; font-weight:500; }
 .site-nav a:hover,
 .site-nav a.active { text-decoration:underline; font-weight:600; }
 .separator { color:rgba(255,255,255,0.5); user-select:none; }
+
+.desktop-nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.desktop-nav-icons {
+  position: absolute;
+  left: 16px; 
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.desktop-logo {
+  height: 24px;
+  width: auto; 
+  display: block;
+}
 
 /* Theme‑selector */
 .theme-selector { position:relative; }
@@ -1114,6 +1137,11 @@ footer {
 body.menu-open {
   overflow: hidden;
 }
+
+@media (max-width: 850px) {
+  .desktop-nav-icons {
+    display: none;
+  }
 
 /* ===== Logo Breakpoint ===== */
 @media (min-width:768px) {
