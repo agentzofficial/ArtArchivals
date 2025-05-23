@@ -1013,7 +1013,7 @@ footer {
 
 
 /* NAVIGATION BAR/HEADER MOBILE */
-@media (max-width: 480px) {
+@media (max-width: 799px) {
   .desktop-nav {
     display: none !important;
   }
