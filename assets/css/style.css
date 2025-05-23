@@ -1021,7 +1021,7 @@ footer {
     display: block;
   }
 }
-@media (min-width: 800px) {
+@media (min-width: 850px) {
   .mobile-nav {
     display: none;
   }
