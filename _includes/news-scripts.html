@@ -46,14 +46,17 @@
 
           const nav = document.querySelector('.pagination');
           for (let p = 1; p <= totalPages; p++) {
-            const link = document.createElement('button');
-            link.addEventListener('click', () => {
-              window.location.search = `?page=${p}`;
-            });
-            link.textContent = p;
-            if (p === currentPage) link.classList.add('active');
-            nav.appendChild(link);
-          }
+              const link = document.createElement('button');
+              link.addEventListener('click', () => {
+                window.location.search = `?page=${p}`;
+              });
+              link.textContent = p;
+              if (p === currentPage) link.classList.add('active');
+              nav.appendChild(link);
+            }
+            
+            const newsCountElement = document.getElementById('news-count');
+            newsCountElement.textContent = `Total articles: ${totalItems}`;
         })
         .catch(console.error);
     });
