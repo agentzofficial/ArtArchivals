@@ -999,7 +999,7 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   .image-wrapper {
     width: 90vw;
     height: calc((90vw * 9) / 16);
@@ -1013,7 +1013,7 @@ footer {
 
 
 /* NAVIGATION BAR/HEADER MOBILE */
-@media (max-width: 799px) {
+@media (max-width: 851px) {
   .desktop-nav {
     display: none !important;
   }
