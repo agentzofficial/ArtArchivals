@@ -223,7 +223,7 @@ body.theme-light .mobile-menu-overlay {
   margin-top: 60px;
   width: 90vw;
   max-width: 1000px; 
-  max-height: 80vh;
+  max-height: none;
   overflow: visible;
   display: flex;
   flex-direction: column;
@@ -319,7 +319,8 @@ body.theme-light .mobile-menu-overlay {
 .modal-description-bar {
   position: relative;
   width: 100%;
-  height: 120px;
+  height: auto;
+  min-height: 80px;
   background: rgba(0, 0, 0, 0.75);
   box-sizing: border-box;
   padding: 0 20px;
@@ -331,8 +332,9 @@ body.theme-light .mobile-menu-overlay {
   word-break: break-word;
   z-index: 5;
   margin-top: 6px;
-  overflow: hidden;
+  overflow-y: visible;
 }
+
 
 .modal-description-bar p {
   margin: 0;

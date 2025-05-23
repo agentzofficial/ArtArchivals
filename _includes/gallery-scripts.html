@@ -1,160 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>agent z Art Archivals</title>
-  <link rel="stylesheet" href="style.css">
-
-  <link rel="icon" type="image/png" sizes="16x16" href="serverImages/fovicon-16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="serverImages/fovicon-32.png">
-  <link rel="shortcut icon" href="serverImages/fovicon.ico">
-</head>
-<body>
-  <header class="site-nav desktop-nav">
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">Gallery</a></li>
-        <li><span class="separator">|</span></li>
-        <li><a href="news.html">News</a></li>
-        <li><span class="separator">|</span></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><span class="separator">|</span></li>
-        <li><a href="policies.html">Usage Policies</a></li>
-        <li><span class="separator">|</span></li>
-        <li class="theme-selector">
-          <select id="theme-select" aria-label="Choose theme">
-            <option value="agentz">agent z Theme</option>
-            <option value="dark">Basic Black</option>
-            <option value="light">Basic White</option>
-          </select>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <header class="mobile-nav">
-    <div class="mobile-nav-bar">
-      <a href="index.html" class="mobile-logo">
-        <img src="/serverImages/icon.webp" alt="agent z Logo" />
-      </a>
-      <button class="mobile-menu-toggle" aria-label="Open menu">☰</button>
-    </div>
-    <div class="mobile-menu-overlay" aria-hidden="true">
-      <button class="mobile-menu-close" aria-label="Close menu">✕</button>
-      <nav class="mobile-menu-items">
-        <ul>
-          <li><a href="index.html">Gallery</a></li>
-          <li><a href="news.html">News</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="policies.html">Usage Policies</a></li>
-          <li class="theme-selector">
-            <select id="theme-select-mobile" aria-label="Choose theme">
-              <option value="agentz">agent z Theme</option>
-              <option value="dark">Basic Black</option>
-              <option value="light">Basic White</option>
-            </select>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  
-  <img id="fixed-bg" alt="Background" />
-  <div class="logo-container">
-    <img src="serverImages/logo.png" alt="Art Archives Logo" id="logo">
-  </div>
-  <div id="filter-bar"></div>
-  <div id="year-nav" class="year-nav"></div>
-  <div class="gallery" id="gallery"></div>
-  <div id="pagination-controls" class="pagination-controls"></div>
-
-  <div id="modal" class="modal">
-    <div class="modal-frame">
-      <span class="close">&times;</span>
-      <div class="modal-content">
-        <h2 id="modal-title" class="modal-title"></h2>
-        <div class="image-wrapper">
-          <img id="modal-img" src="" alt="" />
-        </div>
-        <div class="modal-meta">
-          <div class="variant-thumbs"></div>
-          <div class="modal-date" id="modal-date"></div>
-          <div class="modal-icons"></div>
-        </div>
-      </div>
-  
-      <div class="modal-description-bar">
-        <p id="modal-description"></p>
-      </div>
-  
-      <p class="loading-hint">Images may take some time to load.</p>
-      <p class="navigation-hint">Use ← and → arrow keys to navigate.</p>
-    </div>
-  </div>
-
-  <div id="year-nav-bottom" class="year-nav"></div>
-  <div
-    id="trivia-container"
-    style="
-      text-align: center;
-      padding: 0;
-      display: inline-block;
-    "
-  >
-    <img
-      id="trivia-box"
-      src="serverImages/trivia-box.webp"
-      alt="Trivia Box"
-      style="display: block; margin: 0 auto;"
-    />
-    <div
-      id="trivia-content"
-      style="margin: 6px 0 2px;"
-    >
-      Loading trivia...
-    </div>
-  
-    <div
-      id="yeah-container"
-      style="margin: 8px 0 0;
-    "
-    >
-      <img
-        id="yeah-button"
-        src="serverImages/yeah-button.webp"
-        alt="Yeah!"
-        style="cursor: pointer; display: block; margin: 0 auto;"
-      />
-    </div>
-  </div>
-  
-  <div
-    id="trivia-time"
-    style="
-      text-align: center;
-      margin: 6px auto 30px;
-      font-size: 0.9em;
-      opacity: 0.6;
-      width: fit-content;
-    "
-  ></div>
-
-  <section id="latest-news" class="latest-news-section">
-    <h2>Latest News</h2>
-    <div class="news-grid">
-    </div>
-    <div class="browse-news-container">
-      <a href="news.html" class="browse-news-button">Browse News</a>
-    </div>
-  </section>
-  
-  <footer>
-    &copy; 2025 agent z Art Archivals<br>Not affiliated with Nintendo. All trademarks and copyrights belong to their respective owners.
-  </footer>
-
-  <script>
+<script>
     let currentIndex = 0,
         artData = [],
         includeTags = new Set(),
@@ -163,7 +7,7 @@
         filteredIndices = [],
         currentPage = 1,
         itemsPerPage = 30;
-
+  
     const TAG_ORDER = [
       "Renders",
       "Drawings",
@@ -173,7 +17,7 @@
       "Specials",
       "Branding",
     ];
-
+  
     function matchesFilter(tags = []) {
       for (let t of excludeTags) if (tags.includes(t)) return false;
       if (includeTags.size) {
@@ -182,7 +26,7 @@
       }
       return true;
     }
-
+  
     const filterBar = document.getElementById("filter-bar");
     const gallery = document.getElementById("gallery");
     const modal = document.getElementById("modal");
@@ -193,35 +37,35 @@
     const iconsEl = document.querySelector(".modal-icons");
     const navHint = document.querySelector(".navigation-hint");
     const loadHint = document.querySelector(".loading-hint");
-
+  
     let itemNodes = [];
-    let selectedYear = "all";
-
+    let selectedYear = 2025;
+  
     function buildGallery() {
       gallery.innerHTML = "";
       itemNodes = [];
-
+  
       const start = (currentPage - 1) * itemsPerPage;
       const end = start + itemsPerPage;
       const visible = filteredIndices.slice(start, end);
-
+  
       const frag = document.createDocumentFragment();
       for (let idx of visible) {
         const item = artData[idx];
         const thumb = (item.variants && item.variants[0]) || item.filename;
         const hasVariants = item.variants && item.variants.length > 1;
-    
+  
         const div = document.createElement('div');
         div.className = 'art-item';
         div.innerHTML = `
           <div class="image-container">
             <img class="thumb" loading="lazy"
-                 src="imagesPreview/${thumb.replace(/\.[^/.]+$/, '.webp')}"
+                 src="/assets/imagesPreview/${thumb.replace(/\.[^/.]+$/, '.webp')}"
                  alt="${item.title.replace(/"/g, '&quot;')}"
                  style="object-position:${item.position || 'center'};">
             ${hasVariants
               ? `<img class="variant-icon"
-                      src="serverImages/variant-icon.png"
+                      src="{{ '/assets/serverImages/variant-icon.png' | relative_url }}"
                       alt="Has Variants">`
               : ''}
             <div class="overlay">
@@ -229,22 +73,22 @@
               <p class="date">${item.date || ''}</p>
             </div>
           </div>`;
-    
+  
         div.addEventListener('click', () => showModal(idx, 0));
         frag.appendChild(div);
         itemNodes.push(div);
       }
-
+  
       gallery.appendChild(frag);
     }
-
+  
     function updatePaginationControls() {
       const totalPages = Math.ceil(filteredIndices.length / itemsPerPage);
       const container  = document.getElementById('pagination-controls');
       container.innerHTML = '';
-    
+  
       if (totalPages <= 1) return;
-
+  
       const prev = document.createElement('button');
       prev.textContent = '‹ Prev';
       prev.disabled    = currentPage === 1;
@@ -253,7 +97,7 @@
         renderGallery();
       };
       container.appendChild(prev);
-
+  
       for (let i = 1; i <= totalPages; i++) {
         const btn = document.createElement('button');
         btn.textContent = i;
@@ -264,7 +108,7 @@
         };
         container.appendChild(btn);
       }
- 
+  
       const next = document.createElement('button');
       next.textContent = 'Next ›';
       next.disabled    = currentPage === totalPages;
@@ -279,7 +123,7 @@
     function renderGallery() {
       if (pendingRender) return;
       pendingRender = true;
-    
+  
       requestAnimationFrame(() => {
         filteredIndices = [];
         artData.forEach((item, idx) => {
@@ -288,25 +132,24 @@
           const tagMatch = matchesFilter(item.tags || []);
           if (yearMatch && tagMatch) filteredIndices.push(idx);
         });
-    
+  
         buildGallery();
         updatePaginationControls();
-    
         pendingRender = false;
       });
     }
-      
+  
     function showModal(index, variantIndex = 0) {
       const item     = artData[index];
       if (!item) return;
       currentIndex   = filteredIndices.indexOf(index);
       const variants = item.variants || [item.filename];
       const currentVersion = ++modalLoadVersion;
-    
-      const previewSrc = `imagesPreview/${variants[variantIndex].replace(/\.[^/.]+$/, '.webp')}`;
+  
+      const previewSrc = `{{ '/assets/imagesPreview/' | relative_url }}${variants[variantIndex].replace(/\.[^/.]+$/, '.webp')}`;
       modalImg.src     = previewSrc;
       modalImg.alt     = item.title;
-    
+  
       const vbThumbs = document.querySelector('.variant-thumbs');
       vbThumbs.innerHTML = '';
       if (variants.length > 1) {
@@ -314,7 +157,7 @@
         vbThumbs.style.pointerEvents = '';
         variants.forEach((fn, i) => {
           const thumb = document.createElement('img');
-          thumb.src         = `imagesPreview/${fn.replace(/\.[^/.]+$/, '.webp')}`;
+          thumb.src         = `{{ '/assets/imagesPreview/' | relative_url }}${fn.replace(/\.[^/.]+$/, '.webp')}`;
           thumb.className   = i === variantIndex ? 'active' : '';
           thumb.addEventListener('click', e => {
             e.stopPropagation();
@@ -326,15 +169,15 @@
         vbThumbs.style.visibility     = 'hidden';
         vbThumbs.style.pointerEvents  = 'none';
       }
-    
+  
       modalTitle.textContent = item.title;
       modalDesc.textContent  = item.description || '';
       modalDate.textContent  = item.date        || '';
-    
-      const actualSrc = `images/${variants[variantIndex].replace(/\.[^/.]+$/, '.png')}`;
+  
+      const actualSrc = `{{ '/assets/images/' | relative_url }}${variants[variantIndex].replace(/\.[^/.]+$/, '.png')}`;
       document.querySelector('.image-wrapper')
               .style.setProperty('--modal-blur-src', `url("${actualSrc}")`);
-    
+  
       const actualImg = new Image();
       actualImg.onload = () => {
         if (currentVersion === modalLoadVersion) {
@@ -342,30 +185,30 @@
         }
       };
       actualImg.src = actualSrc;
-    
+  
       [ -2, -1, 1, 2 ].forEach(offset => {
         const ni = index + offset;
         if (ni >= 0 && ni < artData.length) {
           const fn = (artData[ni].variants?.[0] || artData[ni].filename)
                        .replace(/\.[^/.]+$/, '.png');
-          new Image().src = `images/${fn}`;
+          new Image().src = `{{ '/assets/images/' | relative_url }}${fn}`;
         }
       });
-    
+  
       iconsEl.innerHTML = '';
       if (item.youtube) iconsEl.innerHTML +=
         `<a href="${item.youtube}" target="_blank" class="source-icon">
-           <img src="serverImages/youtube-icon.png" alt="YouTube">
+           <img src="{{ '/assets/serverImages/youtube-icon.png' | relative_url }}" alt="YouTube">
          </a>`;
       if (item.twitter) iconsEl.innerHTML +=
         `<a href="${item.twitter}" target="_blank" class="source-icon">
-           <img src="serverImages/twitter-icon.png" alt="Twitter">
+           <img src="{{ '/assets/serverImages/twitter-icon.png' | relative_url }}" alt="Twitter">
          </a>`;
       if (item.bluesky) iconsEl.innerHTML +=
         `<a href="${item.bluesky}" target="_blank" class="source-icon">
-           <img src="serverImages/bluesky-icon.png" alt="Bluesky">
+           <img src="{{ '/assets/serverImages/bluesky-icon.png' | relative_url }}" alt="Bluesky">
          </a>`;
-
+  
       modal.style.display    = 'flex';
       loadHint.style.display = 'block';
       navHint.style.display  = 'block';
@@ -415,25 +258,25 @@
         filterBar.appendChild(divider);
       }
     });
-
+  
     function buildYearNav() {
       const yearsSet = new Set(
         artData.map(item => new Date(item.date).getFullYear().toString())
       );
       const years = Array.from(yearsSet)
         .sort((a, b) => parseInt(b) - parseInt(a));
-    
+  
       years.unshift('all');
-    
+  
       const html = years.map(y =>
         `<button data-year="${y}" class="${y === selectedYear ? 'selected' : ''}">`
           + (y === 'all' ? 'All' : y) +
         `</button>`
       ).join('');
-    
+  
       document.getElementById('year-nav').innerHTML = html;
       document.getElementById('year-nav-bottom').innerHTML = html;
-    
+  
       document.querySelectorAll('.year-nav button').forEach(btn => {
         btn.onclick = () => {
           selectedYear = btn.dataset.year;
@@ -443,12 +286,12 @@
         };
       });
     }
-    
+  
     function schedulePreload() {
       const preloadList = itemNodes
         .map((node, idx) => matchesFilter(artData[idx].tags || []) ? artData[idx] : null)
         .filter(Boolean);
-    
+  
       let index = 0;
       const preloadNext = () => {
         if (index >= preloadList.length) return;
@@ -456,19 +299,24 @@
         const filename = item.variants?.[0] || item.filename;
         const img = new Image();
         img.onload = preloadNext;
-        img.src = `images/${filename.replace(/\.[^/.]+$/, '.png')}`;
+        img.src = `{{ '/assets/images/' | relative_url }}${filename.replace(/\.[^/.]+$/, '.png')}`;
       };
       preloadNext();
     }
-
+  
     function loadAllYears() {
       const years = [2025, 2024, 2023];
-      return Promise.all(years.map(y => fetch(`data/${y}.json`).then(r => r.json())))
-        .then(arrays => arrays.flat());
+      const dataPrefix = `{{ '/assets/data/' | relative_url }}`;
+  
+      return Promise.all(
+        years.map(y =>
+          fetch(dataPrefix + `${y}.json`).then(r => r.json())
+        )
+      ).then(arrays => arrays.flat());
     }
-
+  
     window.addEventListener('DOMContentLoaded', () => {
-      selectedYear = 'all';
+      selectedYear = '2025';
       loadAllYears()
         .then(data => {
           artData = data;
@@ -478,11 +326,11 @@
         })
         .catch(err => console.error(err));
     });
-  </script>
+</script>
   <script>
     async function loadTrivia() {
       try {
-        const resp  = await fetch('trivia.json'),
+        const resp  = await fetch("{{ '/assets/data/trivia.json' | relative_url }}"),
               data  = await resp.json(),
               today = new Date().toISOString().slice(0,10),
               entry = data.find(e => e.date === today),
@@ -494,6 +342,7 @@
         document.getElementById('trivia-content').textContent = "Couldn’t load trivia.";
       }
     }
+  
     function clampTriviaFont() {
       const el = document.getElementById('trivia-content');
       const style = window.getComputedStyle(el);
@@ -501,183 +350,30 @@
       const maxHeight = lineHeight * 3;
       let fontSize = parseFloat(style.fontSize);
       while (el.scrollHeight > maxHeight && fontSize > 10) {
-        fontSize -= 1;  
+        fontSize -= 1;
         el.style.fontSize = fontSize + 'px';
       }
     }
+  
     window.addEventListener('DOMContentLoaded', async () => {
       await loadTrivia();
       clampTriviaFont();
       const bjMidnightUTC = new Date();
       bjMidnightUTC.setUTCHours(16, 0, 0, 0);
-    
+  
       const localTimeString = bjMidnightUTC.toLocaleTimeString(undefined, {
         hour:   '2-digit',
         minute: '2-digit',
         timeZoneName: 'short'
       });
-    
+  
       document.getElementById("trivia-time").textContent =
         `Trivia updates daily at ${localTimeString} your time.`;
     });
+  
     window.addEventListener('resize', clampTriviaFont);
   </script>
-
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-    import {
-      getFirestore, doc, getDoc, setDoc,
-      updateDoc, increment
-    } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-  
-    const firebaseConfig = {
-      apiKey: "AIzaSyApMY8GjkeZ7uFq5LUvOpkGkglkfZGIOp4",
-      authDomain: "agentz-art-archivals.firebaseapp.com",
-      projectId: "agentz-art-archivals",
-      storageBucket: "agentz-art-archivals.firebasestorage.app",
-      messagingSenderId: "120997134026",
-      appId: "1:120997134026:web:6582de3d37606690f43e33",
-      measurementId: "G-Y2EXMPLF4F"
-    };
-  
-    const app    = initializeApp(firebaseConfig);
-    const db     = getFirestore(app);
-  
-    const today      = new Date().toISOString().slice(0,10);
-    const counterRef = doc(db, "counters", `yeah-${today}`);
-  
-    const button = document.getElementById("yeah-button");
-    const CLICKED_KEY = `yeahClicked-${today}`;
-  
-    if (localStorage.getItem(CLICKED_KEY)) {
-      button.style.opacity       = 0.5;
-      button.style.pointerEvents = "none";
-    }
-  
-    button.addEventListener("click", async () => {
-      button.disabled = true;
-      button.style.opacity       = 0.5;
-      button.style.pointerEvents = "none";
-    
-      localStorage.setItem(CLICKED_KEY, "1");
-    
-      try {
-        await updateDoc(counterRef, { count: increment(1) });
-      } catch (e) {
-        if (e.code === 'not-found') {
-          await setDoc(counterRef, { count: 1 });
-        } else {
-          console.error("Unexpected Firestore error:", e);
-          button.disabled = false;
-          button.style.opacity = 1;
-          button.style.pointerEvents = "";
-          return;
-        }
-      }
-    });
-  </script>
-  <script>
-    const THEME_KEY = 'preferredTheme';
-    const select    = document.getElementById('theme-select');
-    const bodyEl    = document.body;
-
-    if (!document.getElementById('fixed-bg')) {
-      const agentzOption = select.querySelector('option[value="agentz"]');
-      agentzOption.disabled = true;
-    }
-  
-    function applyTheme(theme) {
-      bodyEl.classList.remove('theme-dark','theme-light','theme-agentz');
-      bodyEl.classList.add('theme-' + theme);
-      localStorage.setItem(THEME_KEY, theme);
-      
-      const bgImg = document.getElementById('fixed-bg');
-      if (!bgImg) return;
-  
-      if (theme === 'agentz') {
-        bgImg.style.display = '';
-        const maxBg = 9;
-        const n     = Math.floor(Math.random() * maxBg) + 1;
-        bgImg.src         = `backgrounds/bg${n}.webp`;
-      } else {
-        bgImg.style.display = 'none';
-      }
-    }
-  
-    document.addEventListener('DOMContentLoaded', () => {
-      const saved = localStorage.getItem(THEME_KEY) || 'agentz';
-      select.value = saved;
-      applyTheme(saved);
-  
-      select.addEventListener('change', () => {
-        applyTheme(select.value);
-      });
-    });
-  </script>
-  <!-- MOBILE CONVERSIONS -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const body = document.body;
-      const overlay = document.querySelector('.mobile-menu-overlay');
-      const openBtn = document.querySelector('.mobile-menu-toggle');
-      const closeBtn = document.querySelector('.mobile-menu-close');
-
-      if (openBtn && closeBtn && overlay) {
-        openBtn.addEventListener('click', () => {
-          overlay.classList.add('open');
-          body.classList.add('menu-open');
-        });
-        closeBtn.addEventListener('click', () => {
-          overlay.classList.remove('open');
-          body.classList.remove('menu-open');
-        });
-        overlay.addEventListener('click', e => {
-          if (e.target === overlay) {
-            overlay.classList.remove('open');
-            body.classList.remove('menu-open');
-          }
-        });
-      }
-      
-      function applyTheme(theme) {
-        body.classList.remove('theme-dark','theme-light','theme-agentz');
-        body.classList.add('theme-' + theme);
-        localStorage.setItem('preferredTheme', theme);
-
-        const bgImg = document.getElementById('fixed-bg');
-        if (!bgImg) return;
-        if (theme === 'agentz') {
-          bgImg.style.display = '';
-          const maxBg = 9;
-          const n     = Math.floor(Math.random() * maxBg) + 1;
-          bgImg.src   = `/backgrounds/bg${n}.webp`;
-        } else {
-          bgImg.style.display = 'none';
-        }
-      }
-
-      const desktopSelect = document.getElementById('theme-select');
-      const mobileSelect  = document.getElementById('theme-select-mobile');
-      const savedTheme    = localStorage.getItem('preferredTheme') || 'agentz';
-
-      if (desktopSelect) {
-        desktopSelect.value = savedTheme;
-        applyTheme(savedTheme);
-        desktopSelect.addEventListener('change', () => {
-          applyTheme(desktopSelect.value);
-          if (mobileSelect) mobileSelect.value = desktopSelect.value;
-        });
-      }
-      if (mobileSelect) {
-        mobileSelect.value = savedTheme;
-        mobileSelect.addEventListener('change', () => {
-          applyTheme(mobileSelect.value);
-          if (desktopSelect) desktopSelect.value = mobileSelect.value;
-        });
-      }
-    });
-  </script>
-  <script>
+    <script>
     const modalElement = document.getElementById("modal");
     const closeBtn = document.querySelector(".close");
     const frame = document.querySelector(".modal-frame");
@@ -731,9 +427,9 @@
       if (e.touches.length === 1 && touchStartX !== null) {
         const touch = e.touches[0];
         const dx = Math.abs(touch.clientX - touchStartX);
-        const dy = Math.abs(touch.clientY - touchStartY || 0); // We'll define this below
+        const dy = Math.abs(touch.clientY - touchStartY || 0);
         if (dx > 10 && dx > dy) {
-          e.preventDefault(); // Only prevent horizontal swiping
+          e.preventDefault();
         }
       }
     });
@@ -752,7 +448,8 @@
   <script>
     // NEWS
     document.addEventListener('DOMContentLoaded', () => {
-      fetch('data/news.json')
+      const BASE_URL = "{{ site.baseurl | default: '' }}";
+      fetch('/assets/data/news.json')
         .then(r => r.json())
         .then(newsArray => {
           newsArray.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -761,7 +458,7 @@
           const grid = document.querySelector('.news-grid');
           latestFour.forEach(item => {
             const card       = document.createElement('a');
-            card.href        = `news/news-${item.date.replace(/-/g, '-')}_1.html`;
+            card.href = `news/news-${item.date.replace(/-/g, '-')}_1/`;
             card.className   = 'news-card';
     
             const d          = new Date(item.date);
@@ -773,7 +470,7 @@
         
             // build the inner HTML once
             card.innerHTML = `
-              <img src="${item.thumbnail}" alt="${item.title}" class="news-thumb"/>
+              <img src="${BASE_URL}${item.thumbnail}" class="news-thumb"/>
               <span class="news-tag">${item.tag}</span>
               <h3 class="news-title">${item.title}</h3>
               <time class="news-date">${formatted}</time>
@@ -785,5 +482,4 @@
         .catch(err => console.error('Failed to load news:', err));
     });
   </script>
-</body>
-</html>
+  

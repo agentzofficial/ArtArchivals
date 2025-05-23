@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/serverImages/fovicon-16.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/serverImages/fovicon-32.png' | relative_url }}">
+  <link rel="shortcut icon" href="{{ '/assets/serverImages/fovicon.ico' | relative_url }}">
+</head>
+
+
+<body{% if page.page_type != 'gallery' %} class="non-gallery"{% endif %}>
+  <img id="fixed-bg" src="" alt="Background" aria-hidden="true" />
+  <header class="site-nav desktop-nav">
+    <nav>
+      <ul>
+        <li>
+          <a href="{{ '/' | relative_url }}"
+             class="{% if page.url == '/' %}active{% endif %}">
+            Gallery
+          </a>
+        </li>
+        <li><span class="separator">|</span></li>
+        <li>
+          <a href="{{ '/news/' | relative_url }}"
+             class="{% if page.url == '/news/' %}active{% endif %}">
+            News
+          </a>
+        </li>
+        <li><span class="separator">|</span></li>
+        <li>
+          <a href="{{ '/contact/' | relative_url }}"
+             class="{% if page.url == '/contact/' %}active{% endif %}">
+            Contact
+          </a>
+        </li>
+        <li><span class="separator">|</span></li>
+        <li>
+          <a href="{{ '/policies/' | relative_url }}"
+             class="{% if page.url == '/policies/' %}active{% endif %}">
+            Usage Policies
+          </a>
+        </li>
+        <li><span class="separator">|</span></li>
+        <li class="theme-selector">
+          <select id="theme-select" aria-label="Choose theme">
+            <option value="agentz">agent z Theme</option>
+            <option value="dark">Basic Black</option>
+            <option value="light">Basic White</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <header class="mobile-nav">
+    <div class="mobile-nav-bar">
+      <a href="{{ '/' | relative_url }}" class="mobile-logo">
+        <img src="{{ '/assets/serverImages/icon.webp' | relative_url }}" alt="agent z Logo" />
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Open menu">☰</button>
+    </div>
+    <div class="mobile-menu-overlay" aria-hidden="true">
+      <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+      <nav class="mobile-menu-items">
+        <ul>
+          <li>
+            <a href="{{ '/' | relative_url }}"
+               class="{% if page.url == '/' %}active{% endif %}">
+              Gallery
+            </a>
+          </li>
+          <li>
+            <a href="{{ '/news/' | relative_url }}"
+               class="{% if page.url == '/news/' %}active{% endif %}">
+              News
+            </a>
+          </li>
+          <li>
+            <a href="{{ '/contact/' | relative_url }}"
+               class="{% if page.url == '/contact/' %}active{% endif %}">
+              Contact
+            </a>
+          </li>
+          <li>
+            <a href="{{ '/policies/' | relative_url }}"
+               class="{% if page.url == '/policies/' %}active{% endif %}">
+              Usage Policies
+            </a>
+          </li>
+          <li class="theme-selector">
+            <select id="theme-select-mobile" aria-label="Choose theme">
+              <option value="agentz">agent z Theme</option>
+              <option value="dark">Basic Black</option>
+              <option value="light">Basic White</option>
+            </select>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <!-- Theme selector -->
+  <script>
+    const THEME_KEY = 'preferredTheme';
+    const select    = document.getElementById('theme-select');
+    const bodyEl    = document.body;
+
+    function applyTheme(theme) {
+      bodyEl.classList.remove('theme-dark','theme-light','theme-agentz');
+      bodyEl.classList.add('theme-' + theme);
+      localStorage.setItem(THEME_KEY, theme);
+
+      const bgImg = document.getElementById('fixed-bg');
+      if (!bgImg) return;
+      if (theme === 'agentz') {
+        bgImg.style.display = '';
+        const maxBg = 9;
+        const n     = Math.floor(Math.random() * maxBg) + 1;
+        bgImg.src   = `{{ '/assets/backgrounds/bg' | relative_url }}${n}.webp`;
+      } else {
+        bgImg.style.display = 'none';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem(THEME_KEY) || 'agentz';
+      select.value = saved;
+      applyTheme(saved);
+      select.addEventListener('change', () => {
+        applyTheme(select.value);
+        const mobileSelect = document.getElementById('theme-select-mobile');
+        if (mobileSelect) mobileSelect.value = select.value;
+      });
+      const mobileSelect = document.getElementById('theme-select-mobile');
+      if (mobileSelect) {
+        mobileSelect.value = saved;
+        mobileSelect.addEventListener('change', () => {
+          applyTheme(mobileSelect.value);
+          select.value = mobileSelect.value;
+        });
+      }
+    });
+  </script>
+
+  <!-- Mobile menu toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const body = document.body;
+      const overlay = document.querySelector('.mobile-menu-overlay');
+      const openBtn = document.querySelector('.mobile-menu-toggle');
+      const closeBtn = document.querySelector('.mobile-menu-close');
+
+      if (openBtn && closeBtn && overlay) {
+        openBtn.addEventListener('click', () => {
+          overlay.classList.add('open');
+          body.classList.add('menu-open');
+        });
+        closeBtn.addEventListener('click', () => {
+          overlay.classList.remove('open');
+          body.classList.remove('menu-open');
+        });
+        overlay.addEventListener('click', e => {
+          if (e.target === overlay) {
+            overlay.classList.remove('open');
+            body.classList.remove('menu-open');
+          }
+        });
+      }
+    });
+  </script>
+
+  {% if page.page_type == "gallery" %}
+    {% include gallery-scripts.html %}
+  {% endif %}
+  {% if page.page_type == "contact" %}
+    {% include contact-scripts.html %}
+  {% endif %}
+  {% if page.page_type == "news" %}
+    {% include news-scripts.html %}
+  {% endif %}
+  {% if page.page_type == "newsarticle" %}
+    {% include newsarticle-scripts.html %}
+  {% endif %}
+
+  <footer>
+    &copy; 2023-2025 agent z Art Archivals<br>
+    Not affiliated with Nintendo. All trademarks/copyrights belong to the respective owners.
+  </footer>
+</body>
+</html>

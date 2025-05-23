@@ -4,83 +4,83 @@
     "title": "agent z Art Archivals is public!",
     "date": "2025-05-20",
     "tag": "Updates",
-    "thumbnail": "screenshots/2025-05-17_1.jpg"
+    "thumbnail": "/assets/screenshots/2025-05-17_1.jpg"
   },
   {
     "id": "news-2025-05-18_1",
     "title": "To Booyah Before the Match",
     "date": "2025-05-18",
     "tag": "Characters Discuss",
-    "thumbnail": "screenshots/2025-05-18_1.jpg"
+    "thumbnail": "/assets/screenshots/2025-05-18_1.jpg"
   },
   {
     "id": "news-2025-05-16_1",
     "title": "How agent z Works: How to Script",
     "date": "2025-05-16",
     "tag": "Information",
-    "thumbnail": "screenshots/2025-05-16_1.jpg"
+    "thumbnail": "/assets/screenshots/2025-05-16_1.jpg"
   },
   {
     "id": "news-2025-05-15_1",
     "title": "The Significant Sploosh-O-Matic",
     "date": "2025-05-15",
     "tag": "Characters Discuss",
-    "thumbnail": "screenshots/2025-05-15_1.jpg"
+    "thumbnail": "/assets/screenshots/2025-05-15_1.jpg"
   },
   {
     "id": "news-2025-05-08_1",
     "title": "A New Project is in the works...",
     "date": "2025-05-08",
     "tag": "Announcements",
-    "thumbnail": "screenshots/2025-05-08_1.jpg"
+    "thumbnail": "/assets/screenshots/2025-05-08_1.jpg"
   },
   {
     "id": "news-2025-05-03_1",
     "title": "Splatoon Animation: Power Outage, is out now!",
     "date": "2025-05-03",
     "tag": "Video News",
-    "thumbnail": "imagesPreview/2025-5-4_3.webp"
+    "thumbnail": "/assets/imagesPreview/2025-5-4_3.webp"
   },
   {
     "id": "news-2025-04-25_1",
     "title": "Sneak Peaks for the next episode have been released!",
     "date": "2025-04-25",
     "tag": "Video News",
-    "thumbnail": "screenshots/2025-04-25_1.webp"
+    "thumbnail": "/assets/screenshots/2025-04-25_1.webp"
   },
   {
     "id": "news-2025-03-29_1",
     "title": "Splatoon Animation: The Perfect Present, is out now!",
     "date": "2025-03-29",
     "tag": "Video News",
-    "thumbnail": "imagesPreview/2025-3-30_1.webp"
+    "thumbnail": "/assets/imagesPreview/2025-3-30_1.webp"
   },
   {
     "id": "news-2025-03-22_1",
     "title": "The Next Splatoon Animation (finally) receives a definitive Release Date",
     "date": "2025-03-22",
     "tag": "Video News",
-    "thumbnail": "screenshots/2025-03-22_2.jpg"
+    "thumbnail": "/assets/screenshots/2025-03-22_2.jpg"
   },
   {
     "id": "news-2025-02-12_1",
     "title": "An Update on the Next Episode, featuring Fan Characters",
     "date": "2025-02-12",
     "tag": "Video News",
-    "thumbnail": "imagesPreview/2025-2-12_1.webp"
+    "thumbnail": "/assets/imagesPreview/2025-2-12_1.webp"
   },
   {
     "id": "news-2025-01-13_1",
     "title": "A compilation of all Splatshorts from 2024 has been released!",
     "date": "2025-01-13",
     "tag": "Video News",
-    "thumbnail": "imagesPreview/2025-1-13_1.webp"
+    "thumbnail": "/assets/imagesPreview/2025-1-13_1.webp"
   },
   {
     "id": "news-2025-01-12_1",
     "title": "agent z Returns from Overseas, Resuming Animation Production",
     "date": "2025-01-12",
     "tag": "Announcements",
-    "thumbnail": "imagesPreview/2025-1-12_1.webp"
+    "thumbnail": "/assets/imagesPreview/2025-1-12_1.webp"
   }
 ]
