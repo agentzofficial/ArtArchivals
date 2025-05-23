@@ -118,6 +118,13 @@
       };
       container.appendChild(next);
     }
+
+    function updateImageCount() {
+      const countEl = document.getElementById("image-count");
+      if (countEl) {
+        countEl.textContent = `${filteredIndices.length} images.`;
+      }
+    }
   
     let pendingRender = false;
     function renderGallery() {
@@ -135,6 +142,7 @@
   
         buildGallery();
         updatePaginationControls();
+        updateImageCount();
         pendingRender = false;
       });
     }
