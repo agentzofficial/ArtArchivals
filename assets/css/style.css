@@ -44,10 +44,10 @@ body.non-gallery #fixed-bg {
 
 /* Logo */
 #logo {
-max-width: 90vw;
-height: auto;
-display: block;
-margin: 15px auto;
+  max-width: 90vw;
+  height: auto;
+  display: block;
+  margin: 15px auto;
 }
 
 /* Themes */
@@ -1142,6 +1142,7 @@ body.menu-open {
   .desktop-nav-icons {
     display: none;
   }
+}
 
 /* ===== Logo Breakpoint ===== */
 @media (min-width:768px) {
