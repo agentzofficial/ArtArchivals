@@ -12,49 +12,56 @@
   <link rel="shortcut icon" href="{{ '/assets/serverImages/fovicon.ico' | relative_url }}">
 </head>
 
-
 <body{% if page.page_type != 'gallery' %} class="non-gallery"{% endif %}>
   <img id="fixed-bg" src="" alt="Background" aria-hidden="true" />
   <header class="site-nav desktop-nav">
-    <nav>
-      <ul>
-        <li>
-          <a href="{{ '/' | relative_url }}"
-             class="{% if page.url == '/' %}active{% endif %}">
-            Gallery
-          </a>
-        </li>
-        <li><span class="separator">|</span></li>
-        <li>
-          <a href="{{ '/news/' | relative_url }}"
-             class="{% if page.url == '/news/' %}active{% endif %}">
-            News
-          </a>
-        </li>
-        <li><span class="separator">|</span></li>
-        <li>
-          <a href="{{ '/contact/' | relative_url }}"
-             class="{% if page.url == '/contact/' %}active{% endif %}">
-            Contact
-          </a>
-        </li>
-        <li><span class="separator">|</span></li>
-        <li>
-          <a href="{{ '/policies/' | relative_url }}"
-             class="{% if page.url == '/policies/' %}active{% endif %}">
-            Usage Policies
-          </a>
-        </li>
-        <li><span class="separator">|</span></li>
-        <li class="theme-selector">
-          <select id="theme-select" aria-label="Choose theme">
-            <option value="agentz">agent z Theme</option>
-            <option value="dark">Basic Black</option>
-            <option value="light">Basic White</option>
-          </select>
-        </li>
-      </ul>
-    </nav>
+    <div class="desktop-nav-container">
+      <div class="desktop-nav-icons">
+        <a href="{{ '/' | relative_url }}">
+          <img src="{{ '/assets/serverImages/iconDesktop.webp' | relative_url }}" alt="agent z Logo" class="desktop-logo">
+        </a>
+      </div>
+
+      <nav>
+        <ul>
+          <li>
+            <a href="{{ '/' | relative_url }}"
+               class="{% if page.url == '/' %}active{% endif %}">
+              Gallery
+            </a>
+          </li>
+          <li><span class="separator">|</span></li>
+          <li>
+            <a href="{{ '/news/' | relative_url }}"
+               class="{% if page.url == '/news/' %}active{% endif %}">
+              News
+            </a>
+          </li>
+          <li><span class="separator">|</span></li>
+          <li>
+            <a href="{{ '/contact/' | relative_url }}"
+               class="{% if page.url == '/contact/' %}active{% endif %}">
+              Contact
+            </a>
+          </li>
+          <li><span class="separator">|</span></li>
+          <li>
+            <a href="{{ '/policies/' | relative_url }}"
+               class="{% if page.url == '/policies/' %}active{% endif %}">
+              Usage Policies
+            </a>
+          </li>
+          <li><span class="separator">|</span></li>
+          <li class="theme-selector">
+            <select id="theme-select" aria-label="Choose theme">
+              <option value="agentz">agent z Theme</option>
+              <option value="dark">Basic Black</option>
+              <option value="light">Basic White</option>
+            </select>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <header class="mobile-nav">
