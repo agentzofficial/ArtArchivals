@@ -1013,7 +1013,7 @@ footer {
 
 
 /* NAVIGATION BAR/HEADER MOBILE */
-@media (max-width: 891px) {
+@media (max-width: 890px) {
   .desktop-nav {
     display: none !important;
   }
@@ -1021,7 +1021,7 @@ footer {
     display: block;
   }
 }
-@media (min-width: 890px) {
+@media (min-width: 889px) {
   .mobile-nav {
     display: none;
   }
