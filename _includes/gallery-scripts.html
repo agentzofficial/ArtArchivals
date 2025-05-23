@@ -336,20 +336,26 @@
     });
 </script>
   <script>
-    async function loadTrivia() {
-      try {
-        const resp  = await fetch("{{ '/assets/data/trivia.json' | relative_url }}"),
-              data  = await resp.json(),
-              today = new Date().toISOString().slice(0,10),
-              entry = data.find(e => e.date === today),
-              el    = document.getElementById('trivia-content');
-        el.textContent = entry
-          ? entry.trivia
-          : "If you see this, I forgor 💀";
-      } catch {
-        document.getElementById('trivia-content').textContent = "Couldn’t load trivia.";
-      }
+  async function loadTrivia() {
+    try {
+      const resp = await fetch("{{ '/assets/data/trivia.json' | relative_url }}");
+      const data = await resp.json();
+
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm   = String(now.getMonth() + 1).padStart(2, '0');
+      const dd   = String(now.getDate()).padStart(2, '0');
+      const todayLocal = `${yyyy}-${mm}-${dd}`;
+
+      const entry = data.find(e => e.date === todayLocal);
+      const el    = document.getElementById('trivia-content');
+      el.textContent = entry
+        ? entry.trivia
+        : "If you see this, I forgor 💀";
+    } catch {
+      document.getElementById('trivia-content').textContent = "Couldn’t load trivia.";
     }
+  }
   
     function clampTriviaFont() {
       const el = document.getElementById('trivia-content');
