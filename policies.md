@@ -15,23 +15,22 @@ permalink: /policies/
     <p>
       <h2>agent z Art Archivals Content</h2>
     </p>
-    <p>All images published onto the website by agent z or on official social platforms may be freely used for anything you like. Credit is optional but appreciated. To respectfully use <em>agent z</em> content, please:</p>
+    <p>All images published onto the website by agent z or on official social platforms may be freely used for anything you like! Credit is optional but appreciated. To respectfully use <em>agent z</em> content, please:</p>
     <ul class="dot-list">
       <li>Do not use or repost <em>agent z</em> content with the intention of plagarism or impersonation.</li>
-      <li>Do not falsely claim that you are directly affiliated with the content, such as (but not limited to) claiming the content was made in a collaboration with agent z if it was not.</li>
-      <li>Do not alter content, including adding captions, to portray a potentially controversial or serious topic without <strong>explicility</strong> stating that it is edited and not officially endorsed by agent z.</li>
+      <li>Do not falsely claim that you are directly affiliated with the content and/or <em>agent z</em>, such as (but not limited to) claiming the content was made in a collaboration with agent z if it was not.</li>
     </ul>
     <p>
       <h2>agent z Video Content</h2>
     </p>
     <p>The guidelines for the agent z Art Archivals Content above all also apply to the use of <em>agent z</em> video content. In addition, please ensure you:</p>
     <ul class="dot-list">
-      <li>Expand the video using your own creative input, such as with meaningful commentary, live reactions, or significant enough editing that differs the viewing experience entirely. This particularly applies if a significant portion of the video is being used.</li>
+      <li>Expand the video using your own creative input, such as with meaningful commentary, live reactions, or significant enough editing that differs the viewing experience a bit. This particularly applies if a significant portion of the video is being used.</li>
     </ul>
     <p>
       <h2>agent z Characters</h2>
     </p>
-    <p>Original characters introduced by agent z, being Agent Z and Agent X, may be used or represented in your own content or fan artwork. However, you are <strong>NOT</strong> to:</p>
+    <p>Original characters introduced by agent z, being Agent Z and Agent X, may be used or represented in your own content or fan artwork. However, please do NOT:</p>
     <ul class="dot-list">
       <li>Maliciously misrepresent the characters such as (not limited to) with their personality or appearance.</li>
       <li>Use the characters in any political or other sensitive context.</li>
