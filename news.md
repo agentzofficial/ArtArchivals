@@ -11,5 +11,6 @@ page_type: news
       <div class="news-grid">
       </div>
       <div class="pagination-controls pagination"></div>
+      <div id="news-count" class="image-count"></div>
     </section>
   </main>
