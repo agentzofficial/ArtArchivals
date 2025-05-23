@@ -42,7 +42,7 @@ page_type: gallery
 </div>
 
 <div id="year-nav-bottom" class="year-nav"></div>
-<div id="image-count" class="image-count">0 images.</div>
+<div id="image-count" class="count-display">0 images</div>
 <div
   id="trivia-container"
   style="text-align: center; padding: 0; display: inline-block;"
