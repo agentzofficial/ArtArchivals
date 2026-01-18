@@ -1,7 +1,7 @@
 ---
 layout: default
 title: agent z Versus
-permalink: /versus
+permalink: /versus/
 ---
 
 <div class="homepage-logo">
