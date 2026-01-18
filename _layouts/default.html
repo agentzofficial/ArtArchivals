@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+  >
+  <title>{{ page.title }} – agent z Art Archivals</title>
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/serverImages/fovicon-16.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/serverImages/fovicon-32.png' | relative_url }}">
+  <link rel="shortcut icon" href="{{ '/assets/serverImages/fovicon.ico' | relative_url }}">
+</head>
+
+<body{% if page.page_type != 'gallery' %} class="non-gallery"{% endif %}>
+
+<img id="fixed-bg" src="" alt="" aria-hidden="true">
+<header class="site-nav new-desktop-nav nav-hidden">
+
+  <div class="topbar">
+    <a href="/" class="nav-logo-link">
+      <img
+        src="/assets/serverImages/iconDesktop.webp"
+        class="nav-logo nav-logo-desktop"
+        alt="agent z"
+      >
+      <img
+        src="/assets/serverImages/icon.webp"
+        class="nav-logo nav-logo-mobile"
+        alt="agent z"
+      >
+    </a>
+
+    <button id="navToggle" class="nav-button">
+      Navigate ▾
+    </button>
+
+    <div class="theme-selector">
+      <select id="theme-select">
+        <option value="agentz">agent z Theme</option>
+        <option value="dark">Basic Black</option>
+        <option value="light">Basic White</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="navPanel" class="nav-panel">
+    <div class="nav-panel-images">
+      <a href="/artarchivals/"><img src="/assets/serverImages/logo_agentzartarchivals.webp" alt=""></a>
+      <a href="/about/"><img src="/assets/serverImages/logo_aboutagentz.webp" alt=""></a>
+      <a href="/memberships/"><img src="/assets/serverImages/logo_agentzmemberships.webp" alt=""></a>
+      <a href="/versus/"><img src="/assets/serverImages/logo_agentzversus.webp" alt=""></a>
+    </div>
+
+    <div class="nav-panel-links">
+      <a href="/">Home</a>
+      <a href="/contact/">Contact</a>
+      <a href="/policies/">Usage Policies</a>
+      <a href="/versionhistory/">Version History</a>
+      <a href="https://www.youtube.com/@agentzofficial" target="_blank">YouTube</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  {{ content }}
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const nav    = document.querySelector(".new-desktop-nav");
+  const panel  = document.getElementById("navPanel");
+  const button = document.getElementById("navToggle");
+  let lastY = window.scrollY;
+  const isMobile = () => window.innerWidth <= 900;
+  nav.classList.remove("nav-hidden");
+
+  button.addEventListener("click", (e) => {
+    e.stopPropagation();
+    panel.classList.toggle("open");
+    nav.classList.remove("nav-hidden");
+
+    button.textContent = panel.classList.contains("open")
+      ? "✕"
+      : "Navigate ▾";
+  });
+
+  window.addEventListener("scroll", () => {
+    const currentY = window.scrollY;
+
+    if (currentY > lastY && currentY > 60) {
+      nav.classList.add("nav-hidden");
+
+      if (isMobile()) {
+        panel.classList.remove("open");
+        button.textContent = "Navigate ▾";
+      }
+    } else {
+      nav.classList.remove("nav-hidden");
+    }
+
+    lastY = currentY;
+  });
+});
+</script>
+<script>
+const THEME_KEY = "preferredTheme";
+const bodyEl = document.body;
+
+function applyTheme(theme) {
+  bodyEl.classList.remove("theme-dark","theme-light","theme-agentz");
+  bodyEl.classList.add("theme-" + theme);
+  localStorage.setItem(THEME_KEY, theme);
+  const bgImg = document.getElementById("fixed-bg");
+  if (!bgImg) return;
+  if (theme === "agentz") {
+    bgImg.style.display = "";
+    const n = Math.floor(Math.random() * 9) + 1;
+    bgImg.src = `{{ '/assets/backgrounds/bg' | relative_url }}${n}.webp`;
+  } else {
+    bgImg.style.display = "none";
+  }
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const select = document.getElementById("theme-select");
+  const saved = localStorage.getItem(THEME_KEY) || "agentz";
+  select.value = saved;
+  applyTheme(saved);
+  select.addEventListener("change", () => applyTheme(select.value));
+});
+</script>
+<script data-goatcounter="https://agentzartarchivals.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  {% if page.page_type == "home" %}
+    {% include home-scripts.html %}
+  {% endif %}
+  {% if page.page_type == "gallery" %}
+    {% include gallery-scripts.html %}
+  {% endif %}
+  {% if page.page_type == "contact" %}
+    {% include contact-scripts.html %}
+  {% endif %}
+  {% if page.page_type == "about" %}
+    {% include about-scripts.html %}
+  {% endif %}
+  {% if page.page_type == "news" %}
+    {% include news-scripts.html %}
+  {% endif %}
+  {% if page.page_type == "articlePage" %}
+    {% include article-scripts.html %}
+  {% endif %}
+
+  <footer>
+    &copy; 2023-2026 agent z<br>
+    Not affiliated with Nintendo. All trademarks/copyrights belong to the respective owners.
+  </footer>
+</body>
+</html>

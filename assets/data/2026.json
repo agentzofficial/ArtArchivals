@@ -1,0 +1,26 @@
+[
+    {
+        "variants": ["2026-01-13_1.png", "2026-01-13_2.png"],
+        "title": "Target the Anchor",
+        "description": "Agent Z with the Ultra Stamp about to attack Agent X, who has the Hydra Splatling.",
+        "date": "13 January 2026",
+        "youtube": "https://www.youtube.com/post/Ugkx4cFPeHCyLm8_N24hcmzBfdzWrmbNl22z",
+        "tags": ["Renders"]
+    },
+    {
+        "filename": "2026-01-11_1.png",
+        "title": "Airport Photo!",
+        "description": "Agent Z doing a pose in front of a plane in Marlin Airport.",
+        "date": "11 January 2026",
+        "twitter": "https://x.com/agentzofficial/status/2010475220205998561",
+        "tags": ["Renders"]
+    },
+    {
+        "filename": "2026-01-01_1.png",
+        "title": "Happy 2026!",
+        "description": "The first render posted in 2026.",
+        "date": "1 January 2026",
+        "youtube": "https://www.youtube.com/post/UgkxmfatOMuw9unvsVpmgafHwshgz09MZrhS",
+        "tags": ["Renders"]
+    }
+]

@@ -1,0 +1,63 @@
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.home-box, .utility-box').forEach(box => {
+    const img = box.dataset.image;
+    if (img) {
+      box.style.backgroundImage = `url('${img}')`;
+    }
+  });
+});
+</script>
+
+  <script>
+  async function loadTrivia() {
+    try {
+      const resp = await fetch("{{ '/assets/data/trivia.json' | relative_url }}");
+      const data = await resp.json();
+
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm   = String(now.getMonth() + 1).padStart(2, '0');
+      const dd   = String(now.getDate()).padStart(2, '0');
+      const todayLocal = `${yyyy}-${mm}-${dd}`;
+
+      const entry = data.find(e => e.date === todayLocal);
+      const el    = document.getElementById('trivia-content');
+      el.textContent = entry
+        ? entry.trivia
+        : "If you see this, I forgor 💀";
+    } catch {
+      document.getElementById('trivia-content').textContent = "Couldn’t load trivia.";
+    }
+  }
+  
+    function clampTriviaFont() {
+      const el = document.getElementById('trivia-content');
+      const style = window.getComputedStyle(el);
+      const lineHeight = parseFloat(style.lineHeight);
+      const maxHeight = lineHeight * 3;
+      let fontSize = parseFloat(style.fontSize);
+      while (el.scrollHeight > maxHeight && fontSize > 10) {
+        fontSize -= 1;
+        el.style.fontSize = fontSize + 'px';
+      }
+    }
+  
+    window.addEventListener('DOMContentLoaded', async () => {
+      await loadTrivia();
+      clampTriviaFont();
+      const bjMidnightUTC = new Date();
+      bjMidnightUTC.setUTCHours(16, 0, 0, 0);
+  
+      const localTimeString = bjMidnightUTC.toLocaleTimeString(undefined, {
+        hour:   '2-digit',
+        minute: '2-digit',
+        timeZoneName: 'short'
+      });
+  
+      document.getElementById("trivia-time").textContent =
+        `Trivia updates daily at ${localTimeString} your time.`;
+    });
+  
+    window.addEventListener('resize', clampTriviaFont);
+  </script>

@@ -1,0 +1,156 @@
+{
+  "splatoonAnimations": [
+    {
+      "id": "the-countdown",
+      "title": "The Countdown",
+      "image": "/assets/imagesPreview/2025-12-27_3.webp",
+      "date": "27 December 2025",
+      "series": "Splatoon Animations",
+      "episode": "17"
+    },
+    {
+      "id": "enter-super-mario-64",
+      "title": "Enter Super Mario 64",
+      "image": "/assets/imagesPreview/2025-12-13_3.webp",
+      "date": "14 December 2025",
+      "series": "Splatoon Animations",
+      "episode": "16"
+    },
+    {
+      "id": "library-thief",
+      "title": "Library Thief",
+      "image": "/assets/imagesPreview/2025-10-5_1.webp",
+      "date": "5 October 2025",
+      "series": "Splatoon Animations",
+      "episode": "15"
+    },
+    {
+      "id": "squid-game",
+      "title": "Squid Game",
+      "image": "/assets/imagesPreview/2025-8-3_3.webp",
+      "date": "3 August 2025",
+      "series": "Splatoon Animations",
+      "episode": "14"
+    },
+    {
+      "id": "beach-episode",
+      "title": "Beach Episode",
+      "image": "/assets/imagesPreview/2025-6-22_1.webp",
+      "date": "22 June 2025",
+      "series": "Splatoon Animations",
+      "episode": "13"
+    },
+    {
+      "id": "power-outage",
+      "title": "Power Outage",
+      "image": "/assets/imagesPreview/2025-5-4_3.webp",
+      "date": "4 May 2025",
+      "series": "Splatoon Animations",
+      "episode": "12"
+    },
+    {
+      "id": "the-perfect-present",
+      "title": "The Perfect Present",
+      "image": "/assets/imagesPreview/2025-3-30_1.webp",
+      "date": "30 March 2025",
+      "series": "Splatoon Animations",
+      "episode": "11"
+    },
+    {
+      "id": "hospital-buddies",
+      "title": "Hospital Buddies",
+      "image": "/assets/imagesPreview/2024-12-8_1.webp",
+      "date": "8 December 2024",
+      "series": "Splatoon Animations",
+      "episode": "10"
+    },
+    {
+      "id": "stories-of-the-agents",
+      "title": "Stories of the Agents",
+      "image": "/assets/imagesPreview/2024-9-30_1.webp",
+      "date": "30 September 2024",
+      "series": "Splatoon Animations",
+      "episode": "9"
+    },
+    {
+      "id": "battle-of-inkopolis-square",
+      "title": "Battle of Inkopolis Square",
+      "image": "/assets/imagesPreview/2024-9-1_1.webp",
+      "date": "1 September 2024",
+      "series": "Splatoon Animations",
+      "episode": "8"
+    },
+    {
+      "id": "clash-of-the-agents",
+      "title": "Clash of the Agents",
+      "image": "/assets/imagesPreview/2024-5-19_1.webp",
+      "date": "19 May 2024",
+      "series": "Splatoon Animations",
+      "episode": "7"
+    },
+    {
+      "id": "price-for-power",
+      "title": "Price for Power",
+      "image": "/assets/imagesPreview/2024-4-7_3.webp",
+      "date": "7 April 2024",
+      "series": "Splatoon Animations",
+      "episode": "6"
+    },
+    {
+      "id": "agents-infiltrating-mission",
+      "title": "Agent's Infiltrating Mission",
+      "image": "/assets/imagesPreview/2024-2-11_1.webp",
+      "date": "11 February 2024",
+      "series": "Splatoon Animations",
+      "episode": "5"
+    },
+    {
+      "id": "fireworks-festival",
+      "title": "Fireworks Festival",
+      "image": "/assets/imagesPreview/2023-12-31_2.webp",
+      "date": "31 December 2023",
+      "series": "Splatoon Animations",
+      "episode": "4"
+    },
+    {
+      "id": "doors",
+      "title": "DOORS",
+      "image": "/assets/imagesPreview/2023-12-3_1.webp",
+      "date": "3 December 2023",
+      "series": "Splatoon Animations",
+      "episode": "3"
+    },
+    {
+      "id": "the-spider",
+      "title": "The SPIDER",
+      "image": "/assets/imagesPreview/2023-10-30_1.webp",
+      "date": "30 October 2023",
+      "series": "Splatoon Animations",
+      "episode": "2"
+    },
+    {
+      "id": "agent-x-tries-your-weapons",
+      "title": "Agent X Tries YOUR Weapons",
+      "image": "/assets/imagesPreview/2023-9-10_1.webp",
+      "date": "10 September 2023",
+      "series": "Splatoon Animations",
+      "episode": "1"
+    }
+  ],
+
+  "storyArcs": [
+    {
+      "id": "power-trip",
+      "title": "Power Trip",
+      "image": "/assets/imagesPreview/2024-4-7_1.webp"
+    }
+  ],
+
+  "splatshorts": [
+    {
+      "id": "splatshorts-2023",
+      "title": "2023",
+      "image": "/assets/imagesPreview/2024-1-10_1.webp"
+    }
+  ]
+}

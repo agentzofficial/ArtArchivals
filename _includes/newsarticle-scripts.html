@@ -1,0 +1,121 @@
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const segments = location.pathname.split('/').filter(Boolean);
+    const pageId   = segments[segments.length - 1];
+
+    document.querySelectorAll('[data-auto-current-id]').forEach(el => {
+      el.setAttribute('data-current-id', pageId);
+    });
+  });
+</script>
+
+<script>
+  const BASE_URL    = "{{ site.baseurl | default: '' }}";
+  const dataPath    = "{{ '/assets/data/news.json' | relative_url }}";
+  const newsBaseUrl = "{{ '/news/' | relative_url }}";
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const segments = location.pathname.split('/').filter(Boolean);
+    const pageId   = segments[segments.length - 1];
+
+    document.querySelectorAll('[data-auto-current-id]').forEach(el => {
+      el.setAttribute('data-current-id', pageId);
+    });
+
+    const articleElem = document.querySelector('article.news-post');
+    const currentId   = articleElem?.getAttribute('data-current-id');
+    if (!currentId) {
+      console.error('Current ID not set on article element.');
+      return;
+    }
+
+    fetch(dataPath)
+      .then(r => r.json())
+      .then(newsArray => {
+        newsArray.sort((a, b) => new Date(b.date) - new Date(a.date));
+        const currentObj = newsArray.find(item => item.id === currentId);
+        if (!currentObj) {
+          console.error('No JSON entry found for ID:', currentId);
+          return;
+        }
+
+        document.getElementById('news-tag').innerText   = currentObj.tag;
+        document.getElementById('news-title').innerText = currentObj.title;
+
+        const d = new Date(currentObj.date);
+        const formatted = d.toLocaleDateString('en-GB', {
+          day:   'numeric',
+          month: 'long',
+          year:  'numeric'
+        });
+        document.getElementById('news-date').innerText = formatted;
+
+        const img = document.getElementById('news-image');
+        img.src = `${BASE_URL}${currentObj.thumbnail}`;
+        img.alt = currentObj.title + ' thumbnail';
+
+        document.title = currentObj.title + ' – agent z Art Archivals';
+
+        const idx       = newsArray.findIndex(item => item.id === currentId);
+        const newerItem = (idx > 0)               ? newsArray[idx - 1] : null;
+        const olderItem = (idx < newsArray.length - 1) ? newsArray[idx + 1] : null;
+
+        if (!newerItem && !olderItem) {
+          document.getElementById('next-up-wrapper').style.display = 'none';
+          return;
+        }
+
+        function makeNewsCard(item) {
+          const card = document.createElement('a');
+          card.href      = `${newsBaseUrl}${item.id}/`;
+          card.className = 'news-card';
+
+          const dateObj       = new Date(item.date);
+          const dateFormatted = dateObj.toLocaleDateString('en-GB', {
+            day:   'numeric',
+            month: 'long',
+            year:  'numeric'
+          });
+
+          card.innerHTML = `
+            <img src="${BASE_URL}${item.thumbnail}" alt="${item.title}" class="news-thumb"/>
+            <span class="news-tag">${item.tag}</span>
+            <h3 class="news-title">${item.title}</h3>
+            <time class="news-date">${dateFormatted}</time>
+          `;
+          return card;
+        }
+
+        const container = document.getElementById('next-up-container');
+        if (newerItem) container.appendChild(makeNewsCard(newerItem));
+        if (olderItem) container.appendChild(makeNewsCard(olderItem));
+      })
+      .catch(err => {
+        console.error('Error loading news.json:', err);
+        document.getElementById('next-up-wrapper').style.display = 'none';
+      });
+  });
+</script>
+
+<script>
+  function shrinkDialogueIfNeeded() {
+    if (
+      window.innerWidth <= 480 &&
+      window.matchMedia("(orientation: portrait)").matches
+    ) {
+      document.querySelectorAll(".dialogue-text").forEach(el => {
+        let style = window.getComputedStyle(el);
+        let fontSizePx = parseFloat(style.fontSize);
+        const containerHeight = el.clientHeight;
+        while (el.scrollHeight > containerHeight && fontSizePx > 8) {
+          fontSizePx -= 1;
+          el.style.fontSize = fontSizePx + "px";
+        }
+      });
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", shrinkDialogueIfNeeded);
+  window.addEventListener("resize", shrinkDialogueIfNeeded);
+  window.matchMedia("(orientation: portrait)").addEventListener("change", shrinkDialogueIfNeeded);
+</script>

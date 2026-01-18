@@ -1,0 +1,68 @@
+{
+  "videos": [
+    {
+      "title": "Delayed to Oblivion – 'The Perfect Present' Retrospective",
+      "image": "/assets/imagesMemberships/videos/p_retrospective-TPP.webp",
+      "date": "2025-11-12",
+      "description": "The Splatoon Animation 'The Perfect Present' is infamous for initially being a Christmas 2024 release, until it was delayed to March 2025. This retrospective goes in depth on the reason for the prologned delays and what was occuring internally during production. agent z also goes over ideas and scenes that were scrapped in the final episode, as well as explain the format of 'Fan Character Videos' and how characters are actually chosen to appear internally.",
+      "tier": "purple"
+    },
+    {
+      "title": "agent z Unreleased Content (2023 - 2025)",
+      "image": "/assets/imagesMemberships/videos/p_unreleased-content.webp",
+      "date": "2025-09-07",
+      "description": "agent z goes over videos that were scrapped or removed before they were released. The reasoning for each of these videos being unreleased is explained, as well as briefly going over videos that were almost scrapped but remain on the agent z YouTube Channel.",
+      "tier": "purple"
+    },
+    {
+      "title": "Sunrise Skirmish (All Variants) ~ agent z Music",
+      "image": "/assets/imagesMemberships/videos/p_sunrise-skirmish.webp",
+      "date": "2025-08-29",
+      "description": "'Sunrise Skirmish' is an original music track that plays in 'Stories of the Agents', as well as other variants in 'Battle of Inkopolis Square'. This video includes these versions of the music track that plays in these episodes from their original files and without sound effects, as well as an unused music track.",
+      "tier": "purple"
+    },
+    {
+      "title": "Software I Use and their Basics – agent z Tutorial",
+      "image": "/assets/imagesMemberships/videos/b_tutorial-software-i-use-and-their-basics.webp",
+      "date": "2025-09-20",
+      "description": "This tutorial goes over the general software you will need to make Splatoon Animations, as well as the ones agent z uses specifically. agent z also briefly goes over how to use each software application and common problems you may face.",
+      "tier": "blue"
+    }
+  ],
+  "posts": {
+    "2025-12": [
+      { "type": "update", "date": "2025-12-03" },
+      { "type": "update", "date": "2025-12-07" },
+      { "type": "update", "date": "2025-12-12" },
+      { "type": "update", "date": "2025-12-13" },
+      { "type": "update", "date": "2025-12-16" },
+      { "type": "screenshot", "date": "2025-12-18" },
+      { "type": "screenshot", "date": "2025-12-21" },
+      { "type": "screenshot", "date": "2025-12-24" },
+      { "type": "update", "date": "2025-12-26" }
+    ],
+    "2025-11": [
+      { "type": "update", "date": "2025-11-01" },
+      { "type": "vote", "date": "2025-11-06" },
+      { "type": "update", "date": "2025-11-07" },
+      { "type": "update", "date": "2025-11-10" },
+      { "type": "vote", "date": "2025-11-11" },
+      { "type": "vote", "date": "2025-11-23" },
+      { "type": "vote", "date": "2025-11-28" }
+    ],
+    "2025-10": [
+      { "type": "update", "date": "2025-10-13" },
+      { "type": "vote", "date": "2025-10-24" },
+      { "type": "vote", "date": "2025-10-24" },
+      { "type": "update", "date": "2025-10-30" }
+    ],
+    "2025-09": [
+      { "type": "screenshot", "date": "2025-09-01" },
+      { "type": "screenshot", "date": "2025-09-09" },
+      { "type": "update", "date": "2025-09-20" },
+      { "type": "screenshot", "date": "2025-09-22" },
+      { "type": "screenshot", "date": "2025-09-26" },
+      { "type": "bonus content", "date": "2025-09-28" }
+    ]
+  }
+}

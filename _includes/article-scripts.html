@@ -1,0 +1,144 @@
+<script>
+(function() {
+  document.addEventListener('DOMContentLoaded', async () => {
+    const zoomModal = document.getElementById('zoomModal');
+    const zoomOverlay = document.querySelector('.zoom-overlay');
+    const zoomContent = document.querySelector('.zoom-content');
+    const zoomImage = document.getElementById('zoomImage');
+    const zoomTitle = document.getElementById('zoomTitle');
+    const zoomCredit = document.getElementById('zoomCredit');
+    const imageContainer = document.querySelector('.zoom-image-container');
+
+    if (!zoomModal || !zoomOverlay || !zoomContent || !zoomImage || !imageContainer) return;
+
+    let scale = 1, minScale = 1, maxScale = 6;
+    let posX = 0, posY = 0, dragging = false, lastX = 0, lastY = 0;
+    let touchStartDist = 0, touchMid = null;
+
+    const applyTransform = () => {
+      zoomImage.style.transform = `translate(calc(-50% + ${posX}px), calc(-50% + ${posY}px)) scale(${scale})`;
+    };
+
+    const closeModal = () => {
+      zoomModal.classList.remove('open');
+      scale = minScale; posX = 0; posY = 0;
+      applyTransform();
+    };
+
+    zoomModal.addEventListener('click', e => {
+      if (!zoomModal.classList.contains('open')) return;
+      if (!zoomContent.contains(e.target)) closeModal();
+    });
+    window.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    const response = await fetch('/assets/data/images.json');
+    const images = await response.json();
+
+    document.querySelectorAll('.zoom-trigger').forEach(el => {
+      el.addEventListener('click', () => {
+        const id = el.dataset.id;
+        const data = images.find(img => img.id === id);
+        if (!data) return;
+
+        zoomTitle.textContent = data.title || '';
+        zoomCredit.innerHTML = data.credit || '';
+        zoomImage.src = data.src || '';
+
+        zoomImage.onload = () => {
+          const rect = imageContainer.getBoundingClientRect();
+          const fitScale = Math.min(rect.width / zoomImage.naturalWidth, rect.height / zoomImage.naturalHeight);
+          minScale = fitScale;
+          scale = fitScale;
+          posX = 0; posY = 0;
+          applyTransform();
+        };
+
+        zoomModal.classList.add('open');
+      });
+    });
+
+    imageContainer.addEventListener('mousedown', e => {
+      if (!zoomModal.classList.contains('open')) return;
+      dragging = true; lastX = e.clientX; lastY = e.clientY;
+      imageContainer.style.cursor = 'grabbing';
+    });
+
+    window.addEventListener('mouseup', () => {
+      dragging = false; imageContainer.style.cursor = 'grab';
+    });
+
+    window.addEventListener('mousemove', e => {
+      if (!dragging) return;
+      const dx = e.clientX - lastX;
+      const dy = e.clientY - lastY;
+      lastX = e.clientX; lastY = e.clientY;
+      posX += dx; posY += dy;
+      applyTransform();
+    });
+
+    zoomModal.addEventListener('wheel', e => {
+      if (!zoomModal.classList.contains('open')) return;
+      e.preventDefault();
+
+      const delta = -e.deltaY || -e.wheelDelta;
+      const factor = 1 + delta * 0.0015;
+      const prevScale = scale;
+      scale = Math.min(maxScale, Math.max(minScale, scale * factor));
+
+      const rect = imageContainer.getBoundingClientRect();
+      const cx = e.clientX - rect.left - rect.width / 2;
+      const cy = e.clientY - rect.top - rect.height / 2;
+      const sDelta = scale - prevScale;
+      posX -= cx * sDelta / scale;
+      posY -= cy * sDelta / scale;
+
+      applyTransform();
+    }, { passive: false });
+
+    // Touch events
+    imageContainer.addEventListener('touchstart', e => {
+      if (!zoomModal.classList.contains('open')) return;
+      if (e.touches.length === 1) {
+        dragging = true;
+        lastX = e.touches[0].clientX;
+        lastY = e.touches[0].clientY;
+      } else if (e.touches.length === 2) {
+        dragging = false;
+        const [a, b] = e.touches;
+        touchStartDist = Math.hypot(b.clientX - a.clientX, b.clientY - a.clientY);
+        touchMid = { x: (a.clientX + b.clientX) / 2, y: (a.clientY + b.clientY) / 2 };
+      }
+    }, { passive: true });
+
+    imageContainer.addEventListener('touchmove', e => {
+      if (!zoomModal.classList.contains('open')) return;
+      if (e.touches.length === 1 && dragging) {
+        const t = e.touches[0];
+        const dx = t.clientX - lastX;
+        const dy = t.clientY - lastY;
+        lastX = t.clientX; lastY = t.clientY;
+        posX += dx; posY += dy;
+        applyTransform();
+      } else if (e.touches.length === 2) {
+        const [a, b] = e.touches;
+        const dist = Math.hypot(b.clientX - a.clientX, b.clientY - a.clientY);
+        if (touchStartDist > 0) {
+          const factor = dist / touchStartDist;
+          const prevScale = scale;
+          scale = Math.min(maxScale, Math.max(minScale, scale * factor));
+
+          const rect = imageContainer.getBoundingClientRect();
+          const cx = touchMid.x - rect.left - rect.width / 2;
+          const cy = touchMid.y - rect.top - rect.height / 2;
+          const sDelta = scale - prevScale;
+          posX -= cx * sDelta / scale;
+          posY -= cy * sDelta / scale;
+          applyTransform();
+        }
+        touchStartDist = dist;
+      }
+      e.preventDefault();
+    }, { passive: false });
+  });
+})();
+</script>
