@@ -1,7 +1,7 @@
 ---
 layout: default
 title: agent z Memberships
-permalink: /memberships
+permalink: /memberships/
 ---
 
 <div class="homepage-logo">
