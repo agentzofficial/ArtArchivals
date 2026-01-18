@@ -1,7 +1,7 @@
 ---
 layout: default
 title: agent z Art Contest
-permalink: /versus/agent_z_art_contest
+permalink: /versus/agent_z_art_contest/
 page_type: articlePage
 ---
 
