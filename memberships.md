@@ -9,7 +9,7 @@ permalink: /memberships/
 </div>
 
 <div class="membership-header">
-  <h1>Become a Member of Agent Z!</h1>
+  <h1>Become a Member of agent z!</h1>
 </div>
 
 <!-- OVERVIEW BOXES -->
