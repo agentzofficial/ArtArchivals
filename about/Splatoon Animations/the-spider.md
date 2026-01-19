@@ -52,7 +52,7 @@ page_type: about
       <div class="caption">The 3,000 Subscriber Render with the spider in the background.</div>
     </div>
     <div class="gallery-item">
-      <img src="/assets/images/2025-08-15_1.png" alt="preview">
+      <img src="/assets/images/2025-08-14_1.png" alt="preview">
       <div class="caption">The 10,000 Subscriber Render, featuring the spider at the front.</div>
     </div>
   </div>
