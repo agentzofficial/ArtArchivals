@@ -33,7 +33,7 @@ page_type: about
   This episode continues from [Squid Game](/about/squid-game) the rivarly between Agent 3 and Agent X, with Agent 3 reading on books that relate to her actions done against Agent X.
 
   Other agent z Content would also reference this episode:
-  - The Super Toaster aquired in this episode is seen again and used against Neo Agent 3 in [The Countdown](/about/the-countdown).
+  - The Super Toaster acquired in this episode is seen again and used against Neo Agent 3 in [The Countdown](/about/the-countdown).
 
   <h2 id="trivia">Trivia</h2>
   - This episode implies the existance of books in unique materials, such as metal.
