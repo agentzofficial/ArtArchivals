@@ -63,7 +63,7 @@ page_type: about
       <div class="caption">Teaser</div>
     </div>
     <div class="gallery-item">
-      <img src="/assets/images/2025-08-15_1.png" alt="preview">
+      <img src="/assets/images/2025-08-14_1.png" alt="preview">
       <div class="caption">The 10,000 Subscriber Render, referencing Neo Agent 3 in a helicopter in the background.</div>
     </div>
   </div>
