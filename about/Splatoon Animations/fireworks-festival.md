@@ -53,7 +53,7 @@ page_type: about
       <div class="caption">The 2,000 Subscriber Render, featuring mortars for firing fireworks.</div>
     </div>
     <div class="gallery-item">
-      <img src="/assets/images/2025-08-15_1.png" alt="preview">
+      <img src="/assets/images/2025-08-14_1.png" alt="preview">
       <div class="caption">The 10,000 Subscriber Render, containing characters from Fireworks Festival, and specifically a direct reference with Agent 3.</div>
     </div>
   </div>
