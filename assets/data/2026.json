@@ -1,5 +1,32 @@
 [
     {
+        "variants": ["2026-03-26_1.png", "2026-03-26_2.png"],
+        "title": "Lucky Star!",
+        "description": "Agent Z posing to the camera in reference to a pose performed by character Kagami Hiiragi from the anime Lucky Star. It is currently used for all agent z Social Media profiles.",
+        "date": "26 March 2026",
+        "youtube": "https://www.youtube.com/post/Ugkxc8v7QZGf7VDEgs2H-n8jAWbm8lcVz0wE",
+        "twitter": "https://x.com/agentzofficial/status/2037142155563852279",
+        "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mhxhyeep2s2b",
+        "tags": ["Drawings", "Branding"]
+    },
+    {
+        "filename": "2026-03-21_1.png",
+        "title": "Computer Burnout",
+        "description": "A chibi depiction of Agent Z looking at a computer tower burning up. This was made to reference real world computer issues agent z  was facing, but the PC was fixed before it could be posted to the YouTube Community tab.",
+        "date": "21 March 2026",
+        "twitter": "https://x.com/agentzofficial/status/2035328883206258987",
+        "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mhkmzrciis22",
+        "tags": ["Drawings"]
+    },
+    {
+        "variants": ["2026-03-09_2.png", "2026-03-09_1.png", "2026-03-09_4.png", "2026-03-09_3.png"],
+        "title": "Celebrity Crush",
+        "description": "Video Thumbnail",
+        "date": "9 March 2026",
+        "youtube": "https://www.youtube.com/watch?v=awVr2eKUsnU",
+        "tags": ["Renders", "Thumbnails"]
+    },
+    {
         "filename": "2026-02-28_1.png",
         "title": "Vegetable Juice",
         "description": "Agent 8 posing with a bottle of vegetable juice.",
@@ -24,7 +51,7 @@
         "tags": ["Renders"]
     },
     {
-        "filename": "2026-01-31_1.png",
+        "variants": ["2026-02-01_2.png","2026-01-31_1.png", "2026-02-01_1.png"],
         "title": "Cooking Together",
         "description": "Video Thumbnail",
         "date": "1 February 2026",

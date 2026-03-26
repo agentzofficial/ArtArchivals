@@ -30,7 +30,7 @@ page_type: about
   "Timing THAT song's beat drop at 12am on New Year's Day!"
 
   <h2 id="legacy">Legacy</h2>
-  This episode is currently the most recent episode on the agent z YouTube Channel as of its release date. Its impact on future episodes is to be seen.
+  This episode has yet to receive any references in subsequent episodes.
 
   <h2 id="trivia">Trivia</h2>
   - This is the first Christmas special to not be a Fan Character video.

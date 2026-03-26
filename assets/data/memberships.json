@@ -1,6 +1,20 @@
 {
   "videos": [
     {
+      "title": "My Least Favorite Episode (So Far) – Retrospective",
+      "image": "/assets/imagesMemberships/videos/p_retrospective-dislike.webp",
+      "date": "2026-03-06",
+      "description": "An analysis of agent z's personal least favourite episode as of March 2026. This retrospective analyses the writing and decisions made during the episode and what caused it to be agent z's least favourite episode to re-watch as a video creator.",
+      "tier": "purple"
+    },
+    {
+      "title": "agent z in 2025 – Retrospective",
+      "image": "/assets/imagesMemberships/videos/p_retrospective-2025.webp",
+      "date": "2026-01-23",
+      "description": "An analysis on agent z, primarily the Splatoon Animation series, throughout 2025 from agent z's perspective. Each individual episode is briefly discussed, such as why agent z chose these video ideas or development on the episode, with some cut ideas and footage being shown. it is then summarised with agent z giving their overall opinions on 2025 as well as going over plans and projections for 2026.",
+      "tier": "purple"
+    },
+    {
       "title": "Delayed to Oblivion – 'The Perfect Present' Retrospective",
       "image": "/assets/imagesMemberships/videos/p_retrospective-TPP.webp",
       "date": "2025-11-12",
@@ -30,6 +44,16 @@
     }
   ],
   "posts": {
+    "2026-02": [
+      { "type": "update", "date": "2026-02-03" },
+      { "type": "vote", "date": "2026-02-05" },
+      { "type": "update", "date": "2026-02-07" },
+      { "type": "update", "date": "2026-02-10" },
+      { "type": "update", "date": "2026-02-12" },
+      { "type": "update", "date": "2026-02-18" },
+      { "type": "update", "date": "2026-02-20" },
+      { "type": "update", "date": "2026-02-27" }
+    ],
     "2026-01": [
       { "type": "update", "date": "2026-01-01" },
       { "type": "update", "date": "2026-01-05" },
