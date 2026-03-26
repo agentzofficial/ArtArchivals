@@ -52,7 +52,7 @@ page_type: about
   <h2 id="trivia">Trivia</h2>
   - This and the previous episode, [Battle of Inkopolis Square](/about/battle-of-inkopolis-square), were originally supposed to be one large episode to end the Power Trip Story Arc, but were split up due to prolonged delays.
   - This is the first episode to feature an original soundtrack produced in-universe by Agent X, called "Sunrise Skirmish". It's also revealed in the OST release that Agent Z also helped with composing.
-  - This is the first and currently the only episode to not feature Neo Agent 3. She does technically appear among the debris in Inkopolis Square, but is unconscious.
+  - This is the first episode to not feature Neo Agent 3. She does technically appear among the debris in Inkopolis Square, but is unconscious and has no role in this episode.
   - This is also the first episode to not include Agent 8 in any physical capacity. She is also barely visible in the debris unconscious, and is mentioned by Agent 3 during a flashback.
 
   <h2 id="gallery">Gallery</h2>
