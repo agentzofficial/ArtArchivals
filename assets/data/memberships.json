@@ -1,6 +1,13 @@
 {
   "videos": [
     {
+      "title": "All VOCALOID References in 'Celebrity Crush' – Retrospective",
+      "image": "/assets/imagesMemberships/videos/p_retrospective-CC1.webp",
+      "date": "2026-04-01",
+      "description": "The Splatoon Animation, 'Celebrity Crush', primarily features content from the 'VOCALOIDs', a voice synthesizer software featuring voicebanks that can be used for singing in music, featuring popular virtual singers such as Hatsune Miku. This Retrospective goes over all intended references to VOCALOID and other voice synthesizer programs such as Synthesizer V and UTAU in the episode and content released prior to the episode's release.",
+      "tier": "purple"
+    },
+    {
       "title": "My Least Favorite Episode (So Far) – Retrospective",
       "image": "/assets/imagesMemberships/videos/p_retrospective-dislike.webp",
       "date": "2026-03-06",
@@ -44,6 +51,14 @@
     }
   ],
   "posts": {
+    "2026-03": [
+      { "type": "update", "date": "2026-03-04" },
+      { "type": "update", "date": "2026-03-12" },
+      { "type": "update", "date": "2026-03-18" },
+      { "type": "update", "date": "2026-03-22" },
+      { "type": "screenshot", "date": "2026-03-27" },
+      { "type": "update", "date": "2026-03-31" }
+    ],
     "2026-02": [
       { "type": "update", "date": "2026-02-03" },
       { "type": "vote", "date": "2026-02-05" },
