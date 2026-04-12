@@ -34,7 +34,7 @@ page_type: about
 
   <h2 id="trivia">Trivia</h2>
   - This is the first Christmas special to not be a Fan Character video.
-  - This episode marks the shortest gap between episodes with an only 2 week wait since [Enter Super Mario 64](/about/enter-super-mario-64) released on the 14th of December.
+  - This episode marks the shortest gap between episodes with an only 2 week wait since [Enter SM64](/about/enter-sm64) released on the 14th of December.
 
   <h2 id="gallery">Gallery</h2>
   <div class="event-gallery">

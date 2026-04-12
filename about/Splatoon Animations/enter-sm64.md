@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Enter Super Mario 64
-permalink: /about/enter-super-mario-64/
+title: Enter SM64
+permalink: /about/enter-sm64/
 page_type: about
 ---
 <div class="about-banner">
@@ -12,7 +12,7 @@ page_type: about
 
   <div class="infobox" id="infobox"></div>
 
-  **Enter Super Mario 64** is the sixteenth episode of the Splatoon Animation series.
+  **Enter SM64** is the sixteenth episode of the Splatoon Animation series.
 
   It was released on the 14th of December, 2025.
 
