@@ -30,7 +30,8 @@ page_type: about
   "Agent 3 tries to cook herself some food to eat. What could go wrong?"
 
   <h2 id="legacy">Legacy</h2>
-  This episode is currently the most recent episode available on the agent z Official Website. The next episode will be given a page once the episode after it is released.
+  The episode sees the following references in future episodes:
+  - [Celebrity Crush](/about/celebrity-crush) – Agent 3 can be seen riding a bike, referencing a joke in this episode.
 
   <h2 id="trivia">Trivia</h2>
   - This episode marks the earliest release of the first episode in a year, with 2024's first episode [Agent's Infiltrating Mission](/about/agents-infiltrating-mission) releasing on the 11th of February and 2025's first episode [The Perfect Present](/about/the-perfect-present) releasing on the 30th of March.

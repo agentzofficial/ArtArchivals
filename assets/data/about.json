@@ -1,6 +1,14 @@
 {
   "splatoonAnimations": [
     {
+      "id": "celebrity-crush",
+      "title": "Celebrity Crush",
+      "image": "/assets/imagesPreview/2026-03-09_2.webp",
+      "date": "9 March 2026",
+      "series": "Splatoon Animations",
+      "episode": "19"
+    },
+    {
       "id": "cooking-together",
       "title": "Cooking Together",
       "image": "/assets/imagesPreview/2026-02-01_2.webp",
@@ -17,8 +25,8 @@
       "episode": "17"
     },
     {
-      "id": "enter-super-mario-64",
-      "title": "Enter Super Mario 64",
+      "id": "enter-sm64",
+      "title": "Enter SM64",
       "image": "/assets/imagesPreview/2025-12-13_3.webp",
       "date": "14 December 2025",
       "series": "Splatoon Animations",

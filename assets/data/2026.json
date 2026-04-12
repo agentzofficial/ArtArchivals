@@ -1,11 +1,27 @@
 [
     {
+        "variants": ["2026-04-11_1.png", "2026-04-11_2.png", "2026-04-11_3.png"],
+        "title": "Lost Phone",
+        "description": "Video Thumbnail",
+        "date": "11 April 2026",
+        "youtube": "https://www.youtube.com/watch?v=8C_3uGwwvHw",
+        "tags": ["Renders", "Thumbnails"]
+    },
+    {
+        "filename": "2026-04-10_1.png",
+        "title": "A Drink Before The Match",
+        "description": "Render teasing the Splatoon Animation 'Lost Phone'.",
+        "date": "10 April 2026",
+        "youtube": "https://www.youtube.com/post/UgkxRNYlPIpmPc4pbyW6B7_z-zNmpRNR1Xw4",
+        "tags": ["Renders", "Sneak Peaks"]
+    },
+    {
         "filename": "2026-04-03_1.png",
         "title": "Looking for Something?",
-        "description": "Agent Z presumably looking for something on the floor.",
+        "description": "Render teasing the Splatoon Animation 'Lost Phone'.",
         "date": "03 April 2026",
         "youtube": "https://www.youtube.com/post/UgkxkUfHNookvpZqJ83FyMEhsKDg7rg-8yDM",
-        "tags": ["Renders"]
+        "tags": ["Renders", "Sneak Peaks"]
     },
     {
         "filename": "2026-03-27_1.png",
