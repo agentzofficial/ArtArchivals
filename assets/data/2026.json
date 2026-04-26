@@ -1,5 +1,31 @@
 [
     {
+        "filename": "2026-04-25_1.png",
+        "title": "A Once Bright Place",
+        "description": "Render teasing an unreleased Splatoon Animation.",
+        "date": "25 April 2026",
+        "youtube": "https://www.youtube.com/post/Ugkx4RdfKhJIudl9znqNSgbk1x8HbA148lgo",
+        "tags": ["Renders", "Sneak Peaks"]
+    },
+    {
+        "variants": ["2026-04-21_1.png", "2026-04-21_2.png"],
+        "title": "For Times Like This",
+        "description": "A meme referencing the joy over Splatoon Raiders's release date being suddenly announced.",
+        "date": "21 April 2026",
+        "youtube": "https://www.youtube.com/post/UgkxAzR9FJ8IhzZwJbyNMLiWQPH5zQsFzHuM",
+        "twitter": "https://x.com/agentzofficial/status/2046585910524051703",
+        "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mjz5bfmld225",
+        "tags": ["Renders"]
+    },
+    {
+        "filename": "2026-04-18_1.png",
+        "title": "Fallen Square",
+        "description": "Render teasing an unreleased Splatoon Animation.",
+        "date": "18 April 2026",
+        "youtube": "https://www.youtube.com/post/UgkxbHhoMYhG38IlGZGTUHFJaYoGbFUy_f2E",
+        "tags": ["Renders", "Sneak Peaks"]
+    },
+    {
         "variants": ["2026-04-11_1.png", "2026-04-11_2.png", "2026-04-11_3.png"],
         "title": "Lost Phone",
         "description": "Video Thumbnail",
