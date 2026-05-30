@@ -30,7 +30,7 @@ page_type: about
   "If a bunch of flowers dressed up with words can steal ones heart, are they real? feat. Hatsune Miku"
 
   <h2 id="legacy">Legacy</h2>
-  This episode is currently the most recent episode available on the agent z Official Website. The next episode will be given a page once the episode after it is released.
+  This episode has yet to receive any references in subsequent episodes.
 
   <h2 id="trivia">Trivia</h2>
   - The episode features so many references to Vocaloid songs that a seperate Retrospective exclusive to an agent z YouTube Membership made for the episode is longer than the episode itself, being about a full minute longer.

@@ -1,6 +1,14 @@
 {
   "splatoonAnimations": [
     {
+      "id": "lost-phone",
+      "title": "Lost Phone",
+      "image": "/assets/imagesPreview/2026-04-11_1.webp",
+      "date": "11 April 2026",
+      "series": "Splatoon Animations",
+      "episode": "20"
+    },
+    {
       "id": "celebrity-crush",
       "title": "Celebrity Crush",
       "image": "/assets/imagesPreview/2026-03-09_2.webp",
