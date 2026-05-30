@@ -15,7 +15,7 @@ data_key: lost-phone
 
   **Lost Phone** is the twentieth episode of the Splatoon Animation series.
 
-  It was released on the 3rd of May, 2023.
+  It was released on the 11th of April, 2026.
 
   <h3>Table of Contents</h3>
   <div class="toc-embed" id="toc">
