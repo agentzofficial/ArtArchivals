@@ -1,8 +1,62 @@
 [
     {
+        "filename": "2026-05-26_1.png",
+        "title": "Morning Scroll",
+        "description": "Render teasing an unreleased Splatoon Animation.",
+        "date": "26 May 2026",
+        "youtube": "https://www.youtube.com/post/Ugkx6IYi_QhetYFlaJXwzEhSbpbA-Bkrs6i1",
+        "twitter": "https://x.com/agentzofficial/status/2060023437356388782",
+        "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mmweandws22h",
+        "tags": ["Renders", "Sneak Peaks"]
+    },
+    {
+        "filename": "2026-05-23_1.png",
+        "title": "Me Before Sleeping",
+        "description": "A drawn depiction of Agent Z using her phone before sleeping.",
+        "date": "23 May 2026",
+        "twitter": "https://x.com/agentzofficial/status/2058157929212371298",
+        "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mmjfvncxgk2z",
+        "tags": ["Drawings"]
+    },
+    {
+        "filename": "2026-05-09_1.png",
+        "title": "SEWER SHOWDOWN",
+        "description": "Promotional render for the Splatoon Animation 'The Sewer Monster'.",
+        "date": "9 May 2026",
+        "youtube": "https://www.youtube.com/post/UgkxfJfpnMnObf_WqDial83o_2AE1VwlexGq",
+        "twitter": "https://x.com/agentzofficial/status/2053091752584868085",
+        "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mlgb4l2ts22u",
+        "tags": ["Renders"]
+    },
+    {
+        "filename": "2026-05-08_1.png",
+        "title": "#agentzfanart Announcement",
+        "description": "A drawing announcing an official hashtag that can be used to help agent z find fan art.",
+        "date": "8 May 2026",
+        "twitter": "https://x.com/agentzofficial/status/2052756465858003381",
+        "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mldwdgmwkk2x",
+        "tags": ["Drawings"]
+    },
+    {
+        "filename": "2026-05-07_1.png",
+        "title": "What Lies Underground",
+        "description": "Promotional render for the Splatoon Animation 'The Sewer Monster'.",
+        "date": "5 May 2026",
+        "youtube": "https://www.youtube.com/post/UgkxsudgVtVbt0gVlzcKkmqNc1ycYn1SpJQw",
+        "tags": ["Renders"]
+    },
+    {
+        "variants": ["2026-05-03_1.png", "2026-05-03_2.png"],
+        "title": "The Sewer Monster",
+        "description": "Video Thumbnail",
+        "date": "3 May 2026",
+        "youtube": "https://www.youtube.com/watch?v=iiv3fbtraqM",
+        "tags": ["Renders", "Thumbnails"]
+    },
+    {
         "filename": "2026-04-25_1.png",
         "title": "A Once Bright Place",
-        "description": "Render teasing an unreleased Splatoon Animation.",
+        "description": "Render teasing the Splatoon Animation 'The Sewer Monster'.",
         "date": "25 April 2026",
         "youtube": "https://www.youtube.com/post/Ugkx4RdfKhJIudl9znqNSgbk1x8HbA148lgo",
         "tags": ["Renders", "Sneak Peaks"]
@@ -88,10 +142,10 @@
     {
         "filename": "2026-02-28_1.png",
         "title": "Vegetable Juice",
-        "description": "Agent 8 posing with a bottle of vegetable juice.",
+        "description": "Render teasing the Splatoon Animation 'Celebrity Crush'.",
         "date": "28 February 2026",
         "youtube": "https://www.youtube.com/post/UgkxXRLutrg7XwGPJyECq-XbScxKhE1BZmc7",
-        "tags": ["Renders"]
+        "tags": ["Renders", "Sneak Peaks"]
     },
     {
         "variants": ["2026-02-11_1.png", "2026-02-11_2.png"],
