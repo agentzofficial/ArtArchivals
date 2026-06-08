@@ -1,6 +1,13 @@
 {
   "videos": [
     {
+      "title": "Forced Deadlines – Retrospective",
+      "image": "/assets/imagesMemberships/videos/p_retrospective-forced-deadlines.webp",
+      "date": "2026-06-03",
+      "description": "Every episode has a deadline, and usually when I miss a deadline and are forced to push an episode back, I am usually freely able to delay an episode by a few hours or days. However, some episodes I don't have such liberty with, and missing a deadline can have much more consequences than simply pushing an episode back a few days. This retrospective goes over a few episodes that had harsh deadlines that I couldn't miss, otherwise the agent z YouTube Channel would face harsh consequences.",
+      "tier": "purple"
+    },
+    {
       "title": "All VOCALOID References in 'Celebrity Crush' – Retrospective",
       "image": "/assets/imagesMemberships/videos/p_retrospective-CC1.webp",
       "date": "2026-04-01",
