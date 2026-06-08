@@ -1,6 +1,22 @@
 {
   "splatoonAnimations": [
     {
+      "id": "locked-out",
+      "title": "Locked Out",
+      "image": "/assets/imagesPreview/2026-06-06_2.webp",
+      "date": "6 June 2026",
+      "series": "Splatoon Animations",
+      "episode": "22"
+    },
+    {
+      "id": "the-sewer-monster",
+      "title": "The Sewer Monster",
+      "image": "/assets/imagesPreview/2026-05-03_1.webp",
+      "date": "3 May 2026",
+      "series": "Splatoon Animations",
+      "episode": "21"
+    },
+    {
       "id": "lost-phone",
       "title": "Lost Phone",
       "image": "/assets/imagesPreview/2026-04-11_1.webp",
