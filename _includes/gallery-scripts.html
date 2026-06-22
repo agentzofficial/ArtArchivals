@@ -1,31 +1,343 @@
 <script>
     let currentIndex = 0,
         artData = [],
-        includeTags = new Set(),
-        excludeTags = new Set(),
         modalLoadVersion = 0,
         filteredIndices = [],
         currentPage = 1,
-        itemsPerPage = 30;
-  
-    const TAG_ORDER = [
-      "Renders",
-      "Drawings",
-      "Screenshots",
-      "Thumbnails",
-      "Sneak Peaks",
-      "Specials",
-      "Branding",
-    ];
-  
-    function matchesFilter(tags = []) {
-      for (let t of excludeTags) if (tags.includes(t)) return false;
-      if (includeTags.size) {
-        for (let t of includeTags) if (tags.includes(t)) return true;
-        return false;
-      }
-      return true;
+        itemsPerPage = 30,
+        selectedFilters = {
+          type: new Set(),
+          characters: new Set(),
+          misc: new Set(),
+        }
+        exactCharacterMatch = false;
+    
+    let pendingFilters = {
+      type: new Set(),
+      characters: new Set(),
+      misc: new Set()
+    };
+
+  function matchesFilter(item) {
+    const tags = item.tags || [];
+    const characters = item.characters || [];
+
+    if (selectedFilters.type.size > 0) {
+      let typeMatch = false;
+
+      if (
+        selectedFilters.type.has("Renders") &&
+        tags.includes("Renders")
+      ) typeMatch = true;
+
+      if (
+        selectedFilters.type.has("Drawings") &&
+        tags.includes("Drawings")
+      ) typeMatch = true;
+
+      if (
+        selectedFilters.type.has("Other") &&
+        tags.includes("Other")
+      ) typeMatch = true;
+
+      if (!typeMatch) return false;
     }
+
+    if (selectedFilters.characters.size > 0) {
+      const selected = [...selectedFilters.characters];
+
+      if (exactCharacterMatch) {
+        const itemSet = new Set(characters);
+
+        const allowedSet = new Set(selected);
+
+        const sameSize = itemSet.size === allowedSet.size;
+        const allMatch = [...itemSet].every(c => allowedSet.has(c));
+
+        if (!sameSize || !allMatch) return false;
+      } else {
+        const charMatch = selected.every(c => characters.includes(c));
+        if (!charMatch) return false;
+      }
+    }
+
+    if (selectedFilters.misc.size > 0) {
+      const miscMatch = [...selectedFilters.misc]
+        .every(m => tags.includes(m));
+
+      if (!miscMatch) return false;
+    }
+
+    return true;
+  }
+
+  function getCharacterCount(character) {
+    return artData.filter(item =>
+      (item.characters || [])
+        .includes(character)
+    ).length;
+  }
+
+  function getTagCount(tag) {
+    return artData.filter(item =>
+      (item.tags || []).includes(tag)
+    ).length;
+  }
+
+  const FILTER_TYPES = [
+  "Renders",
+  "Drawings",
+  "Other"
+];
+
+  const FILTER_MISC = [
+    {
+      id: "Star Renders",
+      label: "Star Renders",
+      info: "Shows the highest quality renders for each year."
+    },
+    {
+      id: "Splatoon Animation Renders",
+      label: "Splatoon Animation Renders",
+      info: "Show renders related to the main Splatoon Animation Series."
+    }
+  ];
+
+
+  function buildFilterMenu() {
+    const infoBox = document.getElementById("filter-info-box");
+
+    function setInfo(text) {
+      if (!infoBox) return;
+      infoBox.textContent = text;
+    }
+    const typeContainer =
+      document.getElementById("type-filters");
+    const characterContainer =
+      document.getElementById("character-filters");
+    const miscContainer =
+      document.getElementById("misc-filters");
+
+    typeContainer.innerHTML = "";
+    characterContainer.innerHTML = "";
+    miscContainer.innerHTML = "";
+
+    FILTER_TYPES.forEach(type => {
+      const label = document.createElement("label");
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.dataset.type = type;
+      const nameSpan = document.createElement("span");
+      nameSpan.textContent = type;
+
+      const countSpan = document.createElement("span");
+      countSpan.className = "filter-count";
+      countSpan.textContent = ` (${getTagCount(type)})`;
+      const infoText =
+        type === "Renders"
+          ? "Show 3D rendered artwork images."
+          : type === "Drawings"
+            ? "Show drawn/illustrated artwork."
+            : "Show uncategorised images such as screenshots or iconography.";
+      label.appendChild(input);
+      label.appendChild(nameSpan);
+      label.appendChild(countSpan);
+      label.addEventListener("mouseenter", () => {
+        setInfo(infoText);
+      });
+      label.addEventListener("mouseleave", () => {
+        if (!input.checked) {
+          setInfo("Select a filter to see info");
+        }
+      });
+      input.addEventListener("change", () => {
+        if (input.checked) {
+          setInfo(infoText);
+        }
+      });
+      typeContainer.appendChild(label);
+    });
+
+    const PRIORITY_CHARACTERS = [
+      "Agent Z",
+      "Agent X",
+      "Agent 3",
+      "Agent 8",
+      "Neo Agent 3"
+    ];
+
+    const allCharacters = getAllCharacters();
+
+    const priorityChars = PRIORITY_CHARACTERS.filter(c => allCharacters.includes(c));
+
+    const otherChars = allCharacters
+      .filter(c => !PRIORITY_CHARACTERS.includes(c))
+      .sort((a, b) => a.localeCompare(b));
+
+    function renderCharacterGroup(list) {
+      list.forEach(character => {
+        const label = document.createElement("label");
+        const input = document.createElement("input");
+        input.type = "checkbox";
+        input.dataset.character = character;
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = character;
+
+        const countSpan = document.createElement("span");
+        countSpan.className = "filter-count";
+        countSpan.textContent = ` (${getCharacterCount(character)})`;
+
+        label.appendChild(input);
+        label.appendChild(nameSpan);
+        label.appendChild(countSpan);
+        const infoText = `Show renders featuring ${character}.`;
+        label.addEventListener("mouseenter", () => {
+          setInfo(infoText);
+        });
+        label.addEventListener("mouseleave", () => {
+          if (!input.checked) {
+            setInfo("Select a filter to see info");
+          }
+        });
+        input.addEventListener("change", () => {
+          if (input.checked) {
+            setInfo(infoText);
+          }
+        });
+        characterContainer.appendChild(label);
+      });
+    }
+
+    renderCharacterGroup(priorityChars);
+
+    if (priorityChars.length && otherChars.length) {
+      const divider = document.createElement("div");
+      divider.className = "filter-divider";
+      characterContainer.appendChild(divider);
+    }
+
+    renderCharacterGroup(otherChars);
+
+    FILTER_MISC.forEach(misc => {
+      const label = document.createElement("label");
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.dataset.misc = misc.id;
+      const nameSpan = document.createElement("span");
+      nameSpan.textContent = misc.label;
+
+      const countSpan = document.createElement("span");
+      countSpan.className = "filter-count";
+      countSpan.textContent = ` (${getTagCount(misc.id)})`;
+
+      label.appendChild(input);
+      label.appendChild(nameSpan);
+      label.appendChild(countSpan);
+      const infoText = misc.info;
+      label.addEventListener("mouseenter", () => {
+        setInfo(infoText);
+      });
+      label.addEventListener("mouseleave", () => {
+        if (!input.checked) {
+          setInfo("Select a filter to see info");
+        }
+      });
+      input.addEventListener("change", () => {
+        if (input.checked) {
+          setInfo(infoText);
+        }
+      });
+      miscContainer.appendChild(label);
+    });
+  
+    document
+    .querySelectorAll('#filters-modal input[type="checkbox"]')
+    .forEach(box => {
+      box.addEventListener("change", updateLiveSelectedCount);
+    });
+
+    updateLiveSelectedCount();
+  }
+
+  function initializeFilterMenu() {
+    const button =
+      document.getElementById("filters-button");
+    const modal =
+      document.getElementById("filters-modal");
+    button.addEventListener("click", () => {
+      modal.classList.remove("hidden");
+    });
+    const closeButton =
+      document.getElementById("close-filters");
+
+    closeButton.addEventListener("click", () => {
+      modal.classList.add("hidden");
+    });
+      modal.addEventListener("click", (e) => {
+
+      if (e.target === modal) {
+        modal.classList.add("hidden");
+      }
+
+    });
+  }
+
+  function applyFilters() {
+    exactCharacterMatch = document.getElementById("exact-character-match").checked;
+
+    pendingFilters.type =
+      new Set();
+    pendingFilters.characters =
+      new Set();
+    pendingFilters.misc =
+      new Set();
+
+    document
+      .querySelectorAll(
+        '#type-filters input[type="checkbox"]'
+      )
+      .forEach(box => {
+        if (box.checked) {
+          pendingFilters.type.add(
+            box.dataset.type
+          );
+        }
+      });
+
+    document
+      .querySelectorAll(
+        '#character-filters input[type="checkbox"]'
+      )
+      .forEach(box => {
+        if (box.checked) {
+          pendingFilters.characters.add(
+            box.dataset.character
+          );
+        }
+      });
+
+    document
+      .querySelectorAll(
+        '#misc-filters input[type="checkbox"]'
+      )
+      .forEach(box => {
+        if (box.checked) {
+          pendingFilters.misc.add(
+            box.dataset.misc
+          );
+        }
+      });
+    selectedFilters = {
+      type: new Set(pendingFilters.type),
+      characters: new Set(pendingFilters.characters),
+      misc: new Set(pendingFilters.misc)
+    };
+    currentPage = 1;
+    renderGallery();
+    document
+      .getElementById("filters-modal")
+      .classList.add("hidden");
+  }
   
     const filterBar = document.getElementById("filter-bar");
     const gallery = document.getElementById("gallery");
@@ -119,6 +431,86 @@
       container.appendChild(next);
     }
 
+  function updateLiveSelectedCount() {
+    const exactCharacterMatch =
+      document.getElementById("exact-character-match")?.checked || false;
+    const tempFilters = {
+      type: new Set(),
+      characters: new Set(),
+      misc: new Set()
+    };
+
+    document.querySelectorAll('#type-filters input[type="checkbox"]').forEach(box => {
+      if (box.checked) tempFilters.type.add(box.dataset.type);
+    });
+    document.querySelectorAll('#character-filters input[type="checkbox"]').forEach(box => {
+      if (box.checked) tempFilters.characters.add(box.dataset.character);
+    });
+    document.querySelectorAll('#misc-filters input[type="checkbox"]').forEach(box => {
+      if (box.checked) tempFilters.misc.add(box.dataset.misc);
+    });
+
+    const count = artData.filter(item => {
+      const tags = item.tags || [];
+      const chars = item.characters || [];
+      if (tempFilters.type.size > 0) {
+        let ok = false;
+        if (tempFilters.type.has("Renders") && tags.includes("Renders")) ok = true;
+        if (tempFilters.type.has("Drawings") && tags.includes("Drawings")) ok = true;
+        if (tempFilters.type.has("Other") && tags.includes("Other")) ok = true;
+        if (!ok) return false;
+      }
+      if (tempFilters.characters.size > 0) {
+        const selected = [...tempFilters.characters];
+
+        if (exactCharacterMatch) {
+          const itemSet = new Set(chars);
+          const allowedSet = new Set(selected);
+
+          const sameSize = itemSet.size === allowedSet.size;
+          const allMatch = [...itemSet].every(c => allowedSet.has(c));
+
+          if (!sameSize || !allMatch) return false;
+        } else {
+          const ok = selected.every(c => chars.includes(c));
+          if (!ok) return false;
+        }
+      }
+      if (tempFilters.misc.size > 0) {
+        const ok = [...tempFilters.misc].every(m => tags.includes(m));
+        if (!ok) return false;
+      }
+      return true;
+    }).length;
+    const countEl = document.getElementById("selected-count");
+    if (countEl) {
+      countEl.textContent = `${count} images selected`;
+    }
+  }
+
+  function clearAllFilters() {
+    document.querySelectorAll('#filters-modal input[type="checkbox"]').forEach(box => {
+      box.checked = false;
+    });
+    selectedFilters = {
+      type: new Set(),
+      characters: new Set(),
+      misc: new Set()
+    };
+    pendingFilters = {
+      type: new Set(),
+      characters: new Set(),
+      misc: new Set()
+    };
+
+    exactCharacterMatch = false;
+    document.getElementById("exact-character-match").checked = false;
+
+    currentPage = 1;
+    renderGallery();
+    updateLiveSelectedCount();
+  }
+
     function updateImageCount() {
       const countEl = document.getElementById("image-count");
       if (countEl) {
@@ -136,7 +528,7 @@
         artData.forEach((item, idx) => {
           const year = new Date(item.date).getFullYear().toString();
           const yearMatch = (selectedYear === 'all' || year === selectedYear);
-          const tagMatch = matchesFilter(item.tags || []);
+          const tagMatch = matchesFilter(item);
           if (yearMatch && tagMatch) filteredIndices.push(idx);
         });
   
@@ -235,37 +627,18 @@
         }
       }
     });
-  
-    TAG_ORDER.forEach((tag, i) => {
-      const btn = document.createElement('button');
-      btn.textContent   = tag;
-      btn.className     = 'filter-btn neutral';
-      btn.dataset.tag   = tag;
-      btn.addEventListener('click', () => {
-        if (btn.classList.contains('neutral')) {
-          btn.className = 'filter-btn include';
-          includeTags.add(tag);
-        }
-        else if (btn.classList.contains('include')) {
-          btn.className = 'filter-btn exclude';
-          includeTags.delete(tag);
-          excludeTags.add(tag);
-        }
-        else {
-          btn.className = 'filter-btn neutral';
-          excludeTags.delete(tag);
-        }
-        currentPage = 1;
-        renderGallery();
+
+    function getAllCharacters() {
+      const chars = new Set();
+
+      artData.forEach(item => {
+        (item.characters || []).forEach(char => {
+          chars.add(char);
+        });
       });
-      filterBar.appendChild(btn);
-      if (i === 2) {
-        const divider = document.createElement('span');
-        divider.textContent = '|';
-        divider.className   = 'divider';
-        filterBar.appendChild(divider);
-      }
-    });
+
+      return [...chars].sort();
+    }
   
     function buildYearNav() {
       const yearsSet = new Set(
@@ -297,7 +670,7 @@
   
     function schedulePreload() {
       const preloadList = itemNodes
-        .map((node, idx) => matchesFilter(artData[idx].tags || []) ? artData[idx] : null)
+        .map((node, idx) => matchesFilter(artData[idx]) ? artData[idx] : null)
         .filter(Boolean);
   
       let index = 0;
@@ -324,10 +697,22 @@
     }
   
     window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById("clear-filters-modal").addEventListener("click", clearAllFilters);
+      document.getElementById("clear-filters-top").addEventListener("click", clearAllFilters);
       selectedYear = '2026';
       loadAllYears()
         .then(data => {
           artData = data;
+          buildFilterMenu();
+          initializeFilterMenu();
+
+          document
+            .getElementById("apply-filters")
+            .addEventListener(
+              "click",
+              applyFilters
+            );
+
           buildGallery();
           buildYearNav();
           renderGallery();

@@ -1,11 +1,40 @@
 [
     {
+        "variants": ["2026-06-20_2.png", "2026-06-20_1.png"],
+        "title": "Heatwave",
+        "description": "Video Thumbnail",
+        "date": "20 June 2026",
+        "position": "left",
+        "youtube": "https://www.youtube.com/watch?v=qQcTlvXorhs",
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Neo Agent 3"]
+    },
+    {
+        "filename": "2026-06-18_1.png",
+        "title": "MY Fan!.",
+        "description": "Render teasing the Splatoon Animation 'Heatwave'.",
+        "date": "18 June 2026",
+        "youtube": "https://www.youtube.com/post/UgkxZezzWtcw6xTlafhzcQoR3P1_K8C0CG43",
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent Z", "Neo Agent 3"]
+    },
+    {
+        "filename": "2026-06-15_1.png",
+        "title": "Hot Day Today.",
+        "description": "Render teasing the Splatoon Animation 'Heatwave'.",
+        "date": "15 June 2026",
+        "youtube": "https://www.youtube.com/post/UgkxUPs1nipHA9iIqc_I4n6HqHoqd_WJV_NB",
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Neo Agent 3"]
+    },
+    {
         "filename": "2026-06-08_1.png",
         "title": "To Break Into A Home",
         "description": "Promotional render for the Splatoon Animation 'Locked Out'.",
         "date": "8 June 2026",
         "youtube": "https://www.youtube.com/post/Ugkx5V_8G92Y3acaPZRcVHRLqdzhTZZLcpAr",
-        "tags": ["Renders"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Agent 8", "Neo Agent 3", "Pearl"]
     },
     {
         "variants": ["2026-06-06_2.png", "2026-06-06_1.png", "2026-06-06_3.png"],
@@ -13,7 +42,8 @@
         "description": "Video Thumbnail",
         "date": "6 June 2026",
         "youtube": "https://www.youtube.com/watch?v=HFom6dqvuFw",
-        "tags": ["Renders", "Thumbnails"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Neo Agent 3", "Pearl"]
     },
     {
         "filename": "2026-06-02_1.png",
@@ -21,7 +51,8 @@
         "description": "Render teasing the Splatoon Animation 'Locked Out'.",
         "date": "02 June 2026",
         "youtube": "https://www.youtube.com/post/UgkxJan4eCiWmEZoCWNisnvgJmKZ6eWQQ8QN",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent 8", "Neo Agent 3", "Pearl"]
     },
     {
         "filename": "2026-05-26_1.png",
@@ -31,7 +62,8 @@
         "youtube": "https://www.youtube.com/post/Ugkx6IYi_QhetYFlaJXwzEhSbpbA-Bkrs6i1",
         "twitter": "https://x.com/agentzofficial/status/2060023437356388782",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mmweandws22h",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Pearl"]
     },
     {
         "filename": "2026-05-23_1.png",
@@ -40,7 +72,8 @@
         "date": "23 May 2026",
         "twitter": "https://x.com/agentzofficial/status/2058157929212371298",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mmjfvncxgk2z",
-        "tags": ["Drawings"]
+        "tags": ["Drawings"],
+        "characters": ["Agent Z"]
     },
     {
         "filename": "2026-05-09_1.png",
@@ -50,7 +83,8 @@
         "youtube": "https://www.youtube.com/post/UgkxfJfpnMnObf_WqDial83o_2AE1VwlexGq",
         "twitter": "https://x.com/agentzofficial/status/2053091752584868085",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mlgb4l2ts22u",
-        "tags": ["Renders"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent X", "Neo Agent 3"]
     },
     {
         "filename": "2026-05-08_1.png",
@@ -59,7 +93,8 @@
         "date": "8 May 2026",
         "twitter": "https://x.com/agentzofficial/status/2052756465858003381",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mldwdgmwkk2x",
-        "tags": ["Drawings"]
+        "tags": ["Drawings"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2026-05-07_1.png",
@@ -67,7 +102,8 @@
         "description": "Promotional render for the Splatoon Animation 'The Sewer Monster'.",
         "date": "5 May 2026",
         "youtube": "https://www.youtube.com/post/UgkxsudgVtVbt0gVlzcKkmqNc1ycYn1SpJQw",
-        "tags": ["Renders"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Agent X", "Neo Agent 3"]
     },
     {
         "variants": ["2026-05-03_1.png", "2026-05-03_2.png"],
@@ -75,7 +111,8 @@
         "description": "Video Thumbnail",
         "date": "3 May 2026",
         "youtube": "https://www.youtube.com/watch?v=iiv3fbtraqM",
-        "tags": ["Renders", "Thumbnails"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent X", "Neo Agent 3"]
     },
     {
         "filename": "2026-04-25_1.png",
@@ -83,7 +120,8 @@
         "description": "Render teasing the Splatoon Animation 'The Sewer Monster'.",
         "date": "25 April 2026",
         "youtube": "https://www.youtube.com/post/Ugkx4RdfKhJIudl9znqNSgbk1x8HbA148lgo",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent X"]
     },
     {
         "variants": ["2026-04-21_1.png", "2026-04-21_2.png"],
@@ -93,7 +131,8 @@
         "youtube": "https://www.youtube.com/post/UgkxAzR9FJ8IhzZwJbyNMLiWQPH5zQsFzHuM",
         "twitter": "https://x.com/agentzofficial/status/2046585910524051703",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mjz5bfmld225",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent 8", "Neo Agent 3"]
     },
     {
         "filename": "2026-04-18_1.png",
@@ -101,7 +140,7 @@
         "description": "Render teasing an unreleased Splatoon Animation.",
         "date": "18 April 2026",
         "youtube": "https://www.youtube.com/post/UgkxbHhoMYhG38IlGZGTUHFJaYoGbFUy_f2E",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"]
     },
     {
         "variants": ["2026-04-11_1.png", "2026-04-11_2.png", "2026-04-11_3.png"],
@@ -109,7 +148,8 @@
         "description": "Video Thumbnail",
         "date": "11 April 2026",
         "youtube": "https://www.youtube.com/watch?v=8C_3uGwwvHw",
-        "tags": ["Renders", "Thumbnails"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent Z"]
     },
     {
         "filename": "2026-04-10_1.png",
@@ -117,7 +157,8 @@
         "description": "Render teasing the Splatoon Animation 'Lost Phone'.",
         "date": "10 April 2026",
         "youtube": "https://www.youtube.com/post/UgkxRNYlPIpmPc4pbyW6B7_z-zNmpRNR1Xw4",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2026-04-03_1.png",
@@ -125,7 +166,8 @@
         "description": "Render teasing the Splatoon Animation 'Lost Phone'.",
         "date": "03 April 2026",
         "youtube": "https://www.youtube.com/post/UgkxkUfHNookvpZqJ83FyMEhsKDg7rg-8yDM",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent Z"]
     },
     {
         "filename": "2026-03-27_1.png",
@@ -134,7 +176,8 @@
         "date": "27 March 2026",
         "twitter": "https://x.com/agentzofficial/status/2037516466686394666",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mhzyeruq5s2m",
-        "tags": ["Drawings"]
+        "tags": ["Drawings"],
+        "characters": ["Agent Z"]
     },
     {
         "variants": ["2026-03-26_1.png", "2026-03-26_2.png"],
@@ -144,7 +187,8 @@
         "youtube": "https://www.youtube.com/post/Ugkxc8v7QZGf7VDEgs2H-n8jAWbm8lcVz0wE",
         "twitter": "https://x.com/agentzofficial/status/2037142155563852279",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mhxhyeep2s2b",
-        "tags": ["Drawings", "Branding"]
+        "tags": ["Drawings"],
+        "characters": ["Agent Z"]
     },
     {
         "filename": "2026-03-21_1.png",
@@ -153,7 +197,8 @@
         "date": "21 March 2026",
         "twitter": "https://x.com/agentzofficial/status/2035328883206258987",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mhkmzrciis22",
-        "tags": ["Drawings"]
+        "tags": ["Drawings"],
+        "characters": ["Agent Z"]
     },
     {
         "variants": ["2026-03-09_2.png", "2026-03-09_1.png", "2026-03-09_4.png", "2026-03-09_3.png"],
@@ -161,7 +206,8 @@
         "description": "Video Thumbnail",
         "date": "9 March 2026",
         "youtube": "https://www.youtube.com/watch?v=awVr2eKUsnU",
-        "tags": ["Renders", "Thumbnails"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Neo Agent 3"]
     },
     {
         "filename": "2026-02-28_1.png",
@@ -169,7 +215,8 @@
         "description": "Render teasing the Splatoon Animation 'Celebrity Crush'.",
         "date": "28 February 2026",
         "youtube": "https://www.youtube.com/post/UgkxXRLutrg7XwGPJyECq-XbScxKhE1BZmc7",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Agent 8"]
     },
     {
         "variants": ["2026-02-11_1.png", "2026-02-11_2.png"],
@@ -177,7 +224,8 @@
         "description": "Agent Z and Agent 3 drinking inside a ship of sorts.",
         "date": "11 February 2026",
         "youtube": "https://www.youtube.com/post/UgkxnwBmcgUeV3VJBK12anoIlkaey-UWanZd",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent 3"]
     },
     {
         "filename": "2026-02-08_1.png",
@@ -185,7 +233,8 @@
         "description": "Promotional render for the Splatoon Animation 'Cooking Together'.",
         "date": "7 February 2026",
         "youtube": "https://www.youtube.com/post/UgkxqS0WLTcCkFNL8vEf0HyWZdy3dKY6hwBk",
-        "tags": ["Renders"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent 3"]
     },
     {
         "variants": ["2026-02-01_2.png","2026-01-31_1.png", "2026-02-01_1.png"],
@@ -193,7 +242,8 @@
         "description": "Video Thumbnail",
         "date": "1 February 2026",
         "youtube": "https://www.youtube.com/watch?v=-2YzUE0MSa4",
-        "tags": ["Renders", "Thumbnails"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Agent 3", "Agent 8"]
     },
     {
         "filename": "2026-01-27_1.png",
@@ -201,7 +251,8 @@
         "description": "Render teasing the Splatoon Animation 'Cooking Together'.",
         "date": "27 January 2026",
         "youtube": "https://www.youtube.com/post/UgkxEIcrtw4_xW0LOVkWo6Bz1Ak-MEDD0Wsd",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent 3", "Agent 8"]
     },
     {
         "variants": ["2026-01-13_1.png", "2026-01-13_2.png"],
@@ -209,7 +260,8 @@
         "description": "Agent Z with the Ultra Stamp about to attack Agent X, who has the Hydra Splatling.",
         "date": "13 January 2026",
         "youtube": "https://www.youtube.com/post/Ugkx4cFPeHCyLm8_N24hcmzBfdzWrmbNl22z",
-        "tags": ["Renders"]
+        "tags": ["Renders", "Star Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2026-01-11_1.png",
@@ -217,7 +269,8 @@
         "description": "Agent Z doing a pose in front of a plane in Marlin Airport.",
         "date": "11 January 2026",
         "twitter": "https://x.com/agentzofficial/status/2010475220205998561",
-        "tags": ["Renders"]
+        "tags": ["Renders", "Star Renders"],
+        "characters": ["Agent Z"]
     },
     {
         "filename": "2026-01-01_1.png",
@@ -225,6 +278,7 @@
         "description": "The first render posted in 2026.",
         "date": "1 January 2026",
         "youtube": "https://www.youtube.com/post/UgkxmfatOMuw9unvsVpmgafHwshgz09MZrhS",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z"]
     }
 ]

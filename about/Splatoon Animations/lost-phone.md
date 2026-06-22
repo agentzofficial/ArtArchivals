@@ -31,7 +31,7 @@ data_key: lost-phone
   Agent Z can't seem to remember where she left her phone...
 
   <h2 id="legacy">Legacy</h2>
-  This episode is currently the most recent episode available on the agent z Official Website. The next episode will be given a page once the episode after it is released.
+  This episode takes place sometime after the events of [The Sewer Monster](/about/the-sewer-monster/), which released after this episode.
 
   <h2 id="trivia">Trivia</h2>
   - 'Lost Phone' is the first Agent Z focused episode since 'The Perfect Present', 378 days prior.

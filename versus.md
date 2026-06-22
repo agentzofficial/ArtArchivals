@@ -8,7 +8,11 @@ permalink: /versus/
   <img src="/assets/serverImages/logo_agentzversus.webp" alt="logo">
 </div>
 
-Competitive events officially hosted by agent z for their community. As of now, there is no active agent z Discord Server available.
+Competitive events officially hosted by agent z for their community.
+
+The current agent z Event Discord Server is archived and is set to reopen when a future event is held.
+
+Join here: https://discord.gg/J3D24cSQMv
 
 <div class="versus-wrapper">
   <button class="versus-arrow left">&#10094;</button>

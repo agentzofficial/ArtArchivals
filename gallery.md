@@ -12,7 +12,48 @@ page_type: gallery
   >
 </div>
 
-<div id="filter-bar"></div>
+<div id="filter-bar">
+  <button id="filters-button">Filters</button>
+  <button id="clear-filters-top" class="clear-btn">
+    Clear Filters
+  </button>
+</div>
+<div id="filters-modal" class="filters-modal hidden">
+  <div class="filters-content">
+    <div class="filters-header">
+      <h2>Filters</h2>
+      <button id="close-filters">
+        ×
+      </button>
+    </div>
+    <h3>Type</h3>
+    <div id="type-filters"></div>
+    <h3>Characters</h3>
+    <div id="character-filters"></div>
+    <h3>Miscellaneous</h3>
+    <div id="misc-filters"></div>
+    <div class="filters-footer">
+      <span id="selected-count">
+        0 images selected
+      </span>
+      <label class="filter-toggle">
+        <input type="checkbox" id="exact-character-match">
+        Show ONLY selected Characters
+      </label>
+      <div class="filter-actions">
+        <button id="clear-filters-modal" class="clear-btn">
+          Clear Filters
+        </button>
+        <button id="apply-filters">
+          Apply Filters
+        </button>
+      </div>
+    </div>
+    <div id="filter-info-box" class="filter-info-box">
+      Select a filter to see info
+    </div>
+  </div>
+</div>
 <div id="year-nav" class="year-nav"></div>
 <div class="gallery" id="gallery"></div>
 <div id="pagination-controls" class="pagination-controls"></div>
