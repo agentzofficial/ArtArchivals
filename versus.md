@@ -10,7 +10,7 @@ permalink: /versus/
 
 Competitive events officially hosted by agent z for their community.
 
-The current agent z Event Discord Server is archived and is set to reopen when a future event is held.
+The current agent z VERSUS Discord Server is archived and is set to reopen when a future event is held.
 
 Join here: https://discord.gg/J3D24cSQMv
 

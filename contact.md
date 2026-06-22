@@ -19,6 +19,6 @@ page_type: contact
     </ul>
     <p>Please note that I strictly only responds to questions in messages. Please be upfront from your first message!</p>
     <hr class="section-divider" />
-    <p>To DM agent z through Discord, you will need to join the agent z Versus Discord Server: https://discord.gg/J3D24cSQMv</p>
+    <p>To DM agent z through Discord, you will need to join the agent z VERSUS Discord Server: https://discord.gg/J3D24cSQMv</p>
     <p>Contact through Bluesky is currently unavailable due to age verification laws.</p>
   </div>
