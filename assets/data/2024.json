@@ -5,7 +5,7 @@
         "description": "Render teasing the video 'The Perfect Present'. Its post has infamously not aged well.",
         "date": "22 December 2024",
         "youtube": "https://www.youtube.com/post/UgkxYQHws45Jp3ToEui0hvmF2Sb75PdE0jUJ",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"]
     },
     {
         "filename": "2024-12-8_1.png",
@@ -13,7 +13,8 @@
         "description": "Video Thumbnail",
         "date": "8 December 2024",
         "youtube": "https://www.youtube.com/watch?v=roy0q_9KsvM",
-        "tags": ["Renders", "Thumbnails"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent 3", "Neo Agent 3"]
     },
     {
         "variants": ["2024-11-25_1.png", "2024-11-25_2.png"],
@@ -23,7 +24,8 @@
         "youtube": "https://www.youtube.com/post/UgkxZ5e5P9Q3e-c125ql6bmIDqJtxoU6qEK4",
         "twitter": "https://x.com/agentzofficial/status/1860722058067341792",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3lbpgjoeha22a",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Shiver", "Frye", "Big Man"]
     },
     {
         "filename": "2024-11-23_1.png",
@@ -31,7 +33,7 @@
         "description": "Render teasing the video 'Hospital Buddies'.",
         "date": "23 November 2024",
         "youtube": "https://www.youtube.com/post/UgkxtJJioNh5ttXRIu0XHWFzYSfax6xSKJ4l",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"]
     },
     {
         "filename": "2024-11-19_1.png",
@@ -39,7 +41,9 @@
         "description": "Celebrating the agent z YouTube channel reaching 6000 subscribers.",
         "date": "19 November 2024",
         "youtube": "https://www.youtube.com/post/UgkxVdGQy8lgp5hv_eeXp_HQmHpqXfXHsTBm",
-        "tags": ["Renders", "Specials"]
+        "position": "left",
+        "tags": ["Renders", "Star Renders"],
+        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3"]
     },
     {
         "filename": "2024-11-16_1.png",
@@ -47,7 +51,8 @@
         "description": "Render teasing the video 'The Perfect Present'.",
         "date": "16 November 2024",
         "youtube": "https://www.youtube.com/post/UgkxNdAp4KYtFSy5Ws-TIahUqHjJf9zCWtUR",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-11-11_1.png",
@@ -56,7 +61,8 @@
         "date": "11 November 2024",
         "position": "right",
         "youtube": "https://www.youtube.com/post/UgkxS94E9KYioXVWqnPuuXkw243OLSpZN4q8",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Neo Agent 3"]
     },
     {
         "filename": "2024-11-5_1.png",
@@ -64,7 +70,8 @@
         "description": "A render depicting the Boss Salmonid, Cohozuna, against the much smaller Agent Z.",
         "date": "5 November 2024",
         "youtube": "https://www.youtube.com/post/UgkxVO107_GyIPWTBao4rMH0sE5dj0cC8Tln",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z"]
     },
     {
         "filename": "2024-11-1_1.png",
@@ -72,7 +79,8 @@
         "description": "Agent X trialling the Forge Splattershot Pro. She prefers using a variety of weapons rather than 1 set main.",
         "date": "1 November 2024",
         "youtube": "https://www.youtube.com/post/UgkxoEBp4hgainYbeWaneNvOTX6g9kyl75q-",
-        "tags": ["Renders"]
+        "tags": ["Renders", "Star Renders"],
+        "characters": ["Agent X"]
     },
     {
         "filename": "2024-10-28_1.png",
@@ -80,7 +88,8 @@
         "description": "A render vaguely made for Halloween.",
         "date": "28 October 2024",
         "youtube": "https://www.youtube.com/post/Ugkx7To0SzCAWAhInxX1pt317YRHUMo0ml_a",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Neo Agent 3"]
     },
     {
         "filename": "2024-10-25_1.png",
@@ -88,7 +97,8 @@
         "description": "A render featuring Agent 3 playing Blackjack against someone.",
         "date": "25 October 2024",
         "youtube": "https://www.youtube.com/post/UgkxhfDdH6Xi-rYQCb2BLIo-VI_N-_EjNvAp",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent 3"]
     },
     {
         "filename": "2024-10-21_1.png",
@@ -96,7 +106,8 @@
         "description": "Render referencing the Wizard VS. Knight VS. Ninja Splatfest.",
         "date": "21 October 2024",
         "youtube": "https://www.youtube.com/post/UgkxQWo01Ydj17EPvfUVzs8X5IaHAHJ1e83R",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-10-18_1.png",
@@ -104,14 +115,16 @@
         "description": "A render of original characters Agent Z and Agent X after the end of the Power Trip Story Arc.",
         "date": "18 October 2024",
         "youtube": "https://www.youtube.com/post/Ugkxy9Y14UaOXIusARQp-U22IEuE5YK95Wq-",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-10-17_1.png",
         "title": "Social Media Banner v2",
         "description": "The second banner used for banners on agent z social media accounts.",
         "date": "17 October 2024",
-        "tags": ["Renders", "Branding"]
+        "tags": ["Other"],
+        "characters": ["Agent Z"]
     },
     {
         "filename": "2024-10-14_1.png",
@@ -119,7 +132,8 @@
         "description": "The first render to include the Squidbeak Splatoon Agents following\nthe end of the Power Trip Story Arc. It foreshadows some scenes in the video 'Hospital Buddies'.",
         "date": "14 October 2024",
         "youtube": "https://www.youtube.com/post/Ugkx2AqIywvhjId4IFtnFRwj3w4ZYkXvLqXc",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent 3", "Agent 8", "Neo Agent 3"]
     },
     {
         "filename": "2024-10-10_1.png",
@@ -128,14 +142,16 @@
         "date": "10 October 2024",
         "position": "left",
         "youtube": "https://www.youtube.com/post/Ugkxs57YEc4Xh6MKNnJrbbAbNdMpOl3dSN13",
-        "tags": ["Renders"]
+        "tags": ["Renders", "Star Renders"],
+        "characters": ["Agent Z"]
     },
     {
         "filename": "2024-10-5_1.png",
         "title": "YouTube Banner v3.0",
         "description": "The original version of the third banner used for the agent z YouTube channel.",
         "date": "5 October 2024",
-        "tags": ["Renders", "Branding"]
+        "tags": ["Renders", "Branding"],
+        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3"]
     },
     {
         "filename": "2024-9-30_1.png",
@@ -143,7 +159,8 @@
         "description": "Video Thumbnail",
         "date": "30 September 2024",
         "youtube": "https://www.youtube.com/watch?v=oplZMaVj8nw",
-        "tags": ["Renders", "Thumbnails"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-9-13_1.png",
@@ -151,7 +168,8 @@
         "description": "Render referencing Grand Fest, being Past VS. Present VS. Future.",
         "date": "13 September 2024",
         "youtube": "https://www.youtube.com/post/UgkxS_RNxUZ2wyyCAaLph0R0J55lQxRYKc8W",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-9-6_1.png",
@@ -159,7 +177,8 @@
         "description": "Celebrating the agent z YouTube channel reaching 5000 subscribers.",
         "date": "6 September 2024",
         "youtube": "https://www.youtube.com/post/Ugkxm90ZjlNoIeOlxOG_8GDKH2YrHeBr0qwB",
-        "tags": ["Renders", "Specials", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Agent Z", "Agent X",  "Agent 3", "Agent 8", "Neo Agent 3"]
     },
     {
         "filename": "2024-9-1_1.png",
@@ -167,7 +186,8 @@
         "description": "Video Thumbnail",
         "date": "1 September 2024",
         "youtube": "https://www.youtube.com/watch?v=vCPQUnzhZ2U",
-        "tags": ["Renders", "Thumbnails"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent X", "Agent 3"]
     },
     {
         "filename": "2024-8-18_1.png",
@@ -175,7 +195,8 @@
         "description": "Render teasing the video 'Battle of Inkopolis Square', though scenes were moved to 'Stories of the Agents'\nfollowing the Finale's split episodes. It is used as the thumbnail for the Second Trailer.",
         "date": "18 August 2024",
         "youtube": "https://www.youtube.com/watch?v=IVwPrWCg6ac",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-8-17_1.png",
@@ -183,7 +204,8 @@
         "description": "Render teasing the video 'Battle of Inkopolis Square'. It references the second delay the video experienced.",
         "date": "17 August 2024",
         "youtube": "https://www.youtube.com/post/UgkxvelZRYBPfg96FTwzWJH-rEZ5yfTlPilt",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent X"]
     },
     {
         "filename": "2024-8-1_1.png",
@@ -191,7 +213,8 @@
         "description": "Render teasing the video 'Stories of the Agents'.",
         "date": "1 August 2024",
         "youtube": "https://www.youtube.com/post/Ugkx8PnLNAYTq5ZJT4RFkXENBbpoNauP6CB8",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent X"]
     },
     {
         "filename": "2024-8-1_2.png",
@@ -199,7 +222,8 @@
         "description": "Render teasing the video 'Battle of Inkopolis Square'.",
         "date": "1 August 2024",
         "youtube": "https://www.youtube.com/post/Ugkx8PnLNAYTq5ZJT4RFkXENBbpoNauP6CB8",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Neo Agent 3"]
     },
     {
         "filename": "2024-8-1_3.png",
@@ -207,7 +231,8 @@
         "description": "Render teasing the video 'Battle of Inkopolis Square'.",
         "date": "1 August 2024",
         "youtube": "https://www.youtube.com/post/Ugkx8PnLNAYTq5ZJT4RFkXENBbpoNauP6CB8",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Octavio"]
     },
     {
         "filename": "2024-8-1_4.png",
@@ -215,7 +240,8 @@
         "description": "Render teasing the video 'Stories of the Agents'.",
         "date": "1 August 2024",
         "youtube": "https://www.youtube.com/post/Ugkx8PnLNAYTq5ZJT4RFkXENBbpoNauP6CB8",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Marina"]
     },
     {
         "filename": "2024-8-1_5.png",
@@ -223,7 +249,8 @@
         "description": "Render teasing the video 'Battle of Inkopolis Square'.",
         "date": "1 August 2024",
         "youtube": "https://www.youtube.com/post/Ugkx8PnLNAYTq5ZJT4RFkXENBbpoNauP6CB8",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent Z"]
     },
     {
         "filename": "2024-7-14_1.png",
@@ -231,7 +258,8 @@
         "description": "Render referencing the Palace VS. Theme Park VS. Beach Splatfest.",
         "date": "14 July 2024",
         "twitter": "https://x.com/agentzofficial/status/1812456975470666098",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z"]
     },
     {
         "variants": ["2024-7-12_1.png", "2024-7-12_2.png"],
@@ -239,7 +267,8 @@
         "description": "Made in reference to the Wahoo World Timer meme on Twitter.",
         "date": "12 July 2024",
         "twitter": "https://x.com/agentzofficial/status/1811758875487666561",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z"]
     },
     {
         "filename": "2024-7-8_1.png",
@@ -247,7 +276,8 @@
         "description": "Referenced the Splatshort 'when the group chat gets leaked', which released 2 days after this post.",
         "date": "8 July 2024",
         "twitter": "https://x.com/agentzofficial/status/1812456975470666098",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Neo Agent 3"]
     },
     {
         "filename": "2024-6-30_1.png",
@@ -255,7 +285,8 @@
         "description": "Render teasing the video 'Battle of Inkopolis Square'. It is used as the thumbnail for the Announcement Trailer.",
         "date": "30 June 2024",
         "youtube": "https://www.youtube.com/watch?v=Lu867oKRIu8",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Agent Z", "Agent 3"]
     },
     {
         "filename": "2024-6-25_1.png",
@@ -264,7 +295,8 @@
         "date": "25 June 2024",
         "position": "left",
         "youtube": "https://www.youtube.com/post/UgkxnfViqSvypiDF9jZqI491Al2-xQkDii8M",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3"]
     },
     {
         "filename": "2024-6-11_1.png",
@@ -272,7 +304,8 @@
         "description": "Render teasing the video 'Battle of Inkopolis Square'.",
         "date": "11 June 2024",
         "youtube": "https://www.youtube.com/post/Ugkx0KMplnCPPhmQllSuD451tSJT33yp2I4f",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-6-5_1.png",
@@ -280,7 +313,8 @@
         "description": "Render teasing the video 'Battle of Inkopolis Square'.",
         "date": "5 June 2024",
         "youtube": "https://www.youtube.com/post/UgkxJd44kuRnyOMP2DJ6uHc1Gc6EDyIuy9NN",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent 3", "Neo Agent 3"]
     },
     {
         "filename": "2024-5-22_1.png",
@@ -288,7 +322,8 @@
         "description": "Celebrating the agent z YouTube channel reaching 4000 subscribers.",
         "date": "22 May 2024",
         "youtube": "https://www.youtube.com/post/UgkxCph1Z0WMidwEh1Ost9UQST77ug2NXJBa",
-        "tags": ["Renders", "Specials", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3"]
     },
     {
         "filename": "2024-5-19_28.png",
@@ -296,7 +331,8 @@
         "description": "A photo shown to Agent Z during the computer scene in 'Clash of the Agents'. It's a reference to the Splatoon Animation 'Agent X Tries YOUR Weapons' and in her computer, it is saved as 'yourWeapons.raw'.",
         "date": "19 May 2024",
         "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-5-19_27.png",
@@ -304,7 +340,8 @@
         "description": "A photo shown to Agent Z during the computer scene in 'Clash of the Agents'. It's a reference to the Splatshort 'Nintendo's Map Design' and in her computer, it is saved as 'mapDesign.raw'.",
         "date": "19 May 2024",
         "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-5-19_26.png",
@@ -312,7 +349,8 @@
         "description": "A photo shown to Agent Z during the computer scene in 'Clash of the Agents'. It's a reference to the Splatshort 'If Splatoon 3 Had More than 8 Players' and in her computer, it is saved as 'splatoon(BR)Mod.raw', 'BR' meaning 'Battle Royale'.",
         "date": "19 May 2024",
         "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-5-19_25.png",
@@ -320,7 +358,8 @@
         "description": "A photo shown to Agent Z during the computer scene in 'Clash of the Agents'. It's a reference to the Splatshort 'The Jukebox' and in her computer, it is saved as 'jukebox.raw'.",
         "date": "19 May 2024",
         "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-5-19_24.png",
@@ -328,7 +367,8 @@
         "description": "A photo shown to Agent Z during the computer scene in 'Clash of the Agents'. It's a reference to the Splatshort 'Fistbump?' and in her computer, it is saved as 'fistbump.raw'.",
         "date": "19 May 2024",
         "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-5-19_23.png",
@@ -336,7 +376,8 @@
         "description": "A photo shown to Agent Z during the computer scene in 'Clash of the Agents'. It's a reference to the Splatshort 'Clam Blitz Shenanigans' and in her computer, it is saved as 'clamShenanigans.raw'.",
         "date": "19 May 2024",
         "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-5-19_22.png",
@@ -344,7 +385,8 @@
         "description": "A photo shown to Agent Z during the computer scene in 'Clash of the Agents'. It's a reference to the Splatshort 'Splatoon 'Fan Art'' and in her computer, it is saved as 'fanArt.raw'.",
         "date": "19 May 2024",
         "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-5-19_21.png",
@@ -352,7 +394,8 @@
         "description": "A photo shown to Agent Z during the computer scene in 'Clash of the Agents'. It's a reference to the Splatshort 'How Nintendo Expects You to Listen to Music' and in her computer, it is saved as 'nintendoMusic.raw'.",
         "date": "19 May 2024",
         "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-5-19_20.png",
@@ -360,7 +403,8 @@
         "description": "A photo shown to Agent Z during the computer scene in 'Clash of the Agents'. It's a reference to the Splatshort 'POV: You've been hit by a blaster' and in her computer, it is saved as 'blasterHit.raw'.",
         "date": "19 May 2024",
         "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-5-19_19.png",
@@ -368,7 +412,8 @@
         "description": "A photo shown to Agent Z during the computer scene in 'Clash of the Agents'. It's a reference to the Splatshort 'The Splatoon 3 Salmon Run Experience' and in her computer, it is saved as 'salmonRun.raw'.",
         "date": "19 May 2024",
         "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-5-19_18.png",
@@ -376,7 +421,8 @@
         "description": "A photo shown to Agent Z during the computer scene in 'Clash of the Agents'. It's a reference to the Splatshort 'Forming Teams in Eggstra Work Be Like...' and in her computer, it is saved as 'eggstraTeam.raw'.",
         "date": "19 May 2024",
         "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-5-19_17.png",
@@ -384,7 +430,8 @@
         "description": "A photo shown to Agent Z during the computer scene in 'Clash of the Agents'. It's a reference to the Splatshort 'No Full Auto Hydra in Building' and in her computer, it is saved as 'fullAutoHydra.raw'.",
         "date": "19 May 2024",
         "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-5-19_16.png",
@@ -392,7 +439,8 @@
         "description": "A photo shown to Agent Z during the computer scene in 'Clash of the Agents'. It's a reference to the Splatshort 'I saw a Guy do this in a Toothpaste Ad Once' and in her computer, it is saved as 'toothpasteAd.raw'.",
         "date": "19 May 2024",
         "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "variants": ["2024-5-19_9.png", "2024-5-19_10.png", "2024-5-19_11.png", "2024-5-19_12.png", "2024-5-19_13.png", "2024-5-19_14.png", "2024-5-19_15.png"],
@@ -400,7 +448,8 @@
         "description": "A collection of memories from Agent Z as seen in the video 'Clash of the Agents'.\n!! SPOILERS IN VARIANT IMAGES. !!",
         "date": "19 May 2024",
         "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z"]
     },
     {
         "variants": ["2024-5-19_2.png", "2024-5-19_3.png", "2024-5-19_4.png", "2024-5-19_5.png", "2024-5-19_6.png", "2024-5-19_7.png", "2024-5-19_8.png"],
@@ -408,7 +457,8 @@
         "description": "A collection of memories from Agent Z as seen in the video 'Clash of the Agents'.\n!! SPOILERS IN VARIANT IMAGES. !!",
         "date": "19 May 2024",
         "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z"]
     },
     {
         "filename": "2024-5-19_1.png",
@@ -416,7 +466,8 @@
         "description": "Video Thumbnail",
         "date": "19 May 2024",
         "youtube": "https://www.youtube.com/watch?v=zTKKB61O2KU",
-        "tags": ["Renders", "Thumbnails"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent X", "Agent 3", "Agent 8"]
     },
     {
         "filename": "2024-5-10_1.png",
@@ -424,7 +475,8 @@
         "description": "Render teasing the video 'Clash of the Agents'.",
         "date": "10 May 2024",
         "youtube": "https://www.youtube.com/post/Ugkxu_N4rmIov1WsiBUwa872B4j72RsmTTvH",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Agent X", "Agent 8"]
     },
     {
         "filename": "2024-5-3_1.png",
@@ -432,7 +484,8 @@
         "description": "Render teasing the video 'Clash of the Agents'.",
         "date": "3 May 2024",
         "youtube": "https://www.youtube.com/post/UgkxZb8N4m58VuMvPuWVEHUnVkvsGNzS2HaK",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Pearl", "Marina"]
     },
     {
         "filename": "2024-5-2_1.png",
@@ -440,7 +493,8 @@
         "description": "Render referencing the Same Ol' VS. Bucket List VS. Save the Day Splatfest.",
         "date": "2 May 2024",
         "twitter": "https://x.com/agentzofficial/status/1786001659879129327",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-4-22_1.png",
@@ -448,7 +502,8 @@
         "description": "Render teasing the video 'Clash of the Agents'.",
         "date": "22 April 2024",
         "youtube": "https://www.youtube.com/post/Ugkx2jF8hxI_of2G3fJcEZuY1qiYPwBoMQQi",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-4-11_1.png",
@@ -456,7 +511,8 @@
         "description": "Render teasing the video 'Clash of the Agents'.",
         "date": "11 April 2024",
         "youtube": "https://www.youtube.com/post/UgkxQqnbVmhfng-6_M0X8w5Np5U3tiDH5ke3",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent 3", "Neo Agent 3"]
     },
     {
         "filename": "2024-4-7_1.png",
@@ -464,14 +520,15 @@
         "description": "Official poster marking the beginning of the Power Trip Story Arc's story.",
         "date": "7 April 2024",
         "youtube": "https://www.youtube.com/post/UgkxEBynw8PMR3ZhOLfvo4DkmgwQlxzJqKdW",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3", "Callie", "Marie", "Shiver", "Frye", "Big Man", "Octavio"]
     },
     {
         "filename": "2024-4-7_2.png",
         "title": "Power Trip Logo",
         "description": "The logo used for the Power Trip Story Arc.",
         "date": "7 April 2024",
-        "tags": ["Branding"]
+        "tags": ["Other"]
     },
     {
         "filename": "2024-4-7_3.png",
@@ -479,7 +536,8 @@
         "description": "Video Thumbnail",
         "date": "7 April 2024",
         "youtube": "https://www.youtube.com/watch?v=-MUrCSK55fM",
-        "tags": ["Renders", "Thumbnails"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Agent Z", "Agent X", "Agent 3"]
     },
     {
         "filename": "2024-3-25_1.png",
@@ -487,7 +545,8 @@
         "description": "Render teasing the video 'Price for Power'.",
         "date": "25 March 2024",
         "youtube": "https://www.youtube.com/post/UgkxCo7RbbdZeMKURWGYc4qHnBPtDQauZDCU",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Callie", "Marie"]
     },
     {
         "filename": "2024-3-21_1.png",
@@ -495,7 +554,8 @@
         "description": "Render referencing the Drums VS. Guitar VS. Keyboard Splatfest.\nIt references Agent Z and Agent X's backstories, though it has been retconned with Agent X's outfit and the date the photo is taken being changed.",
         "date": "21 March 2024",
         "youtube": "https://www.youtube.com/post/UgkxCEz2r9UA2_vFu2GnmaDaGTu4yP_OrizU",
-        "tags": ["Renders"]
+        "tags": ["Renders", "Star Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-3-17_1.png",
@@ -503,7 +563,8 @@
         "description": "The first render to feature Agent Z and Agent X's new base outfits.\nIt was not implemented into videos until the video 'Stories of the Agents'.",
         "date": "14 March 2024",
         "twitter": "https://x.com/agentzofficial/status/1769347524853411895",
-        "tags": ["Renders"]
+        "tags": ["Renders", "Star Renders"],
+        "characters": ["Agent Z", "Agent X"]
     },
     {
         "filename": "2024-3-13_1.png",
@@ -511,7 +572,8 @@
         "description": "The third official profile picture to be used for agent z Social Media accounts.",
         "date": "13 March 2024",
         "twitter": "https://x.com/agentzofficial/status/1767894353371115958",
-        "tags": ["Drawings", "Branding"]
+        "tags": ["Drawings"],
+        "characters": ["Agent Z"]
     },
     {
         "filename": "2024-3-10_1.png",
@@ -519,7 +581,8 @@
         "description": "Celebrating the agent z YouTube channel reaching 3000 subscribers.",
         "date": "10 March 2024",
         "youtube": "https://www.youtube.com/post/UgkxLC56if0uv1EwMi_4BB-oZOMs7JMVX1uM",
-        "tags": ["Renders", "Specials"]
+        "tags": ["Renders", "Star Renders"],
+        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3"]
     },
     {
         "filename": "2024-2-11_1.png",
@@ -527,7 +590,8 @@
         "description": "Video Thumbnail",
         "date": "11 February 2024",
         "youtube": "https://www.youtube.com/watch?v=SM7YouIiM80",
-        "tags": ["Renders", "Thumbnails"]
+        "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
+        "characters": ["Agent 3", "Agent 8", "Neo Agent 3"]
     },
     {
         "filename": "2024-2-8_1.png",
@@ -535,7 +599,8 @@
         "description": "Render teasing the video 'Agent's Infiltrating Mission'.",
         "date": "8 February 2024",
         "youtube": "https://www.youtube.com/post/UgkxsTJ-p5cvQKsR_zfY92ATkV8s1_mB5Bv3",
-        "tags": ["Renders", "Sneak Peaks"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent 3", "Agent 8", "Neo Agent 3", "Octavio"]
     },
     {
         "filename": "2024-1-12_1.png",
@@ -543,7 +608,8 @@
         "description": "The first full-body drawing made by agent z. It is also the first direct public depiction of the\naffiliate YouTube channel AZ Mapping (the countryball on the left) outside of background references from agent z.",
         "date": "12 January 2024",
         "twitter": "https://x.com/agentzofficial/status/1745966694366097674",
-        "tags": ["Drawings"]
+        "tags": ["Drawings"],
+        "characters": ["Agent Z"]
     },
     {
         "variants": ["2024-1-10_1.png", "2024-1-10_2.png"],
@@ -551,6 +617,7 @@
         "description": "The first drawing by agent z. The Poland variant was posted on Twitter, while the other variant\nfeaturing affiliate YouTube channel AZ Mapping was used as a profile picture for agent z Social Media accounts.",
         "date": "10 January 2024",
         "twitter": "https://x.com/agentzofficial/status/1744995332931670060",
-        "tags": ["Drawings", "Branding"]
+        "tags": ["Drawings", "Branding"],
+        "characters": ["Agent Z"]
     }
 ]

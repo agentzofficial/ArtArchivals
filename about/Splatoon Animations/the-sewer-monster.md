@@ -50,19 +50,7 @@ data_key: the-sewer-monster
       <div class="caption">Teaser</div>
     </div>
     <div class="gallery-item">
-      <img src="/assets/images/2026-04-25_2.png" alt="preview">
-      <div class="caption">A brighter version of a teaser posted to Bluesky and Twitter.</div>
-    </div>
-    <div class="gallery-item">
       <img src="/assets/images/2026-05-03_2.png" alt="preview">
-      <div class="caption">Alternate Thumbnail</div>
-    </div>
-    <div class="gallery-item">
-      <img src="/assets/images/2026-05-03_3.png" alt="preview">
-      <div class="caption">Alternate Thumbnail</div>
-    </div>
-    <div class="gallery-item">
-      <img src="/assets/images/2026-05-03_4.png" alt="preview">
       <div class="caption">Alternate Thumbnail</div>
     </div>
     <div class="gallery-item">

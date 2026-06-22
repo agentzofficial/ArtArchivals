@@ -1,6 +1,14 @@
 {
   "splatoonAnimations": [
     {
+      "id": "heatwave",
+      "title": "Heatwave",
+      "image": "/assets/imagesPreview/2026-06-20_2.webp",
+      "date": "20 June 2026",
+      "series": "Splatoon Animations",
+      "episode": "23"
+    },
+    {
       "id": "locked-out",
       "title": "Locked Out",
       "image": "/assets/imagesPreview/2026-06-06_2.webp",
