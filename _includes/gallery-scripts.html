@@ -757,7 +757,6 @@
 
 <script>
   (() => {
-
     const viewer = document.getElementById("image-viewer");
     const stage = document.getElementById("viewer-stage");
     const img = document.getElementById("viewer-image");
@@ -772,6 +771,14 @@
     let dragging = false;
     let startX = 0;
     let startY = 0;
+
+    const pointers = new Map();
+    let pinchStartDistance = 0;
+    let pinchStartScale = 1;
+    let pinchCenterX = 0;
+    let pinchCenterY = 0;
+    let pinchStartX = 0;
+    let pinchStartY = 0;
 
     const MIN_SCALE = 0.1;
     const MAX_SCALE = 6;
@@ -841,27 +848,85 @@
 
     stage.addEventListener("pointerdown", e => {
         e.preventDefault();
-        dragging = true;
-        startX = e.clientX;
-        startY = e.clientY;
-        img.style.cursor = "grabbing";
+        stage.setPointerCapture(e.pointerId);
+        pointers.set(e.pointerId, {
+            x: e.clientX,
+            y: e.clientY
+        });
+
+        if (pointers.size === 1) {
+            dragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            img.style.cursor = "grabbing";
+        }
+
+        if (pointers.size === 2) {
+            dragging = false;
+            const pts = [...pointers.values()];
+            pinchStartDistance = Math.hypot(
+                pts[0].x - pts[1].x,
+                pts[0].y - pts[1].y
+            );
+            pinchStartScale = scale;
+            pinchStartX = x;
+            pinchStartY = y;
+            const rect = stage.getBoundingClientRect();
+            pinchCenterX =
+                ((pts[0].x + pts[1].x) / 2) - rect.left - rect.width / 2;
+            pinchCenterY =
+                ((pts[0].y + pts[1].y) / 2) - rect.top - rect.height / 2;
+        }
+
     });
+
     stage.addEventListener("pointermove", e => {
-        if (!dragging) return;
-        x += e.clientX - startX;
-        y += e.clientY - startY;
-        startX = e.clientX;
-        startY = e.clientY;
-        updateTransform();
+        if (!pointers.has(e.pointerId)) return;
+        pointers.set(e.pointerId, {
+            x: e.clientX,
+            y: e.clientY
+        });
+
+        if (pointers.size === 1 && dragging) {
+            x += e.clientX - startX;
+            y += e.clientY - startY;
+            startX = e.clientX;
+            startY = e.clientY;
+            updateTransform();
+        }
+
+        else if (pointers.size === 2) {
+            const pts = [...pointers.values()];
+            const distance = Math.hypot(
+                pts[0].x - pts[1].x,
+                pts[0].y - pts[1].y
+            );
+          
+            scale = pinchStartScale * (distance / pinchStartDistance);
+            clampScale();
+            const ratio = scale / pinchStartScale;
+            x = pinchStartX - pinchCenterX * (ratio - 1);
+            y = pinchStartY - pinchCenterY * (ratio - 1);
+            updateTransform();
+        }
     });
-    stage.addEventListener("pointerup", () => {
-        dragging = false;
-        img.style.cursor = "grab";
-    });
-    stage.addEventListener("pointercancel", () => {
-        dragging = false;
-        img.style.cursor = "grab";
-    });
+
+    function endPointer(e) {
+        pointers.delete(e.pointerId);
+        if (pointers.size === 0) {
+            dragging = false;
+            img.style.cursor = "grab";
+        }
+        if (pointers.size === 1) {
+            const p = [...pointers.values()][0];
+            dragging = true;
+            startX = p.x;
+            startY = p.y;
+        }
+    }
+    stage.addEventListener("pointerup", endPointer);
+    stage.addEventListener("pointercancel", endPointer);
+    stage.addEventListener("pointerleave", endPointer);
 
     closeBtn.addEventListener("click", closeViewer);
     viewer.addEventListener("click", e => {
