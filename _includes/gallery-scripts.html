@@ -11,6 +11,8 @@
           misc: new Set(),
         }
         exactCharacterMatch = false;
+        let activeModalIndex = 0;
+        let activeVariantIndex = 0;
     
     let pendingFilters = {
       type: new Set(),
@@ -540,6 +542,8 @@
     }
   
     function showModal(index, variantIndex = 0) {
+      activeModalIndex = index;
+      activeVariantIndex = variantIndex;
       const item     = artData[index];
       if (!item) return;
       currentIndex   = filteredIndices.indexOf(index);
@@ -571,8 +575,21 @@
       }
   
       modalTitle.textContent = item.title;
-      modalDesc.textContent  = item.description || '';
-      modalDate.textContent  = item.date        || '';
+      modalDate.textContent  = item.date        || ''
+      const triviaEl = document.getElementById("modal-trivia");
+
+      triviaEl.innerHTML = "";
+
+      (item.trivia || []).forEach(fact => {
+        const p = document.createElement("p");
+        p.innerHTML = "&bull; " + fact;
+        triviaEl.appendChild(p);
+      });
+
+      triviaEl.onwheel = function (e) {
+        e.preventDefault();
+        this.scrollTop += e.deltaY * 0.3;
+      };
   
       const actualSrc = `{{ '/assets/images/' | relative_url }}${variants[variantIndex].replace(/\.[^/.]+$/, '.png')}`;
       document.querySelector('.image-wrapper')
@@ -612,21 +629,38 @@
       modal.style.display    = 'flex';
       loadHint.style.display = 'block';
       navHint.style.display  = 'block';
+      document.body.classList.add("modal-open");
+      lockNavForModal(true);
     }
-  
-    document.addEventListener('keydown', e => {
-      if (modal.style.display === 'flex') {
-        if (e.key === 'ArrowLeft' && currentIndex > 0) {
-          showModal(filteredIndices[currentIndex - 1], 0);
-        }
-        if (e.key === 'ArrowRight' && currentIndex < filteredIndices.length - 1) {
-          showModal(filteredIndices[currentIndex + 1], 0);
-        }
-        if (e.key === 'Escape') {
-          closeBtn.onclick();
-        }
+
+    const saveBtn = document.getElementById("save-image-btn");
+    const viewFullBtn = document.getElementById("view-full-btn");
+
+    saveBtn.onclick = () => {
+      const item = artData[activeModalIndex];
+      const variants = item.variants || [item.filename];
+      const variant = variants[activeVariantIndex];
+
+      const link = document.createElement("a");
+      link.href = `{{ '/assets/images/' | relative_url }}${variant}`;
+      link.download = variant;
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    };
+
+    function lockNavForModal(isOpen) {
+      const nav = document.querySelector(".new-desktop-nav");
+      const panel = document.getElementById("navPanel");
+      const button = document.getElementById("navToggle");
+
+      if (isOpen) {
+        nav.classList.add("nav-hidden");   // force hide
+        panel.classList.remove("open");    // close dropdown
+        button.textContent = "Navigate ▾"; // reset label
       }
-    });
+    }
 
     function getAllCharacters() {
       const chars = new Set();
@@ -720,6 +754,133 @@
         .catch(err => console.error(err));
     });
 </script>
+
+<script>
+  (() => {
+
+    const viewer = document.getElementById("image-viewer");
+    const stage = document.getElementById("viewer-stage");
+    const img = document.getElementById("viewer-image");
+    const closeBtn = document.getElementById("viewer-close");
+    const viewBtn = document.getElementById("view-full-btn");
+    img.draggable = false;
+
+    let scale = 1;
+    let x = 0;
+    let y = 0;
+
+    let dragging = false;
+    let startX = 0;
+    let startY = 0;
+
+    const MIN_SCALE = 0.1;
+    const MAX_SCALE = 6;
+
+    function updateTransform() {
+        img.style.transform =
+            `translate(${x}px, ${y}px) scale(${scale})`;
+    }
+
+    function clampScale() {
+        scale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, scale));
+
+        if (scale === 1) {
+            x = 0;
+            y = 0;
+        }
+    }
+
+    function resetView() {
+        scale = 1;
+        x = 0;
+        y = 0;
+        updateTransform();
+    }
+
+    function openViewer(src) {
+        img.src = src;
+        resetView();
+        viewer.classList.remove("hidden");
+    }
+
+    function closeViewer() {
+        viewer.classList.add("hidden");
+        img.src = "";
+    }
+
+    viewBtn.addEventListener("click", () => {
+        const item = artData[activeModalIndex];
+        const variants = item.variants || [item.filename];
+
+        openViewer(
+            `{{ '/assets/images/' | relative_url }}${variants[activeVariantIndex]}`
+        );
+    });
+
+    img.addEventListener("dragstart", e => {
+        e.preventDefault();
+    });
+
+    stage.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        const rect = stage.getBoundingClientRect();
+        const cx = rect.width / 2;
+        const cy = rect.height / 2;
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        const dx = mouseX - cx;
+        const dy = mouseY - cy;
+        const prevScale = scale;
+        const zoomFactor = e.deltaY < 0 ? 1.08 : 0.92;
+        scale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, scale * zoomFactor));
+        const scaleDiff = scale / prevScale;
+        x = x - dx * (scaleDiff - 1);
+        y = y - dy * (scaleDiff - 1);
+        updateTransform();
+    }, { passive: false });
+
+    stage.addEventListener("pointerdown", e => {
+        e.preventDefault();
+        dragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        img.style.cursor = "grabbing";
+    });
+    stage.addEventListener("pointermove", e => {
+        if (!dragging) return;
+        x += e.clientX - startX;
+        y += e.clientY - startY;
+        startX = e.clientX;
+        startY = e.clientY;
+        updateTransform();
+    });
+    stage.addEventListener("pointerup", () => {
+        dragging = false;
+        img.style.cursor = "grab";
+    });
+    stage.addEventListener("pointercancel", () => {
+        dragging = false;
+        img.style.cursor = "grab";
+    });
+
+    closeBtn.addEventListener("click", closeViewer);
+    viewer.addEventListener("click", e => {
+        if (e.target === viewer) {
+            closeViewer();
+        }
+    });
+
+    document.addEventListener("keydown", e => {
+        if (
+            !viewer.classList.contains("hidden") &&
+            e.key === "Escape"
+        ) {
+            closeViewer();
+        }
+    });
+
+  })();
+</script>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
     import {
@@ -778,13 +939,15 @@
     </script>
     <script>
     const modalElement = document.getElementById("modal");
-    const closeBtn = document.querySelector(".close");
     const frame = document.querySelector(".modal-frame");
+    const modalExitBtn = document.getElementById("modal-exit");
 
-    closeBtn.addEventListener("click", () => {
-      modalElement.style.display = "none";
-      loadHint.style.display = "none";
-      navHint.style.display = "none";
+    modalExitBtn.addEventListener("click", () => {
+        modalElement.style.display = "none";
+        loadHint.style.display = "none";
+        navHint.style.display = "none";
+        document.body.classList.remove("modal-open");
+        lockNavForModal(false);
     });
 
     modalElement.addEventListener("click", (e) => {
@@ -792,6 +955,40 @@
         modalElement.style.display = "none";
         loadHint.style.display = "none";
         navHint.style.display = "none";
+        document.body.classList.remove("modal-open");
+        lockNavForModal(false);
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (!document.body.classList.contains("modal-open")) return;
+      const viewer = document.getElementById("image-viewer");
+      if (viewer && !viewer.classList.contains("hidden")) return;
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight" &&
+          e.key !== "a" && e.key !== "d") return;
+      const isLeft = (e.key === "ArrowLeft" || e.key === "a");
+      const isRight = (e.key === "ArrowRight" || e.key === "d");
+      if (isLeft && currentIndex > 0) {
+        currentIndex--;
+        showModal(filteredIndices[currentIndex], 0);
+      }
+      if (isRight && currentIndex < filteredIndices.length - 1) {
+        currentIndex++;
+        showModal(filteredIndices[currentIndex], 0);
+      }
+    });
+
+    document.querySelector(".modal-side-btn.left").addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        showModal(filteredIndices[currentIndex], 0);
+      }
+    });
+
+    document.querySelector(".modal-side-btn.right").addEventListener("click", () => {
+      if (currentIndex < filteredIndices.length - 1) {
+        currentIndex++;
+        showModal(filteredIndices[currentIndex], 0);
       }
     });
     
@@ -848,136 +1045,6 @@
       }
     });
   </script>
-<script>
-  // ZOOMED UP VIEW FOR MOBILE
-  document.addEventListener('DOMContentLoaded', () => {
-    if (
-      !('ontouchstart' in window) &&
-      !(navigator.maxTouchPoints > 0) &&
-      !navigator.msMaxTouchPoints
-    ) {
-      return;
-    }
-
-    const modalImg        = document.getElementById('modal-img');
-    const zoomOverlay     = document.getElementById('zoom-overlay');
-    const zoomImage       = document.getElementById('zoom-image');
-    let baseScale         = 1;
-    let baseTranslateX    = 0;
-    let baseTranslateY    = 0;
-    let startDist         = 0;
-    let startScale        = 1;
-    let startTouchMidX    = 0;
-    let startTouchMidY    = 0;
-    let isPinching        = false;
-    let lastTouchX        = 0;
-    let lastTouchY        = 0;
-    let isPanning         = false;
-
-    function getDistance(t1, t2) {
-      const dx = t2.clientX - t1.clientX;
-      const dy = t2.clientY - t1.clientY;
-      return Math.hypot(dx, dy);
-    }
-
-    function getMidpoint(t1, t2) {
-      return {
-        x: (t1.clientX + t2.clientX) / 2,
-        y: (t1.clientY + t2.clientY) / 2
-      };
-    }
-  
-    function applyTransform() {
-      const tx = baseTranslateX;
-      const ty = baseTranslateY;
-      const s  = baseScale;
-      zoomImage.style.transform = `translate(${tx}px, ${ty}px) scale(${s})`;
-    }
-
-    modalImg.addEventListener('click', () => {
-      zoomImage.src = modalImg.src;
-      baseScale      = 1;
-      baseTranslateX = 0;
-      baseTranslateY = 0;
-      isPinching     = false;
-      isPanning      = false;
-      zoomImage.style.transform = 'translate(0, 0) scale(1)';
-      zoomOverlay.classList.add('active');
-    });
-
-    zoomOverlay.addEventListener('click', (e) => {
-      if (e.target === zoomOverlay) {
-        zoomOverlay.classList.remove('active');
-      }
-    });
-
-    zoomImage.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      const touches = e.touches;
-      if (touches.length === 2) {
-        isPinching  = true;
-        isPanning   = false;
-        startDist   = getDistance(touches[0], touches[1]);
-        startScale  = baseScale;
-        const mid    = getMidpoint(touches[0], touches[1]);
-        startTouchMidX = mid.x;
-        startTouchMidY = mid.y;
-      } else if (touches.length === 1 && baseScale > 1) {
-        isPanning  = true;
-        lastTouchX = touches[0].clientX;
-        lastTouchY = touches[0].clientY;
-      }
-    }, { passive: false });
-
-    zoomImage.addEventListener('touchmove', (e) => {
-      e.preventDefault();
-      const touches = e.touches;
-      if (isPinching && touches.length === 2) {
-        const newDist   = getDistance(touches[0], touches[1]);
-        const scaleFactor = newDist / startDist;
-        let newScale   = startScale * scaleFactor;
-        newScale = Math.max(1, Math.min(newScale, 4));
-        baseScale = newScale;
-
-        const mid      = getMidpoint(touches[0], touches[1]);
-        const dx       = mid.x - startTouchMidX;
-        const dy       = mid.y - startTouchMidY;
-
-        baseTranslateX += dx;
-        baseTranslateY += dy;
-        startTouchMidX = mid.x;
-        startTouchMidY = mid.y;
-
-        applyTransform();
-      }
-      else if (isPanning && touches.length === 1) {
-        const x = touches[0].clientX;
-        const y = touches[0].clientY;
-        const dx = x - lastTouchX;
-        const dy = y - lastTouchY;
-        lastTouchX = x;
-        lastTouchY = y;
-        baseTranslateX += dx;
-        baseTranslateY += dy;
-        applyTransform();
-      }
-    }, { passive: false });
-
-    zoomImage.addEventListener('touchend', (e) => {
-      const t = e.touches;
-      if (t.length < 2) {
-        isPinching = false;
-      }
-      if (t.length === 0) {
-        isPanning = false;
-      }
-    });
-
-    zoomOverlay.addEventListener('touchmove', (e) => {
-      e.preventDefault();
-    }, { passive: false });
-  });
-</script>
 
   <script>
     // NEWS

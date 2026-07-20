@@ -60,11 +60,15 @@ page_type: gallery
 
 <div id="modal" class="modal">
   <div class="modal-frame">
-    <span class="close">&times;</span>
+    <button id="modal-exit">Exit</button>
     <div class="modal-content">
       <h2 id="modal-title" class="modal-title"></h2>
-      <div class="image-wrapper">
-        <img id="modal-img" src="" alt="" />
+      <div class="modal-image-row">
+        <button class="modal-side-btn left" aria-label="Previous image">‹</button>
+        <div class="image-wrapper">
+          <img id="modal-img" src="" alt="" />
+        </div>
+        <button class="modal-side-btn right" aria-label="Next image">›</button>
       </div>
       <div class="modal-meta">
         <div class="variant-thumbs"></div>
@@ -73,13 +77,35 @@ page_type: gallery
       </div>
     </div>
 
-    <div class="modal-description-bar">
-      <p id="modal-description"></p>
+  <div class="modal-trivia-bar">
+    <div class="trivia-label">
+      Trivia
     </div>
+
+  <div id="modal-trivia" class="trivia-content">
+    </div>
+  </div>
+
+  <div class="modal-actions">
+    <button id="view-full-btn" class="modal-action-btn">
+      View Full Image
+    </button>
+
+    <button id="save-image-btn" class="modal-action-btn">
+      Save Image
+    </button>
+  </div>
 
     <p class="loading-hint">Images may take some time to load.</p>
     <p class="navigation-hint">Use ← and → arrow keys to navigate.</p>
   </div>
+</div>
+
+<div id="image-viewer" class="image-viewer hidden">
+    <button id="viewer-close">Exit Full Image Mode</button>
+    <div id="viewer-stage">
+        <img id="viewer-image">
+    </div>
 </div>
 
 <div id="year-nav-bottom" class="year-nav"></div>

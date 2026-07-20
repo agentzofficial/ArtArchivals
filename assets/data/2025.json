@@ -2,496 +2,692 @@
     {
         "variants": ["2025-12-27_3.png", "2025-12-27_1.png", "2025-12-27_2.png"],
         "title": "The Countdown",
-        "description": "Video Thumbnail",
         "date": "27 December 2025",
         "youtube": "https://www.youtube.com/watch?v=J0zwiRQ8ya4",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Neo Agent 3"]
+        "characters": ["Neo Agent 3"],
+        "trivia": [
+            "Thumbnail for <a href=\"/about/the-countdown/\">The Countdown</a>."
+        ]
     },
     {
         "variants": ["2025-12-25_1.png", "2025-12-25_2.png"],
         "title": "Merry Christmas 2025",
-        "description": "Render made to celebrate Christmas in 2025.",
         "date": "25 December 2025",
         "youtube": "https://www.youtube.com/post/UgkxqmW6yQvsdbkXgPEx9DMf6A-MYFditi48",
         "tags": ["Renders", "Star Renders"],
-        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3"]
+        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3"],
+        "trivia": [
+            "This is the first dedicated Christmas post since 2023, as 2024 missed it due to focusing on <a href=\"/about/the-perfect-present/\">The Perfect Present</a>."
+        ]
     },
     {
         "filename": "2025-12-23_1.png",
         "title": "RAAHHH!",
-        "description": "Render teasing the Splatoon Animation 'The Countdown'.",
         "date": "23 December 2025",
         "youtube": "https://www.youtube.com/post/UgkxoPgKNuTy16zRykbJ5tMCma-xJkoYX_UX",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent Z", "Agent 8", "Neo Agent 3"]
+        "characters": ["Agent Z", "Agent 8", "Neo Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/the-countdown/\">The Countdown</a>."
+        ]
     },
     {
         "filename": "2025-12-20_1.png",
         "title": "Super Mario!",
-        "description": "Mario jumping with a Power Star from Super Mario 64.",
         "date": "20 December 2025",
         "youtube": "https://www.youtube.com/post/UgkxEcCEfTZljfjb19rHhtGWyzN12oUG1ZNn",
-        "tags": ["Renders", "Star Renders"]
+        "tags": ["Renders", "Star Renders"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/enter-sm64/\">Enter SM64</a>.",
+            "The render references a pose Mario makes in Mario Party 10, with a star added to reference Super Mario 64."
+        ]
     },
     {
         "filename": "2025-12-13_4.png",
         "title": "Staff Roll",
-        "description": "A photograph seen at the end of 'Enter Super Mario 64'.",
         "date": "14 December 2025",
         "youtube": "https://www.youtube.com/watch?v=brGUsuv1I1s",
         "tags": ["Renders", "Star Renders"],
-        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3"]
+        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3"],
+        "trivia": [
+            "This render appears in <a href=\"/about/enter-sm64/\">Enter SM64</a> at the end.",
+            "The render name references the name of Super Mario 64's credits theme, called 'Staff Roll'."
+        ]
     },
     {
         "variants": ["2025-12-13_3.png", "2025-12-13_1.png", "2025-12-13_2.png"],
         "title": "Enter SM64",
-        "description": "Video Thumbnail",
         "date": "14 December 2025",
         "youtube": "https://www.youtube.com/watch?v=brGUsuv1I1s",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent 8", "Neo Agent 3"]
+        "characters": ["Agent 8", "Neo Agent 3"],
+        "trivia": [
+            "Thumbnail for <a href=\"/about/enter-sm64/\">Enter SM64</a>.",
+            "The first variant references the box art for Super Mario 64 DS.",
+            "The third variant references the box art for Super Mario 64.",
+            "Each variant represents Mario's appearance in the episode differently. The first variant features Mario himself, the second variant features Mario in his Super Mario 64 model, and the third variant features Agent 3 wearing Mario's hat via the Wing Cap."
+        ]
     },
     {
         "filename": "2025-12-10_1.png",
         "title": "Agent 3 in the Sky",
-        "description": "Render teasing the Splatoon Animation 'Enter Super Mario 64'.",
         "date": "12 December 2025",
         "youtube": "https://www.youtube.com/post/Ugkx-7rjT90SmGbmetFD7RNlMbntS3MvDnAh",
         "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
-        "characters": ["Agent 3"]
+        "characters": ["Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/enter-sm64/\">Enter SM64</a>.",
+            "The setting is meant to reference the Super Mario 64 stage 'Bowser in the Sky', featuring the arena where you fight Bowser for a final time.",
+            "The title of the render itself also references the Super Mario 64 stage."
+        ]
     },
     {
         "filename": "2025-12-05_1.png",
         "title": "Edge of the Cool, Cool Mountain",
-        "description": "Render teasing the Splatoon Animation 'Enter Super Mario 64'.",
         "date": "5 December 2025",
         "youtube": "https://www.youtube.com/post/UgkxyFVTSyqfINPeqzAmWXtqCN9BFIJDycx0",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent X", "Agent 3"]
+        "characters": ["Agent X", "Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/enter-sm64/\">Enter SM64</a>.",
+            "The setting is meant to reference the Super Mario 64 stage 'Cool, Cool Moutnain'. The title of the render also affirms this."
+        ]
     },
     {
         "filename": "2025-11-29_1.png",
         "title": "Captured Over Lava",
-        "description": "Render teasing the Splatoon Animation 'Enter Super Mario 64'.",
         "date": "29 November 2025",
         "youtube": "https://www.youtube.com/post/UgkxrHrJcXkBeJpoPRdQHrxeYt7M9yqCfUMO",
         "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
-        "characters": ["Agent 8"]
+        "characters": ["Agent 8"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/enter-sm64/\">Enter SM64</a>.",
+            "The setting of the render is meant to resemble the Super Mario 64 stage 'Bowser in the Fire Sea'."
+        ]
     },
     {
         "filename": "2025-11-25_1.png",
         "title": "Free Fall!",
-        "description": "Render teasing the Splatoon Animation 'Enter Super Mario 64'.",
         "date": "25 November 2025",
         "youtube": "https://www.youtube.com/post/Ugkx3hTmzYrxS6oTkb0aViT_yERJKWOrS8aD",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Neo Agent 3"]
+        "characters": ["Neo Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/enter-sm64/\">Enter SM64</a>.",
+            "The pose Neo Agent 3 is making is meant to reference the pose Mario makes when flying with the Wing Cap on the Super Mario 64 box art."
+        ]
     },
     {
         "filename": "2025-10-5_1.png",
         "title": "Library Thief",
-        "description": "Video Thumbnail",
         "date": "5 October 2025",
         "youtube": "https://www.youtube.com/watch?v=xTNjCs4_zI4",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent 3", "Neo Agent 3"]
+        "characters": ["Agent 3", "Neo Agent 3"],
+        "trivia": [
+            "Thumbnail for <a href=\"/library-thief/\">Library Thief</a>."
+        ]
     },
     {
         "filename": "2025-9-27_1.png",
         "title": "Please Keep Quiet in the Library.",
-        "description": "Render teasing the Splatoon Animation 'Library Thief'.",
         "date": "27 September 2025",
         "youtube": "https://www.youtube.com/post/UgkxPvTcPug11Dwn5naqhkscMe19OVrg26wB",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent 3", "Neo Agent 3"]
+        "characters": ["Agent 3", "Neo Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/library-thief/\">Library Thief</a>.",
+            "This poster released on a YouTube Community post also featured the release date on it. This version without the release date was initially released through agent z YouTube Memberships first."
+        ]
     },
     {
         "filename": "2025-09-08_1.png",
         "title": "Night Sandwich",
-        "description": "Agent 8 eating a sandwich late at night as she looks through her phone.",
         "date": "8 September 2025",
         "youtube": "https://www.youtube.com/post/Ugkx59Sb0RE9_R0jfeDaHAErOa4d4UEmrrOJ",
         "twitter": "https://x.com/agentzofficial/status/1964692892133507414",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3lyaumv4n2224",
         "tags": ["Renders", "Star Renders"],
-        "characters": ["Agent 8"]
+        "characters": ["Agent 8"],
+        "trivia": [
+            "This render was made to practice making a render in a more relaxed setting in contrast to the Splatoon Animation's usual chaotic tones."
+        ]
     },
     {
         "filename": "2025-08-14_1.png",
         "title": "10,000 Subscribers",
-        "description": "Celebrating the agent z YouTube channel reaching 10,000 subscribers. All characters featured were Participants in the agent z Art Contest. You can download/save the image to see it in its highest quality.",
         "date": "14 August 2025",
         "youtube": "https://www.youtube.com/post/UgkxmUNyiI9ZZqDmnJ0x6tb3TJnpMxdD3Pin",
         "twitter": "https://x.com/agentzofficial/status/1956049219598667780",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3lwevd6xqmc2z",
         "tags": ["Renders", "Star Renders"],
-        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3", "Callie", "Marie", "Pearl", "Marina", "Shiver", "Frye", "Big Man"]
+        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3", "Callie", "Marie", "Pearl", "Marina", "Shiver", "Frye", "Big Man"],
+        "trivia": [
+            "It is implied that Agent 8 makes the subscriber special cake. In this render, it is hinted by her being inside the food truck.",
+            "All Fan Characters featured were participants in the agent z Art Contest, celebrating 10,000 subscribers as well as the moderation team for the agent z VERSUS Discord Server that hosted the event.",
+            "Of the 79 total contestants in the agent z Art Contest, 63 submitted their Fan Characters to appear in the render, with there being an additional 3 characters due to the moderators getting one extra Fan Character render each.",
+            "Each Fan Character was rendered individually, meaning they also had versions with transparent backgrounds that could be requested by Direct Messaging or pinging agent z asking for their individual Fan Character renders.",
+            "Fan Characters could also be drawn by agent z if they were not from the Splatoon universe and lacked 3D models.",
+            "The winner of the agent z Art Contest is the one above the rest jumping high with an Ultra Stamp. They were originally meant to feature a small crown hovering over their head, but agent z forgot.",
+            "The Finalists of the agent z Art Contest surround Agent Z in a triangle-like format, going from left to right in terms of final placement.",
+            "All of the Agents appear in this render. Agent 3 is talking with a Fan Character who had previously helped Agent 8 in finding Agent 3 in <a href=\"/fireworks-festival/\">Fireworks Festival</a>. Agent X is inside the Octobot King, refernecing the Power Trip Story Arc. Neo Agent 3 is inside of a helicopter, referencing <a href=\"/beach-episode/\">Beach Episode</a>.",
+            "All of the Splatoon Idols are featured in this render, albiet in plush form and are hidden across the render.",
+            "The render notably takes place in Inkopolis Square, which should've been destroyed as seen in <a href=\"/power-outage/\">Power Outage</a>. The location was still chosen due to it being one of the most frequently appearing locations in the Splatoon Animation and agent z Classics series.",
+            "There are several small items and details spread across the render, referencing several episodes in the Splatoon Animation series, as well as the agent z Classics series.",
+            "A racing vehicle was added to the render due to the agent z VERSUS Discord Server having a lot of discussion in regards to racing sports throughout the agent z Art Contest's lifespan.",
+            "This render is one of the largest renders agent z has ever made in size, as agent z wanted to ensure that even characters far in the back can still be seen at a high quality when zoomed in. Therefore, the render was made to be 8K in size, or 7680x4320 pixels.",
+            "The render was actually too big to fit on the agent z Discord Server due to it exceeding the 10MB limit, being 21MB. Therefore, it had to be compressed as a .webp to reduce it to 7MB."
+        ]
     },
     {
         "variants": ["2025-8-3_3.png", "2025-8-3_1.png", "2025-8-3_2.png"],
         "title": "Squid Game",
-        "description": "Video Thumbnail",
         "date": "3 August 2025",
         "youtube": "https://www.youtube.com/watch?v=NvyVihmYgUQ",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent Z", "Agent 3", "Agent 8", "Neo Agent 3"]
+        "characters": ["Agent Z", "Agent 3", "Agent 8", "Neo Agent 3"],
+        "trivia": [
+            "Thumbnail for <a href=\"/squid-game/\">Squid Game</a>.",
+            "The first variant has the Pink Guards from the Squid Game franchise in the order of their rankings, going from the lowest at circle to the highest at the square ranks.",
+            "Each thumbnail is based on the Squid Game show's promotional material. The third variant in particular is based on a poster from Season 1 that was promoted heavily."
+        ]
     },
     {
         "filename": "2025-7-18_3.png",
         "title": "Round and Round!",
-        "description": "Render teasing the Splatoon Animation 'Squid Game'.",
         "date": "18 July 2025",
         "youtube": "https://www.youtube.com/post/UgkxIoTnoZnaFro0f4t41-u81-vHCi-O1pYX",
-        "tags": ["Renders", "Splatoon Animation Renders"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "trivia": [
+            "This render references the episode <a href=\"/squid-game/\">Squid Game</a>.",
+            "The title of the render references the song that plays in this scene in the show itself.",
+            "This render specifically references the 'Mingle' game from Squid Game Season 2."
+    ]
     },
     {
         "filename": "2025-7-18_2.png",
         "title": "Keys and Knives",
-        "description": "Render teasing the Splatoon Animation 'Squid Game'.",
         "date": "18 July 2025",
         "youtube": "https://www.youtube.com/post/UgkxIoTnoZnaFro0f4t41-u81-vHCi-O1pYX",
-        "tags": ["Renders", "Splatoon Animation Renders"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "trivia": [
+            "This render references the episode <a href=\"/squid-game/\">Squid Game</a>.",
+            "The title of the render references the first episode's name in Squid Game Season 3.",
+            "This render specifically references the 'Hide and Seek' game from Squid Game Season 3."
+        ]
     },
     {
         "filename": "2025-7-18_1.png",
         "title": "Rich People's Enjoyment",
-        "description": "Render teasing the Splatoon Animation 'Squid Game'.",
         "date": "18 July 2025",
         "youtube": "https://www.youtube.com/post/UgkxIoTnoZnaFro0f4t41-u81-vHCi-O1pYX",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent Z", "Agent X"]
+        "characters": ["Agent Z", "Agent X"],
+        "trivia": [
+            "This render references the episode <a href=\"/squid-game/\">Squid Game</a>.",
+            "The render specifically references scenes from the Squid Game franchise, featuring a character watching the players play from a TV screen."
+        ]
     },
     {
         "filename": "2025-7-13_3.png",
         "title": "One to Eliminate",
-        "description": "Render teasing the Splatoon Animation 'Squid Game'.",
         "date": "13 July 2025",
         "youtube": "https://www.youtube.com/post/UgkxckRLZG6dR8WGaCXIPYdYomRV-_C2L7bV",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "This render references the episode <a href=\"/squid-game/\">Squid Game</a>.",
+            "This render specifically references the 'Sky Squid Game' game from Squid Game Season 3."
+        ]
     },
     {
         "filename": "2025-7-13_2.png",
         "title": "Across the Bridge",
-        "description": "Render teasing the Splatoon Animation 'Squid Game'.",
         "date": "13 July 2025",
         "youtube": "https://www.youtube.com/post/UgkxckRLZG6dR8WGaCXIPYdYomRV-_C2L7bV",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent 8"]
+        "characters": ["Agent 8"],
+        "trivia": [
+            "This render references the episode <a href=\"/squid-game/\">Squid Game</a>.",
+            "The title of the render references a music track that plays during these scenes in the show, being named 'Across the Bridge'.",
+            "This render specifically references the 'Jump Rope' game from Squid Game Season 3."
+        ]
     },
     {
         "filename": "2025-7-13_1.png",
         "title": "Red and Blue",
-        "description": "Render teasing the Splatoon Animation 'Squid Game'.",
         "date": "13 July 2025",
         "youtube": "https://www.youtube.com/post/UgkxckRLZG6dR8WGaCXIPYdYomRV-_C2L7bV",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent 3"]
+        "characters": ["Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/squid-game/\">Squid Game</a>.",
+            "The title of the render references a music track that plays during these scenes in the show, being named 'Red and Blue'.",
+            "This render specifically references the 'Hide and Seek' game from Squid Game Season 3.",
+            "This is one of the first renders to feature Agent 3 with a different hair color than usual since March 2023, back when the agent z YouTube Channel started and before agent z knew how to change hair colors for models from their set defaults."
+        ]
     },
     {
         "filename": "2025-7-9_2.png",
         "title": "Round the Circle",
-        "description": "Render teasing the Splatoon Animation 'Squid Game'.",
         "date": "9 July 2025",
         "youtube": "https://www.youtube.com/post/UgkxGtraJCoxECjKFifaIoiL3nezURQ68umq",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent Z", "Neo Agent 3"]
+        "characters": ["Agent Z", "Neo Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/squid-game/\">Squid Game</a>.",
+            "The title of the render references a music track that plays during these scenes in the show, being named 'Round the Circle V'.",
+            "This render specifically references the 'Mingle' game from Squid Game Season 2."
+        ]
     },
     {
         "filename": "2025-7-9_1.png",
         "title": "To You",
-        "description": "Render teasing the Splatoon Animation 'Squid Game'.",
         "date": "9 July 2025",
         "youtube": "https://www.youtube.com/post/UgkxGtraJCoxECjKFifaIoiL3nezURQ68umq",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent X", "Neo Agent 3"]
+        "characters": ["Agent X", "Neo Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/squid-game/\">Squid Game</a>.",
+            "The title of the render references a song that plays during these scenes, titled 'To You'.",
+            "This render specifically references the 'Six-Legged Pentathlon' game from Squid Game Season 2."
+        ]
     },
     {
         "filename": "2025-7-5_3.png",
         "title": "The Glass Bridge",
-        "description": "Render teasing the Splatoon Animation 'Squid Game'.",
         "date": "5 July 2025",
         "youtube": "https://www.youtube.com/post/UgkxspbbnwmL-fsmk1QXcRT0Mio0XueuD8vp",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent X"]
+        "characters": ["Agent X"],
+        "trivia": [
+            "This render references the episode <a href=\"/squid-game/\">Squid Game</a>.",
+            "This render specifically references the 'Glass Stepping Stones' game from Squid Game Season 1."
+        ]
     },
     {
         "filename": "2025-7-5_2.png",
         "title": "Gganbu",
-        "description": "Render teasing the Splatoon Animation 'Squid Game'.",
         "date": "5 July 2025",
         "youtube": "https://www.youtube.com/post/UgkxspbbnwmL-fsmk1QXcRT0Mio0XueuD8vp",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent 3"]
+        "characters": ["Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/squid-game/\">Squid Game</a>.",
+            "This render specifically references the 'Gganbu' game from Squid Game Season 1."
+        ]
     },
     {
         "filename": "2025-7-5_1.png",
         "title": "The Rope is Tied",
-        "description": "Render teasing the Splatoon Animation 'Squid Game'.",
         "date": "5 July 2025",
         "youtube": "https://www.youtube.com/post/UgkxspbbnwmL-fsmk1QXcRT0Mio0XueuD8vp",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent 8"]
+        "characters": ["Agent 8"],
+        "trivia": [
+            "This render references the episode <a href=\"/squid-game/\">Squid Game</a>.",
+            "The title of the render references a music track that plays during these scenes named 'The Rope is Tied'.",
+            "This render specifically references the 'Tug of War' game from Squid Game Season 1."
+        ]
     },
     {
         "filename": "2025-7-4_1.png",
         "title": "Stick to the Team",
-        "description": "Render teasing the video 'Squid Game'. It was posted exclusively on the agent z Art Contest Discord Server.",
         "date": "4 July 2025",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent 3", "Agent 8", "Neo Agent 3"]
+        "characters": ["Agent 3", "Agent 8", "Neo Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/squid-game/\">Squid Game</a>.",
+            "The title of the render references the fourth episode's name in Squid Game Season 1.",
+            "This render specifically references the 'Tug of War' game from Squid Game Season 1.",
+            "This render was posted exclusively on the agent z VERSUS Discord Server during the agent z Art Contest celebrating 10,000 subscribers.",
+            "The rope used in the render is actually just a regular block that was given an extremelty long length to better show the characters gripping onto something."
+        ]
     },
     {
         "filename": "2025-6-22_1.png",
         "title": "Beach Episode",
-        "description": "Video Thumbnail",
         "date": "22 June 2025",
         "youtube": "https://www.youtube.com/watch?v=hpOsv4pggI0",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent 3", "Neo Agent 3"]
+        "characters": ["Agent 3", "Neo Agent 3"],
+        "trivia": [
+            "Thumbnail for <a href=\"/about/beach-episode/\">Beach Episode</a>.",
+            "The individual render for Neo Agent 3 with a transparent background in this render was posted to the agent z VERSUS Discord Server due to the episode itself facing a few hours of delays.",
+            "The render parallels the render 'Beach Neo Agent 3!' with Agent 3 instead being the one to have sunglasses with a smug look."
+        ]
     },
     {
         "filename": "2025-6-20_2.png",
         "title": "The Beach's Sunset",
-        "description": "Render teasing the Splatoon Animation 'Beach Episode'. It was posted exclusively on the agent z Art Contest Discord Server.",
         "date": "20 June 2025",
-        "tags": ["Renders", "Splatoon Animation Renders"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/beach-episode/\">Beach Episode</a>.",
+            "This render was posted exclusively on the agent z VERSUS Discord Server during the agent z Art Contest celebrating 10,000 subscribers."
+        ]
     },
     {
         "filename": "2025-6-20_1.png",
         "title": "The Rooftop With You",
-        "description": "Agent Z sitting on a rooftop in Skipper Pavilion. She appears to be addressing someone behind the camera.",
         "date": "20 June 2025",
         "youtube": "https://www.youtube.com/post/Ugkx9LRgBE2F0LXoPp9HMPZarPVkncy9ZfIu",
         "tags": ["Renders", "Star Renders"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "The background is a night version of the map Skipper Pavilion from Splatoon 2 from a high place.",
+            "The render suggests that Agent Z is sitting with someone on the rooftop, but the character is unknown.",
+            "The YouTube Community post itself featuring this render asks the audience how their day has been, making the render make it appear like Agent Z is sitting with the audience in a way."
+        ]
     },
     {
         "filename": "2025-6-17_1.png",
         "title": "Buried Treasure",
-        "description": "Render teasing the Splatoon Animation 'Beach Episode'.",
         "date": "17 June 2025",
         "youtube": "https://www.youtube.com/post/UgkxTFXoFuRxObgqplmbGBs-gHmyiXegZyJi",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent Z", "Agent X"]
+        "characters": ["Agent Z", "Agent X"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/beach-episode/\">Beach Episode</a>.",
+            "The episode itself doesn't feature a scene similar to this render, though it is implied to occur as the render is set during the sunset, where in <a href=\"/about/beach-episode/\">Beach Episode</a> itself, Agent Z and Agent X leave to watch the sunset off camera."        
+        ]
     },
     {
         "filename": "2025-6-12_1.png",
         "title": "Nintendo Switch 2 — One Week In",
-        "description": "Render made one week after the Nintendo Switch 2 released. It references the Splatoon Animation Renders of a series of videos from Scott The Woz.",
         "date": "12 June 2025",
         "youtube": "https://www.youtube.com/post/UgkxmmQk1UG_1CavvO3jm3I2qoTIzw2pQ0yy",
         "tags": ["Renders"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "The render references the thumbnails for a series of videos from the YouTuber Scott The Woz, who made videos on the status of the original Nintendo Switch each year for 6 years.",
+            "This render was released one week after the Nintendo Switch 2 released."
+        ]
     },
     {
         "filename": "2025-6-11_1.png",
         "title": "Heart-Stopping News",
-        "description": "A quick render made following a plethora of Splatoon news, such as the announcement of Splatoon Raiders. It was made alongside the Splatshort 'NEW SPLATOON CONTENT!?'.",
         "date": "11 June 2025",
         "twitter": "https://x.com/agentzofficial/status/1932472612615241885",
         "tags": ["Renders"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "This render was made alongside the Splatshort 'NEW SPLATOON CONTENT!?'.",
+            "The render was made following a plethroa of Splatoon news being suddenly announced, notably the announcement of Splatoon Raiders and third kits for select weapons in Splatoon 3."
+        ]
     },
     {
         "filename": "2025-6-9_2.png",
         "title": "Big Man, Big Beach",
-        "description": "Render teasing the Splatoon Animation 'Beach Episode'. It was posted exclusively on the agent z Art Contest Discord Server.",
         "date": "9 June 2025",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Big Man"]
+        "characters": ["Big Man"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/beach-episode/\">Beach Episode</a>.",
+            "This render was posted exclusively on the agent z VERSUS Discord Server during the agent z Art Contest celebrating 10,000 subscribers."
+        ]
     },
     {
         "filename": "2025-6-9_1.png",
         "title": "Beach Neo Agent 3!",
-        "description": "Render teasing the Splatoon Animation 'Beach Episode'.",
         "date": "9 June 2025",
         "youtube": "https://www.youtube.com/post/Ugkx9h1zpwlFeApQbk8KRtGJ-nbTrLGJsBtk",
         "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
-        "characters": ["Neo Agent 3"]
+        "characters": ["Neo Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/beach-episode/\">Beach Episode</a>.",
+            "The render parallels the thumbnail render for <a href=\"/about/beach-episode/\">Beach Episode</a> with Neo Agent 3 here being the one with sunglasses and a smug look."
+        ]
     },
     {
         "filename": "2025-6-2_1.png",
         "title": "Summer Time!!",
-        "description": "Render teasing the video 'Beach Episode'.",
         "date": "2 June 2025",
         "youtube": "https://www.youtube.com/post/UgkxZvLi9c-WuJzAl74XRDe0_QGDDAeWwy9A",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/beach-episode/\">Beach Episode</a>.",
+            "The render was taken directly from a scene in the episode during production.",
+            "The render's title references the fact that the summer season had started for those in the Northern Hemisphere."
+        ]
     },
     {
         "filename": "2025-5-28_1.png",
         "title": "Splatoon",
-        "description": "Render made in celebration for the Splatoon franchise's 10 Year Anniversary. It references the box art for Splatoon (Wii U).",
         "date": "28 May 2025",
         "youtube": "https://www.youtube.com/post/UgkxqSMIZ6xQJ0wHzg3wtBi-IPcqA8gTqYdd",
         "twitter": "https://x.com/agentzofficial/status/1927494449640190093",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3lpyt3kuzxc2n",
         "tags": ["Renders", "Star Renders"],
-        "characters": ["Agent Z", "Agent X"]
+        "characters": ["Agent Z", "Agent X"],
+        "trivia": [
+            "The render referneces the box art from Splatoon (Wii U).",
+            "The render was made in celebration of the Splatoon franchise's 10 year anniversary.",
+            "Agent X is using the Cherry H-3 Nozzlenose, which was one of the best weapons in Splatoon (Wii U)."
+        ]
     },
     {
         "filename": "2025-5-25_1.png",
         "title": "Creative Exercise",
-        "description": "Agent Z lying on her stomach, drawing something on the ground. A cube feautring the Discord logo can be seen to the right.",
         "date": "25 May 2025",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3lpyt3kuzxc2n",
         "tags": ["Renders"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "This render was the first teaser for the existance of the agent z Art Contest, celebrating 10,000 subscribers.",
+            "Agent Z painting something on the paper specifically references the agentz Art Contest.",
+            "The cube with a Discord logo on it references the existance of the agent z VERSUS Discord Server that would be used to host the agent z Art Contest."
+        ]
     },
     {
         "filename": "2025-5-13_1.png",
         "title": "Thinking...",
-        "description": "Agent Z lost in her own thoughts.",
         "date": "13 May 2025",
         "youtube": "https://www.youtube.com/post/UgkxNqLgewQhshKiDMtiLz-woyKWfu5UKhXa",
         "tags": ["Renders"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "The render was made alongside a YouTube Community post where agent z asks the audience for any criticisms on episodes they may have.",
+            "This render is one of the first instances of backgrounds consisting of simple patterns being used by agent z, a design choice agent z would use more frequently for promotional works and general design in the future.."
+        ]
     },
     {
         "filename": "2025-5-9_1.png",
         "title": "9000 Subscribers",
-        "description": "Celebrating the agent z YouTube channel reaching 9000 subscribers.",
         "date": "9 May 2025",
         "youtube": "https://www.youtube.com/post/UgkxC9gBHOmoAfKFOMB6W9iqZqv7U7ugd0DB",
         "tags": ["Renders", "Star Renders"],
-        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3"]
+        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3"],
+        "trivia": [
+            "It is implied that Agent 8 makes the subscriber special cake. In this render, it is hinted by her holding the cake alongside Agent Z.",
+            "While difficult to see, the setting is the same location seen at the end of the Splatoon Animation <a href=\"/about/the-perfect-present/\">The Perfect Present</a>."
+        ]
     },
     {
         "variants": ["2025-5-4_3.png", "2025-5-4_1.png", "2025-5-4_2.png"],
         "title": "Power Outage",
-        "description": "Video Thumbnail",
         "date": "4 May 2025",
         "youtube": "https://www.youtube.com/watch?v=49dSCYKFWrs",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent 3", "Agent 8", "Neo Agent 3"]
+        "characters": ["Agent 3", "Agent 8", "Neo Agent 3"],
+        "trivia": [
+            "Thumbnail for <a href=\"/about/power-outage/\">Power Outage</a>.",
+            "Of the three thumbnails tested, the chosen thumbnail, being the first variant, was actually agent z's least favorite as they believed it looked rushed. Yet, it won the thumbnail tests by a large majority."
+        ]
     },
     {
         "filename": "2025-4-28_1.png",
         "title": "Learning to Drive",
-        "description": "Agent Z driving with a Learners Permit.",
         "date": "28 April 2025",
         "twitter": "https://x.com/agentzofficial/status/1916817561163100279",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3lnunrdbt7c2r",
         "tags": ["Renders", "Star Renders"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "The L plate on the kart is a 'Learner's Plate', a plate required on vehicles for people who have a Learner's Plate and not a full driving license in some countries.",
+            "The design of the L plate is specifically based on designs from the Commonwealth of Australia.",
+            "This render is one of the first instances of gradients being used in the background to adjust lighting. The render itself was practice for agent z to increase the quality of their renders.",
+            "The render references the Mario Kart franchise, with Mario Kart World having its own Nintendo Direct recent to this render."
+        ]
     },
     {
         "filename": "2025-4-25_4.png",
         "title": "Gone Crazy",
-        "description": "Render teasing the video 'Power Outage'.",
         "date": "25 April 2025",
         "youtube": "https://www.youtube.com/post/Ugkxcr8-WPjJDLzqoT1rhe5e4BSWm9Is5YlT",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent Z", "Agent 3"]
+        "characters": ["Agent Z", "Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/power-outage/\">Power Outage</a>.",
+            "The render specifically teases the ghost with Neo Agent 3's hair appearing in the episode."
+        ]
     },
     {
         "filename": "2025-4-25_3.png",
         "title": "The Malicious Glare",
-        "description": "Render teasing the video 'Power Outage'.",
         "date": "25 April 2025",
         "youtube": "https://www.youtube.com/post/Ugkxcr8-WPjJDLzqoT1rhe5e4BSWm9Is5YlT",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent X"]
+        "characters": ["Agent X"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/power-outage/\">Power Outage</a>.",
+            "The render specifically references Agent X's prank that she does in <a href=\"/about/power-outage/\">Power Outage</a>."
+        ]
     },
     {
         "filename": "2025-4-25_2.png",
         "title": "Three (Great?) Zapfish",
-        "description": "Render teasing the video 'Power Outage'.",
         "date": "25 April 2025",
         "youtube": "https://www.youtube.com/post/Ugkxcr8-WPjJDLzqoT1rhe5e4BSWm9Is5YlT",
-        "tags": ["Renders", "Splatoon Animation Renders"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/power-outage/\">Power Outage</a>.",
+            "The lighting on the zapfish had to be done manually due to the models themselves not having as much backlighting on them."
+        ]
     },
     {
         "filename": "2025-4-25_1.png",
         "title": "Local Multiplayer Versus",
-        "description": "Render teasing the video 'Power Outage'.",
         "date": "25 April 2025",
         "youtube": "https://www.youtube.com/post/Ugkxcr8-WPjJDLzqoT1rhe5e4BSWm9Is5YlT",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent 8", "Neo Agent 3"]
+        "characters": ["Agent 8", "Neo Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/power-outage/\">Power Outage</a>.",
+            "The render itself is also a callback to the numerous Splatshorts featuring Neo Agent 3 and Agent 8 playing games together on their couch. Though, this hadn't been seen in a Splatoon Animation episode yet."
+        ]
     },
     {
         "filename": "2025-4-17_1.png",
         "title": "Writer's Block",
-        "description": "Render teasing the video 'Power Outage'.",
         "date": "17 April 2025",
         "twitter": "https://x.com/agentzofficial/status/1912783244891992151",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent 3"]
+        "characters": ["Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/power-outage/\">Power Outage</a>.",
+            "The date on the document was originally meant to tease the episode's release date, but the episode ended up being internally delayed by a week before a release date announcement was made, from the 27th of April to the 3rd of May."
+        ]
     },
     {
         "filename": "2025-3-30_2.png",
-        "title": "sad agent z",
-        "description": "A quickly drawn depiction of Agent Z crying. It is used\nin 'The Perfect Present'and a variant version is used for the agent z Twitter account.",
+        "title": "sad Agent Z",
         "date": "30 March 2025",
         "youtube": "https://www.youtube.com/watch?v=imgsVH0YLq0",
         "tags": ["Drawings"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "This drawing appears in <a href=\"/about/the-perfect-present/\">The Perfect Present</a>, intending on being a bad drawing of Agent Z, joking on her inability to draw.",
+            "Formerly, an edited version of this drawing featuring Agent Z smiling was used for agent z Social Media profile picutres for about a year, throughout 2025 and into early 2026."
+        ]
     },
     {
         "filename": "2025-3-30_1.png",
         "title": "The Perfect Present",
-        "description": "Video Thumbnail",
         "date": "30 March 2025",
         "youtube": "https://www.youtube.com/watch?v=imgsVH0YLq0",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "Thumbnail for <a href=\"/about/the-perfect-present/\">The Perfect Present</a>.",
+            "Agent Z's render here was made as far back as mid-December as the episode was intended on releasing in December 2024.",
+            "The color of the present references Agent X's primary color with blue.",
+            "The background references the common Christmas colors with red and green."
+        ]
     },
     {
         "filename": "2025-3-25_1.png",
         "title": "Morning Routine",
-        "description": "Made in reference to the 'Morning Routine' trend.",
         "date": "25 March 2025",
         "youtube": "https://www.youtube.com/post/UgkxRQs318MZ9GEmTUgBvaim_rkzTrbhAEOt",
         "twitter": "https://x.com/agentzofficial/status/1904533628396388531",
         "tags": ["Renders"],
-        "characters": ["Neo Agent 3"]
+        "characters": ["Neo Agent 3"],
+        "trivia": [
+            "The render references a meme featuring YouTuber 'Ashton Hall' performing their 'morning routine', with a timeframe featuring them diving into the pool in the morning.",
+            "The added joke of the render is the fact that Inklings cannot swim in water."
+        ]
     },
     {
         "filename": "2025-3-21_1.png",
         "title": "8000 Subscribers",
-        "description": "Celebrating the agent z YouTube channel reaching 8000 subscribers.",
         "date": "3 March 2025",
         "youtube": "https://www.youtube.com/post/UgkxIQXo3-7LmGjQ0rXDim2vqM2vOm8ZUTFn",
         "tags": ["Renders", "Star Renders"],
-        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3"]
+        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3"],
+        "trivia": [
+            "It is implied that Agent 8 makes the subscriber special cake. In this render, it is hinted by her holding being the one holding the cake.",
+            "The location of the render is in the Deepsea Metro, referencing the fact that it's the 'Eight' thousand subscriber milestone, referencing Agent 8.",
+            "Agent Z being asleep jokes at the fact that there hadn't been an episode since early December with <a href=\"/about/hospital-buddies/\">Hospital Buddies</a> due to <a href=\"/about/the-perfect-present/\">The Perfect Present</a> receiving multiple delays."
+        ]
     },
     {
         "filename": "2025-2-12_1.png",
         "title": "Waiting Static",
-        "description": "The computer is named 'Agent W' by Agent Z in the video 'Fireworks Festival'. This post symbolises the lack of updates on the video 'The Perfect Present'.",
         "date": "12 February 2025",
         "youtube": "https://www.youtube.com/post/Ugkx74W_4rPhgn9C-43KLaHmf6bWMVl_Dk8VB",
-        "tags": ["Renders"]
+        "tags": ["Renders"],
+        "trivia": [
+            "This render was made give an update on <a href=\"/about/the-perfect-present/\">The Perfect Present</a>, as direct updates such as screenshots of the episode couldn't be given to avoid confirming Fan Character appearances as well as for fairness so no one's Fan Character appears more than others, especially prior to the episode's release.",
+            "This is technically the first render to feature Agent W exclusively."
+        ]
     },
     {
         "filename": "2025-1-19_1.png",
         "title": "7000 Subscribers",
-        "description": "Celebrating the agent z YouTube channel reaching 7000 subscribers.",
         "date": "19 January 2025",
         "youtube": "https://www.youtube.com/post/Ugkx4B6KFdZqHVKmBH_cs2EJqtWF83X7cq89",
         "tags": ["Renders", "Star Renders"],
-        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3"]
+        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3"],
+        "trivia": [
+            "It is implied that Agent 8 makes the subscriber special cake. In this render, it is hinted by her being besides Agent Z with the cake.",
+            "The background is unique in that it doesn't reference any particular episode at the time of the render's release. Rather, the posing was decided to feature the characters at a long table and the background was chosen based on detail."
+        ]
     },
     {
         "variants": ["2025-1-13_1.png", "2025-1-13_2.png", "2025-1-13_3.png"],
         "title": "Neo 3, Disaster Girl!",
-        "description": "Render referencing the 'Disaster Girl' meme. It is used as the thumbnail for the 2024 Splatshort compilation.",
         "date": "13 January 2025",
         "youtube": "https://www.youtube.com/watch?v=2lH6xbOpOD8",
         "tags": ["Renders"],
-        "characters": ["Neo Agent 3"]
+        "characters": ["Neo Agent 3"],
+        "trivia": [
+            "The render references the 'Disaster Girl' meme, featuring a girl looking at the camera smugly while a building is on fire in the background.",
+            "This render is used as the thumbnail for the 2024 Splatshort compilation."
+        ]
     },
     {
         "filename": "2025-1-12_1.png",
         "title": "welcome back, 'you'",
-        "description": "Referencing agent z's return from overseas.",
         "date": "12 January 2025",
         "position": "right",
         "youtube": "https://www.youtube.com/post/UgkxXA-2BL-yNiGWllI3x5-5pktYrdSz4zWy",
         "tags": ["Renders", "Star Renders"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "The render references the fact that agent z had returned from overseas after previously mentioning the fact they were flying overseas in an earlier YouTube Community post, being represented here as Agent Z."
+        ]
     }
 ]
