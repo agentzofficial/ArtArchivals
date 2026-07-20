@@ -1,6 +1,22 @@
 {
   "splatoonAnimations": [
     {
+      "id": "truth-or-dare",
+      "title": "Truth or Dare",
+      "image": "/assets/imagesPreview/2026-07-18_1.webp",
+      "date": "18 July 2026",
+      "series": "Splatoon Animations",
+      "episode": "25"
+    },
+    {
+      "id": "the-cockroach-incident",
+      "title": "The Cockroach Incident",
+      "image": "/assets/imagesPreview/2026-07-04_1.webp",
+      "date": "4 July 2026",
+      "series": "Splatoon Animations",
+      "episode": "24"
+    },
+    {
       "id": "heatwave",
       "title": "Heatwave",
       "image": "/assets/imagesPreview/2026-06-20_2.webp",

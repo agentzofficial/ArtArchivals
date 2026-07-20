@@ -27,33 +27,3 @@ page_type: home
   </a>
 </nav>
 
-
-
-<div
-  id="trivia-container"
-  style="text-align: center; padding: 0; display: inline-block;"
->
-  <img
-    id="trivia-box"
-    src="{{ '/assets/serverImages/trivia-box.webp' | relative_url }}"
-    alt="Trivia Box"
-    style="display: block; margin: 0 auto;"
-  />
-  <div id="trivia-content" style="margin: 6px 0 2px;">
-    Loading trivia...
-  </div>
-
-  <div id="yeah-container" style="margin: 8px 0 0;">
-    <img
-      id="yeah-button"
-      src="{{ '/assets/serverImages/yeah-button.webp' | relative_url }}"
-      alt="Yeah!"
-      style="cursor: pointer; display: block; margin: 0 auto;"
-    />
-  </div>
-</div>
-
-<div
-  id="trivia-time"
-  style="text-align: center; margin: 6px auto 30px; font-size: 0.9em; opacity: 0.6; width: fit-content;"
-></div>

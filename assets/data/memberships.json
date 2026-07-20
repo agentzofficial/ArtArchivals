@@ -1,63 +1,84 @@
 {
   "videos": [
     {
+      "title": "The Death of agent z Classics – Retrospective",
+      "image": "/assets/imagesMemberships/videos/RT-007.webp",
+      "date": "2026-06-03",
+      "description": "The agent z Classics videos were a series of short videos released in the 16:9 ratio at the start of the agent z YouTube Channel and its introduction into making animated Splatoon content. However, these videos have since vanished and been replaced with the modern-day Splatoon Animations series, with the shorter videos formally being, on average, about a minute each now being replaced with long-form videos that go beyond 8 minutes. This retrospective goes over why this decision was made, the complications with making this change and the statistics between the agent z Classics videos and the first Splatoon Animations that led to the death of the agent z Classics videos.",
+      "tier": "purple"
+    },
+    {
       "title": "Forced Deadlines – Retrospective",
-      "image": "/assets/imagesMemberships/videos/p_retrospective-forced-deadlines.webp",
+      "image": "/assets/imagesMemberships/videos/RT-006.webp",
       "date": "2026-06-03",
       "description": "Every episode has a deadline, and usually when I miss a deadline and are forced to push an episode back, I am usually freely able to delay an episode by a few hours or days. However, some episodes I don't have such liberty with, and missing a deadline can have much more consequences than simply pushing an episode back a few days. This retrospective goes over a few episodes that had harsh deadlines that I couldn't miss, otherwise the agent z YouTube Channel would face harsh consequences.",
       "tier": "purple"
     },
     {
       "title": "All VOCALOID References in 'Celebrity Crush' – Retrospective",
-      "image": "/assets/imagesMemberships/videos/p_retrospective-CC1.webp",
+      "image": "/assets/imagesMemberships/videos/RT-005.webp",
       "date": "2026-04-01",
       "description": "The Splatoon Animation, 'Celebrity Crush', primarily features content from the 'VOCALOIDs', a voice synthesizer software featuring voicebanks that can be used for singing in music, featuring popular virtual singers such as Hatsune Miku. This Retrospective goes over all intended references to VOCALOID and other voice synthesizer programs such as Synthesizer V and UTAU in the episode and content released prior to the episode's release.",
       "tier": "purple"
     },
     {
       "title": "My Least Favorite Episode (So Far) – Retrospective",
-      "image": "/assets/imagesMemberships/videos/p_retrospective-dislike.webp",
+      "image": "/assets/imagesMemberships/videos/RT-004.webp",
       "date": "2026-03-06",
       "description": "An analysis of agent z's personal least favourite episode as of March 2026. This retrospective analyses the writing and decisions made during the episode and what caused it to be agent z's least favourite episode to re-watch as a video creator.",
       "tier": "purple"
     },
     {
       "title": "agent z in 2025 – Retrospective",
-      "image": "/assets/imagesMemberships/videos/p_retrospective-2025.webp",
+      "image": "/assets/imagesMemberships/videos/RT-003.webp",
       "date": "2026-01-23",
       "description": "An analysis on agent z, primarily the Splatoon Animation series, throughout 2025 from agent z's perspective. Each individual episode is briefly discussed, such as why agent z chose these video ideas or development on the episode, with some cut ideas and footage being shown. it is then summarised with agent z giving their overall opinions on 2025 as well as going over plans and projections for 2026.",
       "tier": "purple"
     },
     {
       "title": "Delayed to Oblivion – 'The Perfect Present' Retrospective",
-      "image": "/assets/imagesMemberships/videos/p_retrospective-TPP.webp",
+      "image": "/assets/imagesMemberships/videos/RT-002.webp",
       "date": "2025-11-12",
       "description": "The Splatoon Animation 'The Perfect Present' is infamous for initially being a Christmas 2024 release, until it was delayed to March 2025. This retrospective goes in depth on the reason for the prologned delays and what was occuring internally during production. agent z also goes over ideas and scenes that were scrapped in the final episode, as well as explain the format of 'Fan Character Videos' and how characters are actually chosen to appear internally.",
       "tier": "purple"
     },
     {
       "title": "agent z Unreleased Content (2023 - 2025)",
-      "image": "/assets/imagesMemberships/videos/p_unreleased-content.webp",
+      "image": "/assets/imagesMemberships/videos/RT-001.webp",
       "date": "2025-09-07",
       "description": "agent z goes over videos that were scrapped or removed before they were released. The reasoning for each of these videos being unreleased is explained, as well as briefly going over videos that were almost scrapped but remain on the agent z YouTube Channel.",
       "tier": "purple"
     },
     {
       "title": "Sunrise Skirmish (All Variants) ~ agent z Music",
-      "image": "/assets/imagesMemberships/videos/p_sunrise-skirmish.webp",
+      "image": "/assets/imagesMemberships/videos/RT-000.webp",
       "date": "2025-08-29",
       "description": "'Sunrise Skirmish' is an original music track that plays in 'Stories of the Agents', as well as other variants in 'Battle of Inkopolis Square'. This video includes these versions of the music track that plays in these episodes from their original files and without sound effects, as well as an unused music track.",
       "tier": "purple"
     },
     {
+      "title": "Channel Logos – agent z Tutorial",
+      "image": "/assets/imagesMemberships/videos/TU-002.webp",
+      "date": "2026-07-13",
+      "description": "A guide on how to make logos that fit as a profile picture, watermark, and more versatile uses, as well as my own processes on making my own channel logo as well as other logos associated with agent z. i also go over things to look out for to avoid making poor looking logos with custom examples of potentially bad agent z logos for visuals.",
+      "tier": "blue"
+    },
+    {
       "title": "Software I Use and their Basics – agent z Tutorial",
-      "image": "/assets/imagesMemberships/videos/b_tutorial-software-i-use-and-their-basics.webp",
+      "image": "/assets/imagesMemberships/videos/TU-001.webp",
       "date": "2025-09-20",
       "description": "This tutorial goes over the general software you will need to make Splatoon Animations, as well as the ones agent z uses specifically. agent z also briefly goes over how to use each software application and common problems you may face.",
       "tier": "blue"
     }
   ],
   "posts": {
+    "2026-06": [
+      { "type": "update", "date": "2026-06-03" },
+      { "type": "update", "date": "2026-06-11" },
+      { "type": "screenshot", "date": "2026-06-17" },
+      { "type": "update", "date": "2026-06-21" },
+      { "type": "update (Blue Exclusive)", "date": "2026-06-24" }
+    ],
     "2026-05": [
       { "type": "update", "date": "2026-05-02" },
       { "type": "update", "date": "2026-05-08" },

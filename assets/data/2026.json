@@ -1,284 +1,495 @@
 [
     {
+        "filename": "2026-07-18_1.png",
+        "title": "Truth or Dare",
+        "date": "18 July 2026",
+        "youtube": "https://www.youtube.com/watch?v=EspbDx8jCKo",
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent Z"],
+        "trivia": [
+            "Thumbnail for <a href=\"/about/the-cockroach-incident/\">Truth or Dare</a>.",
+            "The thumbnail was originally meant to be temporary to get the episode released on time, but due to the episode's rapid growth, the thumbnail stayed.",
+            "The thumbnail has both Agent Z and Neo Agent 3 rendered together as opposed to them having their own individual renders. This can be most seen by Agent Z's headphones casting a shadow on Neo Agent 3's ear.",
+            "The thumbnail is meant to represent the most common Truth and Dare submissions that weren't included in the episode. Agent Z represents various truth questions asking for romantic interests or favorite friends, while Neo Agent 3 represents various dare submissions asking characters to interact with boiling water or water in general."
+        ]
+    },
+    {
+        "filename": "2026-07-15_2.png",
+        "title": "Power On the Game",
+        "date": "15 July 2026",
+        "youtube": "https://www.youtube.com/post/UgkxbksfOZZiVqq3YZCZcp5NFKGdX0w4CNGY",
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent Z"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/truth-or-dare/\">Truth or Dare</a>.",
+            "The render has a code intentionally hidden within it that nobody has commented on as of the 20th of July 2026."
+        ]
+    },
+    {
+        "filename": "2026-07-10_1.png",
+        "title": "THE COCKROACH WAR",
+        "date": "10 July 2026",
+        "youtube": "https://www.youtube.com/post/Ugkxp8PfHIKHCnkX3K_WHQTtdW19AM4AOoc_",
+        "twitter": "https://x.com/agentzofficial/status/2075590014906642823",
+        "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mqceqmnje22r",
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent Z"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/the-cockroach-incident/\">The Cockroach Incident</a>.",
+            "agent z didn't like how this render looked at first which led to an increased amount of effects added until it felt satisfactory, such as adding more detail to the background."
+        ]
+    },
+    {
+        "variants": ["2026-07-04_1.png", "2026-07-04_2.png", "2026-07-04_3.png"],
+        "title": "The Cockroach Incident",
+        "date": "4 July 2026",
+        "youtube": "https://www.youtube.com/watch?v=g0CO_RyelfU",
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent Z"],
+        "trivia": [
+            "Thumbnail for <a href=\"/about/the-cockroach-incident/\">The Cockroach Incident</a>.",
+            "To make the thumbnails, agent z had to search up images of cockroaches. Not very pleasant.",
+            "The third variant references <a href=\"/about/the-SPIDER/\">The SPIDER</a> with their thumbnail also having a silhouette of the bug and characters running away.",
+            "Each thumbnail is intended to capture a different emotion. The first variant shows Agent Z's determination to kill the cockroach, the second variant shows her nervousness, and the third variant shows her fear."]
+    },
+    {
+        "filename": "2026-07-02_1.png",
+        "title": "Invasion",
+        "date": "2 July 2026",
+        "youtube": "https://www.youtube.com/post/UgkxnzZdasizDziSqajCAwefNNg9X7WnDPH1",
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent Z"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/the-cockroach-incident/\">The Cockroach Incident</a>.",
+            "The cockroach was blurred to keep the bug somewhat a mystery, but was also brightened in color to avoid having it look like feces or vomit."
+        ]
+    },
+    {
+        "variants": ["2026-06-30_1.png", "2026-06-30_2.png"],
+        "title": "YOU Decide, Truth or Dare!?",
+        "date": "30 June 2026",
+        "youtube": "https://www.youtube.com/post/UgkxrBFu_FDxR8spBriC7C554nBbxOTVgB-Y",
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent Z", "Agent X", "Agent 3", "Agent 8", "Neo Agent 3"],
+        "trivia": [
+            "This is the first post requesting viewer submissions since <a href=\"/about/the-perfect-present/\">The Perfect Present</a> had viewer submissions open back on the 25th of November 2024, 582 days prior.",
+            "This post allowing viewer submissions has far surpassed the previous record for viewer submissions, being <a href=\"/about/the-perfect-present/\">The Perfect Present</a>'s viewer submissions which had a combined 193 comments across YouTube, Twitter and Bluesky. As of the 5th of July, this post has 346 comments, being 153 comments ahead on YouTube alone.",
+            "This is also the first render to feature all 5 of the main characters in 2026."
+        ]
+    },
+    {
+        "filename": "2026-06-27_1.png",
+        "title": "Noisy Night",
+        "date": "27 June 2026",
+        "youtube": "https://www.youtube.com/post/Ugkx1E0dae92CVx_DptdcKERgwPCUF5PlJdB",
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Agent X"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/the-cockroach-incident/\">The Cockroach Incident</a>."]
+    },
+    {
+        "filename": "2026-06-25_1.png",
+        "title": "Melting...",
+        "date": "25 June 2026",
+        "youtube": "https://www.youtube.com/post/Ugkxiiv4d1F8wBQHIarfRJxg2ROHh2PpSITS",
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "characters": ["Neo Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/heatwave/\">Heatwave</a>.",
+            "This render was made after <a href=\"/about/heatwave/\">Heatwave</a>'s release, and the render itself doesn't reference any particular scene from the episode, rather acting as promotional material."
+        ]
+    },
+    {
         "variants": ["2026-06-20_2.png", "2026-06-20_1.png"],
         "title": "Heatwave",
-        "description": "Video Thumbnail",
         "date": "20 June 2026",
         "position": "left",
         "youtube": "https://www.youtube.com/watch?v=qQcTlvXorhs",
         "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
-        "characters": ["Neo Agent 3"]
+        "characters": ["Neo Agent 3"],
+        "trivia": [
+            "Thumbnail for <a href=\"/about/heatwave/\">Heatwave</a>.",
+            "Neo Agent 3's pose in the first variant mimicks the same pose she made in the first render teasing the episode, titled 'Hot Day Today.'.",
+            "The two thumbnails were tested against each other and had similar results. The first variant was chosen as agent z preferred how it looked."
+        ]
     },
     {
         "filename": "2026-06-18_1.png",
-        "title": "MY Fan!.",
-        "description": "Render teasing the Splatoon Animation 'Heatwave'.",
+        "title": "MY Fan!",
         "date": "18 June 2026",
         "youtube": "https://www.youtube.com/post/UgkxZezzWtcw6xTlafhzcQoR3P1_K8C0CG43",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent Z", "Neo Agent 3"]
+        "characters": ["Agent Z", "Neo Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/heatwave/\">Heatwave</a>.",
+            "The fan's model looks a bit off at the bottom as the fan was facing a different direction and had to be rotated in the episode. This same altered fan model happened to also be used for the render."
+        ]
     },
     {
         "filename": "2026-06-15_1.png",
         "title": "Hot Day Today.",
-        "description": "Render teasing the Splatoon Animation 'Heatwave'.",
         "date": "15 June 2026",
         "youtube": "https://www.youtube.com/post/UgkxUPs1nipHA9iIqc_I4n6HqHoqd_WJV_NB",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Neo Agent 3"]
+        "characters": ["Neo Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/heatwave/\">Heatwave</a>.",
+            "Neo Agent 3's posing in this render would later be mimicked in a thumbnail for <a href=\"/about/heatwave/\">Heatwave</a>."
+        ]
     },
     {
         "filename": "2026-06-08_1.png",
         "title": "To Break Into A Home",
-        "description": "Promotional render for the Splatoon Animation 'Locked Out'.",
         "date": "8 June 2026",
         "youtube": "https://www.youtube.com/post/Ugkx5V_8G92Y3acaPZRcVHRLqdzhTZZLcpAr",
         "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
-        "characters": ["Agent 8", "Neo Agent 3", "Pearl"]
+        "characters": ["Agent 8", "Neo Agent 3", "Pearl"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/Locked Out/\">Locked Out</a>.",
+            "Neo Agent 3's posing in this render is one of agent z's personal favorite renders."
+        ]
     },
     {
         "variants": ["2026-06-06_2.png", "2026-06-06_1.png", "2026-06-06_3.png"],
         "title": "Locked Out",
-        "description": "Video Thumbnail",
         "date": "6 June 2026",
         "youtube": "https://www.youtube.com/watch?v=HFom6dqvuFw",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Neo Agent 3", "Pearl"]
+        "characters": ["Neo Agent 3", "Pearl"],
+        "trivia": [
+            "Thumbnail for <a href=\"/about/Locked Out/\">Locked Out</a>.",
+            "The first variant was orginally a rushed placeholder as agent z was running low on time to make the thumbnail.",
+            "In a thumbnail test against all three variants however, the rushed thumbnail ended up winning and therefore is the current thumbnail.",
+            "If the third variant had won the thumbnail test, it would've been the first instance of a Splatoon Idol appearing in the thumbnail in a mainline Splatoon Animation.",
+            "All three variants use the same house map in Garry's Mod, called 'Chill House'. The third variant is just indoors and has an edited outdoors."
+        ]
     },
     {
         "filename": "2026-06-02_1.png",
         "title": "The Palace Doors",
-        "description": "Render teasing the Splatoon Animation 'Locked Out'.",
         "date": "02 June 2026",
         "youtube": "https://www.youtube.com/post/UgkxJan4eCiWmEZoCWNisnvgJmKZ6eWQQ8QN",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent 8", "Neo Agent 3", "Pearl"]
+        "characters": ["Agent 8", "Neo Agent 3", "Pearl"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/Locked Out/\">Locked Out</a>."
+        ]
     },
     {
         "filename": "2026-05-26_1.png",
         "title": "Morning Scroll",
-        "description": "Render teasing an unreleased Splatoon Animation.",
         "date": "26 May 2026",
         "youtube": "https://www.youtube.com/post/Ugkx6IYi_QhetYFlaJXwzEhSbpbA-Bkrs6i1",
         "twitter": "https://x.com/agentzofficial/status/2060023437356388782",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mmweandws22h",
         "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
-        "characters": ["Pearl"]
+        "characters": ["Pearl"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/Locked Out/\">Locked Out</a>.",
+            "The render itself confirmed that Pearl would be a character in the episode, however the main hint for the episode were the set of keys visible behind Pearl on her desk.",
+            "This is the first appearance of Pearl's home."
+        ]
     },
     {
         "filename": "2026-05-23_1.png",
         "title": "Me Before Sleeping",
-        "description": "A drawn depiction of Agent Z using her phone before sleeping.",
         "date": "23 May 2026",
         "twitter": "https://x.com/agentzofficial/status/2058157929212371298",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mmjfvncxgk2z",
         "tags": ["Drawings"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "It is explained in the Twitter post that this drawing was made to go alongside an explanation as to why the agent z was following several random accounts on accident. This explanation is absent in the Bluesky post."
+        ]
     },
     {
         "filename": "2026-05-09_1.png",
         "title": "SEWER SHOWDOWN",
-        "description": "Promotional render for the Splatoon Animation 'The Sewer Monster'.",
         "date": "9 May 2026",
         "youtube": "https://www.youtube.com/post/UgkxfJfpnMnObf_WqDial83o_2AE1VwlexGq",
         "twitter": "https://x.com/agentzofficial/status/2053091752584868085",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mlgb4l2ts22u",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent X", "Neo Agent 3"]
+        "characters": ["Agent X", "Neo Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/the-sewer-monster/\">The Sewer Monster</a>.",
+            "The Sewer Monster itself uses the model King Ghidorah from the Godzilla franchise with different textures.",
+            "The render itself uses a different texture than the one used in the episode itself to make the model more brighter in this render.",
+            "When this render was posted to Twitter and Bluesky first, it was initially titled 'NIGHTMARE FROM THE UNDERWEAR', but was changed to not give away the title revealed in the episode itself.",
+            "This render was slightly altered to also be tested as a thumbnail, but it was decided to keep the original and current thumbnail instead."
+        ]
     },
     {
         "filename": "2026-05-08_1.png",
         "title": "#agentzfanart Announcement",
-        "description": "A drawing announcing an official hashtag that can be used to help agent z find fan art.",
         "date": "8 May 2026",
         "twitter": "https://x.com/agentzofficial/status/2052756465858003381",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mldwdgmwkk2x",
         "tags": ["Drawings"],
-        "characters": ["Agent Z", "Agent X"]
+        "characters": ["Agent Z", "Agent X"],
+        "trivia": [
+            "The background used in this artwork was originally made for the 'Lucky Star!' drawing that would be used for the profile picture for agent z Social Media platforms and was revisted for this drawing's background.",
+            "This is the first instance of Agent X being drawn by agent z."
+        ]
     },
     {
         "filename": "2026-05-07_1.png",
         "title": "What Lies Underground",
-        "description": "Promotional render for the Splatoon Animation 'The Sewer Monster'.",
         "date": "5 May 2026",
         "youtube": "https://www.youtube.com/post/UgkxsudgVtVbt0gVlzcKkmqNc1ycYn1SpJQw",
         "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
-        "characters": ["Agent X", "Neo Agent 3"]
+        "characters": ["Agent X", "Neo Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/the-sewer-monster/\">The Sewer Monster</a>."
+        ]
     },
     {
         "variants": ["2026-05-03_1.png", "2026-05-03_2.png"],
         "title": "The Sewer Monster",
-        "description": "Video Thumbnail",
         "date": "3 May 2026",
         "youtube": "https://www.youtube.com/watch?v=iiv3fbtraqM",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent X", "Neo Agent 3"]
+        "characters": ["Agent X", "Neo Agent 3"],
+        "trivia": [
+            "Thumbnail for <a href=\"/about/the-sewer-monster/\">The Sewer Monster</a>."
+        ]
     },
     {
         "filename": "2026-04-25_1.png",
         "title": "A Once Bright Place",
-        "description": "Render teasing the Splatoon Animation 'The Sewer Monster'.",
         "date": "25 April 2026",
         "youtube": "https://www.youtube.com/post/Ugkx4RdfKhJIudl9znqNSgbk1x8HbA148lgo",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent X"]
+        "characters": ["Agent X"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/the-sewer-monster/\">The Sewer Monster</a>.",
+            "The render was made brighter when released to Twitter and Bluesky due to feedback from the YouTube Community post stating that the render was too dark."
+        ]
     },
     {
         "variants": ["2026-04-21_1.png", "2026-04-21_2.png"],
         "title": "For Times Like This",
-        "description": "A meme referencing the joy over Splatoon Raiders's release date being suddenly announced.",
         "date": "21 April 2026",
         "youtube": "https://www.youtube.com/post/UgkxAzR9FJ8IhzZwJbyNMLiWQPH5zQsFzHuM",
         "twitter": "https://x.com/agentzofficial/status/2046585910524051703",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mjz5bfmld225",
         "tags": ["Renders"],
-        "characters": ["Agent 8", "Neo Agent 3"]
+        "characters": ["Agent 8", "Neo Agent 3"],
+        "trivia": [
+            "The render is a reference to a reaction image starring American basketball player Michael Jordan crying into a trophy with the added 'I used to pray for times like this' caption.",
+            "This render was made during the production of <a href=\"/about/the-sewer-monster/\">The Sewer Monster</a>, which can be seen in the background.",
+            "This render was made the moment Splatoon Raiders's release date was announced through Nintendo Today!."
+    ]
     },
     {
         "filename": "2026-04-18_1.png",
         "title": "Fallen Square",
-        "description": "Render teasing an unreleased Splatoon Animation.",
         "date": "18 April 2026",
         "youtube": "https://www.youtube.com/post/UgkxbHhoMYhG38IlGZGTUHFJaYoGbFUy_f2E",
-        "tags": ["Renders", "Splatoon Animation Renders"]
+        "tags": ["Renders", "Splatoon Animation Renders"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/the-sewer-monster/\">The Sewer Monster</a>.",
+            "This render was the first appearance of Inkopolis Square since <a href=\"/about/power-outage/\">Power Outage</a>."
+        ]
     },
     {
         "variants": ["2026-04-11_1.png", "2026-04-11_2.png", "2026-04-11_3.png"],
         "title": "Lost Phone",
-        "description": "Video Thumbnail",
         "date": "11 April 2026",
         "youtube": "https://www.youtube.com/watch?v=8C_3uGwwvHw",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "Thumbnail for <a href=\"/about/lost-phone/\">Lost Phone</a>.",
+            "The first variant intentionally uses an Apple iPhone instead of the standard Splatoon Phone to make it more obvious that it is a phone.",
+            "The third variant was made as the original third variant got lost due to a PC crash during the making of the third variant. Agent Z's render was still used, it was instead going to feature a background filled with several potential phone hiding spots. Due to the PC crash however, the current third variant was made due to time constraints.",
+            "This render marks the first time Agent Z appears in a video thumbnail since <a href=\"/about/the-perfect-present/\">The Perfect Present</a>."
+    ]
     },
     {
         "filename": "2026-04-10_1.png",
         "title": "A Drink Before The Match",
-        "description": "Render teasing the Splatoon Animation 'Lost Phone'.",
         "date": "10 April 2026",
         "youtube": "https://www.youtube.com/post/UgkxRNYlPIpmPc4pbyW6B7_z-zNmpRNR1Xw4",
         "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
-        "characters": ["Agent Z", "Agent X"]
+        "characters": ["Agent Z", "Agent X"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/lost-phone/\">Lost Phone</a>.",
+            "The render hints at the next episode with Agent Z's phone being slightly visible on her hip, seemingly inside a pocket."
+        ]
     },
     {
         "filename": "2026-04-03_1.png",
         "title": "Looking for Something?",
-        "description": "Render teasing the Splatoon Animation 'Lost Phone'.",
         "date": "03 April 2026",
         "youtube": "https://www.youtube.com/post/UgkxkUfHNookvpZqJ83FyMEhsKDg7rg-8yDM",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/lost-phone/\">Lost Phone</a>."
+        ]
     },
     {
         "filename": "2026-03-27_1.png",
         "title": "NOT THE GAMES!!",
-        "description": "A chibi depiction of Agent Z sobbing towards a line of physical games. This is in reference to Nintendo's announcement that physical games will cost more than digital games going forward on the Nintendo Switch 2.",
         "date": "27 March 2026",
         "twitter": "https://x.com/agentzofficial/status/2037516466686394666",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mhzyeruq5s2m",
         "tags": ["Drawings"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "There is no particular order for the game cases in the background, aside from Splatoon 3 being intentionally at the end.",
+            "The Nintendo Switch 2 Pro Controller's box sits next to the Nintendo Switch 2 box at the top of the background, but can be hard to see as it blends with the white walls. A small amount of its text can be seen.",
+            "The room's lighting was edited through image editing tools to be brighter and have a purple tint.",
+            "All game cases are notably developed by Nintendo aside from one that features game company Ubisoft and their logo on the spine. This game is 'Just Dance 2021'.",
+            "This render was mentioned again by agent z in a <a href=\"https://x.com/agentzofficial/status/2072326735669207213\">tweet</a> referencing Sony's decision to stop producing physical Playstation games by 2028, announced on the 1st of July 2026."
+        ]
     },
     {
         "variants": ["2026-03-26_1.png", "2026-03-26_2.png"],
         "title": "Lucky Star!",
-        "description": "Agent Z posing to the camera in reference to a pose performed by character Kagami Hiiragi from the anime Lucky Star. It is currently used for all agent z Social Media profiles.",
         "date": "26 March 2026",
         "youtube": "https://www.youtube.com/post/Ugkxc8v7QZGf7VDEgs2H-n8jAWbm8lcVz0wE",
         "twitter": "https://x.com/agentzofficial/status/2037142155563852279",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mhxhyeep2s2b",
         "tags": ["Drawings"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "The pose references the anime 'Lucky Star', where in the intro, the character Kagami Hiiragi strikes this pose.",
+            "This drawing was made as early as January 2026 while agent z was overseas following the release of <a href=\"/about/the-countdown\">The Countdown</a>, but agent z paused on it after struggling to draw the eyes for it. It was finished later in March when satisfactory eyes were drawn.",
+            "The second variant was posted through YouTube Community posts as agent z also found the drawing cute when zoomed up.",
+            "This is currently agent z's most favorite drawing they have made."
+        ]
     },
     {
         "filename": "2026-03-21_1.png",
         "title": "Computer Burnout",
-        "description": "A chibi depiction of Agent Z looking at a computer tower burning up. This was made to reference real world computer issues agent z  was facing, but the PC was fixed before it could be posted to the YouTube Community tab.",
         "date": "21 March 2026",
         "twitter": "https://x.com/agentzofficial/status/2035328883206258987",
         "bluesky": "https://bsky.app/profile/agentzofficial.bsky.social/post/3mhkmzrciis22",
         "tags": ["Drawings"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "This drawing was made following agent z's computer facing a structural malfunction during the production of <a href=\"/about/lost-phone/\">Lost Phone</a>.",
+            "This was only posted to Twitter and Bluesky as before it could be posted to YouTube, the computer had been fixed. It was only shared on YouTube through Member Exclusive YouTube Community posts.",
+            "This is the first drawing by agent z since the 30th of March 2024 with <a href=\"/about/the-perfect-present/\">The Perfect Present</a> featuring a drawing of Agent Z, almost a year prior."
+        ]
     },
     {
         "variants": ["2026-03-09_2.png", "2026-03-09_1.png", "2026-03-09_4.png", "2026-03-09_3.png"],
         "title": "Celebrity Crush",
-        "description": "Video Thumbnail",
         "date": "9 March 2026",
         "youtube": "https://www.youtube.com/watch?v=awVr2eKUsnU",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Neo Agent 3"]
+        "characters": ["Neo Agent 3"],
+        "trivia": [
+            "Thumbnail for <a href=\"/about/celebrity-crush/\">Celebrity Crush</a>.",
+            "The second variant references the thumbnail for the song 'Mesmeriser' by 32ki.",
+            "The second variant notably uses different models from the episode itself for the characters Hatsune Miku and Kasane Teto from Vocaloid and UTAU/Synthesizer V respectively.",
+            "The second variant was the only thumbnail at the episode's release due to time constraints. Other variants were made later to be tested until the current, first variant was chosen.",
+            "The third variant was made to foucs on the 'Celebrity Crush' element of the episode rather than the inclusion of Vocaloid in the episode."
+        ]
     },
     {
         "filename": "2026-02-28_1.png",
         "title": "Vegetable Juice",
-        "description": "Render teasing the Splatoon Animation 'Celebrity Crush'.",
         "date": "28 February 2026",
         "youtube": "https://www.youtube.com/post/UgkxXRLutrg7XwGPJyECq-XbScxKhE1BZmc7",
         "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
-        "characters": ["Agent 8"]
+        "characters": ["Agent 8"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/celebrity-crush/\">Celebrity Crush</a>.",
+            "The render is a reference to the song 'Po Pi Po' by LamazeP.",
+            "This render was made to apologise for the next episode's delay by a week by further teasing the Vocaloid theme."
+        ]
     },
     {
         "variants": ["2026-02-11_1.png", "2026-02-11_2.png"],
         "title": "Sip over the Ocean",
-        "description": "Agent Z and Agent 3 drinking inside a ship of sorts.",
         "date": "11 February 2026",
         "youtube": "https://www.youtube.com/post/UgkxnwBmcgUeV3VJBK12anoIlkaey-UWanZd",
         "tags": ["Renders"],
-        "characters": ["Agent Z", "Agent 3"]
+        "characters": ["Agent Z", "Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/celebrity-crush/\">Celebrity Crush</a>.",
+            "The render is a reference to the song 'Obsolete Meat' by 32ki.",
+            "The scene this render referneces actually doesn't appear in the final episode, as it was cut out.",
+            "The second variant without the squares in the background was shared first through <a href=\"https://agentzofficial.com/memberships/\">agent z YouTube Memberships/a>."
+        ]
     },
     {
         "filename": "2026-02-08_1.png",
         "title": "Some Good Cooking",
-        "description": "Promotional render for the Splatoon Animation 'Cooking Together'.",
         "date": "7 February 2026",
         "youtube": "https://www.youtube.com/post/UgkxqS0WLTcCkFNL8vEf0HyWZdy3dKY6hwBk",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent 3"]
+        "characters": ["Agent 3"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/cooking-together/\">Cooking Together</a>."
+        ]
     },
     {
         "variants": ["2026-02-01_2.png","2026-01-31_1.png", "2026-02-01_1.png"],
         "title": "Cooking Together",
-        "description": "Video Thumbnail",
         "date": "1 February 2026",
         "youtube": "https://www.youtube.com/watch?v=-2YzUE0MSa4",
         "tags": ["Renders", "Splatoon Animation Renders", "Star Renders"],
-        "characters": ["Agent 3", "Agent 8"]
+        "characters": ["Agent 3", "Agent 8"],
+        "trivia": [
+            "Thumbnail for <a href=\"/about/cooking-together/\">Cooking Together</a>.",
+            "The first and third variant both use the same food PNG as agent z couldn't find many good looking food images with transparent backgrounds online.",
+            "The first and second variants both attempted to make a 'curvy fire' effect, with agent z liking the first variant more.",
+            "The second variant was the original thumbnail at release, with the other variants being made later to be tested.",
+            "The second variant also accidentally features the agent z logo (2023), rather than the redesigned agent z logo (2026), making it the last apperance of the logo."
+        ]
     },
     {
         "filename": "2026-01-27_1.png",
         "title": "Kitchen Lesson!",
-        "description": "Render teasing the Splatoon Animation 'Cooking Together'.",
         "date": "27 January 2026",
         "youtube": "https://www.youtube.com/post/UgkxEIcrtw4_xW0LOVkWo6Bz1Ak-MEDD0Wsd",
         "tags": ["Renders", "Splatoon Animation Renders"],
-        "characters": ["Agent 3", "Agent 8"]
+        "characters": ["Agent 3", "Agent 8"],
+        "trivia": [
+            "This render references the episode <a href=\"/about/cooking-together/\">Cooking Together</a>."
+        ]
     },
     {
         "variants": ["2026-01-13_1.png", "2026-01-13_2.png"],
         "title": "Target the Anchor",
-        "description": "Agent Z with the Ultra Stamp about to attack Agent X, who has the Hydra Splatling.",
         "date": "13 January 2026",
         "youtube": "https://www.youtube.com/post/Ugkx4cFPeHCyLm8_N24hcmzBfdzWrmbNl22z",
         "tags": ["Renders", "Star Renders"],
-        "characters": ["Agent Z", "Agent X"]
+        "characters": ["Agent Z", "Agent X"],
+        "trivia": [
+            "This render was originally just made to practice posing after agent z returned from overseas following the release of <a href=\"/about/the-countdown/\">The Countdown</a> and wasn't meant to tease at any future episode. This render marked the change where YouTube Community Posts were reserved for renders referencing Splatoon Animations, while extra renders would be posted to Twitter and Bluesky instead.",
+            "The weapons Agent Z and Agent X use reference the Power Trip Story Arc, with Agent Z using an Ultra Stamp to defeat Agent X, using an unmodified Hydra Splatling.",
+            "The render references Agent Z's playstyle in Splatoon 3 itself and their dislike towards long-ranged backlines, as she mains the Sploosh-o-matic."
+        ]
     },
     {
         "filename": "2026-01-11_1.png",
         "title": "Airport Photo!",
-        "description": "Agent Z doing a pose in front of a plane in Marlin Airport.",
         "date": "11 January 2026",
         "twitter": "https://x.com/agentzofficial/status/2010475220205998561",
         "tags": ["Renders", "Star Renders"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "This was the first render agent z made in 2026, as the other render released before this one in 2026 was made in advance in 2025.",
+            "This is the first render to be in a vertical orientation, made to mimick a phone photo.",
+            "This render was made to reference agent z being overseas following the release of <a href=\"/about/the-countdown/\">The Countdown</a>, though this render was made after agent z had already returned from overseas."
+        ]
     },
     {
         "filename": "2026-01-01_1.png",
         "title": "Happy 2026!",
-        "description": "The first render posted in 2026.",
         "date": "1 January 2026",
         "youtube": "https://www.youtube.com/post/UgkxmfatOMuw9unvsVpmgafHwshgz09MZrhS",
         "tags": ["Renders"],
-        "characters": ["Agent Z"]
+        "characters": ["Agent Z"],
+        "trivia": [
+            "This was the first render to release in 2026, being made in advance back in 2025 before agent z flew overseas following the release of <a href=\"/about/the-countdown/\">The Countdown</a>.",
+            "The background of the render is taken from the new outro used in episodes starting in 2026."
+        ]
     }
 ]

@@ -89,6 +89,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   window.addEventListener("scroll", () => {
+    if (document.body.classList.contains("modal-open")) {
+      nav.classList.add("nav-hidden");
+      panel.classList.remove("open");
+      button.textContent = "Navigate ▾";
+      return;
+    }
     const currentY = window.scrollY;
 
     if (currentY > lastY && currentY > 60) {
@@ -118,7 +124,7 @@ function applyTheme(theme) {
   if (!bgImg) return;
   if (theme === "agentz") {
     bgImg.style.display = "";
-    const n = Math.floor(Math.random() * 9) + 1;
+    const n = Math.floor(Math.random() * 19) + 1;
     bgImg.src = `{{ '/assets/backgrounds/bg' | relative_url }}${n}.webp`;
   } else {
     bgImg.style.display = "none";
