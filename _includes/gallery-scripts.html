@@ -597,11 +597,16 @@
   
       const actualImg = new Image();
       actualImg.onload = () => {
-        if (currentVersion === modalLoadVersion) {
-          modalImg.src = actualSrc;
-        }
+          if (currentVersion === modalLoadVersion) {
+              modalImg.src = actualSrc;
+
+              fullImageLoaded = true;
+              updateViewButton();
+          }
       };
       actualImg.src = actualSrc;
+      fullImageLoaded = false;
+      updateViewButton();
   
       [ -2, -1, 1, 2 ].forEach(offset => {
         const ni = index + offset;
@@ -635,6 +640,19 @@
 
     const saveBtn = document.getElementById("save-image-btn");
     const viewFullBtn = document.getElementById("view-full-btn");
+    let fullImageLoaded = false;
+
+    function updateViewButton() {
+        viewFullBtn.disabled = !fullImageLoaded;
+
+        if (fullImageLoaded) {
+            viewFullBtn.textContent = "View Full Image";
+        } else {
+            viewFullBtn.textContent = "Loading...";
+        }
+    }
+
+    updateViewButton();
 
     saveBtn.onclick = () => {
       const item = artData[activeModalIndex];
@@ -761,7 +779,7 @@
     const stage = document.getElementById("viewer-stage");
     const img = document.getElementById("viewer-image");
     const closeBtn = document.getElementById("viewer-close");
-    const viewBtn = document.getElementById("view-full-btn");
+    const viewFullBtn = document.getElementById("view-full-btn");
     img.draggable = false;
 
     let scale = 1;
@@ -815,7 +833,8 @@
         img.src = "";
     }
 
-    viewBtn.addEventListener("click", () => {
+    viewFullBtn.addEventListener("click", () => {
+        if (!fullImageLoaded) return;
         const item = artData[activeModalIndex];
         const variants = item.variants || [item.filename];
 
