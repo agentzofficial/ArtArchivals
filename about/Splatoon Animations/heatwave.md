@@ -31,7 +31,7 @@ data_key: heatwave
   today's too hot for Neo Agent 3!
 
   <h2 id="legacy">Legacy</h2>
-  This episode is currently the most recent episode available on the agent z Official Website. The next episode will be given a page once the episode after it is released.
+  N/A
 
   <h2 id="trivia">Trivia</h2>
   - This episode released only 2 weeks after [Locked Out](/about/locked-out), being the second episode to be made in only 2 weeks since [The Countdown](/about/the-countdown).

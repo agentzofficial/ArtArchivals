@@ -1,6 +1,13 @@
 {
   "videos": [
     {
+      "title": "Will There be an Episode on Splatoon Raiders? – Retrospective",
+      "image": "/assets/imagesMemberships/videos/RT-009.webp",
+      "date": "2026-07-25",
+      "description": "Generally whenever a new Nintendo game releases, especially if its a Splatoon related one, I tend to get asked if I would make an episode on the game or even add characters from the game. There are a lot of factors that go into the decision making process on whether I make episodes on other games, and this Retrospective aims to explain it in-depth.",
+      "tier": "purple"
+    },
+    {
       "title": "The Death of agent z Classics – Retrospective",
       "image": "/assets/imagesMemberships/videos/RT-007.webp",
       "date": "2026-06-03",
@@ -57,6 +64,13 @@
       "tier": "purple"
     },
     {
+      "title": "NEXT PROJECT",
+      "image": "/assets/imagesMemberships/videos/RT-008.webp",
+      "date": "2026-07-22",
+      "description": "A project has been worked on internally for the past few months, and its reveal is fast approaching. Blue Tier members have been allowed an early peek into what is next for the agent z YouTube Channel. This video will be made available to Purple Tier members when the project is eventually revealed.",
+      "tier": "blue"
+    },
+    {
       "title": "Channel Logos – agent z Tutorial",
       "image": "/assets/imagesMemberships/videos/TU-002.webp",
       "date": "2026-07-13",
@@ -72,6 +86,15 @@
     }
   ],
   "posts": {
+    "2026-07": [
+      { "type": "screenshot", "date": "2026-07-01" },
+      { "type": "screenshot", "date": "2026-07-03" },
+      { "type": "update", "date": "2026-07-08" },
+      { "type": "update", "date": "2026-07-12" },
+      { "type": "screenshot", "date": "2026-07-14" },
+      { "type": "update", "date": "2026-07-21" },
+      { "type": "screenshot", "date": "2026-07-23" }
+    ],
     "2026-06": [
       { "type": "update", "date": "2026-06-03" },
       { "type": "update", "date": "2026-06-11" },
