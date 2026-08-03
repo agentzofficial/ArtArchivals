@@ -1,6 +1,14 @@
 {
   "splatoonAnimations": [
     {
+      "id": "broken-console",
+      "title": "Broken Console",
+      "image": "/assets/imagesPreview/2026-08-01_1.webp",
+      "date": "1 August 2026",
+      "series": "Splatoon Animations",
+      "episode": "26"
+    },
+    {
       "id": "truth-or-dare",
       "title": "Truth or Dare",
       "image": "/assets/imagesPreview/2026-07-18_1.webp",
