@@ -18,12 +18,5 @@ page_type: home
 <nav class="homepage-utility">
   <a href="/contact/" class="utility-box" data-image="/assets/serverImages/home2-contact.webp"></a>
   <a href="/policies/" class="utility-box" data-image="/assets/serverImages/home2-policies.webp"></a>
-  <a href="/versionhistory/" class="utility-box" data-image="/assets/serverImages/home2-versionhistory.webp"></a>
-  <a href="https://www.youtube.com/@agentzofficial"
-   class="utility-box"
-   data-image="/assets/serverImages/home2-youtube.webp"
-   target="_blank"
-   rel="noopener noreferrer">
-  </a>
 </nav>
 
